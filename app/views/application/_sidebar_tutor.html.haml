@@ -1,0 +1,34 @@
+%ul.sidebar
+  %li.section=render 'sidebar_section', text:t("common.lesson")
+  %li=sidebar_link t("titles.lesson_requests"), tu_lesson_requests_path
+  %li=sidebar_link t("menu.lessons"), tu_lessons_path
+  %li=sidebar_link t('titles.basic_lesson_infos'), tu_basic_lesson_infos_path
+
+  %li.section=render 'sidebar_section', text:t("common.report")
+  %li=sidebar_link t("menu.lesson_reports"), tu_lesson_reports_path
+  /%li=sidebar_link t("menu.new_lesson_report"), new_tu_lesson_report_path
+  %li=sidebar_link t("menu.cs_sheets"), tu_cs_sheets_path
+
+  %li.section=render 'sidebar_section', text:t("common.messages")
+  %li=sidebar_link t("menu.messages"), tu_messages_path
+  .badge=link_to "未読 #{number_of_unread_message}件", tu_messages_path('search[is_read]'=> false, q: '')
+
+  %li.section=render 'sidebar_section', text:t("common.textbook")
+  %li=sidebar_link t("menu.textbooks"), tu_textbooks_path
+
+  %li.section=render 'sidebar_section', text:t("common.accountings")
+  %li=sidebar_link t("titles.accountings"), tu_monthly_statements_path
+  %li=sidebar_link t('titles.income_of_this_month'), tu_income_of_this_month_path
+
+  %li.section=render 'sidebar_section', text:t("common.settings")
+  %li=sidebar_link t('menu.profile'), tu_profile_path
+  %li=sidebar_link t('titles.basic_lesson_available_time_settings'), tu_settings_weekday_schedules_path
+  %li=sidebar_link t('titles.optional_lesson_available_time_settings'), tu_daily_available_times_path
+  %li=sidebar_link t("titles.bank_account"), tu_bank_account_path
+
+  %li.section=render 'sidebar_section', text:t('titles.operation_check')
+  %li=sidebar_link t('titles.person_and_document_camera'), videos_widgets_path
+
+  %li.section=render 'sidebar_section', text:t('titles.manuals')
+  %li=link_to t('titles.user_manual'), 'https://aidnet.jp/user-manual/', target: '_blank'
+  %li=link_to t('titles.trouble_manual'), 'https://aidnet.jp/trouble-manual/', target: '_blank'

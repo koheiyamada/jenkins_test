@@ -1,0 +1,11 @@
+%h1=title t('titles.new_subject')
+
+=form_for [:hq, @grade_group, @subject] do |f|
+  =render 'application/validation_errors', model: @subject
+  %table.table
+    %tbody
+      %tr
+        %th=Subject.human_attribute_name :name
+        %td=f.text_field :name
+  .form-action.buttons
+    =f.submit

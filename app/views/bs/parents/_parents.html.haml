@@ -1,0 +1,17 @@
+%table.table.students
+  %thead
+    %tr
+      %th=t("common.full_name")
+      %th=Parent.human_attribute_name :students
+      %th=t("common.address")
+      %th
+  %tbody
+    -parents.each do |parent|
+      %tr
+        %td=parent.full_name
+        %td
+          %ul.students
+            -parent.students.each do |student|
+              %li=student.full_name
+        %td=render "addresses/address", address:parent.address if parent.address
+        %td=yield parent

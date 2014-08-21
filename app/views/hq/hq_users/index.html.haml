@@ -1,0 +1,8 @@
+%h1=title t('titles.hq_users')
+
+=render 'menu'
+
+-if @hq_users.empty?
+  =t('common.not_found')
+-else
+  =render 'hq_users', hq_users:@hq_users

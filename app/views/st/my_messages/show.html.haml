@@ -1,0 +1,9 @@
+%h1=title t("titles.message")
+
+=render "st/messages/menu"
+
+=render "my_messages/my_message", message:@message
+.actions
+  .buttons
+    =img_link_to "common.back", st_my_messages_path
+    =img_link_to "common.delete", st_my_message_path(@message), method:"delete", data:{confirm:t("common.do_you_really_delete_this")}

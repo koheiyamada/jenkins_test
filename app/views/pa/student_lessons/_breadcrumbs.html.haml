@@ -1,0 +1,8 @@
+-if @lesson
+  %ul.breadcrumb
+    %li
+      -if @lesson.past?
+        =link_to_unless_current t("titles.study_history"), history_pa_student_lessons_path(@student)
+      -else
+        =link_to_unless_current t("titles.lessons"), pa_student_lessons_path(@student)
+    =breadcrumb_item t("titles.lesson"), pa_student_lesson_path(@student, @lesson)

@@ -1,0 +1,7 @@
+%h1=title t("titles.document_camera_users")
+
+-if @document_cameras.empty?
+  =t('common.not_found')
+-else
+  =render 'document_cameras', document_cameras:@document_cameras
+  =paginate @document_cameras

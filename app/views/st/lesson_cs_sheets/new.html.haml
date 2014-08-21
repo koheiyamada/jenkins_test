@@ -1,0 +1,10 @@
+%h1=title t("titles.new_cs_sheet")
+
+-if @lesson.student_left?(current_user)
+  .alert
+    =t('messages.you_left_this_lesson')
+  =render "application/validation_errors", model:@cs_sheet
+  =render 'form_on_cancellation', cs_sheet:@cs_sheet
+-else
+  =render "application/validation_errors", model:@cs_sheet
+  =render 'form', cs_sheet:@cs_sheet

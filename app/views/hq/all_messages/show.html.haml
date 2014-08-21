@@ -1,0 +1,9 @@
+%h1=title t('titles.message')
+
+=render 'hq/messages/menu'
+
+=render 'messages/message2', message:@message
+
+.actions
+  .buttons
+    =img_link_to "common.back", hq_all_messages_path

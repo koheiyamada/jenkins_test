@@ -1,0 +1,16 @@
+=render "pa/student_header", student:@student
+
+%h3=t("titles.edit_student_charge_settings")
+
+=form_for @student_settings, url:pa_student_charge_path(@student) do |f|
+  =render "validation_errors", model: @student_settings
+  %table.table
+    %tbody
+      %tr
+        %th=f.label :max_charge
+        %td
+          .field
+            =f.text_field :max_charge, class:'input-small'
+            =t('common.yen')
+  .form-actions.buttons
+    =img_submit "common.update"

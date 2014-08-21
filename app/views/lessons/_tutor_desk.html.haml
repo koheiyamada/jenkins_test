@@ -1,0 +1,21 @@
+-tutor = lesson.tutor
+.desk{class: "tutor-#{tutor.id}", data: {tutor_id: tutor.id, user_id: tutor.id}}
+  .desk-content
+    .tab-content
+      .tab-pane.document-camera-pane.active
+        -if current_user == tutor
+          =render 'soba_widgets/document_camera_publisher', channel: lesson_document_camera_channel(lesson, tutor), width:desk_width, height:desk_height
+        -else
+          =render 'soba_widgets/document_camera_subscriber', channel: lesson_document_camera_channel(lesson, tutor), width:desk_width, height:desk_height
+      .tab-pane.materials-pane
+        -if lesson.materials.owned_by(tutor).any?
+          =render 'materials_pane', user: tutor, lesson:lesson
+  .desk-content-switch
+    %ul.nav.nav-pills.switcher{"data-tutor_id" => tutor.id}
+      %li.active
+        %a.switch_button.switch_button-document-camera(data-target=".desk.tutor-#{tutor.id} .document-camera-pane" data-toggle="pill" href="#")
+          =t("common.document_camera")
+      -if lesson.materials.owned_by(tutor).any?
+        %li
+          %a.switch_button.switch_button-materials(data-target=".desk.tutor-#{tutor.id} .materials-pane" data-toggle="pill" href="#")
+            =t('common.lesson_material')

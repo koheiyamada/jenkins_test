@@ -1,0 +1,17 @@
+%table.table.tutors
+  %thead
+    %tr
+      %th=Tutor.human_attribute_name :photo
+      %th=Tutor.human_attribute_name :nickname
+      %th=Tutor.human_attribute_name :sex
+      %th=Tutor.human_attribute_name :current_sign_in_at
+      %th
+  %tbody
+    -tutors.each do |tutor|
+      %tr.student-row
+        %td.photo=user_image(tutor, width:64)
+        %td.nickname=tutor.nickname
+        %td.sex=sex(tutor)
+        %td.last_login_time=l(tutor.current_sign_in_at) if tutor.current_sign_in_at
+        %td.actions
+          =img_link_to "common.detail", st_tutor_path(tutor), class:"small"

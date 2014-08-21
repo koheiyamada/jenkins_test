@@ -1,0 +1,23 @@
+=content_for :subheader do
+  =render "breadcrumbs"
+
+%h1=title t("titles.basic_lesson")
+
+=render "menu"
+
+=render "basic_lesson_infos/basic_lesson_info", basic_lesson_info:@basic_lesson_info
+
+.buttons
+  =img_link_to "common.lessons", bs_student_basic_lesson_info_lessons_path(@student, @basic_lesson_info)
+  -if @basic_lesson_info.auto_extension
+    =img_link_to "common.stop", turn_off_auto_extension_bs_student_basic_lesson_info_path(@student, @basic_lesson_info), method:"post", :data => {:confirm => t('messages.confirm_turn_off_auto_extension')}
+  -else
+    =link_to BasicLessonInfo.human_attribute_name(:auto_extension), turn_on_auto_extension_bs_student_basic_lesson_info_path(@student, @basic_lesson_info), method:"post", :data => {:confirm => t('messages.confirm_turn_on_auto_extension')}, class:"btn"
+
+-#-if @basic_lesson_info.lessons.future.blank?
+-#  =t('common.not_found')
+-#  .actions
+-#    =link_to t("common.add"), {action:"extend"}, method:"post", class:"btn"
+-#-else
+-#  =render layout:"basic_lessons/basic_lessons", locals:{lessons:@basic_lesson_info.lessons.future} do |lesson|
+-#    =img_link_to "common.detail", bs_lesson_path(lesson), class:"small"

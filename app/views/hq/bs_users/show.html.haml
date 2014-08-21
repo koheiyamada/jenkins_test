@@ -1,0 +1,22 @@
+%h1=title t("titles.bs_user")
+
+%table.table.bs_user.bs_user-detail
+  %tr
+    %th ID
+    %td=@bs_user.user_name
+  %tr
+    %th=t("common.name")
+    %td=@bs_user.full_name
+  %tr
+    %th=t("common.email")
+    %td=@bs_user.email
+  %tr
+    %th=t("common.phone_number")
+    %td
+      -if @bs_user.organization
+        =@bs_user.organization.phone_number
+  %tr
+    %th=t("common.address")
+    %td
+      -if @bs_user.organization
+        =@bs_user.organization.address

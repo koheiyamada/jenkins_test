@@ -1,0 +1,91 @@
+@import 'base';
+@import 'photo_styles';
+
+.tutors {
+  .photo {
+    >img {
+      max-width: 64px;
+    }
+  }
+}
+
+.tutor {
+  .photo {
+    img {
+      max-width: 192px;
+    }
+  }
+  
+  &> tbody > tr > th {
+    //@include min-width(30%);
+    width: 40%;
+  }
+
+  .item-label {
+    font-weight: bold;
+  }
+
+  .help {
+    font-size: 80%;
+    color: #666;
+  }
+}
+
+.tutor-list-item {
+  margin-bottom: 2px;
+  border-bottom: 1px solid #ccc;
+
+  >div{
+    display:inline-block;
+    &.name {
+      width:20%;
+    }
+  }
+}
+
+.tutor-table {
+  td:first-child {
+    width: 8em;
+  }
+
+  .member_only {
+    color: #999;
+  }
+}
+
+.new_tutor, .edit_tutor {
+  #tutor_first_name_kana,#tutor_last_name_kana {
+    //margin-left: 2em;
+  }
+  
+  th {
+    max-width: 40%;
+  }
+
+  .full_name_kana, .full_name {
+    label {
+      display:inline-block;
+      width: 2em;
+      text-align: right;
+    }
+  }
+
+  .section {
+    background-color: #aaa;
+  }
+
+  @include photo-medium;
+}
+
+.lesson_fees {
+  th, td {
+    border-top-width: 0;
+    border-bottom: 1px solid #ddd;
+    padding: 4px 2px 1px;
+  }
+}
+
+form.tutor-type-select {
+  padding: 10px;
+  margin-top: 20px;
+}

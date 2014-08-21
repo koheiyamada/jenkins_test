@@ -1,0 +1,9 @@
+=content_for :subheader do
+  =render 'breadcrumbs'
+
+%h1=title t('meeting_report.title.show')
+
+=render 'meeting_report', meeting_report: @meeting_report
+
+.buttons
+  =link_button_to 'edit', t('common.edit'), {action: :edit, meeting_id: @meeting}

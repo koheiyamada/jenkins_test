@@ -1,0 +1,10 @@
+=content_for :subheader do
+  =render "breadcrumbs"
+
+%h1=title t("titles.new_lesson_report")
+
+=render "lesson_reports/form",
+        url:tu_lesson_lesson_reports_path(@lesson, student_id:@student.id),
+        lesson_report: @lesson_report,
+        lesson:@lesson,
+        student: @student

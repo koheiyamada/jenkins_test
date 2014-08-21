@@ -1,0 +1,11 @@
+=form_tag hq_tutor_type_path(@tutor), class: 'tutor-type-select', method: :put do
+  =label_tag :tutor_type_RegularTutor, class: 'radio' do
+    =radio_button_tag :tutor_type, :RegularTutor, false, disabled: !@tutor.can_become?('RegularTutor')
+    =tutor_type 'RegularTutor'
+  =label_tag :tutor_type_SpecialTutor, class: 'radio' do
+    =radio_button_tag :tutor_type, :SpecialTutor, false, disabled: !@tutor.can_become?('SpecialTutor')
+    =tutor_type 'SpecialTutor'
+  =render 'about_becoming_regular'
+  .form-actions.buttons
+    =link_to t('common.cancel'), hq_tutor_path(@tutor), class: 'btn'
+    =button_tag t('common.change'), class: 'btn btn-primary'

@@ -1,0 +1,7 @@
+%ul.breadcrumb
+  %li
+    =link_to_unless_current t("titles.tutors"), hq_tutors_path
+  =breadcrumb_item @tutor.full_name, hq_tutor_path(@tutor)
+  =breadcrumb_item t("titles.monthly_statements"), hq_tutor_monthly_statements_path(@tutor)
+  -if @monthly_statement
+    =breadcrumb_item t("titles.monthly_statement", month:l(@monthly_statement.date, :format => :month_year)), hq_tutor_monthly_statement_path(@tutor, @monthly_statement)

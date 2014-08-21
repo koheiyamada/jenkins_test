@@ -1,0 +1,50 @@
+=content_for :subheader do
+  =render "breadcrumbs"
+
+%h1=title t("titles.edit_student")
+
+=form_for @student, url:bs_student_path(@student), html:{name:"student", novalidate:true} do |f|
+  =render "validation_errors", model:@student
+  %table.table
+    %tr
+      %th=t("common.full_name")
+      %td
+        .field.full_name
+          =f.label :last_name
+          =f.text_field :last_name
+        .field.full_name
+          =f.label :first_name
+          =f.text_field :first_name
+    %tr
+      %th=f.label :user_name
+      %td=f.text_field :user_name, :required => true, :readonly => true
+    %tr
+      %th=f.label :nickname
+      %td=f.text_field :nickname, :required => true
+    %tr
+      %th=f.label :birthday
+      %td=f.date_select :birthday, {start_year: 1900, end_year: Date.today.year}, class:"span2"
+    %tr
+      %th=f.label :sex
+      %td
+        =f.radio_button :sex, "male"
+        =f.label :sex_male, t("common.male")
+        =f.radio_button :sex, "female"
+        =f.label :sex_female, t("common.female")
+    %tr
+      %th=f.label :phone_number
+      %td
+        =f.telephone_field :phone_number, :required => true
+        .help=t('messages.hankaku_only')
+    %tr
+      %th=t("common.address")
+      %td=render "addresses/form", address:@student.address
+    =fields_for(@student.student_info) do |sf|
+      %tr
+        %th=sf.label :grade_id
+        %td=sf.select :grade_id, options_for_select(Grade.order_by_grade.map{|g| [grade(g), g.id]}), {}, class:"span2"
+      %tr
+        %th=sf.label :academic_results
+        %td=sf.text_field :academic_results, class:"span5"
+  .form-actions.buttons
+    =img_submit "common.send"

@@ -1,0 +1,17 @@
+#debug {
+  visibility: hidden;
+}
+
+.debug {
+  visibility: hidden;
+}
+
+body.is-development {
+  #debug {
+    visibility: visible;
+  }
+
+  .debug {
+    visibility: visible;
+  }
+}

@@ -1,0 +1,18 @@
+%h1=title t('titles.switching_payment_method_user')
+
+=render 'application/validation_errors', model: @yucho_account_application
+
+%h2=t('membership_application.application')
+=render 'yucho_account_application', yucho_account_application: @yucho_account_application
+
+%h2=t('membership_application.applicant')
+=render @yucho_account_application.user
+
+-if @yucho_account_application.user.yucho_account.present? && @yucho_account_application.user.payment_method.type == YuchoPayment.name
+  %h2=t('yucho_account_application.current_yucho_account')
+  =render membership_application_bank_account @yucho_account_application
+-if @yucho_account_application.new?
+  %h2=t('yucho_account_application.new_yucho_account')
+  =render 'temp_yucho_account'
+
+=render 'show_actions'

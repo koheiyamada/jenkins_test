@@ -1,0 +1,10 @@
+%h1=title t("titles.new_optional_lesson")
+
+=render "lessons/lesson_under_construction", lesson:@optional_lesson
+
+%h2=t("common.weekday_time_range_selection")
+=render layout:"calendars/available_times" do |available_time|
+  =link_to time_range(available_time.start_at, available_time.end_at), wizard_path(nil, available_time_id:available_time.id), method:"put"
+
+.buttons
+  =img_link_to "common.cancel", {action:"cancel"}, method:"post", data:{confirm:t("messages.confirm_cancellation")}

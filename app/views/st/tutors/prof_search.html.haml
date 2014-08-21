@@ -1,0 +1,11 @@
+=render "shared/search_box"
+-#=form_tag prof_search_st_tutors_path, method:"get", id:"search-box" do
+-#  =text_field_tag :search_key
+-#  =img_submit "common.search"
+
+-if @tutors.nil?
+-elsif @tutors.empty?
+  =t('common.not_found')
+-else
+  =render layout:"tutors/tutors", locals:{tutors:@tutors} do |tutor|
+    =img_link_to "common.detail", st_tutor_path(tutor), class:"small"

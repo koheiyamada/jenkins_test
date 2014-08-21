@@ -1,0 +1,8 @@
+%span.date
+  =l(from.to_date, format: :month_day2)
+%span.time-range
+  %span.start-time
+    =l(from, :format => :only_time)
+  \-
+  %span.end-time
+    =l(to, :format => :only_time)

@@ -1,0 +1,6 @@
+%table.lesson_fees
+  %tbody
+    -Grade.order_by_grade.each do |grade|
+      %tr
+        %th=grade.name
+        %td=number_to_currency tutor.lesson_unit_fee_for_grade(grade)

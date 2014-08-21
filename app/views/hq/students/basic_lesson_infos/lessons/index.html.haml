@@ -1,0 +1,16 @@
+=content_for :subheader do
+  =render "breadcrumbs"
+
+%h1=title t("titles.lessons")
+=render "basic_lesson_infos/basic_lesson_info", basic_lesson_info:@basic_lesson_info
+
+-if @lessons.empty?
+  =t('common.not_found')
+-else
+  =render layout:"basic_lessons/basic_lessons", locals:{lessons:@lessons} do |lesson|
+    =img_link_to "common.detail", hq_lesson_path(lesson), class:"small"
+  =paginate(@lessons)
+
+-if current_user.can_access? :lesson, :write
+  .buttons
+    =link_to t("messages.supply_lessons"), supply_hq_basic_lesson_info_lessons_path, method:"post", class:"btn"

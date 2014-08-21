@@ -1,0 +1,10 @@
+%table.table.students
+  %thead
+    %tr
+      %th=Student.human_attribute_name :nickname
+      %th
+  %tbody
+    -students.each do |student|
+      %tr
+        %td=student.nickname
+        %td=yield student

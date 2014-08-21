@@ -1,0 +1,6 @@
+=content_for :subheader do
+  =render "breadcrumbs"
+
+%h1=title t("titles.edit_student")
+
+=render "students/form", student:@student, url:hq_student_path(@student)

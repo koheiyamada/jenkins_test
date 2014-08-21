@@ -1,0 +1,26 @@
+=content_for :subheader do
+  =render "breadcrumbs"
+
+%h1=title t("titles.grade_group")
+
+.button-menu
+  =link_to t('common.subjects'), hq_grade_group_subjects_path(@grade_group), class: 'btn btn-small'
+
+%table.table.grade_group
+  %tr
+    %th=GradeGroup.human_attribute_name :name
+    %td=@grade_group.name
+  %tr
+    %th=GradeGroup.human_attribute_name :grades
+    %td
+      %ul
+        -@grade_group.grades.each do |grade|
+          %li=grade.name
+  %tr
+    %th=GradeGroup.human_attribute_name :subjects
+    %td
+      %ul
+        -@grade_group.subjects.each do |subject|
+          %li=subject.name
+.buttons
+  =img_link_to "common.edit", edit_hq_grade_group_path(@grade_group)

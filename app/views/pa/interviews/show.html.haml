@@ -1,0 +1,12 @@
+.interview-info
+  %span.date=l(@interview.start_time.to_date)
+  %span.time=l(@interview.start_time, :format => :only_time)
+  %span.participants
+    %span.user1=@interview.user1.full_name
+    %span.user2=@interview.user2.full_name
+
+.interview-screen
+  .row-fluid
+    .person.span6
+    .person.span6
+  =link_to t("common.terminate"), quit_bs_interview_path(@interview), method:"post", class:"btn"

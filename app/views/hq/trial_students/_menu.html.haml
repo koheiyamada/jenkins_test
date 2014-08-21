@@ -1,0 +1,6 @@
+.button-menu
+  -if @student
+    -if @student.persisted?
+      =link_to t("common.lessons"), hq_trial_student_lessons_path(@student), class: 'btn btn-small'
+  -else
+    =link_to t('trial_student.titles.new'), new_hq_trial_student_path, class: 'btn btn-small'

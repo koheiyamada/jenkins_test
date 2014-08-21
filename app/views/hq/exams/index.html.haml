@@ -1,0 +1,6 @@
+%h1=title t("titles.exams_management")
+
+%ul.grade-list
+  -@grades.each do |grade|
+    %li.grade
+      =link_to grade_name(grade), {action:"grade", grade_id:grade.id}

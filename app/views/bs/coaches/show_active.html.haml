@@ -1,0 +1,12 @@
+=content_for :subheader do
+  =render 'breadcrumbs'
+
+%h1=title t("titles.coach")
+
+=render 'application/validation_errors', model: @coach
+
+=render 'coach', coach: @coach
+
+.buttons
+  =link_button_to 'edit', t('common.edit'), edit_bs_coach_path
+  =link_to t('user.deactivate'), deactivate_bs_coach_path(@coach), method: :post, class: 'btn', data: {confirm: t('user.confirm_to_deactivate')}

@@ -1,0 +1,6 @@
+%h1=title t("titles.tutor_interviews")
+
+%ul
+  -@forms.each do |form|
+    %li=render "application_form", form:form
+  

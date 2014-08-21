@@ -1,0 +1,9 @@
+<% if @weekday_schedule.errors.any? %>
+
+$('.new_weekday_schedule_holder').html("<%= j(render 'form') %>");
+
+<% else %>
+
+location.reload();
+
+<% end %>

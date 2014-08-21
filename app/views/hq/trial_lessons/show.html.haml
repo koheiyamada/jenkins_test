@@ -1,0 +1,16 @@
+=content_for :subheader do
+  =render 'breadcrumbs'
+
+%h1=title t("titles.lesson")
+
+=render "lessons/lesson", lesson:@lesson
+
+.buttons
+  -if current_user.can_access? :lesson, :write
+    -if @lesson.schedule_changeable?
+      =link_to t('common.change_schedule'), change_schedule_hq_lesson_path(@lesson), class: 'btn'
+    =link_to t('common.cancel_lesson'), cancel_hq_lesson_path(@lesson), class: 'btn'
+  -if lesson_can_monitor_now? @lesson
+    =img_link_to "common.enter_lesson_room_as_tutor", room_as_tutor_hq_lesson_path(@lesson)
+    -@lesson.students.each do |student|
+      =link_to student.full_name, room_as_student_hq_lesson_path(@lesson, student_id:student.id), class:"enter_lesson_as", title:t("common.enter_lesson_room_as_x", x:student.full_name)

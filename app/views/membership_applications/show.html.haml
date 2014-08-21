@@ -1,0 +1,22 @@
+=content_for :subheader do
+  =render 'breadcrumbs'
+-if @membership_application.switching?
+  %h1=title t('titles.switching_payment_method_user')
+-else
+  %h1=title t('titles.membership_application')
+
+=render 'application/validation_errors', model: @membership_application
+
+%h2=t('membership_application.application')
+
+=render 'membership_application', membership_application: @membership_application
+
+%h2=t('membership_application.applicant')
+
+=render @membership_application.user
+
+%h2=t('membership_application.bank_account')
+
+=render membership_application_bank_account @membership_application
+
+=render 'show_actions'

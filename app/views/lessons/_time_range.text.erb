@@ -1,0 +1,1 @@
+<%= '%{date} %{from} - %{to} %{time_zone}' % {date: l(lesson.date, :format => :month_day2), from: l(lesson.start_time, format: :only_time), to: l(lesson.end_time, format: :only_time), time_zone: l(lesson.start_time, format: :time_zone)} -%>

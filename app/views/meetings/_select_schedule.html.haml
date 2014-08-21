@@ -1,0 +1,16 @@
+%ul
+  -meeting.schedules.each do |schedule|
+    %li.meeting-schedule
+      %span.schedule
+        =l(schedule.datetime, format: :promise)
+      %span.action
+        =link_to "#{meeting.id}/schedules/#{schedule.id}/select", method: :post, class: 'btn btn-primary btn-mini', data: {confirm: t('meeting.message.confirm_to_select_schedule')} do
+          %i.icon-ok.icon-white
+          =t('common.select')
+  %li.meeting-schedule
+    %span.schedule
+      =t('meeting_schedule.no_preferrable_schedule')
+    %span.action
+      =link_to "#{meeting.id}/schedules/select_other", method: :post, class: 'btn btn-primary btn-mini', data: {confirm: t('meeting.message.confirm_to_select_schedule')} do
+        %i.icon-ok.icon-white
+        =t('common.select')

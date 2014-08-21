@@ -1,0 +1,13 @@
+.address
+  =fields_for address.class.name.underscore.to_s, address do |f|
+    .field
+      =f.text_field :postal_code, :required => true, class:"span2 postal_code", placeholder:Address.human_attribute_name(:postal_code)
+      %span.help-inline=t("common.postal_code_sample")
+      %span.help-block
+        =img_button.btn "common.search_by_postal_code"
+    .field
+      =f.text_field :state, :required => true, class:"state span1", placeholder:Address.human_attribute_name(:state)
+    .field
+      =f.text_field :line1, :required => true, class:"line1 span4", placeholder:Address.human_attribute_name(:line1)
+    .field
+      =f.text_field :line2, class:"span4 line2", placeholder:Address.human_attribute_name(:line2)

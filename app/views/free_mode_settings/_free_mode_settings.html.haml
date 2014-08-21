@@ -1,0 +1,14 @@
+%table.table
+  %tr
+    %th=SystemSettings.human_attribute_name :free_mode
+    %td
+      -if @system_settings.free_mode
+        ="開始"
+      -else
+        ="停止"
+  %tr
+    %th=SystemSettings.human_attribute_name :free_lesson_limit_number
+    %td=@system_settings.free_lesson_limit_number
+  %tr
+    %th=SystemSettings.human_attribute_name :free_lesson_expiration_date
+    %td=@system_settings.free_lesson_expiration_date

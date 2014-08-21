@@ -1,0 +1,6 @@
+=content_for :subheader do
+  =render 'breadcrumbs'
+
+%h1=title t("titles.exam_for_grade_subject_month", grade:grade_name(@exam.grade), subject:@exam.subject.name, month:l(@exam.month, :format => :month_year))
+
+=link_to t("common.original_question_sheet"), {action:"file"}

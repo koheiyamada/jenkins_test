@@ -1,0 +1,20 @@
+%table.table.yucho_account
+  %tr
+    %th=t('common.bank_name')
+    %td=t('common.yucho')
+  %tr
+    %th=t('common.account_number')
+    %td
+      =yucho_account.kigo1
+      -if yucho_account.kigo2.present?
+        \-
+        =yucho_account.kigo2
+      \-
+      =yucho_account.bango
+  %tr
+    %th=t('common.account_holder_name')
+    %td
+      .account_holder_name
+        =yucho_account.account_holder_name
+      .account_holder_name_kan
+        =yucho_account.account_holder_name_kana

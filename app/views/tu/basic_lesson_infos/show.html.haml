@@ -1,0 +1,11 @@
+=content_for :subheader do
+  =render 'breadcrumbs'
+
+%h1=title t('titles.basic_lesson_info')
+
+=render 'basic_lesson_info', basic_lesson_info:@basic_lesson_info
+
+.buttons
+  -if @basic_lesson_info.pending?
+    =link_to t('common.accept'), accept_tu_basic_lesson_info_path(@basic_lesson_info), method: :post, class: 'btn btn-primary'
+    =link_to t('common.reject'), reject_tu_basic_lesson_info_path(@basic_lesson_info), method: :post, class: 'btn btn-primary'

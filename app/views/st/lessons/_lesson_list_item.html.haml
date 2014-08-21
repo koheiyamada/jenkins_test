@@ -1,0 +1,8 @@
+.lesson.lesson-list-item
+  .start_time=l(lesson.start_time, :format => :short)
+  .students
+    -lesson.students.each do |student|
+      .student
+        .user_name=student.user_name
+  .actions
+    =link_to t("common.show"), st_lesson_path(lesson) 

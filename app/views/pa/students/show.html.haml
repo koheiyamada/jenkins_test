@@ -1,0 +1,13 @@
+=render "pa/student_header", student:@student
+-if @student.have_membership?
+  .buttons_left
+    /無料会員かつ自分の持つ受講者の場合一般会員登録ボタン表示
+    -if @student.customer_type == "free" && @student.parent_id == current_user.id
+      =link_to "一般会員登録", {:controller => "payments", :action => "entry_fee_confirmation", :id => @student.id }, class: 'btn btn-aid-primary'
+    =img_link_to 'common.edit', edit_pa_student_path(@student)
+    =img_link_to 'common.leave_from_aid', new_pa_student_membership_cancellation_path(@student)
+-elsif params[:debug].present?
+  .buttons_left
+    =link_to t('common.back_to_aid'), pa_student_membership_cancellation_path(@student), method: :delete, data: {confirm: t('membership_cancellation.confirm_to_delete')}, class: 'btn'
+
+=render 'students/student', student:@student

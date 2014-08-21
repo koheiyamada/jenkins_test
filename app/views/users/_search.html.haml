@@ -1,0 +1,14 @@
+.pagination-centered
+  .user-search
+    =form_tag nil, method: :get, class: 'form-search' do
+      %table.search-box-pane
+        %tr
+          %td
+            .tutor
+              =text_field_tag :q, params[:q], :placeholder => t('common.search'), class:'search-query input-xlarge'
+              =button_tag '#', class: 'btn' do
+                %i.icon-search
+                =t('common.search')
+              =link_to '#', class: 'btn clear' do
+                %i.icon-remove
+                =t('common.clear')

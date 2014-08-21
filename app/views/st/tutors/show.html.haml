@@ -1,0 +1,27 @@
+=content_for :subheader do
+  =render "breadcrumbs"
+
+%h1=title t("titles.tutor_profile")
+
+=render "tutor", tutor:@tutor
+
+%section
+  %h2=t("titles.teaching_subjects")
+  -if @tutor.teaching_subjects.empty?
+    =t('common.not_found')
+  -else
+    =render 'teaching_subjects/subject_levels'
+
+%section
+  =render 'tutor_daily_available_times/tutor_daily_available_times2', tutor: @tutor
+
+.buttons
+  -if @tutor.active?
+    =img_link_to ".reserve_lesson", new_st_tutor_optional_lesson_path(@tutor)
+    =img_link_to "common.send_message", new_st_my_message_path(recipients:@tutor.id)
+    -unless current_user.favorite_tutors.include?(@tutor)
+      =img_link_to ".add_to_favorite", add_to_favorites_st_tutor_path(@tutor), method:'post'
+    -else
+      =link_to remove_from_favorites_st_tutor_path(@tutor), method: :post, class: 'btn' do
+        %i.icon-remove
+        =t('tutor.remove_from_favorites')

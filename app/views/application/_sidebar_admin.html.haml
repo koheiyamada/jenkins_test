@@ -1,0 +1,40 @@
+%ul.sidebar
+  %li=sidebar_link t('titles.jobs'), admin_jobs_path
+  %li=sidebar_link t('titles.job_stat'), stat_admin_jobs_path
+
+  %li.section=render 'sidebar_section', text:t('titles.operation_check')
+  %li=sidebar_link t('titles.person_and_document_camera'), videos_widgets_path
+
+  %li.section=render 'sidebar_section', text:t('titles.manuals')
+  %li=link_to t('titles.user_manual'), 'https://aidnet.jp/user-manual/', target: '_blank'
+  %li=link_to t('titles.trouble_manual'), 'https://aidnet.jp/trouble-manual/', target: '_blank'
+
+  -#%li.section=render 'sidebar_section', text:t("common.users")
+  -#%li=sidebar_link t('titles.bss'), admin_bss_path
+  -#%li=sidebar_link t("menu.tutors"), admin_tutors_path
+  -#%li=sidebar_link t("menu.students"), admin_students_path
+  -#%li=sidebar_link t("menu.parents"), admin_parents_path
+  -#
+  -#%li.section=render 'sidebar_section', text:t("common.applications")
+  -#%li=sidebar_link t("menu.bs_app_forms"), admin_bs_app_forms_path
+  -#%li=sidebar_link t("menu.tutor_app_forms"), admin_tutor_app_forms_path
+  -#%li.section=render 'sidebar_section', text:t("common.lesson")
+  -#%li=sidebar_link t("menu.lessons"), admin_lessons_path
+  -#%li=sidebar_link t('titles.basic_lesson_infos'), admin_basic_lesson_infos_path
+  -#%li=sidebar_link t("menu.lesson_reservation"), new_admin_lesson_path
+  -#%li=sidebar_link t("menu.lesson_reports"), admin_lesson_reports_path
+  -#%li=sidebar_link t("menu.cs_sheets"), admin_cs_sheets_path
+  -#%li=sidebar_link t("common.examination"), admin_exams_path
+  -#%li.section=render 'sidebar_section', text:t("common.messages")
+  -#%li=sidebar_link t("menu.messages"), admin_messages_path
+  -#%li.section=render 'sidebar_section', text:t("common.accountings")
+  -#%li=sidebar_link t("titles.monthly_statements"), admin_monthly_statements_path
+  -#%li.section=render 'sidebar_section', text:t('common.records')
+  -#%li=sidebar_link t("menu.document_cameras"), admin_document_cameras_path
+  -#%li.section=render 'sidebar_section', text:t("common.textbook")
+  -#%li=sidebar_link t("titles.textbooks_management"), admin_textbooks_path
+  -#%li.section=render 'sidebar_section', text:t("common.accounts")
+  -#%li=sidebar_link t("titles.profile"), admin_profile_path
+  -#%li=sidebar_link t("titles.admin_users"), admin_admin_users_path
+  -#%li.section=render 'sidebar_section', text:t("common.settings")
+  -#%li=sidebar_link t("menu.settings"), admin_settings_path

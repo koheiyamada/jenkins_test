@@ -1,0 +1,10 @@
+=content_for :subheader do
+  =render 'breadcrumbs'
+
+%h1=title t('titles.message')
+
+=render 'messages/message2', message: @message
+
+.actions
+  .buttons
+    =img_link_to 'common.back', {action: :index}

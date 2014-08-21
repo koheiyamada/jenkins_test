@@ -1,0 +1,7 @@
+@mixin photo-medium {
+  .photo {
+    img {
+      max-width: 128px;
+    }
+  }
+}

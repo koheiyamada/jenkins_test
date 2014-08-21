@@ -1,0 +1,14 @@
+%table.table.messages
+  %thead
+    %tr
+      %th=Message.human_attribute_name(:sender)
+      %th=Message.human_attribute_name(:title)
+      %th=Message.human_attribute_name(:created_at)
+      %th
+  %tbody
+    -@messages.each do |message|
+      %tr
+        %td=message.sender.full_name
+        %td=message.title
+        %td=l(message.created_at, :format => :short)
+        %td=render 'messages/buttons', path: pa_student_message_path(@student, message)

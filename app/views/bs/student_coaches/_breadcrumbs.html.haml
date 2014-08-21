@@ -1,0 +1,8 @@
+%ul.breadcrumb
+  %li
+    =link_to_unless_current t("titles.students"), bs_students_path
+  =render 'shared/breadcrumb_item', text:t('titles.student'), url:bs_student_path(@student)
+  -if params[:action] == 'new'
+    =render 'shared/breadcrumb_item', text: t('student_coach.coach'), url: new_bs_student_coach_path(@student)
+  -else
+    =render 'shared/breadcrumb_item', text: t('student_coach.coach'), url: bs_student_coach_path(@student)

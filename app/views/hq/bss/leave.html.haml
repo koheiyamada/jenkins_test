@@ -1,0 +1,9 @@
+=content_for :subheader do
+  =render "breadcrumbs"
+
+%h1=title t("titles.leave_from_aid")
+
+=render "resign_explanation"
+
+.buttons
+  = img_link_to 'common.leave_from_aid', leave_hq_bs_path(@bs), method:'post', data:{confirm:t('messages.confirm_to_leave')}

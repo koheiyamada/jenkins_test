@@ -1,0 +1,19 @@
+%table.table.tutors
+  %thead
+    %tr
+      %th=Tutor.human_attribute_name :photo
+      %th=tutor_name_label
+      %th=TutorInfo.human_attribute_name :cs_points
+      %th=Tutor.human_attribute_name :sex
+      %th=Tutor.human_attribute_name :current_sign_in_at
+      %th
+  %tbody
+    -tutors.each do |tutor|
+      %tr
+        %td.photo=user_image(tutor, width:64)
+        %td.name=user_display_name(tutor)
+        %td.cs_points=tutor.info.cs_points
+        %td.sex=sex(tutor)
+        %td.last_login_time=l(tutor.current_sign_in_at) if tutor.current_sign_in_at
+        %td.actions
+          =yield tutor

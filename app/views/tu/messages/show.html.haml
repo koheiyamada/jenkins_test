@@ -1,0 +1,10 @@
+=content_for :subheader do
+  =render 'breadcrumbs'
+
+%h1=title t("titles.message")
+
+=render 'menu'
+
+=render 'messages/message', message: @message
+
+=render 'messages/show_actions'

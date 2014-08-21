@@ -1,0 +1,21 @@
+-title t('monthly_statement.bill')
+
+.billing.container
+  .title-pane
+    =render 'bills/title'
+  .row
+    .span6
+      .demandee-pane
+        =render 'bills/demandee', demandee: @demandee
+        =render 'bills/message'
+      .monthly_statement-pane
+        =render 'monthly_statements/monthly_statement_for_billing', monthly_statement: @monthly_statement
+        =render 'bills/period', monthly_statement: @monthly_statement
+
+    .demander-pane.span6
+      =render 'bills/demander'
+  .row
+    .span12
+      .lessons-pane
+        .table-title=t('billing.lesson_fee')
+        =render 'lessons/lessons_for_billing', lessons: @lessons, student: @student

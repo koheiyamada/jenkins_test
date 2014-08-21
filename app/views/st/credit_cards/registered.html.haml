@@ -1,0 +1,22 @@
+-if @from_free_user == true
+  %h1=title t('titles.credit_card_registered_from_free')
+  %p
+    一般会員への移行手続き、ありがとうございます。
+  %p
+    クレジットカードのご登録ができましたので、一般会員登録への移行が完了致しました。
+  %p
+    これより、スペシャルチューターを含めたレッスンのご予約が可能となりましたので、
+  %p
+    引き続き、AID Tutoring Systemをよろしくお願い致します。
+
+  .buttons
+    =link_to t('common.go_to_top'), root_path, method: :get, class: 'btn btn-large btn-primary'
+-else
+  %h1=title t('titles.credit_card_registered')
+  %p
+    クレジットカードの登録が完了しました。
+  %p
+    ご登録のメールアドレスにログインIDとパスワードをお送りさせて頂きましたので、後ほどご確認よろしくお願いいたします。
+
+  .buttons
+    =link_to t('titles.charge_limits'), st_charge_settings_path, class:'btn'

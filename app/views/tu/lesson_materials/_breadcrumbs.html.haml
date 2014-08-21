@@ -1,0 +1,6 @@
+%ul.breadcrumb
+  %li=link_to_unless_current t("titles.lessons"), tu_lessons_path
+  =breadcrumb_item t("titles.lesson"), tu_lesson_path(@lesson)
+  -if @lesson_material
+    -if @lesson_material.new_record?
+      =breadcrumb_item t('titles.new_lesson_material'), new_tu_lesson_material_path(@lesson)

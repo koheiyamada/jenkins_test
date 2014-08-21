@@ -1,0 +1,29 @@
+=form_for cs_sheet, url:st_lesson_cs_sheet_path(@lesson) do |f|
+  =f.hidden_field :score
+  %table.table.lesson
+    %tr
+      %th=CsSheet.human_attribute_name :tutor_user_name
+      %td=@lesson.tutor.user_name
+      %th=CsSheet.human_attribute_name :tutor_nickname
+      %td=@lesson.tutor.nickname
+    %tr
+      %th=CsSheet.human_attribute_name :student_user_name
+      %td=@student.user_name
+      %th=CsSheet.human_attribute_name :student_nickname
+      %td=@student.nickname
+    %tr
+      %th=t("common.subject")
+      %td(colspan="4" )=cs_sheet.subject_name
+    %tr
+      %th=CsSheet.human_attribute_name :datetime
+      %td(colspan="3" )=date_and_time_range(@lesson)
+
+    %tr.reasons{class:cs_sheet.low_score? ? "" : "is-hidden"}
+      %td(colspan="4" )
+        %p=t("messages.cs_sheet_select_reason")
+        -%w(bad_explanation many_mistakes many_small_talks mismatched pc_trouble others).each do |reason|
+          =f.label :reason_for_low_score, nil, class:"radio" do
+            =f.radio_button :reason_for_low_score, reason
+            =t("messages.cs_sheet_reason_#{reason}")
+  .form-actions.buttons
+    =f.submit t('common.submit'), class: 'btn'

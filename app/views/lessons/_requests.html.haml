@@ -1,0 +1,18 @@
+%table.table.lesson-list
+  %thead
+    %tr
+      %th=t("common.datetime")
+      %th=t("common.students")
+      %th=t("common.lesson_type")
+      %th
+  %tbody
+    -lessons.each do |lesson|
+      %tr.lesson
+        %td=render 'lessons/time_range', lesson:lesson
+        %td
+          %ul
+            -lesson.students.each do |student|
+              %li=user_display_name student
+        %td=lesson_type(lesson)
+        %td
+          =yield lesson

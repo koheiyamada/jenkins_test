@@ -1,0 +1,9 @@
+%ul.breadcrumb
+  %li
+    =link_to_unless_current t("titles.monthly_statements"), hq_monthly_statements_path
+  -if params[:action] == 'monthly'
+    =breadcrumb_item t('yucho_account.list'), {action: :monthly, year: @year, month: @month}
+  -if params[:action] == 'payments'
+    =breadcrumb_item t('yucho_account.payments_of_month', year: @year, month: @month), {action: :payments, year: @year, month: @month}
+  -if params[:action] == 'receipts'
+    =breadcrumb_item t('yucho_account.receipts_of_month', year: @year, month: @month), {action: :receipts, year: @year, month: @month}

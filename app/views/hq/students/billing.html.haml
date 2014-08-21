@@ -1,0 +1,12 @@
+%h1=title t('titles.billing_students')
+
+=render "menu"
+
+=render "shared/search_box"
+
+-if @students.blank?
+  =t('common.not_found')
+-else
+  =render layout:"students/students", locals:{students:@students} do |student|
+    =img_link_to "common.detail", hq_student_monthly_statements_path(student), class:"small"
+  =paginate(@students)

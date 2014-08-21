@@ -1,0 +1,30 @@
+%table.table.basic_lesson_info
+  %tr
+    %th=t('common.lesson_style')
+    %td=lesson_style(basic_lesson_info)
+  -if basic_lesson_info.students.present?
+    %tr
+      %th=t("common.students")
+      %td
+        -basic_lesson_info.students.each do |student|
+          .student=student.full_name
+        -if basic_lesson_info.students.any?
+          %span.reset
+            =link_to t('lesson.form.reset'), wizard_path(:member, reset: true), data: {confirm: t('basic_lesson_info.confirm_to_reset_students')}, class: 'btn btn-primary btn-mini'
+  -if basic_lesson_info.tutor
+    %tr
+      %th=t("common.tutor")
+      %td
+        .tutor=basic_lesson_info.tutor.full_name
+        %span.reset
+          =link_to t('lesson.form.reset'), wizard_path(:tutor, reset: true), data: {confirm: t('basic_lesson_info.confirm_to_reset_tutor')}, class: 'btn btn-primary btn-mini'
+  -schedules =  basic_lesson_info.schedules.select{|s| s.persisted?}
+  -if schedules.any?
+    %tr
+      %th=t("common.wday_time_range")
+      %td
+        -schedules.each do |schedule|
+          .schedule
+            =wday_time_range schedule.start_time, schedule.end_time
+        %span.reset
+          =link_to t('lesson.form.reset'), wizard_path(:wday_schedule, reset: true), data: {confirm: t('basic_lesson_info.confirm_to_reset_wday_schedules')}, class: 'btn btn-primary btn-mini'

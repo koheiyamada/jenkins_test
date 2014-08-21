@@ -1,0 +1,12 @@
+■チューター
+<%= basic_lesson_info.tutor.nickname %>
+
+■生徒
+<% basic_lesson_info.students.each do |student| %>
+<%= student.nickname %>
+<% end %>
+
+■時間帯
+<% basic_lesson_info.schedules.each do |schedule| %>
+<%= render 'basic_lesson_infos/time_range', schedule: schedule %>
+<% end %>

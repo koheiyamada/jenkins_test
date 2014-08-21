@@ -1,0 +1,10 @@
+%h1=title t("titles.accountings") + ": " + l(@ledger.month, :format => :month_year)
+
+-if @ledger.closed?
+  =render "ledger", ledger:@ledger
+  .buttons
+    =img_link_to "common.breakdown", {controller:"journal_entries", action:"month", year:@year, month:@month}
+    =img_link_to "common.recalculate", {action:"calculate"}, method:"post", remote:true
+-else
+  .buttons
+    =link_to t('monthly_statement.calculate'), {action: :calculate}, method: :post, class: 'btn'

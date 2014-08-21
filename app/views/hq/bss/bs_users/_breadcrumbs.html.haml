@@ -1,0 +1,8 @@
+%ul.breadcrumb
+  %li=link_to_unless_current t("titles.bs_list"), hq_bss_path
+  =breadcrumb_item bs_name(@bs), hq_bs_path(@bs)
+  =breadcrumb_item t('titles.bs_users'), hq_bs_bs_users_path(@bs)
+  -if @bs_user
+    =breadcrumb_item @bs_user.full_name, hq_bs_bs_user_path(@bs, @bs_user)
+    -if params[:action] == 'change_password'
+      =breadcrumb_item t('common.change_password'), change_password_hq_bs_bs_user_path(@bs, @bs_user)

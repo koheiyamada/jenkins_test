@@ -1,0 +1,16 @@
+%table.table
+  %thead
+    %tr
+      %th=User.human_attribute_name :full_name
+      %th=User.human_attribute_name :type
+      %th=User.human_attribute_name :address
+      %th=User.human_attribute_name :phone_number
+      /%th=DocumentCamera.human_attribute_name :created_at
+  %tbody
+    -document_cameras.each do |document_camera|
+      %tr
+        %td=document_camera.user.full_name
+        %td=user_type(document_camera.user)
+        %td=render 'addresses/address', address:document_camera.user.address if document_camera.user.address.present?
+        %td=document_camera.user.phone_number
+        /%td=l(document_camera.created_at.to_date, :format => :year_month_day)

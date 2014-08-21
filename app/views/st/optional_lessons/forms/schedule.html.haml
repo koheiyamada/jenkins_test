@@ -1,0 +1,5 @@
+%h1=title t('titles.new_optional_lesson')
+
+=render 'lessons/lesson_under_construction', lesson:@optional_lesson
+
+=render 'optional_lesson_forms/schedule_form', lesson:@optional_lesson, url:wizard_path

@@ -1,0 +1,35 @@
+%ul.sidebar
+  %li.section=render 'sidebar_section', text:t('common.users')
+  %li=sidebar_link t("menu.students"), bs_students_path
+  %li=sidebar_link t("menu.parents"), bs_parents_path
+  %li=sidebar_link t("menu.tutors"), bs_tutors_path
+
+  %li.section=render 'sidebar_section', text:t('common.lesson')
+  %li=sidebar_link t("menu.lessons"), bs_lessons_path
+  %li=sidebar_link t('titles.basic_lesson_infos'), bs_basic_lesson_infos_path
+  %li=sidebar_link t('titles.pending_lessons'), pending_bs_lessons_path
+  /%li=sidebar_link t("menu.interviews"), bs_interviews_path
+  %li=sidebar_link t("menu.lesson_reservation"), new_bs_lesson_path
+  %li=sidebar_link t("menu.lesson_reports"), bs_lesson_reports_path
+  -if SystemSettings.cs_point_visible?
+    %li=sidebar_link t("menu.cs_sheets"), bs_cs_sheets_path
+
+  %li.section=render 'sidebar_section', text:t('common.messages')
+  %li=sidebar_link t("menu.messages"), bs_messages_path
+  .badge=link_to "未読 #{number_of_unread_message}件", bs_messages_path('search[is_read]'=> false, q: '')
+  %li=sidebar_link t('student_messages.titles.list'), bs_all_student_messages_path
+
+  %li.section=render 'sidebar_section', text: t('common.meeting')
+  %li=sidebar_link t('titles.meetings'), bs_meetings_path
+  %li=sidebar_link t('titles.scheduling_meetings'), scheduling_bs_meetings_path
+
+  %li.section=render 'sidebar_section', text:t("common.accounts")
+  %li=sidebar_link t("menu.profile"), bs_profile_path
+  %li=sidebar_link t("titles.bs"), bs_bs_path
+
+  %li.section=render 'sidebar_section', text:t('titles.operation_check')
+  %li=sidebar_link t('titles.person_and_document_camera'), videos_widgets_path
+
+  %li.section=render 'sidebar_section', text:t('titles.manuals')
+  %li=link_to t('titles.user_manual'), 'https://aidnet.jp/user-manual/', target: '_blank'
+  %li=link_to t('titles.trouble_manual'), 'https://aidnet.jp/trouble-manual/', target: '_blank'

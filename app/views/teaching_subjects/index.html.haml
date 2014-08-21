@@ -1,0 +1,14 @@
+=content_for :subheader do
+  =render "breadcrumbs"
+=content_for :tabmenu do
+  =render "nav_tab"
+
+%h1=title t("titles.teaching_subjects")
+
+/=render "menu"
+
+-if @subject_levels.empty?
+  =t('common.not_found')
+-else
+  -#=render 'teaching_subjects', teaching_subjects:@teaching_subjects
+  =render 'subject_levels'

@@ -1,0 +1,11 @@
+=content_for :tabmenu do
+  =render 'nav_tab'
+
+%h1=title t('titles.lesson_invitations')
+
+-if @lesson_invitations.blank?
+  =t('common.not_found')
+-else
+  =render layout: 'lesson_invitations', locals: {lesson_invitations: @lesson_invitations} do |lesson_invitation|
+    =img_link_to 'common.detail', {action: :show, id: lesson_invitation}, class:'small'
+  =paginate @lesson_invitations

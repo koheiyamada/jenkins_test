@@ -1,0 +1,2 @@
+日時　：<%= l @meeting.datetime.to_date, format: :month_day2 %>
+参加者：<%= @meeting.members.map{|member| member.full_name}.join(', ') %>

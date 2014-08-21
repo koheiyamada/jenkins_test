@@ -1,0 +1,22 @@
+%table.table.journal_entries
+  %thead
+    %tr
+      %th=t("common.name")
+      %th=Account::JournalEntry.human_attribute_name :year_month
+      %th=t('common.payment')
+      %th=t('common.billing')
+      %th=Account::JournalEntry.human_attribute_name :created_at
+      %th
+  %tbody
+    -journal_entries.each do |journal_entry|
+      %tr.journal_entry
+        %td=journal_entry.name
+        %td=l(journal_entry.year_month, :format => :month_year)
+        %td
+          -if journal_entry.amount_of_money_received > 0
+            =number_to_currency journal_entry.amount_of_money_received
+        %td
+          -if journal_entry.amount_of_payment > 0
+            =number_to_currency(journal_entry.amount_of_payment)
+        %td=l(journal_entry.created_at)
+        %td=yield journal_entry

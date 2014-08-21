@@ -1,0 +1,8 @@
+<%- s = LessonSettings.instance -%>
+<p>レッスン指導可能な時間帯を指定される際、指導単位毎に以下の時間を確保して頂く必要があります。</p>
+<pre>
+<%- (1..4).each do |units| -%>
+<%- bd = s.breakdown_for_units(units) %>
+<%= bd.units %>単位 ： <%= '%3d' % bd.total %>分必要　内訳【 遅刻制限時間<%= bd.max_delay %>分 ＋ <%= bd.units %>単位(<%= '%3d' % bd.lesson %>分) ＋ 休憩時間<%= '%2d' % bd.rest %>分 ＋ 予備時間<%= bd.cool_down %>分 】
+<%- end -%>
+</pre>

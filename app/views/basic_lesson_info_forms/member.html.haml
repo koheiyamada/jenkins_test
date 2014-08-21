@@ -1,0 +1,23 @@
+%h1=title t("common.new_basic_lesson_info")
+
+=render 'basic_lesson_info', basic_lesson_info: @basic_lesson_info
+
+-if @basic_lesson_info.have_enough_students?
+  %h2=t('lesson.add_another_student')
+-else
+  %h2=t('lesson.select_nth_student', n:@basic_lesson_info.students.count + 1)
+
+.pagination-centered
+  =render 'shared/search_box'
+
+-if @students.blank?
+  =t('common.not_found')
+-else
+  =render layout:'students/students', locals:{students:@students} do |student|
+    =link_to t('common.select'), wizard_path(nil, member_id:student.id), method: :put, class: 'btn btn-small'
+  =paginate @students
+
+.form-actions.buttons
+  =img_link_to "common.cancel", {action:"cancel"}, method:"post", data:{confirm:t("basic_lesson_info.confirm_to_make_request")}
+  -if @basic_lesson_info.have_enough_students?
+    =img_link_to "common.skip", wizard_path(:tutor)

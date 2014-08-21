@@ -1,0 +1,44 @@
+%table.table.lesson_report
+  %tr
+    %th=LessonReport.human_attribute_name :tutor_user_name
+    %td=user_name lesson_report.tutor
+    %th=LessonReport.human_attribute_name :tutor_nickname
+    %td=lesson_report.tutor.nickname
+  %tr
+    %th=LessonReport.human_attribute_name :student_user_name
+    %td=user_name lesson_report.student
+    %th=LessonReport.human_attribute_name :student_full_name
+    %td=user_display_name lesson_report.student
+  %tr
+    %th=LessonReport.human_attribute_name :datetime
+    %td{colspan:3}=date_and_time_range(lesson_report)
+  %tr
+    %th=LessonReport.human_attribute_name :lesson_type
+    %td=t("common.lesson_types.#{lesson_report.lesson_type}")
+  %tr
+    %th=LessonReport.human_attribute_name :grade
+    %td=grade(lesson_report.student.grade)
+    %th=LessonReport.human_attribute_name :subject
+    %td=lesson_report.subject_name
+  %tr
+    %th=LessonReport.human_attribute_name :lesson_content
+    %td(colspan="3")=simple_format lesson_report.lesson_content
+  %tr
+    %th=LessonReport.human_attribute_name :homework_result
+    %td(colspan="3")=LessonReport.human_attribute_name("homework_result_#{lesson_report.homework_result}")
+  %tr
+    %th(colspan="2" )=LessonReport.human_attribute_name :textbook_usage
+    %td(colspan="2")=lesson_report.textbook_usage
+  %tr
+    %th(colspan="2" )=LessonReport.human_attribute_name :has_attached_files
+    %td(colspan="2" )=yes_no(lesson_report.has_attached_files)
+  %tr
+    %th=LessonReport.human_attribute_name :homework
+    %td(colspan="3")=simple_format lesson_report.homework
+  -unless current_user.student?
+    %tr
+      %th=LessonReport.human_attribute_name :understanding
+      %td(colspan="3" )=simple_format lesson_report.understanding
+  %tr
+    %th=LessonReport.human_attribute_name :word_to_student
+    %td(colspan="3")=simple_format lesson_report.word_to_student

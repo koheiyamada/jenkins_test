@@ -1,0 +1,18 @@
+%h1=title t("titles.exams_for_grade_subject", grade:grade_name(@grade), subject:@subject.name)
+
+.year-control
+  .current-year
+    =@year
+
+%table.table.months
+  %thead
+    %tr
+      %th=t("common.month")
+      %th=t("common.status")
+      %th
+  %tbody
+    -@months.each do |month|
+      %tr
+        %td=l(month, :format => :month)
+        %td -
+        %td

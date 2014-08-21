@@ -1,0 +1,11 @@
+=content_for :subheader do
+  =render 'breadcrumbs'
+
+%h1=title t("titles.subject_of", subject:@subject.name)
+
+=render "menu"
+
+=render "subjects/subject", subject:@subject
+
+.buttons
+  =img_link_to "common.delete", hq_subject_path(@subject), method:"delete", data:{confirm:t("messages.confirm_to_delete")}

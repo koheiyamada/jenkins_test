@@ -1,0 +1,16 @@
+=content_for :subheader do
+  =render 'breadcrumbs'
+
+%h1=title t('titles.meeting')
+
+=render 'meeting_scheduled', meeting: @meeting
+
+-if @meeting.members.include? current_user
+  .buttons
+    -if @meeting.today?
+      =link_to t('meeting.title.room'), {action: 'room', id: @meeting}, class: 'btn btn-large'
+    -elsif @meeting.held?
+      -# 面談は開催されたはずだが、終了処理が明示的に実行されていないケース
+      =render 'links_to_report'
+    -else
+      .alert=t('meeting.message.today_is_not_the_meeting_day')

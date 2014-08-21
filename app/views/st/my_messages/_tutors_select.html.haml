@@ -1,0 +1,9 @@
+-if current_user.lesson_tutors.present?
+  .recipients-select
+    %h4
+      %i.icon-user
+      =t('common.tutor')
+    .individuals
+      =select_tag "recipients[tutor]",
+                  options_for_select(current_user.lesson_tutors.map{|tutor| [user_display_name(tutor), tutor.id]}),
+                  multiple:true

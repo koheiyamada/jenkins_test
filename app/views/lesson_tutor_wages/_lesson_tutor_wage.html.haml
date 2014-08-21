@@ -1,0 +1,19 @@
+%table.table.lesson_tutor_wage
+  %tr
+    %th=t('common.tutor')
+    %td=user_display_name lesson_tutor_wage.tutor
+  %tr
+    %th=LessonTutorWage.human_attribute_name :wage
+    %td=number_to_currency lesson_tutor_wage.wage
+  %tr
+    %th=LessonTutorWage.human_attribute_name :journalized
+    %td=yes_no lesson_tutor_wage.journalized?
+  %tr
+    %th=LessonTutorWage.human_attribute_name :updated_at
+    %td=l lesson_tutor_wage.updated_at, format: :promise
+  %tr
+    %th=LessonTutorWage.human_attribute_name :includes_group_lesson_premium
+    %td=yes_no lesson_tutor_wage.includes_group_lesson_premium?
+  %tr
+    %th=LessonTutorWage.human_attribute_name :includes_extension_wage
+    %td=yes_no lesson_tutor_wage.includes_extension_wage?

@@ -1,0 +1,70 @@
+%h1=title t('lesson_settings.title.edit')
+
+=form_for @lesson_settings, url: {action: :create}, html: {class: 'form-inline'} do |f|
+  =render 'application/validation_errors', model: @lesson_settings
+  %table.table
+    %tr
+      %th=f.label :tutor_entry_period_before_start_time
+      %td
+        =t('lesson_settings.of_lesson_start_time')
+        =f.number_field :tutor_entry_period_before_start_time, class: 'input-mini', in: 0..10, step: 1
+        =t('lesson_settings.since_minutes_ago')
+        =t('lesson_settings.from_zero_to_ten_minuts')
+    %tr
+      %th=f.label :tutor_entry_period_after_start_time
+      %td
+        =t('lesson_settings.of_lesson_start_time')
+        =f.number_field :tutor_entry_period_after_start_time, class: 'input-mini', in: 0..10, step: 1
+        =t('lesson_settings.until_minutes_later')
+        =t('lesson_settings.from_zero_to_ten_minuts')
+    %tr
+      %th=f.label :student_entry_period_before_start_time
+      %td
+        =t('lesson_settings.of_lesson_start_time')
+        =f.number_field :student_entry_period_before_start_time, class: 'input-mini', in: 0..10, step: 1
+        =t('lesson_settings.since_minutes_ago')
+        =t('lesson_settings.from_zero_to_ten_minuts')
+    %tr
+      %th=f.label :student_entry_period_after_end_time
+      %td
+        =t('lesson_settings.of_lesson_end_time')
+        =f.number_field :student_entry_period_after_end_time, class: 'input-mini', in: 0..10, step: 1
+        =t('lesson_settings.until_minutes_later')
+        =t('lesson_settings.from_zero_to_ten_minuts')
+    %tr
+      %th=f.label :message_to_tutor
+      %td=f.text_field :message_to_tutor, :maxlength => 30, class: 'input-xlarge'
+    %tr
+      %th=f.label :max_units
+      %td=f.number_field :max_units, min: 2, max: 20, step: 1, class: 'input-mini'
+    %tr
+      %th=f.label :max_units_of_basic_lesson
+      %td=f.number_field :max_units_of_basic_lesson, min: 2, max: 20, step: 1, class: 'input-mini'
+    %tr
+      %th=f.label :request_time_limit
+      %td
+        =f.number_field :request_time_limit, class: 'input-mini'
+        =t('system_settings.minutes_ago')
+    %tr
+      %th=f.label :dropout_limit
+      %td
+        =t('lesson_settings.of_lesson_actual_start_time')
+        =f.number_field :dropout_limit, class: 'input-mini', in: 0..10, step: 1
+        =t('lesson_settings.until_minutes_later')
+        =t('lesson_settings.from_zero_to_ten_minuts')
+    %tr
+      %th=f.label :period_to_close_room_after_end_time
+      %td
+        =t('lesson_settings.of_lesson_actual_end_time')
+        =f.number_field :period_to_close_room_after_end_time, class: 'input-mini', in: 0..10, step: 1
+        =t('lesson_settings.until_minutes_later')
+        =t('lesson_settings.from_zero_to_ten_minuts')
+    %tr
+      %th=f.label :beginner_tutor_lessons_limit
+      %td
+        =f.number_field :beginner_tutor_lessons_limit, class: 'input-mini', min: 1, step: 1
+        =t('lesson_settings.limit_to_x_lessons')
+        =t('lesson_settings.at_least_one')
+
+  .buttons.form-actions
+    =f.submit t('common.update'), class: 'btn'

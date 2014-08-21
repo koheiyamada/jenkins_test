@@ -1,0 +1,13 @@
+=content_for :tabmenu do
+  =render 'nav_tab'
+
+%h1=title t('titles.left_bss')
+
+=render 'shared/centered_search_box'
+
+-if @bs_list.blank?
+  =t('common.not_found')
+-else
+  =render layout:"bss/bss", locals:{bss:@bs_list} do |bs|
+    =img_link_to "common.detail", hq_bs_path(bs), class:"small"
+  =paginate @bs_list

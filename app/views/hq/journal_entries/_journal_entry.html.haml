@@ -1,0 +1,22 @@
+%table.table.journal_entry
+  %tr
+    %th=Account::JournalEntry.human_attribute_name :year_month
+    %td=l(journal_entry.year_month, :format => :month_year)
+  %tr
+    %th=t('common.billing')
+    %td=number_to_currency journal_entry.amount_of_payment
+  %tr
+    %th=t('common.payment')
+    %td=number_to_currency journal_entry.amount_of_money_received
+  %tr
+    %th=Account::JournalEntry.human_attribute_name :created_at
+    %td=l(journal_entry.created_at)
+  -if journal_entry.note2.present?
+    %tr
+      %th=t('common.note')
+      %td=journal_entry.note2
+
+-if journal_entry.lesson.present?
+  %section
+    %h2=t("titles.lesson")
+    =render "lessons/lesson_info", lesson:journal_entry.lesson

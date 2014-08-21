@@ -1,0 +1,9 @@
+#wait-screen.modal.hide
+  .modal-header
+    /%button.close(type="button" data-dismiss="modal" aria-hidden="true") &times;
+    %h3=t('common.please_wait')
+  .modal-body
+    .pagination-centered=image_tag 'ajax-loader.gif'
+  .modal-footer
+    /%a.reject(href="#" class="btn")=t('lesson.reject_cancel')
+    /%a.accept(href="#" class="btn btn-primary")=t('lesson.accept_cancel')

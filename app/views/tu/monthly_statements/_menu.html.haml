@@ -1,0 +1,3 @@
+.button-menu
+  -if @monthly_statement
+    =link_to t('titles.journal_entries'), tu_monthly_statement_journal_entries_path(@monthly_statement), class: 'btn btn-small'

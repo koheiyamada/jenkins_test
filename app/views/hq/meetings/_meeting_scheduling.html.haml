@@ -1,0 +1,21 @@
+%table.table.meeting.meeting-registering
+  %tr
+    %th=Meeting.human_attribute_name :members
+    %td
+      %ul
+        -meeting.members.each do |member|
+          %li=user_display_name_with_role member
+  %tr
+    %th=Meeting.human_attribute_name :schedules
+    %td
+      %ul
+        -meeting.schedules.each do |schedule|
+          %li.meeting-schedule
+            =render 'schedule_selection', meeting: meeting, schedule: schedule
+      -other_schedule_members = meeting.meeting_members.prefer_other_schedule
+      -if other_schedule_members.present?
+        - other_schedule_members.each do |meeting_member|
+          %p
+            .label=t('meeting_schedule.no_preferrable_schedule')
+            -meeting.meeting_members.prefer_other_schedule.each do |meeting_member|
+              =user_display_name(meeting_member.user)

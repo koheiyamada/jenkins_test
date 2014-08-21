@@ -1,0 +1,23 @@
+%table.table.lesson-invitations
+  %thead
+    %tr
+      %th
+      %th=t('common.datetime')
+      %th=t('common.tutor')
+      %th=t('common.students')
+      %th=t('common.lesson_type')
+      %th
+  %tbody
+    -lesson_invitations.each do |lesson_invitation|
+      -lesson = lesson_invitation.lesson
+      %tr.lesson-invitation{class: "is-#{lesson_invitation.status}"}
+        %td=lesson_invitation_status lesson_invitation
+        %td=render 'lessons/time_range', lesson:lesson
+        %td=user_display_name(lesson.tutor) if lesson.tutor
+        %td
+          %ul
+            -lesson.students.each do |student|
+              %li=user_display_name student
+        %td=lesson_type(lesson)
+        %td.actions
+          =yield lesson_invitation

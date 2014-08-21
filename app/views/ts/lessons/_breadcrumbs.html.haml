@@ -1,0 +1,7 @@
+%ul.breadcrumb
+  %li
+    =link_to_unless_current t('titles.lessons'), ts_lessons_path
+  -if @lesson
+    =breadcrumb_item t('titles.lesson'), ts_lesson_path(@lesson)
+    -if @message
+      =breadcrumb_item t('titles.change_lesson_schedule'), change_schedule_ts_lesson_path(@lesson)

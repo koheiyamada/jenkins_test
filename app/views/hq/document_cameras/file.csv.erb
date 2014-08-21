@@ -1,0 +1,6 @@
+<%-
+  encoding = 'CP932'
+  @document_cameras.each do |dc|
+-%>
+<%= dc.id %>,<%= dc.user.full_name.encode(encoding) %>,<%= t("common.#{dc.user.type.underscore}").encode(encoding) %>,<%= dc.user.address_string.encode(encoding) if dc.user.address_string %>,<%= dc.user.phone_number %>
+<%- end -%>

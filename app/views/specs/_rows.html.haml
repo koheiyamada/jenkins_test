@@ -1,0 +1,10 @@
+-if spec.respond_to? :user_operating_system
+  %tr
+    %th=User.human_attribute_name :os_id
+    %td=spec.user_operating_system.name if spec.user_operating_system.present?
+-elsif spec.respond_to? :os
+  %tr
+    %th=User.human_attribute_name :os_id
+    %td
+      =spec.os.name if spec.os.present?
+      ="(#{spec.custom_os_name})" if spec.respond_to?(:custom_os_name) && spec.custom_os_name.present?

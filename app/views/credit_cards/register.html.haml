@@ -1,0 +1,36 @@
+%h1=title t('title.new_credit_card')
+
+=form_for @credit_card, url:{controller:'credit_cards', action:'register'} do |f|
+  -#=render "application/validation_errors", model:@credit_card
+  -unless @credit_card.expire.nil?
+    .alert.alert-error
+      %button.close(type="button" data-dismiss="alert") &times;
+      クレジットカードの認証に失敗しました。
+      %br 再度、ご入力内容をご確認頂いた上で登録をお願いします。
+
+  %table.table
+    %tr
+      %th=f.label :number, class:'required'
+      %td
+        =f.text_field :number
+    %tr
+      %th=f.label :expire, class:'required'
+      %td
+        :ruby
+          datetime_settings = {
+            :use_two_digit_numbers => true,
+            :discard_day => true,
+            :start_year => Date.today.year - 2000,
+            :end_year => Date.today.year - 2000 + 10,
+            :order => [:month, :year],
+            :default => Date.today.next_month,
+          }
+        =f.date_select :expire, datetime_settings, style:'width:5em;'
+    %tr
+      %th=f.label :security_code, class:'required'
+      %td
+        =f.text_field :security_code, maxlength:4, style:'width:5em;'
+        .security-code-image=image_tag 'security_code.png'
+  .form-actions.buttons
+    =img_submit "common.send_credit_info", :onClick => "AID.startWaiting();"
+    =render 'shared/wait_screen'

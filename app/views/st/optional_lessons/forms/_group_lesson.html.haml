@@ -1,0 +1,16 @@
+.group_lesson_options
+  %table.lessson_options
+    %tl
+      %td
+        =img_link_to "lesson.no_group_lesson", wizard_path(nil, no_group_lesson:true), method:"put"
+        =t("lesson.message.no_group_lesson")
+    %tl
+      %td
+        =img_link_to "lesson.not_select_student", wizard_path(nil, not_select_student:true), method:"put"
+        =t("lesson.message.not_select_student")
+    %tl
+      %td
+        =img_link_to "lesson.select_student", wizard_path(nil, select_student:true), method:"put"
+        =t("lesson.message.select_student")
+.buttons
+  =img_link_to "common.cancel", {action:"cancel"}, method:"post", data:{confirm:t("messages.confirm_cancellation")}

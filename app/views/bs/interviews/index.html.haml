@@ -1,0 +1,17 @@
+%h1=title t("titles.interviews")
+
+=render "interviews_menu"
+
+-if @interviews.blank?
+  =t('common.not_found')
+-else
+  %table.interviews.table
+    %thead
+      %tr
+        %th=t("common.name")
+        %th=t("common.interviewer")
+        %th=t("common.datetime")
+        %th
+    %tbody
+      -@interviews.each do |interview|
+        =render "interview_row", interview:interview

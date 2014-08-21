@@ -1,0 +1,6 @@
+%ul.breadcrumb
+  %li
+    =link_to_unless_current t('titles.textbooks'), hq_textbooks_path
+  =breadcrumb_item @textbook.title, hq_textbook_path(@textbook)
+  =breadcrumb_item t('titles.answer_book'), hq_textbook_answer_book_path(@textbook)
+

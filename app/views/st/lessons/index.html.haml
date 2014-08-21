@@ -1,0 +1,13 @@
+=content_for :tabmenu do
+  =render "nav_tab"
+
+%h1=title t("titles.lessons")
+
+-if @lessons.blank?
+  =t('common.not_found')
+-else
+  =render layout:"lessons/lessons", locals:{lessons:@lessons} do |lesson|
+    =img_link_to "common.detail", {action:"show", id:lesson}, class:"small"
+    -if lesson.accepted? && current_user.can_cancel?(lesson)
+      =img_link_to "common.cancel", new_st_lesson_cancellation_path(lesson), class: 'small', data:{confirm:t('messages.confirm_lesson_cancellation')}
+  =paginate @lessons

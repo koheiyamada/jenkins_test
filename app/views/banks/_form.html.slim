@@ -1,0 +1,13 @@
+=form_for @bank, url: url do |f|
+  =render 'application/validation_errors', model: @bank
+  table.table
+    tr
+      th=f.label :name
+      td=f.text_field :name
+    tr
+      th=f.label :code
+      td
+        =f.text_field :code
+        .help=t('bank.about_code')
+  .buttons.form-actions
+    =f.submit

@@ -1,0 +1,7 @@
+%section.clearfix
+  %h2=t('common.messages')
+  -if @message_recipients.blank?
+    =t('common.not_found')
+  -else
+    =render layout: 'message_recipients/message_recipients', locals: {message_recipients: @message_recipients} do |message|
+      =img_link_to 'common.detail', pa_message_path(message), class: 'small'

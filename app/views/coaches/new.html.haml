@@ -1,0 +1,8 @@
+=content_for :subheader do
+  =render 'breadcrumbs'
+
+%h1=title t('titles.new_coach')
+
+=render 'application/validation_errors', model: @coach
+
+=render 'form', coach: @coach

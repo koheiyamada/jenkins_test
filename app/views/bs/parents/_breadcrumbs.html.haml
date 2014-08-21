@@ -1,0 +1,4 @@
+%ul.breadcrumb
+  %li=link_to_unless_current t("titles.parents"), bs_parents_path
+  -if @parent
+    =breadcrumb_item t("titles.parent"), bs_parent_path(@parent)

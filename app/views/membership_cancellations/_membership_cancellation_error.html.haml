@@ -1,0 +1,17 @@
+%table.table.membership_cancellation
+  %tr
+    %th=MembershipCancellation.human_attribute_name :user
+    %td=user_display_name_with_role(membership_cancellation.user)
+  %tr
+    %th=MembershipCancellation.human_attribute_name :created_at
+    %td=l membership_cancellation.created_at, format: :promise
+  %tr
+    %th=MembershipCancellation.human_attribute_name :status
+    %td=membership_cancellation.status
+
+  %tr
+    %th=MembershipCancellation.human_attribute_name :error_messages
+    %td
+      %ul
+        -membership_cancellation.error_messages.each do |error_message|
+          %li=error_message

@@ -1,0 +1,17 @@
+.group_lesson_options
+  %table.lessson_options
+    %tr
+      -if current_user.all_free_lesson_taken
+        %td
+          .button=image_tag 'lesson.no_group_lesson_disabled.gif'
+          =t('lesson.message.not_select_student')
+      -else
+        %td
+          =img_link_to 'lesson.no_group_lesson', {action:'create', type: :single}, method:'post'
+          =t('lesson.message.no_group_lesson')
+      %td
+        .button=image_tag 'lesson.not_select_student_disabled.gif'
+        =t('lesson.message.not_select_student')
+      %td
+        .button=image_tag 'lesson.select_student_disabled.gif'
+        =t('lesson.message.select_student')

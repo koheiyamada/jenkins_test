@@ -1,0 +1,9 @@
+=form_tag defined?(path) ? path : nil, method:"get", class:"form-search" do
+  -if @grades.present?
+    =select :search, :grade, @grades, :selected => @search_data[:grade]
+  -if @customer_type.present?
+    =select :search, :customer_type, @customer_type, :selected => @search_data[:customer_type]
+  -if @message_controller
+    =select :search, :is_read, Message::STATUS_FOR_SELECT_BOX, :selected => session[:search][:is_read]
+  =text_field_tag :q, params[:q], class:"search-query", placeholder:t("common.search")
+  =img_submit "common.search"

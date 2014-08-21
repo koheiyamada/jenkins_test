@@ -1,0 +1,24 @@
+=content_for :subheader do
+  =render 'breadcrumbs'
+
+%h1=title t('titles.optional_lesson_reservation')
+
+-#=render 'application/validation_errors', model:@optional_lesson
+
+%table.table.lesson
+  %tr
+    %th=t('common.tutor_nickname')
+    %td
+      =user_image @tutor, class:'x-small'
+      =user_display_name @tutor
+  %tr
+    %th=t("common.students")
+    %td
+      -@optional_lesson.students.each do |student|
+        .student{"data-id" => student.id}
+          %span.name
+            =user_display_name student
+
+%h2=t('lesson.style_select')
+
+=render 'style_select_a'

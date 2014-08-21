@@ -1,0 +1,5 @@
+.menu
+  =img_link_to_unless_current 'common.received_messages', path_to_inbox
+  .badge=number_of_unread_message
+  =img_link_to_unless_current 'common.sent_messages', path_to_sent_messages
+  =img_link_to_unless_current 'common.new_message', path_to_new_message

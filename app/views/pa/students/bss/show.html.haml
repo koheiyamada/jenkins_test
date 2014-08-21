@@ -1,0 +1,9 @@
+=render "pa/student_header"
+
+
+%h2=t('titles.coach')
+
+-if @coach.present?
+  =render 'coaches/coach_for_student', coach: @coach
+-else
+  .explanation.alert.alert-info=t('student_coach.wait_for_coach_assigned')

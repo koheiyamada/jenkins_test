@@ -1,0 +1,14 @@
+%h1=title t('titles.optional_lesson_available_time_settings2')
+
+=render 'menu'
+
+-if @daily_available_times.empty?
+  =t('common.not_found')
+-else
+  %table.table
+    %tbody
+      -@daily_available_times.each do |daily_available_time|
+        %tr
+          %td.time_range
+            =render 'shared/date_time_range', from: daily_available_time.start_at, to: daily_available_time.end_at
+  =paginate @daily_available_times

@@ -1,0 +1,71 @@
+@import 'base';
+
+$font-size: 11px;
+
+.breadcrumb {
+  padding: 0;
+  margin: 0;
+  font-size: 0px;
+  background-color: transparent;
+  height: 19px;
+
+  li {
+    padding: 0px 10px 0;
+    margin: 0;
+    height: 19px;
+    background-color: #878787;
+    @include text-shadow(0 0 0);
+    font-size: 0px;
+    color: #fff;
+
+    a {
+      font-size: $font-size;
+      background-color: #878787;
+      color: #fff;
+    }
+
+    .divider {
+      display: inline-block;
+      float: left;
+      padding: 0;
+      margin: 0;
+      width: 27px;
+      height: 19px;
+      background-color: #fff;
+      //background: url(/assets/pankuzu-greenCenter.png);
+      font-size: 0;
+
+      img {
+        padding: 0;
+        margin: 0;
+        vertical-align: top; // for IE
+      }
+    }
+
+    .title {
+      display: inline-block;
+      padding-right: 10px;
+      @include border-radius(0 4px 0 0);
+      height: 19px;
+      background-color: #878787;
+      font-size: $font-size;
+    }
+
+    &.is-active {
+      padding-left: 0;
+      background-color: transparent;
+
+      .title {
+        background-color: $aid-green;
+      }
+    }
+
+    &:first-child {
+      @include border-radius(4px 0 0 0);
+    }
+  }
+}
+
+.breadcrumb + h1 {
+  margin-top: 0;
+}

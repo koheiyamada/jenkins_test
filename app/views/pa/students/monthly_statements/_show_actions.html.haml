@@ -1,0 +1,5 @@
+.buttons
+  =link_to t('titles.journal_entries'), pa_student_monthly_statement_journal_entries_path(@student, @monthly_statement), class:'btn'
+  =link_to t('monthly_statement.bill'), bill_pa_student_monthly_statement_path(@student, @monthly_statement), class: 'btn', target: '_blank'
+  -if params[:debug]
+    =link_to t('monthly_statement.calculate'), calculate_pa_student_monthly_statement_path(@student, @monthly_statement), method: :post, class: 'btn'

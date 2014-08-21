@@ -1,0 +1,161 @@
+%table.table.tutor
+  %tr
+    %th=User.human_attribute_name :user_name
+    %td
+      %span=tutor.user_name
+      =render 'tutors/tutor_type', tutor: tutor
+  %tr
+    %th=t("common.full_name")
+    %td=tutor.full_name
+  %tr
+    %th=Tutor.human_attribute_name :full_name_kana
+    %td=tutor.full_name_kana
+  %tr
+    %th=User.human_attribute_name :nickname
+    %td=tutor.nickname
+  %tr.photo
+    %th=User.human_attribute_name :photo
+    %td=image_tag tutor.photo_url if tutor.photo?
+  -if current_user.hq_user?
+    %tr
+      %th=Tutor.human_attribute_name :birthday
+      %td=l(tutor.birthday, :format => :year_month_day) if tutor.birthday
+  %tr
+    %th=Tutor.human_attribute_name :age
+    %td=user_age tutor
+  %tr
+    %th=Tutor.human_attribute_name :sex
+    %td=sex(tutor)
+  %tr
+    %th=Tutor.human_attribute_name :registered_day
+    %td=l tutor.registered_day, format: :year_month_day2
+  %tr
+    %th=TutorInfo.human_attribute_name(:birth_place)
+    %td=tutor.birth_place || tutor.info.birth_place
+  %tr
+    %th=TutorInfo.human_attribute_name(:high_school)
+    %td=tutor.info.high_school
+
+  =render 'tutors/college_rows', tutor: tutor
+
+  %tr
+    %th=Tutor.human_attribute_name(:weekday_schedules)
+    %td
+      =render 'tutors/weekday_schedules2', tutor: tutor
+
+  %tr
+    %td(colspan="2")
+      .item-label=Tutor.human_attribute_name :daily_available_times
+      =render 'tutor_daily_available_times/tutor_daily_available_times2', tutor: tutor
+
+  %tr
+    %th=TutorInfo.human_attribute_name(:undertake_group_lesson)
+    %td=yes_no tutor.info.undertake_group_lesson
+  %tr
+    %th=TutorInfo.human_attribute_name(:special_tutor)
+    %td=yes_no tutor.special?
+  %tr
+    %th=Tutor.human_attribute_name :student_favorite_tutors_count
+    %td=tutor.student_favorite_tutors_count
+  %tr
+    %th=TutorInfo.human_attribute_name(:hobby)
+    %td=simple_format tutor.info.hobby
+  %tr
+    %th=render 'tutors/fragments/activities'
+    %td=simple_format tutor.info.activities
+  %tr
+    %th=TutorInfo.human_attribute_name(:teaching_experience)
+    %td=simple_format tutor.info.teaching_experience
+  %tr
+    %th=TutorInfo.human_attribute_name(:teaching_results)
+    %td=simple_format tutor.info.teaching_results
+  %tr
+    %th=TutorInfo.human_attribute_name(:free_description)
+    %td=simple_format tutor.info.free_description
+
+  %tr
+    %th=TutorInfo.human_attribute_name(:jyuku_history)
+    %td=simple_format tutor.jyuku_history
+
+  %tr
+    %th=TutorInfo.human_attribute_name(:favorite_books)
+    %td=simple_format tutor.favorite_books
+
+  %tr
+    %th=Tutor.human_attribute_name :current_sign_in_at
+    %td=l tutor.current_sign_in_at, format: :promise if tutor.current_sign_in_at
+
+  %tr
+    %th=Tutor.human_attribute_name :timezone
+    %td=tutor.timezone
+
+  %tr.section
+    %td(colspan="2")
+
+  %tr
+    %th=t("common.phone_number")
+    %td=tutor.phone_number
+  %tr
+    %th=TutorInfo.human_attribute_name(:current_address)
+    %td=render "addresses/address", address:tutor.current_address if tutor.current_address
+  %tr
+    %th=TutorInfo.human_attribute_name(:hometown_address)
+    %td=render "addresses/address", address:tutor.hometown_address if tutor.hometown_address
+  %tr
+    %th=Tutor.human_attribute_name :email
+    %td=tutor.email
+  %tr
+    /%th=Tutor.human_attribute_name :phone_email
+    /%td=tutor.phone_email
+  %tr
+    %th=Tutor.human_attribute_name :skype_id
+    %td=tutor.skype_id
+  =render 'specs/rows', spec:tutor
+  %tr
+    %th=TutorInfo.human_attribute_name :use_document_camera
+    %td=yes_no tutor.info.use_document_camera
+  %tr
+    %th=Tutor.human_attribute_name :reference
+    %td=tutor.reference.user_name if tutor.reference
+  %tr
+    %th=TutorInfo.human_attribute_name :do_volunteer_work
+    %td=yes_no tutor.info.do_volunteer_work
+
+  %tr
+    %th=TutorInfo.human_attribute_name :student_number
+    %td=tutor.info.student_number
+
+  =render 'shared/driver_license_number_or_passport_number', form: tutor
+
+  =render 'shared/pc_model_number', form: tutor
+
+  =render 'shared/has_web_camera', user: tutor
+
+  =render 'questions/how_to_find_row', answer: tutor.answer_to_how_to_find
+
+  %tr.section
+    %td(colspan="2")
+
+  -unless tutor?
+    %tr
+      %th=Tutor.human_attribute_name :lesson_fee
+      %td
+        =render 'tutor_prices/lesson_fees', tutor: tutor
+  -if hq_user? || tutor == current_user
+    %tr
+      %th=Tutor.human_attribute_name :hourly_wage
+      %td=number_to_currency tutor.hourly_wage
+  -if SystemSettings.cs_point_visible? || current_user.hq_user? || current_user.tutor?
+    %tr
+      %th=TutorInfo.human_attribute_name :cs_points
+      %td=tutor.info.cs_points
+    %tr
+      %th=TutorInfo.human_attribute_name :average_cs_points
+      %td=tutor.info.average_cs_points
+  %tr
+    %th=TutorInfo.human_attribute_name(:upgrade_points)
+    %td=tutor.info.upgrade_points
+  -if tutor.beginner?
+    %tr
+      %th=Tutor.human_attribute_name :beginner_lesson_requests_limit
+      %td=tutor.beginner_lesson_requests_limit

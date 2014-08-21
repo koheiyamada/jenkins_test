@@ -1,0 +1,6 @@
+%ul.breadcrumb
+  %li=link_to t("titles.basic_lesson_infos"), hq_basic_lesson_infos_path
+  =breadcrumb_item t("titles.basic_lesson_info"), hq_basic_lesson_info_path(@basic_lesson_info)
+  =breadcrumb_item t("titles.lessons"), hq_basic_lesson_info_lessons_path(@basic_lesson_info)
+  -if @lesson
+    =breadcrumb_item t("titles.lesson"), hq_basic_lesson_info_lesson_path(@basic_lesson_info, @lesson)

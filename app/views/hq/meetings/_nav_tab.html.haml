@@ -1,0 +1,4 @@
+%ul.nav.nav-tabs
+  =render 'nav_tab_item', text: t('titles.meetings'), path: hq_meetings_path
+  =render 'nav_tab_item', text: t('meeting.status.scheduling'), path: scheduling_hq_meetings_path
+  =render 'nav_tab_item', text: t('meeting.status.done'), path: done_hq_meetings_path

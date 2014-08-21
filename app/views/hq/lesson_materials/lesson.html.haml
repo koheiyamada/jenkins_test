@@ -1,0 +1,4 @@
+-@lesson.students.each do |student|
+  %section
+    %h2=user_display_name student
+    =render 'lessons/materials_pane', lesson: @lesson, user: student

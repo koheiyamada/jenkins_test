@@ -1,0 +1,8 @@
+%ul.breadcrumb
+  -if @year
+    %li
+      =link_to_unless_current @year, yearly_hq_document_cameras_path(year:@year)
+  -if @month
+    =breadcrumb_item t('date.abbr_month_names')[@month], monthly_hq_document_cameras_path(year:@year, month:@month)
+  -if @day
+    =breadcrumb_item @day, daily_hq_document_cameras_path(year:@year, month:@month, day:@day)

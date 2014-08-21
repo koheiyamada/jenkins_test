@@ -1,0 +1,16 @@
+%table.table.students
+  %thead
+    %tr
+      %th=Parent.human_attribute_name :user_name
+      %th=t("common.full_name")
+      %th=t("common.address")
+      %th=t('common.day_user_left')
+      %th
+  %tbody
+    -parents.each do |parent|
+      %tr
+        %td=parent.user_name
+        %td=parent.full_name
+        %td=render "addresses/address", address:parent.address if parent.address
+        %td=l(parent.left_at.to_date, :format => :year_month_day2) if parent.left_at.present?
+        %td=yield parent

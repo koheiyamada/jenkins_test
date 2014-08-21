@@ -1,0 +1,9 @@
+.actions
+  .buttons
+    =img_link_to 'common.back', {action: :index}
+    -if @message.sender.present?
+      %span
+        =link_to url_for(action: :reply), class: 'btn btn-primary' do
+          %i.icon-reply
+          =t('message.reply')
+    =img_link_to 'common.delete', {action: :destroy}, method: :delete, data: {confirm: t('common.do_you_really_delete_this')}

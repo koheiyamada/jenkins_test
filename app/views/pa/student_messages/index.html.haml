@@ -1,0 +1,13 @@
+=render "pa/student_header", student:@student
+
+%h3=t("titles.messages")
+
+=render 'menu'
+
+-if @messages.blank?
+  =t('common.not_found')
+-else
+  =render layout:"messages/messages", locals:{messages:@messages} do |message|
+    =render 'messages/buttons', path: pa_student_message_path(@student, message)
+  .pagination
+    =paginate @messages

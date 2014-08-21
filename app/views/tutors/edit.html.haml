@@ -1,0 +1,6 @@
+=content_for :subheader do
+  =render "breadcrumbs"
+
+%h1=title t("titles.edit_tutor")
+
+=render 'tutors/form', tutor:@tutor, url:{action:"update"}

@@ -1,0 +1,18 @@
+=content_for :subheader do
+  =render 'breadcrumbs'
+
+%h1=title "#{t('common.subject')}: #{@subject.name}"
+
+%h2=t('subject_level.titles.list')
+
+.button-menu
+  =link_to t('common.add'), new_hq_grade_group_subject_level_path(@grade_group, @subject), class: 'btn btn-small'
+
+-if @subject.levels.empty?
+  =t('common.not_found')
+-else
+  =render 'subject_levels/subject_levels', subject_levels: @subject.levels
+
+
+.buttons
+  =link_to t('common.edit'), edit_hq_grade_group_subject_path(@grade_group, @subject), class: 'btn'

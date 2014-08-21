@@ -1,0 +1,9 @@
+%h1=title t("titles.subjects")
+
+=render "menu"
+
+-if @subjects.blank?
+  =t('common.not_found')
+-else
+  =render layout:"subjects/subjects", locals:{subjects:@subjects} do |subject|
+    =img_link_to "common.detail", hq_subject_path(subject), class:"small"

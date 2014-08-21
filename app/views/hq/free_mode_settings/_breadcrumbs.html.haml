@@ -1,0 +1,5 @@
+%ul.breadcrumb
+  %li=link_to_unless_current t("titles.settings"), hq_settings_path
+  =breadcrumb_item t('titles.system_settings'), hq_system_settings_path
+  -if params[:action] == 'edit'
+    =breadcrumb_item t('common.edit'), edit_hq_system_settings_path

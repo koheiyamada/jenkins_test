@@ -1,0 +1,5 @@
+=form_tag nil, method: :get, class: 'form-search lesson_report-search' do
+  =text_field_tag :id, params[:id], placeholder:t('common.id'), class:'input-mini'
+  =text_field_tag :date, params[:date], placeholder: t('common.date'), class: 'input-small'
+  =text_field_tag :q, params[:q], class: 'search-query input-xlarge', placeholder: t('lesson_report.search.tutor_or_student')
+  =img_submit 'common.search'

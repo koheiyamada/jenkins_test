@@ -1,0 +1,7 @@
+%ul.weekday_schedules
+  -tutor.weekday_schedules.sort.group_by(&:wday).each do |wday, schedules|
+    %li
+      %span.wday=wday(wday)
+      %span.time_ranges
+        -schedules.each do |schedule|
+          %span.time_range=time_range(schedule.start_time, schedule.end_time)

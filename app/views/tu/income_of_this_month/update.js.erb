@@ -1,0 +1,8 @@
+var waitUpdated = function() {
+  $.get('')
+};
+
+AID.startWaiting("<%= t('messages.please_wait') %>", waitUpdated);
+
+location.href = "<%= tu_income_of_this_month_path %>";
+

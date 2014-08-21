@@ -1,0 +1,29 @@
+=content_for :subheader do
+  =render 'breadcrumbs'
+
+%h1=title t('monthly_charging_user.titles.list')
+
+-if @monthly_charging_users.empty?
+  =t('common.not_found')
+-else
+  %table.table
+    %thead
+      %tr
+        %th=MonthlyChargingUser.human_attribute_name :user_id
+        %th=MonthlyChargingUser.human_attribute_name :user_type
+        %th=MonthlyChargingUser.human_attribute_name :user_name
+        %th=MonthlyChargingUser.human_attribute_name :full_name
+    %tbody
+      -@monthly_charging_users.each do |user|
+        %tr
+          %td=user.user_id
+          %td=user_type_string user.user_type
+          %td=user.user_name
+          %td=user.full_name
+  =paginate @monthly_charging_users
+
+-if current_user.admin?
+  .monthly-charging-users-calculation{data: {year: @year, month: @month}}
+    .buttons
+      =link_to t('common.calculate'), '#', class: 'btn'
+  =render 'shared/wait_screen'

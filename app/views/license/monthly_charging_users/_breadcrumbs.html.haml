@@ -1,0 +1,4 @@
+%ul.breadcrumb
+  %li=link_to_unless_current t('monthly_charging_user.titles.stat'), license_monthly_charging_users_path
+  -if @month
+    =breadcrumb_item t('monthly_charging_user.titles.list'), {action: :month, year: @year, month: @month}

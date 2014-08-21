@@ -1,0 +1,8 @@
+%tr
+  %th
+    %span=t('tutor_app_form.driver_license_number_or_passport_number')
+  %td
+    .driver-license-number
+      =f.text_field :driver_license_number, placeholder: t('common.driver_license_number')
+    .passport-number
+      =f.text_field :passport_number, placeholder: t('common.passport_number')

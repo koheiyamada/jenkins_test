@@ -1,0 +1,6 @@
+%ul.breadcrumb
+  %li=link_to_unless_current t("titles.lessons"), bs_lessons_path
+  -if @lesson
+    =breadcrumb_item t("titles.lesson"), bs_lesson_path(@lesson)
+    -if params[:action] == 'change_schedule'
+      =breadcrumb_item t('lesson.schedule_change'), change_schedule_bs_lesson_path(@lesson)

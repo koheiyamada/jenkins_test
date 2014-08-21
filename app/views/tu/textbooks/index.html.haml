@@ -1,0 +1,8 @@
+%h1=title t("titles.textbooks")
+
+-if @textbooks.blank?
+  =t('common.not_found')
+-else
+  =render layout:"textbooks/textbooks", locals:{textbooks:@textbooks} do |textbook|
+    =link_to t("common.open"), tu_textbook_path(textbook), class:"btn btn-small"
+  =paginate @textbooks

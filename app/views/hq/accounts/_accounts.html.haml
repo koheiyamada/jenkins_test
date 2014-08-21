@@ -1,0 +1,12 @@
+%table.table.accounts
+  %thead
+    %tr
+      %th=t("common.id")
+      %th=t("common.email")
+      %th
+  %tbody
+    -accounts.each do |account|
+      %tr
+        %td=account.user_name
+        %td=account.email
+        %td=yield account

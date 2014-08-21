@@ -1,0 +1,12 @@
+=form_for @message, url:bs_messages_path do |f|
+  =label_tag :recipients, t("labels.recipients")
+  =select_tag :recipients, options_from_collection_for_select(@recipients, :id, :full_name), multiple:true
+  .group-select
+    =label_tag :all_students, t("labels.all_students")
+    =check_box_tag :all_students
+  =f.label :title
+  =f.text_field :title, class:"span8"
+  =f.label :text
+  =f.text_area :text, class:"span8"
+  .actions
+    =img_submit "common.send"

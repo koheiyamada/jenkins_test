@@ -1,0 +1,81 @@
+=form_for bs_user, url:path, html:{name:'form', novalidate:true} do |f|
+  -if @bs_user_form
+    =render 'application/validation_errors2', model: @bs_user_form
+  -else
+    =render 'validation_errors', model:bs_user
+  %table.table
+    %tr
+      %th=f.label :user_name, class: 'required'
+      -if current_user.admin? || current_user == bs_user
+        %td=f.text_field :user_name, :required => true
+      -else
+        %td=f.text_field :user_name, :required => true, :readonly => true
+
+    -if bs_user.new_record?
+      %tr
+        %th=f.label :password, class: 'required'
+        %td=f.text_field :password
+
+    %tr.full_name
+      %th
+        %span.required=t('common.full_name')
+      %td
+        =f.label :last_name do
+          =BsUser.human_attribute_name :last_name
+          =f.text_field :last_name, class: 'input-small'
+        =f.label :first_name do
+          =BsUser.human_attribute_name :first_name
+          =f.text_field :first_name, class: 'input-small'
+    %tr.full_name_kana
+      %th
+        %span.required=BsUser.human_attribute_name :full_name_kana
+      %td
+        =f.label :last_name_kana do
+          =BsUser.human_attribute_name :last_name_kana
+          =f.text_field :last_name_kana, class:'input-small'
+        =f.label :first_name_kana do
+          =BsUser.human_attribute_name :first_name_kana
+          =f.text_field :first_name_kana, class:'input-small'
+
+    %tr
+      %th=f.label :email, class: 'required'
+      %td
+        -if current_user.hq_user?
+          =f.text_field :email
+        -else
+          =f.text_field :email, readonly: true
+          =img_link_to "common.change", change_email_bs_profile_path
+    %tr
+      %th=f.label :photo
+      %td=render 'profiles/photo_form', user: bs_user, form: f
+
+    %tr
+      %th=f.label :birthday
+      %td=f.date_select :birthday, {start_year: 1900, end_year: Date.today.year}, class:"input-small"
+    %tr
+      %th=f.label :sex
+      %td=render 'users/sex_form', form: f
+    %tr
+      %th=t("common.address")
+      %td=render 'addresses/form', address:bs_user.address || Address.new
+    %tr
+      %th=f.label :phone_number
+      %td
+        =f.telephone_field :phone_number
+        .help=t('messages.hankaku_only')
+
+    %tr
+      %th=f.label :birth_place, class: 'required'
+      %td=f.text_field :birth_place
+
+    =render 'shared/driver_license_number_or_passport_number_field', f: f
+    =render 'shared/has_web_camera_field', f: f
+    =render 'shared/pc_model_number_field', f: f
+
+    =render 'specs/fields2', f:f, user_operating_system: bs_user.user_operating_system
+
+    -if @bs_user_form
+      =render 'questions/form_for_how_to_find', answer: @bs_user_form.how_to_find
+
+  .form-actions.buttons
+    =img_submit 'common.send'

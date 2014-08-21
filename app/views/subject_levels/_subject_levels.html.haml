@@ -1,0 +1,6 @@
+%table.table.subject_levels
+  %tbody
+    -subject_levels.each do |subject_level|
+      %tr
+        %td=subject_level.level
+        %td=subject_level_name subject_level

@@ -1,0 +1,8 @@
+.button-menu
+  -if @student
+    =link_to t("common.basic_lessons"), hq_student_basic_lesson_infos_path(@student), class: 'btn btn-small'
+    =link_to t("common.optional_lessons"), hq_student_optional_lessons_path(@student), class: 'btn btn-small'
+    -if current_user.can_access?(:accounting, :read)
+      =link_to t('titles.billing_and_payment'), hq_student_monthly_statements_path(@student), class: 'btn btn-small'
+      =link_to t("titles.monthly_usages"), hq_student_monthly_usages_path(@student), class: 'btn btn-small'
+

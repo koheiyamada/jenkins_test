@@ -1,0 +1,10 @@
+%table.table.bs_list
+  %thead
+    %tr
+      %th=Bs.human_attribute_name(:name)
+      %th
+  %tbody
+    -bss.each do |bs|
+      %tr
+        %td.name=bs.name
+        %td=yield bs

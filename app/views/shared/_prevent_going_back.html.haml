@@ -1,0 +1,9 @@
+:javascript
+  history.forward();
+  function noBack() { window.history.forward(); }
+  $(function(){
+    $('body').on('load', function(e){ noBack(); });
+    $(document).on('pageshow', function(e){
+      if (e.persisted) noBack();
+    });
+  });

@@ -1,0 +1,11 @@
+=content_for :subheader do
+  =render 'breadcrumbs'
+
+%h1=title t('titles.reactivation')
+
+%section
+  %h2=t('common.parent')
+  =render 'parents/parent', parent:@parent
+
+.buttons
+  =link_to t('common.reactivate_account'), activate_hq_parent_path(@parent), method:'post', class:'btn', data:{confirm:t('messages.confirm_to_activate_account')}

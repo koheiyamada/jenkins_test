@@ -1,0 +1,25 @@
+=content_for :subheader do
+  =render "breadcrumbs"
+
+%h1=title t('titles.change_address')
+
+=render 'application/validation_errors', model:@address
+
+=form_for @address, url:{action:'update'} do |f|
+  %table.table
+    %th=Student.human_attribute_name :address
+    %td.address
+      .field
+        =f.text_field :postal_code, class:"span2 postal_code", placeholder:Address.human_attribute_name(:postal_code)
+        %span.help-inline=t("common.postal_code_sample")
+        %span.help-block
+          =img_button "common.search_by_postal_code"
+      .field
+        =f.text_field :state, class:"state span1", placeholder:Address.human_attribute_name(:state)
+      .field
+        =f.text_field :line1, class:"line1 span4", placeholder:Address.human_attribute_name(:line1)
+      .field
+        =f.text_field :line2, class:"span4 line2", placeholder:Address.human_attribute_name(:line2)
+
+  .form-action.buttons
+    =img_submit "common.update"

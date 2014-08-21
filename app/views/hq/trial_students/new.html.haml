@@ -1,0 +1,7 @@
+=content_for :subheader do
+  =render 'breadcrumbs'
+
+%h1=title t('trial_student.titles.new')
+
+
+=render 'form', student: @student

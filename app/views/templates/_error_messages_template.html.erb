@@ -1,0 +1,10 @@
+<script type="text/template" id="error-messages-template">
+  <div class="alert alert-error">
+    <button class="close" type="button" data-dismiss="alert">&times;</button>
+    <ul>
+      {% _.each(items, function(item){ %}
+      <li>{{item}}</li>
+      {% }); %}
+    </ul>
+  </div>
+</script>

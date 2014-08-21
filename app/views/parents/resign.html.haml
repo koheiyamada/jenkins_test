@@ -1,0 +1,7 @@
+=content_for :subheader do
+  =render "breadcrumbs"
+
+%h1=title t("common.resign")
+=render @parent
+.buttons
+  = img_link_to "common.resign", {:id => @bs, :action => :leave}, method:"post", data:{confirm:t("messages.confirm_to_leave")}

@@ -1,0 +1,9 @@
+%ul.breadcrumb
+  %li=link_to_unless_current t("titles.bs_app_forms"), hq_bs_app_forms_path
+  -if @bs_app_form
+    =breadcrumb_item t("titles.bs_app_form"), hq_bs_app_form_path(@bs_app_form)
+    -if @bs
+      -if @bs.persisted?
+        =breadcrumb_item t("titles.bs"), hq_bs_app_form_bs_path(@bs_app_form)
+      -else
+        =breadcrumb_item t("titles.new_bs"), new_hq_bs_app_form_bs_path(@bs_app_form)

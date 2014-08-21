@@ -1,0 +1,17 @@
+%table.table.lesson_reports
+  %thead
+    %tr
+      %th=t("common.id")
+      %th=t("common.date")
+      %th=LessonReport.human_attribute_name :author
+      %th=t("common.student")
+      %th
+  %tbody
+    -lesson_reports.each do |lesson_report|
+      %tr.lesson_report
+        %td.id=lesson_report.id
+        %td.date=l(lesson_report.created_at.to_date, :format => :month_day)
+        %td.author=user_display_name(lesson_report.author) if lesson_report.author
+        %td.student=user_display_name(lesson_report.student) if lesson_report.student
+        %td.actions
+          =yield lesson_report

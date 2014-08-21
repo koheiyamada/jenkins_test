@@ -1,0 +1,5 @@
+%h1=title t("titles.resign")
+=render "menu", bs:@bs
+=render "resign_explanation"
+.buttons
+  = img_link_to "common.resign", leave_hq_bs_path(@bs), method:"post", data:{confirm:t("messages.confirm_to_leave")}

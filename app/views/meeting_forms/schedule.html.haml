@@ -1,0 +1,22 @@
+%h1=title t('titles.new_meeting')
+
+=render 'meetings/meeting_registering', meeting:@meeting
+
+%h2=t('meeting.title.select_schedule')
+
+=form_for @meeting_schedule, url:wizard_path, method:'put' do |f|
+  =render 'application/validation_errors', model:@meeting_schedule
+  %table.table
+    %tr
+      %th=t('common.date')
+      %td
+        =hidden_field_tag :date, @meeting_schedule.datetime ? @meeting_schedule.datetime.to_date.iso8601 : Date.today.iso8601
+        .date_picker
+    %tr
+      %th=t('common.time')
+      %td=select_time @meeting_schedule.datetime, {prefix:'time', minute_step:5}, class:'input-small'
+  .form-actions.buttons
+    =f.submit t('common.add'), class: 'btn'
+    -if @meeting.schedules.present?
+      =link_to t('common.go_next'), next_wizard_path, class: 'btn'
+    .explanation=t('meeting.message.up_to_three_schedules_can_be_seledted')

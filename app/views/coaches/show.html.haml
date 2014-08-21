@@ -1,0 +1,16 @@
+=content_for :subheader do
+  =render 'breadcrumbs'
+
+%h1=title t("titles.coach")
+-if current_user.can_access? :bs_user, :write
+  .buttons_left
+    -if @coach.active?
+      =link_button_to 'edit', t('common.edit'), {action: :edit}
+      =link_to t('common.change_password'), {action: :change_password}, class: 'btn'
+      =link_to t('user.deactivate'), {action: :deactivate}, method: :post, class: 'btn', data: {confirm: t('user.confirm_to_deactivate')}
+    -else
+      .alert=t('user.messages.this_account_is_deactivated')
+      =link_to t('user.reactivate'), {action: :activate}, method: :post, class: 'btn', data: {confirm: t('user.confirm_to_activate')}
+      =link_button_to 'remove', t('common.delete'), {action: :destroy}, method: :delete, data: {confirm: t('messages.confirm_to_delete')}
+
+=render 'coach', coach: @coach

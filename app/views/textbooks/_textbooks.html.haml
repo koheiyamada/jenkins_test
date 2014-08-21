@@ -1,0 +1,12 @@
+%table.table.textbooks
+  %thead
+    %tr
+      %th=Textbook.human_attribute_name :textbook_id
+      %th=Textbook.human_attribute_name :title
+      %th
+  %tbody
+    -textbooks.each do |textbook|
+      %tr
+        %td=textbook.textbook_id
+        %td=textbook.title
+        %td=img_link_to "common.detail", {action:"show", id:textbook}, class:"small"

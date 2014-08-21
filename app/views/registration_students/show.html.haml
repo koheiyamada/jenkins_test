@@ -1,0 +1,9 @@
+.centered
+  .wrapper
+    %h1=title t('titles.confirmation')
+
+    =render 'students/student', student: @student
+
+    .buttons
+      =link_to t('common.modify'), {action: :edit}, class: 'btn'
+      =link_to t('common.go_next'), {action: :finish}, class: 'btn btn-primary'

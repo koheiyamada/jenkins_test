@@ -1,0 +1,27 @@
+.answer-option {
+  input[type="text"] {
+    position: relative;
+    top: 8px;
+    padding: 0px;
+  }
+
+  .radio.inline {
+    margin-right: 10px;
+  }
+
+  .checkbox {
+    margin-right: 10px;
+  }
+}
+
+.question {
+  h2 {
+    font-weight: normal;
+    padding: 0;
+    margin: 10px, 0, 4px;
+    background-image: none;
+    background-color: transparent;
+    //@include border-radius(0px);
+    line-height: 10px;
+  }
+}

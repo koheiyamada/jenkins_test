@@ -1,0 +1,12 @@
+%h1=title t('titles.trial_students')
+
+=render 'menu'
+
+-if @students.blank?
+  =t('common.not_found')
+-else
+  =render layout: 'students/students', locals:{students: @students} do |student|
+    =link_to url_for(action: :show, id: student), class: 'btn btn-small' do
+      %i.icon-signin
+      =t('common.detail')
+  =paginate(@students)

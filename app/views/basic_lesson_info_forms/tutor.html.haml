@@ -1,0 +1,21 @@
+%h1=title t("common.new_basic_lesson_info")
+
+=render 'basic_lesson_info', basic_lesson_info:@basic_lesson_info
+
+%h2=t("common.tutor_selection")
+
+=render 'application/validation_errors', model:@basic_lesson_info
+
+.pagination-centered
+  =render 'tutors/search', regular_only: @basic_lesson_info.multi_student_lesson?
+
+-if @tutors.blank?
+  =t("messages.no_regular_tutors")
+-else
+  =render layout: 'tutors/tutors', locals:{tutors: @tutors} do |tutor|
+    =link_to t('common.select'),  wizard_path(nil, tutor_id:tutor.id), method: :put, class: 'btn btn-primary'
+  =paginate @tutors
+
+.form-actions.buttons
+  =img_link_to 'common.back', wizard_path(:member, reset: true), data: {confirm: t('basic_lesson_info.confirm_to_reset_students')}
+  =img_link_to 'common.cancel', {action:'cancel'}, method: :post, data: {confirm: t('basic_lesson_info.confirm_to_make_request')}

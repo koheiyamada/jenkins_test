@@ -1,0 +1,9 @@
+%tr
+  %th=t('question.reason_to_enroll.title')
+  %td
+    %ul
+      -answers.each do |answer|
+        -if answer.answer_option_code == "free_lesson"
+          %li=answer_display_name_with_num answer
+        -else
+          %li=answer_display_name answer

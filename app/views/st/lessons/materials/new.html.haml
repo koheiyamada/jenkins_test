@@ -1,0 +1,15 @@
+=content_for :subheader do
+  =render "breadcrumbs"
+
+%h1=title t("titles.new_lesson_material")
+
+=form_for @lesson_material, url:{action:'create'} do |f|
+  =render "application/validation_errors", model:@lesson_material
+  %table.table
+    %tr
+      %th=f.label :material
+      %td
+        =f.file_field :material
+        %span.help-inline=t('form.message.image_formats')
+  .form-actions.buttons
+    =img_submit 'common.send'

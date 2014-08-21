@@ -1,0 +1,8 @@
+%tr.student-row
+  %td.full_name=student.full_name
+  %td.grade
+    -if student.student_info
+      =grade(student)
+  %td=number_to_currency student.settings.max_charge
+  %td.actions
+    =img_link_to "common.detail", pa_student_path(student), class:"small"

@@ -1,0 +1,7 @@
+%ul.nav.nav-tabs
+  %li{class:(current_page?(hq_books_bss_path) ? 'active' : '')}
+    =link_to t("common.bs"), hq_books_bss_path
+  %li{class:(current_page?(hq_books_tutors_path) ? 'active' : '')}
+    =link_to t("common.tutor"), hq_books_tutors_path
+  %li{class:(current_page?(hq_books_students_path) ? 'active' : '')}
+    =link_to t("common.student"), hq_books_students_path

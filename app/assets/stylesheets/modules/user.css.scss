@@ -1,0 +1,53 @@
+.leave-form {
+  th {
+    white-space: nowrap;
+  }
+  textarea {
+    width: 98%
+  }
+}
+
+#user_name_for_emails, #user_name_for_login_id {
+  width:440px;
+  font-size:0.4em;
+}
+
+#explanation_for_add_button {
+  padding-top:12px;
+}
+
+.student_add_button {
+  float:left
+}
+
+#registered {
+  width:123px
+}
+
+#logined {
+  width:191px
+}
+
+#customer_type {
+  width:101px
+}
+
+#grade_index {
+  width:169px;
+}
+
+#detail_button {
+  width:56px
+}
+
+#user_full_name {
+  width:120px;
+}
+
+/*
+.student_yield {
+  .btn{
+    display:none
+  }
+}
+*/

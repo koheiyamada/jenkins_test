@@ -1,0 +1,19 @@
+=content_for :subheader do
+  =render "breadcrumbs"
+
+%h1=title t("titles.bs_application_form")
+
+=render 'application/validation_errors', model: @bs_app_form
+
+=render "bs_app_forms/bs_app_form", bs_app_form:@bs_app_form
+
+.actions.buttons
+  -if current_user.can_access? :bs, :write
+    -if @bs_app_form.new?
+      -if @bs_app_form.bs.blank?
+        =link_to t('titles.new_bs'), new_hq_bs_app_form_bs_path(@bs_app_form), class:'btn'
+        =link_to t('bs_app_forms.show.reject'), reject_hq_bs_app_form_path, class:'btn', method:'post', data:{confirm:t('messages.reject_bs')}
+    -elsif @bs_app_form.accepted?
+      =link_to t('titles.bs'), hq_bs_path(@bs_app_form.bs), class:'btn'
+    -elsif @bs_app_form.rejected?
+      =link_to t('common.delete'), hq_bs_app_form_path(@bs_app_form), method: :delete, class:'btn', data: {confirm: t('bs_app_form.confirm_to_delete')}

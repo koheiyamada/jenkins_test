@@ -1,0 +1,8 @@
+%ul.breadcrumb
+  %li=link_to_unless_current t('titles.scheduling_meetings'), scheduling_hq_meetings_path
+  =breadcrumb_item t('titles.meeting'), hq_meeting_path(@meeting)
+  =breadcrumb_item t('titles.meeting_schedules'), hq_meeting_schedules_path(@meeting)
+  -if @meeting_schedule
+    =breadcrumb_item t('titles.meeting_schedule'), hq_meeting_schedule_path(@meeting, @meeting_schedule)
+    -if params[:action] == 'edit'
+      =breadcrumb_item t('common.edit'), edit_hq_meeting_schedule_path(@meeting, @meeting_schedule)

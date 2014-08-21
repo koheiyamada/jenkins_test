@@ -1,0 +1,7 @@
+=form_tag({action: :create}) do
+  %table.table
+    %tr
+      %th=t('common.coach')
+      %td=select_tag :coach_id, options_for_select(bs.bs_users.only_active.map{|c| [user_display_name(c), c.id]})
+  .buttons.form-actions
+    =submit_tag t('student_coach.assign'), class: 'btn'

@@ -1,0 +1,7 @@
+%ul.nav.nav-tabs
+  =render "nav_tab_item", text:t("titles.lessons"), path:st_lessons_path
+  =render "nav_tab_item", text:t("titles.lesson_requests"), path:requests_st_lessons_path
+  =render "nav_tab_item", text:t("titles.study_history"), path:history_st_lessons_path
+  =render "nav_tab_item", text:t("titles.no_cs_sheets"), path:no_cs_sheet_st_lessons_path
+  =render "nav_tab_item", text:t("titles.lesson_invitations"), path: st_lesson_invitations_path
+  =render 'nav_tab_item', text: t('lesson_status.not_started'), path: not_started_st_lessons_path

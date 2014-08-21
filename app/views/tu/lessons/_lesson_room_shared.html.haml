@@ -1,0 +1,31 @@
+.lesson-room.lesson-room-shared.clearfix
+  .video-column
+    .tabbable
+      .students.tab-content
+        -lesson.students.each_with_index do |student, i|
+          .tab-pane{:class => "student-#{student.id}-video #{i==0 ? 'active' : ''}"}
+            .video{"data-user_id" => student.id}
+              =render 'soba_widgets/video_subscriber', channel: lesson_video_channel(lesson, student), width:216, height:162
+              .name=student.nickname
+              %a(data-target=".student-#{student.id}-video" data-toggle="tab" href="#")
+      .video{"data-user_id" => current_user.id}
+        =render "soba_widgets/video_publisher", channel: lesson_video_channel(lesson, current_user), width:216, height:162
+        .name=t('common.self')
+    .video
+      =render 'soba_widgets/document_camera_publisher', channel: lesson_document_camera_channel(lesson, current_user), width:216, height:162
+      .name=t('common.document_camera')
+
+  .desks.tabbable.tabs-top
+    %ul.nav.nav-tabs.desk-switcher
+      %li.desk-switch
+        %a(data-target=".tutor-desk" data-toggle="tab" href="#")
+          =t('common.self')
+      -lesson.students.each_with_index do |student, i|
+        %li.desk-switch{class:"student-#{student.id} #{i==0 ? 'active' : ''}"}
+          %a{data:{target:".student-#{student.id}-desk", toggle:"tab", student_id:student.id}, href:"#"}=student.nickname
+    .tab-content
+      .tab-pane.desk-pane.tutor-desk
+        =render 'my_desk', lesson: lesson
+      -lesson.students.each_with_index do |student, i|
+        .tab-pane.desk-pane{:class => "student-#{student.id}-desk #{i==0 ? 'active' : ''}", "data-student_id" => student.id}
+          =render "student_desk", lesson:lesson, student:student

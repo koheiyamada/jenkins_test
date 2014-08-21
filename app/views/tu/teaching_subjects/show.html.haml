@@ -1,0 +1,15 @@
+=content_for :subheader do
+  =render "breadcrumbs"
+
+%h1=title t("titles.teaching_subject")
+
+%table.table
+  %tr
+    %th=GradeGroup.model_name.human
+    %td=@teaching_subject.grade_group_name
+  %tr
+    %th=Subject.model_name.human
+    %td=@teaching_subject.subject.name
+  %tr
+    %th=TeachingSubject.human_attribute_name :level
+    %td=@teaching_subject.level_name

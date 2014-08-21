@@ -1,0 +1,3 @@
+-if current_user.can_access? :bs_user, :write
+  .menu
+    =link_button_to 'plus', t('common.new'), new_hq_coach_path, class: 'btn-small'

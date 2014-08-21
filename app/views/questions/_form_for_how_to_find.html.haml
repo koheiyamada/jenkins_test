@@ -1,0 +1,46 @@
+- answer = nil unless defined?(answer)
+- answer_obj = answer ? OpenStruct.new(answer) : nil
+
+=fields_for 'how_to_find', answer_obj do |form|
+  %tr
+    %th
+      %span.required=t('question.how_to_find.title')
+    %td.question
+      =form.label :answer_option_web_site, class: 'radio' do
+        =form.radio_button :answer_option, :web_site
+        =t('answer_option.web_site')
+
+      =field_set_tag do
+        =render 'shared/answer_option_group',
+                question: 'how_to_find', group: 'search_engine',
+                answer_options: [:yahoo, :google, :other],
+                form: form
+
+      =field_set_tag do
+        =render 'shared/answer_option_group',
+                question: 'how_to_find', group: 'poster',
+                answer_options: [:public_transport, :public_facilities, :stores, :other],
+                form: form
+
+      =field_set_tag do
+        =render 'shared/answer_option_group',
+                question: 'how_to_find', group: 'flyer',
+                answer_options: [:newspaper, :town_magazine, :free_paper, :handover, :other],
+                form: form
+
+      =field_set_tag do
+        .answer-option-group
+          -#%h2=t("question.#{question}.#{group}")
+          =form.label :answer_option_acquaintance, class: 'radio' do
+            =form.radio_button :answer_option, 'acquaintance'
+            =t('answer_option.acquaintance')
+
+      =field_set_tag do
+        =render 'shared/answer_option_group',
+                question: 'how_to_find', group: 'mass_media',
+                answer_options: [:tv, :radio, :newspaper, :other],
+                form: form
+
+      =form.label :answer_option_dm, class: 'radio' do
+        =form.radio_button :answer_option, :dm
+        =t('answer_option.dm')

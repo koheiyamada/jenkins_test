@@ -1,0 +1,16 @@
+=content_for :subheader do
+  =render 'breadcrumbs'
+  
+%h1=title t("titles.lessons")
+=render 'basic_lesson_infos/basic_lesson_info', basic_lesson_info:@basic_lesson_info
+
+-if @lessons.empty?
+  =t('common.not_found')
+-else
+  =render layout:'basic_lessons/basic_lessons', locals:{lessons:@lessons} do |lesson|
+    =img_link_to 'common.detail', bs_lesson_path(lesson), class:"small"
+    =img_link_to 'common.cancel', cancel_bs_lesson_path(@basic_lesson_info, lesson), method:'post', class:'small', data:{confirm:t("messages.confirm_lesson_cancellation")}
+  =paginate(@lessons)
+
+.buttons
+  =link_to t("messages.supply_lessons"), supply_bs_student_basic_lesson_info_path(@student), method:'post', class:'btn'

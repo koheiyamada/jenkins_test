@@ -1,0 +1,10 @@
+=content_for :subheader do
+  =render 'breadcrumbs'
+
+%h1=title t('titles.monthly_statements_of_year', year: @year)
+
+=render 'menu'
+
+=render 'year_navigation'
+
+=render 'monthly_statements_of_users', monthly_statement_strips: @monthly_statement_strips

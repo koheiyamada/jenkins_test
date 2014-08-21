@@ -1,0 +1,12 @@
+=content_for :subheader do
+  =render 'breadcrumbs'
+
+%h1=title t("titles.coach")
+
+=render 'application/validation_errors', model: @coach
+
+=render 'coach', coach: @coach
+
+.buttons
+  .alert=t('user.messages.this_account_is_deactivated')
+  =link_to t('user.reactivate'), activate_bs_coach_path(@coach), method: :post, class: 'btn', data: {confirm: t('user.confirm_to_activate')}

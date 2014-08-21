@@ -1,0 +1,45 @@
+%h1=title t('titles.tutor')
+
+%table.table.tutor-table
+  %tbody
+    %tr
+      %th=TutorInfo.human_attribute_name :nickname
+      %td=@tutor.nickname
+    %tr
+      %th=TutorInfo.human_attribute_name :photo
+      %td
+        -if @tutor.info.photo_public?
+          =user_image(@tutor)
+        -else
+          %span.member_only=t('messages.member_only')
+    %tr
+      %th=TutorInfo.human_attribute_name(:college)
+      %td=render 'college', tutor:@tutor
+
+    %tr
+      %th=TutorInfo.human_attribute_name(:high_school)
+      %td
+        %span.member_only=t('messages.member_only')
+    %tr
+      %th=TutorInfo.human_attribute_name(:birth_place)
+      %td
+        %span.member_only=t('messages.member_only')
+    %tr
+      %th=TutorInfo.human_attribute_name(:hobby)
+      %td
+        %span.member_only=t('messages.member_only')
+    %tr
+      %th=TutorInfo.human_attribute_name(:activities)
+      %td
+        %span.member_only=t('messages.member_only')
+    %tr
+      %th=TutorInfo.human_attribute_name(:free_description)
+      %td=simple_format @tutor.info.free_description
+    %tr
+      %th=Tutor.human_attribute_name :lesson_fee_for_student
+      %td
+        %span.member_only=t('messages.member_only')
+    %tr
+      %th=TutorInfo.human_attribute_name :cs_points
+      %td
+        %span.member_only=t('messages.member_only')

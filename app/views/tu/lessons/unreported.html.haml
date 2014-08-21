@@ -1,0 +1,30 @@
+/=render "breadcrumbs"
+=content_for :tabmenu do
+  =render "nav_tab"
+
+%h1=title t("titles.unreported_lessons")
+
+=render "menu"
+
+-if @lessons.blank?
+  =t('common.not_found')
+-else
+  %table.table.lesson-list
+    %thead
+      %tr
+        %th=t("common.datetime")
+        %th=t("common.students")
+        %th=t("common.lesson_type")
+        %th
+    %tbody
+      -@lessons.each do |lesson|
+        %tr.lesson{class:lesson.cancelled? ? "lesson-cancelled" : "hello"}
+          %td=lesson_time_range(lesson)
+          %td
+            %ul
+              -lesson.students.each do |student|
+                %li=user_display_name student
+          %td=lesson_type(lesson)
+          %td
+            =img_link_to "common.detail", tu_lesson_path(lesson), class:"small"
+  =paginate @lessons

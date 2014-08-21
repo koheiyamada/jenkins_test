@@ -1,0 +1,11 @@
+=render "pa/student_header", student:@student
+
+=form_for @message, url:st_messages_path do |f|
+  =label_tag :recipients, t("labels.recipients")
+  =select_tag :recipients, options_from_collection_for_select(@recipients, :id, :full_name), multiple:true
+  =f.label :title
+  =f.text_field :title, class:"span8"
+  =f.label :text
+  =f.text_area :text, class:"span8"
+  .actions
+    =img_submit "common.send"

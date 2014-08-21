@@ -1,0 +1,4 @@
+%ul.breadcrumb
+  %li=link_to_unless_current t("titles.tutors"), hq_tutors_path
+  =breadcrumb_item @tutor.full_name, hq_tutor_path(@tutor)
+  =breadcrumb_item t('tutor.titles.change_type'), edit_hq_tutor_type_path(@tutor)

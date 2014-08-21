@@ -1,0 +1,10 @@
+%ul.breadcrumb
+  %li
+    =link_to_unless_current t("titles.students"), bs_students_path
+  -if @student
+    =render 'shared/breadcrumb_item', text:t('titles.student'), url:bs_student_path(@student)
+    -if @basic_lesson_info
+      =render 'shared/breadcrumb_item', text:t('titles.basic_lesson_infos'), url:bs_student_basic_lesson_infos_path(@student)
+      =render 'shared/breadcrumb_item', text:t('titles.basic_lesson_info'), url:bs_student_basic_lesson_info_path(@student, @basic_lesson_info)
+      -if @lessons
+        =render 'shared/breadcrumb_item', text:t("titles.lessons")

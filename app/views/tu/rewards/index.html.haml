@@ -1,0 +1,15 @@
+=content_for :tabmenu do
+  =render 'tu/profiles/nav_tab'
+
+%h1=title t('tutor.wages_per_unit')
+
+%table.table
+  %thead
+    %tr
+      %th.grade
+      %th.amount
+  %tbody
+    -@grades.each do |grade|
+      %tr
+        %td=grade.name
+        %td=number_to_currency tutor_lesson_unit_wage_for_grade(@tutor, grade)

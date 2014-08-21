@@ -1,0 +1,11 @@
+%ul.breadcrumb
+  %li=link_to_unless_current t("titles.basic_lesson_infos"), hq_basic_lesson_infos_path
+  -if @basic_lesson_info
+    -if @basic_lesson_info.persisted?
+      =breadcrumb_item t('titles.basic_lesson_info'), hq_basic_lesson_info_path(@basic_lesson_info)
+      -if params[:action] == 'close'
+        =breadcrumb_item t('basic_lesson_info.titles.close'), close_hq_basic_lesson_info_path(@basic_lesson_info)
+      -if @lessons
+        =breadcrumb_item t('titles.lessons')
+    -else
+      =breadcrumb_item t('common.registration'), new_hq_basic_lesson_info_path

@@ -1,0 +1,8 @@
+.cs_sheet
+  -if cs_sheet.author == current_user
+    =link_to st_cs_sheet_path(cs_sheet) do
+      %i.icon-file
+      =user_display_name(cs_sheet.author)
+  -else
+    %i.icon-file
+    =user_display_name(cs_sheet.author)

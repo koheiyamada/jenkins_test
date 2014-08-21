@@ -1,0 +1,7 @@
+.buttons
+  -if @lesson.rescheduling?
+    =img_link_to 'common.change_schedule', change_schedule_bs_basic_lesson_info_lesson_path(@basic_lesson_info, @lesson)
+  -if lesson_can_monitor_now? @lesson
+    =img_link_to 'common.enter_lesson_room_as_tutor', room_as_tutor_bs_basic_lesson_info_lesson_path(@basic_lesson_info, @lesson)
+    -@lesson.students.each do |student|
+      =link_to student.full_name, room_as_student_bs_basic_lesson_info_lesson_path(@basic_lesson_info, @lesson, student_id:student.id), class:"enter_lesson_as", title:t("common.enter_lesson_room_as_x", x:student.full_name)

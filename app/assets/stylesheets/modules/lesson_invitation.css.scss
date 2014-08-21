@@ -1,0 +1,39 @@
+@import 'base';
+
+.lesson-invitations {
+  .status {
+    color: $aid-gray2;
+  }
+
+  .is-accepted {
+    .status {
+      color: $aid-green;
+    }
+  }
+
+  .is-rejected {
+    .status {
+      color: $aid-red;
+    }
+  }
+}
+
+.lesson {
+  .lesson-invitation {
+    .status {
+      color: $aid-gray2;
+    }
+
+    &.is-accepted {
+      .status {
+        color: $aid-green;
+      }
+    }
+
+    &.is-rejected {
+      .status {
+        color: $aid-red;
+      }
+    }
+  }
+}

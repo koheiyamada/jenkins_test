@@ -1,0 +1,6 @@
+=render 'application/validation_errors', model: coach
+-if @bs_user_form
+  =render 'validation_errors2', model: @bs_user_form
+
+=form_for coach, url: path do |f|
+  =render 'coaches/form_content', coach: coach, f: f

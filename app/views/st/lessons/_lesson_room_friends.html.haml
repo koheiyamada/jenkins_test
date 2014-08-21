@@ -1,0 +1,35 @@
+.lesson-room.clearfix
+  .video-column
+    .video
+      =render 'soba_widgets/video_subscriber', channel: lesson_video_channel(lesson, lesson.tutor), width:216, height:162
+      .name=lesson.tutor.nickname
+    -lesson.students.each do |student|
+      -if current_user != student
+        .video
+          =render 'soba_widgets/video_subscriber', channel: lesson_video_channel(lesson, student), width:216, height:162
+          .name=student.nickname
+    .video
+      =render "soba_widgets/video_publisher", channel: lesson_video_channel(lesson, current_user), width:216, height:162
+      .name=t('common.self')
+    .video
+      =render 'soba_widgets/document_camera_publisher', channel: lesson_document_camera_channel(lesson, current_user), width:216, height:162
+      .name=t('common.document_camera')
+  .desks.tabbable.tabs-top
+    %ul.nav.nav-tabs.desk-switcher
+      %li.desk-switch.active
+        %a(data-target=".tutor-desk" data-toggle="tab" href="#")=lesson.tutor.nickname
+      -lesson.students.each do |student|
+        -if current_user != student
+          %li.desk-switch
+            %a(data-target=".student-desk-#{student.id}" data-toggle="tab" href="#")=student.nickname
+      %li.desk-switch
+        %a(data-target=".my-desk" data-toggle="tab" href="#")=t('common.self')
+    .tab-content
+      .tab-pane.desk-pane.tutor-desk.active
+        =render 'tutor_desk', lesson:lesson
+      -lesson.students.each do |student|
+        -if current_user != student
+          .tab-pane.desk-pane{class: "student-desk-#{student.id}"}
+            =render 'student_desk', lesson:lesson, student:student
+      .tab-pane.desk-pane.my-desk
+        =render 'my_desk', lesson:lesson, student:current_user

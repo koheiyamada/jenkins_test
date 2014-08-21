@@ -1,0 +1,8 @@
+■時間
+<%= render "lessons/time_range", lesson:lesson %>
+■チューター
+<%= lesson.tutor.nickname %>
+■受講者
+<% lesson.students.each do |student| %>
+名前： <%= student.nickname %>
+<% end %>

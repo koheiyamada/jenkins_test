@@ -1,0 +1,13 @@
+%table.table.ledgers
+  %thead
+    %tr
+      %th=t("common.month")
+      %th=t("common.amount")
+      %th
+  %tbody
+    -ledgers.each do |ledger|
+      %tr
+        %td=l(ledger.month, :format => :month_year)
+        %td=ledger.total_amount
+        %td
+          =yield ledger

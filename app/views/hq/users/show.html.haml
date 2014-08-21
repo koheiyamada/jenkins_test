@@ -1,0 +1,5 @@
+%h1=title t("common.user")
+=render "users/user", user:@user
+.buttons
+  =img_link_to "common.edit", edit_hq_user_path(@user), class:"small"
+  =link_to t("common.change_password"), change_password_hq_user_path(@user), class:"btn btn-small"

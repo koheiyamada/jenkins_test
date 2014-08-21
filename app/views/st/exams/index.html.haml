@@ -1,0 +1,8 @@
+%h1=title t("titles.exams")
+
+
+-if @exams.blank?
+  =t('common.not_found')
+-else
+  =render layout:"exams/exams", locals:{exams:@exams} do |exam|
+    =img_link_to "common.detail", exam_path(exam), class:"small"

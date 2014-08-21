@@ -1,0 +1,14 @@
+%h1=title t("titles.new_interview")
+
+=render "validation_errors", model:@interview
+=form_for [:bs, @interview] do |f|
+  =f.label :user1
+  =f.collection_select :user1_id, Parent.all, :id, :user_name
+  =f.label :user2
+  =f.collection_select :user2_id, current_user.bs_users, :id, :user_name
+  =f.label :start_time
+  =f.datetime_select :start_time, {}, class:"span1"
+  =f.label :duration
+  =f.text_field :duration, class:"span1"
+  .actions
+    =f.submit

@@ -1,0 +1,23 @@
+=content_for :subheader do
+  =render 'breadcrumbs'
+
+%h1=title t("titles.hq_user")
+
+=render 'hq_user', hq_user:@hq_user
+
+-if current_user.can_access? :hq_user, :write
+  .buttons
+    -if current_user.admin? && @hq_user != current_user
+      =link_button_to 'switch_admin_right', t('common.switch_admin_right'), switch_admin_right_hq_hq_user_path(@hq_user), class: 'btn-primary'
+    =link_button_to 'edit', t('common.edit'), edit_hq_hq_user_path(@hq_user), class: 'btn-primary'
+    =link_to t('common.change_password'), change_password_hq_hq_user_path(@hq_user), class: 'btn'
+    =link_button_to 'remove', t('common.delete'), hq_hq_user_path(@hq_user), method: :delete, data: {confirm: t('messages.confirm_to_delete')}
+
+-unless @hq_user.admin?
+  %section
+    %h2=t("titles.access_authority")
+
+    =render "access_authority", access_authority:@hq_user.access_authority
+
+    .buttons
+      =img_link_to "common.edit", edit_hq_hq_user_access_authority_path(@hq_user)

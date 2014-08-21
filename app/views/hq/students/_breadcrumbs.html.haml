@@ -1,0 +1,11 @@
+%ul.breadcrumb
+  %li
+    =link_to_unless_current t("titles.students"), hq_students_path
+  -if @student
+    =breadcrumb_item user_display_name(@student), hq_student_path(@student)
+
+  / UsersControllerのアクション向け
+  -if @user
+    =breadcrumb_item user_display_name(@user), hq_student_path(@user)
+    -if params[:action] == 'change_password'
+      =breadcrumb_item t('common.change_password'), change_password_hq_student_path(@user)

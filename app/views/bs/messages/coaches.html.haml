@@ -1,0 +1,13 @@
+=content_for :tabmenu do
+  =render 'nav_tab'
+
+%h1=title t('titles.messages_to_coaches')
+
+=render 'menu'
+
+-if @messages.blank?
+  =t('common.not_found')
+-else
+  =render layout:'messages/messages_all', locals:{messages:@messages} do |message|
+    =img_link_to 'common.detail', coach_bs_message_path(message), class: 'small'
+  =paginate(@messages)

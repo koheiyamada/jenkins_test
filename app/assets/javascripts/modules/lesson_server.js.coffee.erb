@@ -1,0 +1,54 @@
+#
+# レッスンに参加するメンバー間でリアルタイムに通信をするためのソケットを作成する。
+#
+
+$ ->
+  if $("#lesson-room").length && window.io
+    $room = $("#lesson-room")
+    lesson_id = parseInt($room.attr("data-lesson_id"))
+    user_id = parseInt($room.attr("data-user_id"))
+    socket = io.connect("<%= ServerSettings.lesson_server_url %>")
+
+    socket.on 'CONNECTED', ->
+      console.log "ROOM SERVER:CONNECTED"
+      console.log "ROOM SERVER:Entering room"
+      socket.emit "ENTER", {user:{id:user_id}, lesson:{id:lesson_id}}, (err)->
+        if err
+          console.log 'ROOM SERVER:Failed to enter room'
+          alert err
+        else
+          socket.isReady = true
+          console.log 'ROOM SERVER:Entered room'
+
+    socket.on 'disconnect', ->
+      console.log "ROOM SERVER:Socket disconnected"
+
+    window.getSocket = -> socket
+
+    socket.on "NOTIFY", (data)->
+      lesson = getLesson()
+      if lesson
+        console.log "ROOM SERVER:NOTIFY:#{data.type}"
+        switch data.type
+          when "HELP"
+            lesson.onHelp(data.user)
+          when "REQUEST_CANCEL"
+            lesson.onCancelRequested(data.user)
+          when "STUDENT_CANCELLED"
+            lesson.onStudentCancelled(data.user)
+          when "CANCEL_REQUEST_REJECTED"
+            lesson.onCancelRequestRejected(data.user)
+          when "CANCEL_REQUEST_ACCEPTED"
+            lesson.onCancelRequestAccepted(data.user)
+          when "CANCEL_REQUEST_FAILED"
+            lesson.onCancelRequestFailed(data.user, data.errorMessages)
+          when "MEMBER_CHECKED_IN" # 他の参加者からのメンバー参加通知
+            lesson.onMemberCheckedIn(data.user)
+          when "MEMBER_ATTENDED" # サーバからのメンバー参加通知
+            lesson.onMemberCheckedIn(data.params.user)
+          when "CHANGED"
+            lesson.onOutdated()
+          when "MESSAGE"
+            alert data.message
+          when 'EXTENSION_REQUESTED'
+            lesson.onExtensionRequested(data.user)

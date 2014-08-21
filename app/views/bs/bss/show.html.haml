@@ -1,0 +1,10 @@
+%h1=title t("titles.bs")
+
+-if @bs.blank?
+  =t('common.not_found')
+-else
+  =render "bss/bs", bs:@bs
+
+-unless coach?
+  .buttons
+    =link_button_to 'edit', t('common.edit'), edit_bs_bs_path(@bs)

@@ -1,0 +1,13 @@
+-if @meeting.members.count < 3
+  =render 'room_for_two'
+-else
+  =render 'room_for_three'
+
+.buttons
+  =link_to({action: 'show'}, class: 'btn btn-large') do
+    %i.icon-signout
+    =t('common.leave_room')
+  -if current_user.can_finish_meeting? @meeting
+    =link_to({action: :close}, method: :post, class: 'btn btn-large', data: {confirm: t('meeting.message.confirm_to_close')}) do
+      %i.icon-ok
+      =t('meeting.close_meeting')

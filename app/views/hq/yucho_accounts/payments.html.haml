@@ -1,0 +1,13 @@
+=content_for :subheader do
+  =render 'breadcrumbs'
+
+%h1=title t('yucho_account.payments_of_month', year: @year, month: @month)
+
+.button-menu
+  =link_to t('yucho_account.yucho_csv_file'), {format: :csv}, class: 'btn btn-small'
+
+-if @yucho_accounts.empty?
+  =t('common.not_found')
+-else
+  =render 'payments'
+  =paginate @yucho_accounts

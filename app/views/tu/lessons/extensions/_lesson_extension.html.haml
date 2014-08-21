@@ -1,0 +1,29 @@
+.lesson-extension.is-default
+  // デフォルトのビュー
+  .view.default
+    %table.table
+      %tr
+        %td
+          %button.update-extendability.btn(href="#")=t("common.check_if_extendable")
+  // 受講者の延長申込状況表示のビュー
+  .view.extendable
+    =t('messages.waiting_for_lesson_extension_application')
+  // 延長できない場合のビュー
+  .view.not-extendable
+    =t('lesson.message.not_extendable')
+    .reasons.alert
+  .view.extension-requested
+    =t('lesson.message.extension_requested')
+    %button.extend-lesson.btn(href="#")=t('lesson.message.extend_lesson')
+  // 延長確定後のビュー
+  .view.extended
+    =t("messages.lesson_extended")
+
+  .error-message-dialog.modal.hide
+    .modal-header
+      %button.close(type="button" data-dismiss="modal" aria-hidden="true") &times;
+      %h3.title=t('common.error')
+    .modal-body
+      .error-messages.alert
+    .modal-footer
+      %a.btn(href="#" data-dismiss="modal") Close

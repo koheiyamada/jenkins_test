@@ -1,0 +1,35 @@
+.lesson-extension-request {
+  .view {
+    display: none;
+  }
+
+  &.is-default {
+    .default {
+      display: block;
+    }
+  }
+
+  &.is-extendable {
+    .extendable {
+      display: block;
+    }
+  }
+
+  &.is-not-extendable {
+    .not-extendable {
+      display: block;
+    }
+  }
+
+  &.is-waiting-for-extension {
+    .waiting-for-extension {
+      display: block;
+    }
+  }
+
+  &.is-extended {
+    .extended {
+      display: block;
+    }
+  }
+}

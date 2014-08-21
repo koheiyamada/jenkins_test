@@ -1,0 +1,38 @@
+#lesson-room.lesson-room-for-tutor{data: {lesson_id: @lesson.id, user_id: current_user.id, user_type: current_user.role}}
+  -if @lesson.finished?
+    =render 'lesson_ended', lesson:@lesson
+  -else
+    .lesson-message
+      %span.title=t('titles.from_headquarter')
+      %span.content=LessonSettings.message_to_tutor
+      /%span.close_button &times;
+
+    =render "lesson_room_#{@lesson.style}", lesson:@lesson
+
+    .lesson-information.row-fluid
+      .span6
+        %section
+          %h2=t("titles.lesson_time_schedule")
+          =render "lessons/time_schedule", lesson:@lesson
+        -#%section
+        -#  %h4=t("titles.lesson_info")
+        -#  =render "lessons/lesson_info", lesson:@lesson
+      .span6
+        -if @lesson.has_option_to_extend?
+          %section
+            %h2=t("titles.lesson_extension")
+            =render 'tu/lessons/extensions/lesson_extension', lesson:@lesson
+
+#debug
+  .started_at="開始した時間： #{@lesson.started_at}"
+  .start_time="開始時刻： #{@lesson.start_time}"
+  .end_time="終了時刻：#{@lesson.end_time}"
+  .time_lesson_end="終了予定時刻：#{@lesson.time_lesson_end}"
+  .time_to_check_lesson_extension="延長確認時間: #{@lesson.time_to_check_lesson_extension}"
+  .control
+    =link_to t("common.finish_lesson"), close_tu_lesson_path(@lesson), method:"post", remote:true, class:"btn"
+  .extension
+    =link_to t('lesson.extend'), tu_lesson_extension_path(@lesson), method:'post', remote:true, class:'btn'
+
+=render "lessons/templates", lesson:@lesson
+=render 'dialogs', lesson:@lesson

@@ -1,0 +1,12 @@
+%ul
+  -meeting.schedules.each do |schedule|
+    %li.meeting-schedule
+      %span.schedule
+        =l(schedule.datetime, format: :promise)
+        -if schedule == @member.preferred_schedule
+          %i.icon-ok
+  %li.meeting-schedule
+    %span.schedule
+      =t('meeting_schedule.no_preferrable_schedule')
+      -if @member.prefers_other_schedule?
+        %i.icon-ok

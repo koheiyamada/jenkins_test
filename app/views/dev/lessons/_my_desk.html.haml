@@ -1,0 +1,12 @@
+.desk{class: "tutor-#{current_user.id}", data: {tutor_id: current_user.id, user_id: current_user.id}}
+  .desk-content
+    .tab-content
+      .tab-pane.materials-pane.active
+        -if lesson.materials.owned_by(current_user).any?
+          =render 'materials_pane', user: current_user, lesson:lesson
+  .desk-content-switch
+    %ul.nav.nav-pills.switcher{"data-tutor_id" => current_user.id}
+      -if lesson.materials.owned_by(current_user).any?
+        %li.active
+          %a.switch_button.switch_button-materials(data-target=".desk.tutor-#{current_user.id} .materials-pane" data-toggle="pill" href="#")
+            =t('common.lesson_material')

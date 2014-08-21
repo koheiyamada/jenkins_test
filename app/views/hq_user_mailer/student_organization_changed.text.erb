@@ -1,0 +1,4 @@
+受講者 <%= @student.full_name %> さんの担当教育コーチが変更されました。
+
+変更前：<%= @prev_organization.name if @prev_organization.present? %>
+変更後：<%= @student.organization.name if @student.organization %>

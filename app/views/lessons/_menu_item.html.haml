@@ -1,0 +1,8 @@
+-options = {} unless defined?(options)
+-if defined?(key)
+  =img_link_to_dyn_if enabled, key, url, options
+-else
+  .menu-item{data:{disabled:!enabled}}
+    -if defined?(icon)
+      %i{class:icon}
+    =link_to_if enabled, text, url, options

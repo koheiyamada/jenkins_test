@@ -1,0 +1,475 @@
+@import "base";
+
+@mixin desk-size {
+  min-width: 720px;
+  min-height: 540px;
+}
+
+.lesson {
+  .rejected_reason {
+    font-size: small;
+    color: $soba-gray;
+  }
+
+  .cancelled_reason {
+    font-size: small;
+    color: $soba-gray;
+  }
+}
+
+.lesson-detail {
+  th {
+    white-space: nowrap;
+  }
+
+  .lesson-student {
+    margin-bottom: 2px;
+    
+    .name {
+      display: inline-block;
+      min-width: 6em;
+    }
+  }
+}
+
+.lessons {
+  >li {
+    border-top: 1px solid #ccc;
+    &:last-child {
+      border-bottom: 1px solid #ccc;
+    }
+  }
+}
+
+.lesson-requests {
+  >li {
+    >* {
+      display: inline-block;
+    }
+  }
+}
+
+.lesson-list {
+  .lesson {
+    ul {
+      margin: 0;
+    }
+  }
+
+  .lesson-cancelled {
+    background-color: #e8e8e8;
+  }
+
+  .actions {
+    white-space: nowrap;
+  }
+}
+
+#lesson-room {
+  text-align: center;
+}
+
+.lesson-room {
+  position: relative;
+  display: inline-block;
+  margin: 0 auto;
+  min-width: 968px;
+  text-align: left;
+  white-space: nowrap;
+
+  .video-column {
+    display: inline-block;
+    padding: 6px;
+    min-height: 600px;
+    margin-right: 4px;
+    @include border-radius(4px);
+    background-color: #e0e0e0;
+    vertical-align: top;
+
+    .video {
+      margin-bottom: 6px;
+
+      .name {
+        font-size: small;
+        background-color: $aid-gray2;
+        color: #fff;
+        text-align: center;
+        @include border-radius(0 0 4px 4px);
+      }
+
+      &.help {
+        .name {
+          @include background(linear-gradient(top left, #e0a0a0, #fcc, #e0a0a0));
+        }
+      }
+    }
+  }
+
+  .desks {
+    display: inline-block;
+    vertical-align: top;
+
+    & > .tab-content {
+      overflow: hidden;
+    }
+  }
+
+  .desk {
+    display: inline-block;
+    min-width: 720px;
+    padding: 6px;
+    @include border-radius(0 4px 4px 4px);
+    background-color: #e0e0e0;
+  }
+
+  .desk-content {
+    @include desk-size;
+    position: relative;
+  }
+
+  .desk-content-switch {
+    margin-top: 10px;
+    text-align: right;
+  }
+
+  .cover {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 1;
+    background-image: image-url("dot-transparent.gif");
+  }
+
+  &.ended {
+    padding: 200px 0;
+    text-align: center;
+    font-size: 300%;
+    color: #333;
+  }
+
+  .textbook-pane {
+
+    .textbook-header {
+      text-align: right;
+    }
+
+    .close_button {
+    }
+  }
+
+  .textbook-select {
+    height: 600px;
+    overflow: schrol;
+    .textbook {
+      cursor: pointer;
+      background: $aid-gray;
+    }
+  }
+
+  .textbook-body {
+    position: relative;
+  }
+
+  .nav-tabs {
+    margin-bottom: 0;
+    border-bottom: 0;
+
+    .desk-switch {
+      margin-bottom: 0;
+
+      a {
+        padding: 0px 16px;
+        font-size: x-small;
+      }
+    }
+
+    .popover {
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  &.is-monitoring {
+    .desk-content {
+      .tab-pane {
+        position: relative;
+      }
+    }
+
+    .cover {
+      display: block;
+    }
+  }
+}
+
+.lesson-room-header {
+  margin-bottom: 4px;
+  padding: 10px 0 0;
+  //background-color: #ddd;
+
+  .lesson-info {
+    font-size: large;
+    .tutor {
+      //font-size: large;
+    }
+    .subject {
+      //font-size: large;
+      @include text-shadow(1px 1px 0 rgba(255, 255, 255, 1));
+    }
+    .date {
+      //font-size: large;
+    }
+    .time {
+      //font-size: large;
+      //font-weight: lighter;
+    }
+  }
+
+  .lesson-clock {
+    display: inline-block;
+    margin-left: 20px;
+    @include text-shadow(1px 1px 0 rgba(255, 255, 255, 1));
+  }
+
+  .lesson-control {
+    position: relative;
+    display: inline-block;
+    button.btn,a.btn {
+      display: none;
+      position: relative;
+      top: -6px;
+    }
+  }
+
+  .lesson-elapsed-time {
+    display: inline-block;
+    font-size: x-large;
+  }
+
+  .lesson-room-header-item {
+    display: inline-block;
+    position: relative;
+    button.btn,a.btn {
+      position: relative;
+      top: -6px;
+    }
+  }
+
+  .lesson-actions {
+    display: inline-block;
+    position: relative;
+    top: -6px;
+  }
+
+  .student-actions {
+    button {
+      display: none;
+    }
+  }
+}
+
+.lesson-clock {
+  font-size: large;
+}
+
+.lessons-per-week {
+  margin-bottom: 20px;
+  label {
+    display: inline;
+    vertical-align: middle;
+  }
+  input {
+    margin: 0;
+  }
+}
+
+.lesson-information {
+  margin: 20px 0;
+  //background-color: #cf8;
+}
+
+h4 {
+  .update {
+    font-weight: normal;
+    font-size: 100%;
+  }
+}
+
+.lesson-extension {
+  >div {
+    display: none;
+  }
+
+  &.is-default {
+    .default {
+      display: block;
+    }
+  }
+
+  &.is-extension-enabled {
+    .extension-enabled {
+      display: block;
+    }
+  }
+
+  &.is-extended {
+    .extended {
+      display: block;
+    }
+  }
+}
+
+.lesson-leave {
+  text-align: left;
+
+  .after-time-limit {
+    display: none;
+  }
+
+  &.disabled {
+    a {
+      display: none;
+    }
+    
+    .before-time-limit {
+      display: none;
+    }
+
+    .after-time-limit {
+      display: block;
+    }
+  }
+}
+
+.materials {
+  margin-top: 10px;
+}
+
+.lesson-room-entrance {
+  text-align: center;
+
+  .message {
+    margin-top: 20px;
+    font-size: large;
+  }
+}
+
+.lesson-console {
+  display: inline-block;
+  padding: 0;
+  height: 52px;
+  margin-left: 0px;
+  vertical-align: bottom;
+
+  >div {
+    display: inline-block;
+    vertical-align: bottom;
+    margin-top: 6px;
+    margin-left: 10px;
+  }
+
+  .lesson-info {
+    //padding-top: 6px;
+    vertical-align: middle;
+    //background-color: yellow;
+  }
+
+  .lesson-clock {
+    //margin-left: 10px;
+    //width: 8em;
+  }
+
+  .lesson-elapsed-time {
+    font-size: large;
+
+    &.is-over {
+      padding: 0 4px;
+      @include border-radius(2px);
+      background-color: #F60;
+      color: #fff;
+    }
+  }
+
+  .lesson-control {
+    position: relative;
+    button.btn,a.btn {
+      display: none;
+      position: relative;
+      top: -6px;
+    }
+  }
+
+  .lesson-actions {
+    position: relative;
+    button.btn,a.btn {
+      position: relative;
+      top: -6px;
+    }
+  }
+}
+
+.lesson-message {
+  display: none;
+  padding: 4px;
+  text-align: left;
+
+  .title {
+    font-weight: bold;
+    &:after {
+      content: ":";
+    }
+  }
+
+  .content {
+
+  }
+
+  .close_button {
+    margin-left: 10px;
+    color: #aaa;
+
+    &:hover {
+      cursor: pointer;
+      color: #ccc;
+    }
+  }
+}
+
+.lesson-type-select {
+  td:first-child {
+    text-align: center;
+    color: $aid-green;
+    font-size: 200%;
+  }
+}
+
+.lesson-type-select2 {
+  margin-top: 10px;
+
+  li {
+    margin-bottom: 10px;
+  }
+}
+
+.lesson-student {
+  &[data-status='is-active'] {
+
+  }
+
+  &[data-status='is-cancelled'] {
+    color: #888;
+  }
+
+  &[data-status='is-left'] {
+    text-decoration: line-through;
+    color: #888;
+  }
+}
+
+.navbar-lesson-room {
+  min-width: 1000px;
+}

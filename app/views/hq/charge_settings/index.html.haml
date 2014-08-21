@@ -1,0 +1,10 @@
+%h1=title t('titles.charge_settings')
+
+%table.table
+  -@charge_settings.each do |charge_setting|
+    -unless ChargeSettings.hidden? charge_setting
+      %tr
+        %th=t("charge_settings.names.#{charge_setting.name}")
+        %td=number_to_currency charge_setting.amount
+        - if current_user.can_access?(:system_settings, :write)
+          %td=link_to t('common.edit'), edit_hq_charge_setting_path(charge_setting), class:'btn btn-small'

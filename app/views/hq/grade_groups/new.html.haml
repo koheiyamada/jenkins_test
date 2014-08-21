@@ -1,0 +1,9 @@
+%h1=title t("titles.new_grade_group")
+
+=form_for [:hq, @grade_group] do |f|
+  %table.table
+    %tr
+      %th=f.label :name
+      %td=f.text_field :name, class:"input-xlarge"
+  .form-actions.buttons
+    =img_submit "common.update"

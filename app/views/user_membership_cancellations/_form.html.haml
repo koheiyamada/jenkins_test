@@ -1,0 +1,8 @@
+=form_for @membership_cancellation, url: {action: 'create'} do |f|
+  =render 'validation_errors', model: @membership_cancellation
+  %table.table
+    %tr
+      %th=f.label :reason, class: 'required'
+      %td=f.text_area :reason, rows: 10
+  .form-actions.buttons
+    =f.submit t('common.send'), class: 'btn', data: {confirm: t('messages.confirm_to_leave')}

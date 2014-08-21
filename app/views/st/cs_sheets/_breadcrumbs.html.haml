@@ -1,0 +1,5 @@
+%ul.breadcrumb
+  %li
+    =link_to_unless_current t("titles.cs_sheets"), st_cs_sheets_path
+  -if @cs_sheet
+    =breadcrumb_item t("titles.cs_sheet"), st_cs_sheet_path(@cs_sheet)

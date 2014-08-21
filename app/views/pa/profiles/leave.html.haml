@@ -1,0 +1,13 @@
+%h1=title t("titles.leave_from_aid")
+
+=render "explanation_about_leaving"
+
+=render 'application/validation_errors', model: @parent
+
+=form_tag do
+  %table.table
+    %tr
+      %th=label_tag :reason, User.human_attribute_name(:reason_to_leave)
+      %td=text_area_tag :reason, nil, class:"span7"
+  .form-actions.buttons
+    =img_submit "common.send", confirm:t("messages.confirm_to_leave")

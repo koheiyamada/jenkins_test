@@ -1,0 +1,15 @@
+%table.table.cs_sheets
+  %thead
+    %tr
+      %th=t('common.tutor')
+      %th=CsSheet.human_attribute_name :score
+      %th=CsSheet.human_attribute_name :created_at
+      %th
+  %tbody
+    -cs_sheets.each do |cs_sheet|
+      %tr.cs_sheet
+        %td=user_display_name cs_sheet.tutor
+        %td=cs_sheet_score(cs_sheet.score)
+        %td=l(cs_sheet.created_at.to_date, :format => :month_day2)
+        %td.actions
+          =yield cs_sheet

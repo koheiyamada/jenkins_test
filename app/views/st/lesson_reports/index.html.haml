@@ -1,0 +1,10 @@
+%h1=title t("titles.lesson_reports")
+
+=render 'search'
+
+-if @lesson_reports.blank?
+  =t('common.not_found')
+-else
+  =render layout:"lesson_reports/lesson_reports", locals:{lesson_reports:@lesson_reports} do |lesson_report|
+    =img_link_to "common.detail", st_lesson_report_path(lesson_report), class:"small"
+  =paginate @lesson_reports

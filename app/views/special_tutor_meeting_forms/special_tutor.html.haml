@@ -1,0 +1,20 @@
+%h1=title t('titles.new_meeting')
+
+=render 'meetings/meeting_registering', meeting: @meeting
+
+%h2=t('meeting.title.select_special_tutors')
+
+.pagination-centered
+  =render 'shared/search_box'
+
+-if @tutors.blank?
+  =t('common.not_found')
+-else
+  =render layout:'tutors/tutors', locals: {tutors: @tutors} do |tutor|
+    =link_to t('common.select'), wizard_path(nil, tutor_id: tutor.id), method: 'put', class: 'btn btn-small'
+
+-#.form-actions.buttons
+-#  =img_link_to 'common.back', wizard_path(:group_lesson)
+-#  =img_link_to 'common.cancel', {action:'cancel'}, method:'post', data:{confirm:t('messages.confirm_cancellation')}
+-#  -if @optional_lesson.have_enough_students?
+-#    =img_link_to "common.go_next", wizard_path(:tutor)

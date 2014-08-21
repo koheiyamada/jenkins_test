@@ -1,0 +1,37 @@
+@import "base";
+
+.new_lesson_material {
+  padding: 10px 0;
+}
+
+.materials {
+  .material {
+    position: relative;
+
+    .action {
+      display: none;
+      position: absolute;
+      top: 2px;
+      right: 2px;
+      padding: 2px 0;
+
+      a {
+        @include border-radius(4px);
+        background-color: $aid-gray;
+        padding: 2px 6px;
+      }
+    }
+
+    &:hover {
+      .action {
+        display: block;
+      }
+    }
+  }
+}
+
+.lesson-materials {
+  .thumbnail {
+    max-width: 128px;
+  }
+}

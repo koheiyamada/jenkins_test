@@ -1,0 +1,25 @@
+development:
+  host: localhost
+  port: 8080
+  scheme: http
+test:
+  host: localhost
+  port: 8080
+  scheme: http
+demo:
+  host: test-aid-room.soba-project.com
+  port: 443
+  scheme: https
+#staging:
+#  host: 54.178.221.119
+#  port: 8443
+#  scheme: https
+staging:
+  host: lesson-server.aidnet.jp
+  port: 443
+  scheme: https
+production:
+  host: lesson-server.aidnet.jp #engine yard
+#  host: lesson-production.aidnet.jp #engine yard
+  port: 443
+  scheme: https

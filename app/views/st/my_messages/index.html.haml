@@ -1,0 +1,11 @@
+%h1=title t("titles.sent_messages")
+
+=render "shared/centered_search_box"
+=render "st/messages/menu"
+
+-if @messages.blank?
+  =t('common.not_found')
+-else
+  =render layout:"my_messages/my_messages", locals:{messages:@messages} do |message|
+    =render 'messages/buttons', path: st_my_message_path(message)
+  =paginate(@messages)

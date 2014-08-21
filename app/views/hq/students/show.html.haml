@@ -1,0 +1,27 @@
+=content_for :subheader do
+  =render 'breadcrumbs'
+/=render "nav_tab"
+
+%h1=title t('titles.student')
+
+=render 'menu'
+
+.buttons_left
+  -if current_user.can_access?(:student, :write)
+    =img_link_to 'common.edit', edit_hq_student_path(@student)
+    =link_to t('titles.change_password'), change_password_hq_student_path(@student), class:'btn'
+    -if @student.active?
+      =img_link_to 'common.leave_from_aid', new_hq_student_membership_cancellation_path(@student)
+    -else
+      -if @student.independent? || @student.parent.active?
+        =link_to t('common.back_to_aid'), hq_student_membership_cancellation_path(@student), method: :delete, data: {confirm: t('membership_cancellation.confirm_to_delete')}, class: 'btn'
+        =link_to t('common.delete_user'), {id: @student}, method: 'delete', class: 'btn', data: {confirm: t('messages.confirm_to_delete')}
+      -if @student.parent && !@student.parent.active?
+        .explanation.alert.alert-info=t('student.cannot_reactivate_because_parent_is_inactive')
+%section
+  =render 'students/student', student:@student
+
+%section
+  %h2=t('titles.charge_limits')
+  =render 'students/charge_settings', student:@student
+

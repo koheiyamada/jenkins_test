@@ -1,0 +1,4 @@
+.pagination-centered
+  =form_tag nil, method: 'get', class: 'form-search' do
+    =text_field_tag :q, params[:q], class:'search-query', placeholder: Student.human_attribute_name(:user_name)
+    =img_submit 'common.search'

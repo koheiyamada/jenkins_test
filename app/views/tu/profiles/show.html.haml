@@ -1,0 +1,10 @@
+=content_for :tabmenu do
+  =render 'nav_tab'
+
+%h1=title t("common.profile_of_x", x:@tutor.full_name)
+
+=render 'tutors/tutor', tutor:@tutor
+
+.buttons
+  =img_link_to "common.edit", edit_tu_profile_path
+  =link_to t('common.change_password'), {action: 'change_password'}, class:'btn'

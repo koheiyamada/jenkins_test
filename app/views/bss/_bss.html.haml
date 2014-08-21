@@ -1,0 +1,14 @@
+%table.table.bs_list
+  %thead
+    %tr
+      %th=Bs.human_attribute_name :name
+      %th=Bs.human_attribute_name :representative
+      %th=Bs.human_attribute_name :area_code
+      %th
+  %tbody
+    -bss.each do |bs|
+      %tr
+        %td.name=bs.name
+        %td.email=bs.representative.full_name if bs.representative.present?
+        %td.area_code=bs.area_code
+        %td=yield bs

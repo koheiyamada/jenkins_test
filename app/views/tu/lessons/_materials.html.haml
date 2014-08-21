@@ -1,0 +1,13 @@
+-if lesson.accepted? || lesson.open?
+  =img_link_to 'common.upload', new_tu_lesson_material_path(lesson)
+
+%ul.materials.thumbnails
+  -lesson.materials.each do |material|
+    %li.material.span3
+      .image
+        =link_to image_tag(material.material_url), material.material_url, class: 'thumbnail'
+      -if material.owner == current_user
+        .action
+          =link_to tu_lesson_material_path(lesson, material), method: 'delete', data: {confirm: t('lesson_material.confirm_to_delete')} do
+            %i.icon-remove
+            =t('common.delete')

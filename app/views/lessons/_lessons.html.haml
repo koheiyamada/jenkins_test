@@ -1,0 +1,22 @@
+%table.table.lesson-list
+  %thead
+    %tr
+      %th=t("common.datetime")
+      %th=t("common.tutor")
+      %th=t("common.students")
+      %th=t("common.lesson_type")
+      %th=Lesson.human_attribute_name :status
+      %th
+  %tbody
+    -lessons.each do |lesson|
+      %tr.lesson{class:lesson.cancelled? ? "lesson-cancelled" : ""}
+        %td=render "lessons/time_range", lesson:lesson
+        %td=user_display_name(lesson.tutor) if lesson.tutor
+        %td
+          %ul
+            -lesson.students.each do |student|
+              %li=user_display_name student
+        %td=lesson_type(lesson)
+        %td=lesson_status(lesson)
+        %td.actions
+          =yield lesson

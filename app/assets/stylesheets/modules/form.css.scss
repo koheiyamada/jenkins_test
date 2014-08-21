@@ -1,0 +1,123 @@
+@import 'base';
+
+form {
+  .full_name_kana, .full_name {
+    label {
+      display:inline-block;
+      text-align: right;
+    }
+  }
+
+  .table {
+    th {
+      font-weight: normal;
+    }
+  }
+  
+  th {
+    background-color: $aid-gray3;
+    font-weight: normal;
+
+    label {
+      font-weight: normal;
+    }
+
+    .required {
+      &:after {
+        content: '※';
+        color: $aid-red;
+      }
+    }
+  }
+
+  .help {
+    font-size: 80%;
+    color: #666;
+  }
+
+  .help-id {
+    font-size: 80%;
+    color: #666;
+    white-space: nowrap;
+  }
+
+  .select_credit {
+    padding-left: 210px;
+    float: left;
+  }
+
+  .select_yucho {
+    padding-left: 60px;
+    float: left;
+  }
+
+  .required {
+    &:after {
+      content: '※';
+      color: $aid-red;
+    }
+  }
+
+  .time-zone {
+    margin-left: 6px;
+  }
+}
+
+table.fullname-form {
+  td {
+    padding: 0;
+    margin: 0;
+    padding-left: 10px;
+    border: 0;
+    vertical-align: middle;
+    &:first-child {
+      padding-left: 0;
+    }
+
+    &:nth-child(odd) {
+      text-align: right;
+    }
+  }
+}
+
+.about-form {
+  color: $aid-red;
+}
+
+.field {
+  &.address {
+    >input[type="text"] {
+      margin:0;
+    }
+  }
+  &.full_name {
+    >label {
+      display:inline;
+    }
+  }
+}
+
+.group-lesson-search-box {
+  border: 1px solid #ccc;
+  padding: 10px;
+  >div {
+    display: inline-block;
+  }
+}
+
+#sex_male, #sex_famale {
+  width:3em;
+  float:left;
+}
+
+.table.table.yucho_account {
+  td {
+    padding-left: 247px;
+  }
+}
+
+.table.table.membership-application {
+    td {
+    padding-left: 280px;
+  }
+}

@@ -1,0 +1,18 @@
+=content_for :subheader do
+  =render 'breadcrumbs'
+
+%h1=title t('titles.lessons')
+=render 'basic_lesson_infos/basic_lesson_info', basic_lesson_info:@basic_lesson_info
+
+-if @lessons.empty?
+  =t('common.not_found')
+-else
+  =form_tag url_for(action: :cancel_selected) do
+    =render layout:'basic_lessons/basic_lessons', locals:{lessons: @lessons, checkbox: true} do |lesson|
+      =render 'index_item_actions', lesson: lesson
+    =submit_tag t('basic_lesson_info.messages.cancel_selected_lessons'),
+      class: 'btn btn-mini',
+      data: {confirm: t('basic_lesson_info.messages.confirm_to_cancel')}
+  =paginate(@lessons)
+
+=render 'index_actions'

@@ -1,0 +1,12 @@
+/This must be empty
+-#%ul.breadcrumb
+-#  %li
+-#    =link_to_unless_current t("titles.basic_lesson_infos"), bs_basic_lesson_infos_path
+-#  -if @basic_lesson_info
+-#    %li
+-#      %span.divider >
+-#      =link_to_unless_current t("titles.basic_lesson_info"), bs_basic_lesson_info_path(@basic_lesson_info)
+-#    -if @lessons
+-#      %li
+-#        %span.divider >
+-#        =t("titles.lessons")

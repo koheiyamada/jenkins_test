@@ -1,0 +1,28 @@
+=content_for :subheader do
+  =render 'breadcrumbs'
+
+%h1=title t('titles.optional_lesson_reservation')
+
+=render 'application/validation_errors', model:@optional_lesson
+
+%table.table.lesson-type-select
+  %tbody
+    %tr
+      %td
+        %i.icon-user
+      %td
+        =link_to t('lesson.new_single_lesson'), hq_optional_lessons_path(type: :single), method:'post', class:'btn'
+    %tr
+      %td
+        %i.icon-user
+        %i.icon-user
+      %td
+        =link_to t('lesson.new_friends_lesson'), hq_optional_lessons_path(type: :friends), method:'post', class:'btn'
+    %tr
+      %td
+        %i.icon-user
+        %span.divider
+          |
+        %i.icon-user
+      %td
+        =link_to t('lesson.new_shared_lesson'), hq_optional_lessons_path(type: :shared), method:'post', class:'btn'

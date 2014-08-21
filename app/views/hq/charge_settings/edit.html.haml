@@ -1,0 +1,10 @@
+%h1=title t('title.edit_charge_setting')
+
+=render 'application/validation_errors', model:@charge_setting
+
+=form_for [:hq, @charge_setting] do |f|
+  %table.table
+    %th=@charge_setting.display_name
+    %td=f.number_field :amount, class:'input-small'
+  .buttons
+    =f.submit class: 'btn'

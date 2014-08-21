@@ -1,0 +1,24 @@
+%article.registration-form.confirmation2
+  %h1 ご確認事項（一般会員登録手数料【入会金】）
+
+  -if @checkbox_validate
+    .alert.alert-error
+      %button.close(type="button" data-dismiss="alert") &times;
+      %ul
+        %li ご確認事項に同意してください。
+
+  %p 
+    一般会員に移行されます場合、一般会員登録手数料としまして、
+    %br
+    入会金20,000円が必要となります。
+    %br
+    なお、各種キャンペーン（入会金半額等）を実施している期間中にご登録いただけた場合は、
+    %br
+    キャンペーン価格を適用させていただきますので、ご安心ください。
+  -# TODO: バリデートに失敗したときの処理を追加、 ボタンの文字列をcommon.continue_registrationに変える
+  =form_tag process_entry_fee_confirmation_st_payments_path do
+    =label_tag :agreement, class:"checkbox" do
+      =check_box_tag :agreement
+      ='了承しました'
+    .form-action.buttons
+      =submit_tag '一般会員登録を行う', class: 'btn btn-primary'

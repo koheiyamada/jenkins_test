@@ -1,0 +1,23 @@
+%table.table
+  %tr
+    %th=t('common.bank_name')
+    %td=t('common.mitsubishi_tokyo_ufj')
+  %tr
+    %th=MitsubishiTokyoUfjAccount.human_attribute_name :branch_name
+    %td=@bank_account.branch_name
+  %tr
+    %th=MitsubishiTokyoUfjAccount.human_attribute_name :branch_code
+    %td=@bank_account.branch_code
+  %tr
+    %th=MitsubishiTokyoUfjAccount.human_attribute_name :account_type
+    %td=account_type @bank_account
+  %tr
+    %th=MitsubishiTokyoUfjAccount.human_attribute_name :account_number
+    %td=@bank_account.account_number
+  %tr
+    %th=t('common.account_holder_name')
+    %td
+      .account_holder_name
+        =@bank_account.account_holder_name
+      .account_holder_name_kan
+        =@bank_account.account_holder_name_kana

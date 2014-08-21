@@ -1,0 +1,7 @@
+%h1=title t('titles.monthly_statement_calculations')
+
+-if @monthly_statement_calculations.empty?
+  =t('common.not_found')
+-else
+  =render 'monthly_statement_calculations', monthly_statement_calculations: @monthly_statement_calculations
+  =paginate @monthly_statement_calculations

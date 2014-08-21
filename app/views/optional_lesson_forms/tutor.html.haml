@@ -1,0 +1,22 @@
+%h1=title t('titles.new_optional_lesson')
+
+=render 'lesson', lesson:@optional_lesson
+
+%h2=t("common.tutor_selection")
+
+=render 'application/validation_errors', model:@optional_lesson
+
+.pagination-centered
+  =render 'tutors/search_for_optional_lesson', regular_only: @optional_lesson.multi_student_lesson?
+
+-if @tutors.blank?
+  =t('common.not_found')
+-else
+  =render layout: 'tutors/tutors', locals: {tutors: @tutors} do |tutor|
+    =link_to t('common.select'), wizard_path(nil, tutor_id:tutor.id), method: :put, class: 'btn btn-small btn-primary'
+  =paginate @tutors
+
+.buttons
+  =img_link_to 'common.cancel', {action: :cancel}, method: :post, data: {confirm: t("optional_lesson.confirm_to_cancel_request")}
+  -unless @optional_lesson.full?
+    =link_to t('lesson.add_another_student'), wizard_path(:student), class: 'btn'

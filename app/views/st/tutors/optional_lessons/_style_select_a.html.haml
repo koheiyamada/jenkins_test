@@ -1,0 +1,25 @@
+-if @free_for_special_tutor_flg == true
+  =render 'style_select_none'
+  %p.message.alert
+    =t('lesson.message.cannot_take_special_tutor_lesson')
+  %p.message.alert
+    =t('lesson.message.explanation_about_free_user')
+-elsif current_user.free?
+  =render 'style_select_only_single'
+  %p.message.alert
+    =t('lesson.message.explanation_about_free_user')
+  -if current_user.all_free_lesson_taken
+    %p.message.alert
+      =t('messages.free_limit_over', :num => @free_lesson_limit_number).html_safe
+-elsif @tutor.beginner?
+  =render 'style_select_only_single'
+  %p.message.alert
+    =t('lesson.message.single_lesson_only_because_beginner_tutor')
+-elsif !@tutor.undertake_group_lesson?
+  =render 'style_select_only_single'
+  %p.message.alert
+    =t('messages.tutor_only_undertake_single_lesson')
+-else
+  =render 'style_select_all'
+  %p.message.alert
+    =t('lesson.message.warning_about_friend_lesson')

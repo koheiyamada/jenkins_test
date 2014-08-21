@@ -1,0 +1,9 @@
+-if current_user.organization && current_user.organization.is_a?(Bs)
+  .recipients-select
+    %h4
+      %i.icon-user
+      =t('common.coach')
+    .all
+      =label_tag "recipients[my_bs]", class:"checkbox" do
+        =check_box_tag "recipients[my_bs]"
+        =t('common.coach')

@@ -1,0 +1,7 @@
+-if client.nil?
+  =t('common.not_found')
+-else
+  %table.table
+    %tr
+      %td=user_display_name client
+      %td=user_type client

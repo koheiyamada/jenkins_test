@@ -1,0 +1,12 @@
+=content_for :subheader do
+  =render 'breadcrumbs'
+
+%h1=title t('titles.bank_account')
+
+
+=render @bank_account.class.name.underscore
+
+.buttons
+  =link_to edit_hq_tutor_bank_account_path(@tutor), class: 'btn' do
+    %i.icon-edit
+    =t('common.edit')

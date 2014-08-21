@@ -1,0 +1,13 @@
+=content_for :subheader do
+  =render "breadcrumbs"
+
+%h1=title t("titles.stop_basic_lesson")
+
+=render "menu"
+
+=render "application/validation_errors", model:@basic_lesson_info
+=form_for @basic_lesson_info, url:{} do |f|
+  =select_year Date.today, {start_year:Date.today.year, end_year:Date.today.year + 1}, class:"input-small"
+  =select_month Date.today, {}, class:"input-small"
+  .form-actions.buttons
+    =img_submit "common.send"

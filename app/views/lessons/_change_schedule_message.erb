@@ -1,0 +1,23 @@
+■時間
+<%= render "lessons/time_range.text", lesson:@lesson %>
+
+■チューター
+<%= @lesson.tutor.nickname %>
+
+■生徒
+<% @lesson.students.each do |student| %>
+<%= student.nickname %>
+<% end %>
+
+■URL
+<%- if current_user.organization.is_a?(Bs) -%>
+<%= bs_lesson_url(@lesson) %>
+<%- elsif current_user.organization.is_a?(Headquarter) -%>
+<%= hq_lesson_url(@lesson) %>
+<% end %>
+
+■変更希望日時
+
+1: <%= l(@lesson.start_time.to_date, :format => :month_day2) %>　時　分
+2: <%= l(@lesson.start_time.to_date.next_day, :format => :month_day2) %>　時　分
+3: <%= l(@lesson.start_time.to_date.next_day(2), :format => :month_day2) %>　時　分

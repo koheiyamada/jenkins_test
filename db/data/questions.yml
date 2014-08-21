@@ -1,0 +1,42 @@
+- :code: how_to_find
+  :title: "エイドネットを知ったきっかけ"
+  :answer_options:
+    - :code: web_site
+    - :code: search_engine_yahoo
+    - :code: search_engine_google
+    - :code: search_engine_other
+    - :code: poster_public_transport
+    - :code: poster_public_facilities
+    - :code: poster_stores
+    - :code: poster_other
+    - :code: flyer_newspaper
+    - :code: flyer_town_magazine
+    - :code: flyer_free_paper
+    - :code: flyer_handover
+    - :code: flyer_other
+    - :code: acquaintance
+    - :code: mass_media_tv
+    - :code: mass_media_radio
+    - :code: mass_media_newspaper
+    - :code: mass_media_other
+    - :code: dm
+- :code: reason_to_enroll
+  :title: "入会理由"
+  :answer_options:
+    - :code: attractive_tutors
+    - :code: available_at_home
+    - :code: inexpensive
+    - :code: document_cameras
+    - :code: college_of_tutors
+    - :code: acquaintance
+    - :code: time_flexibility
+    - :code: coarch_system
+    - :code: free_lesson
+    - :code: free_user
+    - :code: other
+- :code: has_web_camera
+  :title: "Ｗｅｂカメラの有無"
+  :answer_options:
+    - :code: built_in
+    - :code: separate
+    - :code: none

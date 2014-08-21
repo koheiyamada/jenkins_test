@@ -1,0 +1,15 @@
+-if @student == current_user
+  %h1=title t('titles.my_profile')
+-else
+  %h1=title t('titles.profile')
+.buttons_left
+  /無料会員かつ20歳以上の受講者、かつ自分自身のプロフィールの場合一般会員登録ボタン表示
+  -if @student.customer_type == "free" && @student.independent? && @student == current_user
+    =link_to "一般会員登録", {:controller => "payments", :action => "entry_fee_confirmation", :id => current_user.id }, class: 'btn btn-aid-primary'
+  -elsif @student.customer_type == "request_to_premium"
+    =link_to "一般会員登録移行申請中", "#", class: 'btn btn-aid-primary', disabled: true
+  =img_link_to 'common.edit', edit_st_profile_path
+  =link_to t('titles.change_password'), {action: 'change_password'}, class: 'btn'
+  -if @student.independent?
+    =img_link_to 'common.leave_from_aid', new_st_membership_cancellation_path
+=render 'students/student', student:current_user

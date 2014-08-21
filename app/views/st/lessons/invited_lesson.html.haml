@@ -1,0 +1,13 @@
+=content_for :subheader do
+  =render "breadcrumbs"
+
+%h1=title "#{t('titles.lesson')}: #{@lesson.name}"
+
+=render "lessons/lesson", lesson:@lesson
+
+.buttons
+  -if @lesson.going_to_be_held?
+    =img_link_to "lesson.accept_invitation", accept_invitation_st_lesson_path(@lesson), method:"post", data:{confirm:t("messages.confirm")}
+    =img_link_to "lesson.reject_invitation", reject_invitation_st_lesson_path(@lesson), method:"post", data:{confirm:t("messages.confirm")}
+  -else
+    .message=t('lesson.message.cannot_accept_this_invitation')

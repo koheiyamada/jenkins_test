@@ -1,0 +1,15 @@
+%table.table.messages
+  %thead
+    %tr
+      %th=Message.human_attribute_name(:created_at)
+      %th=Message.human_attribute_name(:sender)
+      %th=Message.human_attribute_name(:title)
+      %th
+  %tbody
+    -@messages.each do |message|
+      %tr
+        %td=l(message.created_at, :format => :message)
+        %td=user_display_name_with_role(message.sender)
+        %td=truncate message.title, length: 20
+        %td.actions
+          =yield message

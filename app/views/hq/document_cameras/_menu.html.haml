@@ -1,0 +1,5 @@
+.button-menu
+  -if @day
+    =link_to file_hq_document_cameras_path(year:@year, month:@month, day:@day, format:'csv'), class: 'btn btn-small' do
+      %i.icon-download-alt
+      =t('common.download_csv')

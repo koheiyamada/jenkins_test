@@ -1,0 +1,18 @@
+%table.table.bs_list
+  %thead
+    %tr
+      %th=Bs.human_attribute_name(:name)
+      %th=Bs.human_attribute_name(:email)
+      %th=Bs.human_attribute_name(:phone_number)
+      %th=Bs.human_attribute_name(:address)
+      %th
+  %tbody
+    -bs_list.each do |bs|
+      %tr
+        %td.name=bs.name
+        %td.email=bs.email
+        %td.phone_number=bs.phone_number
+        %td.address=render "addresses/address", address:bs.address if bs.address
+        %td
+          =img_link_to "common.detail", hq_bs_path(bs), class:"small"
+          =img_link_to "common.send_message", new_hq_my_message_path(bs_id:bs.id), class:"small"

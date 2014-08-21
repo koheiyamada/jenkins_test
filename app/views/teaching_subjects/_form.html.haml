@@ -1,0 +1,21 @@
+=form_tag url_for(action: :index), method: :put, class: 'teaching_subjects' do
+  %table.table.teaching-subject-list
+    %tbody
+      -@grade_groups.each do |grade_group|
+        %tr
+          %td=grade_group.name
+          %td
+            %ul.subjects
+              -grade_group.subjects.each do |subject|
+                %li.subject
+                  %span.fields
+                    %span.name=subject.name
+                    %span.levels
+                      -subject.levels.each do |subject_level|
+                        =label_tag nil, class: 'checkbox inline' do
+                          =check_box_tag "subject_levels[]", subject_level.id, @tutor.subject_levels.include?(subject_level)
+                          =subject_level_name subject_level
+                    %span.select-all.btn.btn-small=t('teaching_subject.select_all')
+                    %span.unselect-all.btn.btn-small=t('teaching_subject.unselect_all')
+  .form-actions.buttons
+    =submit_tag t('common.update'), class: 'btn'

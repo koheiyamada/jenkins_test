@@ -1,0 +1,148 @@
+-regular_only = false unless defined?(regular_only)
+
+.tutor-search
+  =form_tag nil, method: :get, class: 'form-search' do
+    %table.search-box-pane
+      %tr
+        %td
+          .tutor
+            =text_field_tag :q, params[:q], :placeholder => t('common.search'), class:'search-query input-xlarge'
+            =img_submit 'common.search'
+            =img_link_to 'common.clear', '#clear'
+
+    %table
+      %tr
+        %td
+          %span.sex.radio-button-group
+            =label_tag :sex_male, class: 'radio' do
+              =radio_button_tag :sex, 'male', params[:sex] == 'male'
+              =t('common.male')
+            =label_tag :sex_female, class: 'radio' do
+              =radio_button_tag :sex, 'female', params[:sex] == 'female'
+              =t('common.female')
+          %span.graduated.radio-button-group
+            =label_tag :graduated_false, class: 'radio' do
+              =radio_button_tag :graduated, false, params[:graduated] == 'false'
+              =t('common.not_graduated')
+            =label_tag :graduated_true, class: 'radio' do
+              =radio_button_tag :graduated, true, params[:graduated] == 'true'
+              =t('common.graduated')
+          %span.group-lesson.radio-button-group
+            =label_tag :undertake_group_lesson, class:'checkbox' do
+              =check_box_tag :undertake_group_lesson, '1', params[:undertake_group_lesson]
+              =t('tutor.undertake_group_lesson')
+      %tr
+        %td.tutor-type-select
+          %span.regular.radio-button-group
+            =label_tag :tutor_type_beginner, class: 'radio' do
+              =radio_button_tag :tutor_type, 'beginner', params[:tutor_type] == 'beginner', disabled: regular_only
+              =t('tutor.types.beginner')
+            =label_tag :tutor_type_regular, class: 'radio' do
+              =radio_button_tag :tutor_type, 'regular', params[:tutor_type] == 'regular'
+              =t('tutor.types.regular')
+            =label_tag :tutor_type_special, class: 'radio' do
+              =radio_button_tag :tutor_type, 'special', params[:tutor_type] == 'special'
+              =t('tutor.types.special')
+
+    =field_set_tag do
+      %table.grade_subject_level_fields
+        %tr
+          %td
+            .grade
+              =t('tutor_search.grade')
+              %br/
+              =select_tag :grade,
+                options_from_collection_for_select(Grade.order_by_grade, :id, :name, params[:grade]), prompt: '-', class: 'input-medium'
+            .subject
+              -grade = params[:grade].present? ? Grade.find(params[:grade]) : nil
+              -subjects = grade ? grade.subjects : []
+              =t('tutor_search.subject')
+              %br/
+              =select_tag :subject_id, options_from_collection_for_select(subjects, :id, :name, params[:subject_id]), :prompt => '-', :class => 'input-medium'
+            .level
+              -subject = params[:subject_id].present? ? Subject.find(params[:subject_id]) : nil
+              -levels = subject ? subject.levels.select{|level| level.level > 0} : []
+              =t('tutor_search.level')
+              %br/
+              =select_tag :level, options_from_collection_for_select(levels, :level, :name, params[:level]), :prompt => '-', :class => 'input-medium'
+
+    =field_set_tag do
+      %table.weekday_schedule
+        %tr
+          %td
+            =t('tutor_search.wday')
+            -#=label_tag "wday_none", class: 'radio' do
+            -#  =radio_button_tag :wday, 'none', params[:wday] == 'none' || params[:wday].blank?
+            -#  =t('tutor_search.not_selected')
+            -t('date.abbr_day_names').each_with_index do |name, wday|
+              =label_tag "wdays_#{wday}", class: 'checkbox' do
+                =check_box_tag "wdays[#{wday}]", '1', params[:wdays] && params[:wdays][wday.to_s]
+                =name
+        %tr
+          %td
+            %span
+              =select_time(@tutor_search && @tutor_search.start_time,
+                           {minute_step: 15, prompt: {hour: t('tutor_search.hour'), minute: t('tutor_search.minute')}, prefix: 'start_time'},
+                           class: 'input-small')
+            %span=t('tutor_search.start_time')
+        %tr
+          %td
+            %span
+              =select_time(@tutor_search && @tutor_search.end_time,
+                           {minute_step: 15, prompt: {hour: t('tutor_search.hour'), minute: t('tutor_search.minute')}, prefix: 'end_time'},
+                           class: 'input-small')
+            %span=t('tutor_search.end_time')
+
+    %table
+      %tr
+        %td
+          .lesson-fee
+            =number_field_tag :min_lesson_fee, params[:min_lesson_fee], placeholder: t('tutor_search.min_lesson_fee'), class: 'input-medium'
+            %br/
+            =number_field_tag :max_lesson_fee, params[:max_lesson_fee], placeholder: t('tutor_search.max_lesson_fee'), class: 'input-medium'
+
+          .college
+            =text_field_tag :college, params[:college], placeholder: t('tutor_search.college'), class: 'input-medium'
+            %br/
+            =text_field_tag :department, params[:department], placeholder: t('tutor_search.department'), class: 'input-medium'
+
+          .graduate_college
+            =text_field_tag :graduate_college, params[:graduate_college], placeholder: t('tutor_search.graduate_college'), class: 'input-medium'
+            %br/
+            =text_field_tag :major, params[:major], placeholder: t('tutor_search.major'), class: 'input-medium'
+
+    =field_set_tag do
+      %table
+        %tr
+          -(0..2).each do |i|
+            -key = params[:sort_key] && params[:sort_key][i.to_s]
+            %td.sort
+              .key
+                -if current_user.hq_user? || current_user.tutor?
+                  =select_tag "sort_key[#{i}][key]", options_for_select(TutorSearch.full_sort_keys, key && key[:key]), prompt: '-', class: 'input-medium', index: i
+                -else
+                  =select_tag "sort_key[#{i}][key]", options_for_select(TutorSearch.sort_keys, key && key[:key]), prompt: '-', class: 'input-medium', index: i
+              .order
+                =label_tag "sort_key_#{i}_order_asc", class: 'radio' do
+                  =radio_button_tag "sort_key[#{i}][order]", 'asc', key && key[:order] == 'asc'
+                  =t('tutor_search.sort_orders.asc')
+                =label_tag "sort_key_#{i}_order_desc", class: 'radio' do
+                  =radio_button_tag "sort_key[#{i}][order]", 'desc', key && key[:order] == 'desc'
+                  =t('tutor_search.sort_orders.desc')
+    .pagination-centered
+      =img_submit 'common.search'
+
+    -if @tutor_search
+      .tutor-search-result-stat.pagination-centered.alert.alert-info
+        %span.hits
+          =t('tutor_search.hit_count')
+          =@tutor_search.total_count
+        \/
+        %span.total-tutor-count
+          =t('tutor_search.total_tutor_count')
+          =Tutor.only_active.count
+    -else
+      .tutor-search-result-stat.pagination-centered.alert.alert-info
+        %span.total-tutor-count
+          =t('tutor_search.total_tutor_count')
+          =Tutor.only_active.count

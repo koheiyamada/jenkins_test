@@ -1,0 +1,27 @@
+%h1=title t("titles.lesson_time_settings")
+
+.menu
+  =img_link_to_unless_current "titles.available_time_ranges", tu_settings_weekday_schedules_path
+  =img_link_to_unless_current "titles.unavailable_days", tu_settings_unavailable_days_path
+  /=img_link_to_unless_current "titles.available_times", tu_available_times_path
+
+=bootstrap_flash
+
+%section
+  %h2=t('titles.unavailable_days')
+  -if @unavailable_days.blank?
+    =t('common.not_found')
+  -else
+    .unavailable-days
+      -@unavailable_days.each do |day|
+        .unavailable-day
+          =l(day.date, :format => :unavailable_day)
+          .delete-button
+            =link_to raw("&times;"), tu_settings_unavailable_day_path(day), method:"delete", data:{confirm:t("common.confirm_to_delete")}
+
+%section
+  %h2=t('titles.new_unavailable_day')
+  =form_tag tu_settings_unavailable_days_path, class:"new_unavailable_day" do
+    =render "application/validation_errors", model:@unavailable_day if @unavailable_day
+    =hidden_field_tag :date
+    .date_picker

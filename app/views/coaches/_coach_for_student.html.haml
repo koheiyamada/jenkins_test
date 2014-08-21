@@ -1,0 +1,19 @@
+%table.table.coach.coach-detail
+  %tr
+    %th=Bs.human_attribute_name :name
+    %td=coach.organization.name
+  %tr.photo
+    %th=Coach.human_attribute_name :photo
+    %td=user_image coach, width: 64
+  %tr
+    %th=Coach.human_attribute_name :full_name_kana
+    %td=coach.full_name_kana
+  %tr
+    %th=Coach.human_attribute_name :full_name
+    %td=coach.full_name
+  %tr
+    %th=Coach.human_attribute_name(:address)
+    %td=render 'addresses/address_censored', address:coach.address if coach.address.present?
+  %tr
+    %th=Coach.human_attribute_name :sex
+    %td=sex(coach)

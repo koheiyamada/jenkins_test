@@ -1,0 +1,22 @@
+-lesson = cs_sheet.lesson
+.cs_sheet.cs_sheet-detail
+  %table.table.lesson
+    %tr
+      %th=t("common.tutor")
+      %td=user_display_name lesson.tutor
+    %tr
+      %th=t("common.time")
+      %td=year_date_and_time_range cs_sheet
+    %tr
+      %th=CsSheet.human_attribute_name :score
+      %td.score=cs_sheet_score(cs_sheet.score)
+    -if cs_sheet.low_score?
+      %tr
+        %th=CsSheet.human_attribute_name :reason_for_low_score
+        %td.score=t("messages.cs_sheet_reason_#{cs_sheet.reason_for_low_score}")
+    %tr
+      %th=CsSheet.human_attribute_name :handout
+      %td=yes_no(cs_sheet.handout)
+    %tr
+      %th=CsSheet.human_attribute_name :quiz
+      %td=yes_no(cs_sheet.quiz)

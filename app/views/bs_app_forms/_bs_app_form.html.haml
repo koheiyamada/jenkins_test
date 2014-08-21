@@ -1,0 +1,75 @@
+%table.table.bs-app-form
+  %tr
+    %th=BsAppForm.human_attribute_name(:corporate_name)
+    %td=bs_app_form.corporate_name
+  %tr
+    %th=BsAppForm.human_attribute_name :representative_name
+    %td
+      .full_name=full_name(bs_app_form)
+      .full_name_kana=full_name_kana(bs_app_form)
+  %tr
+    %th=BsAppForm.human_attribute_name :representative_birthday
+    %td=bs_app_form.representative_birthday
+  %tr
+    %th=BsAppForm.human_attribute_name :representative_sex
+    %td=t("common.#{bs_app_form.representative_sex}")
+  %tr
+    %th=t("common.address")
+    %td=render "addresses/address", address:bs_app_form.address if bs_app_form.address
+  -#%tr
+  -#  %th=t("common.phone_number")
+  -#  %td=bs_app_form.phone_number
+  %tr
+    %th=BsAppForm.human_attribute_name :email
+    %td=bs_app_form.email
+  %tr
+    %th=BsAppForm.human_attribute_name :birth_place
+    %td=bs_app_form.birth_place
+  %tr
+    %th=BsAppForm.human_attribute_name :high_school
+    %td=bs_app_form.high_school
+  %tr
+    %th=BsAppForm.human_attribute_name :college
+    %td
+      =bs_app_form.college
+      =bs_app_form.department
+  %tr
+    %th=BsAppForm.human_attribute_name :graduate_college
+    %td
+      =bs_app_form.graduate_college
+      =bs_app_form.major
+  %tr
+    %th=BsAppForm.human_attribute_name :job_history
+    %td=simple_format bs_app_form.job_history
+  %tr
+    %th=BsAppForm.human_attribute_name :reason_for_applying
+    %td=simple_format bs_app_form.reason_for_applying
+
+  -# 免許証番号またはパスポート
+  =render 'shared/driver_license_number_or_passport_number', form: bs_app_form
+
+  =render 'specs/rows', spec: bs_app_form
+
+  %tr
+    %th=BsAppForm.human_attribute_name :has_web_camera
+    %td=form_has_web_camera bs_app_form
+
+  =render 'shared/pc_model_number', form: bs_app_form
+
+  -#%tr
+  -#  %th=BsAppForm.human_attribute_name :use_document_camera
+  -#  %td=yes_no(bs_app_form.use_document_camera)
+  =render 'questions/how_to_find_row', answer: bs_app_form.answers.to_question(:how_to_find).first
+  =render 'questions/reason_to_enroll_row', answers: bs_app_form.answers.to_question(:reason_to_enroll)
+
+  %tr
+    %th=BsAppForm.human_attribute_name :preferred_areas
+    %td=simple_format bs_app_form.preferred_areas
+
+  %tr
+    %th=BsAppForm.human_attribute_name :interview_datetimes
+    %td
+      %ul
+        %li=l(bs_app_form.interview_datetime_1, :format => :promise) if bs_app_form.interview_datetime_1
+        %li=l(bs_app_form.interview_datetime_2, :format => :promise) if bs_app_form.interview_datetime_2
+        %li=l(bs_app_form.interview_datetime_3, :format => :promise) if bs_app_form.interview_datetime_3

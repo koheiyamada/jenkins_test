@@ -1,0 +1,7 @@
+%h1=title t("titles.lesson_reports_of_student", student:@student.full_name)
+
+-if @lesson_reports.blank?
+  =t('common.not_found')
+-else
+  =render layout:"lesson_reports/lesson_reports", locals:{lesson_reports:@lesson_reports} do |lesson_report|
+    =img_link_to "common.detail", bs_lesson_report_path(lesson_report), class:"small"

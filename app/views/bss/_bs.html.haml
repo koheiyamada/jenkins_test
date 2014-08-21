@@ -1,0 +1,26 @@
+%table.table.bs.bs-detail{class:bs.active? ? "" : "is-inactive"}
+  %tr.name
+    %th=Bs.human_attribute_name :name
+    %td=bs.name
+  %tr.email
+    %th=Bs.human_attribute_name :email
+    %td=bs.email
+  %tr.phone_number
+    %th=Bs.human_attribute_name :phone_number
+    %td=bs.phone_number
+  %tr.address
+    %th=Bs.human_attribute_name :address
+    %td=render "addresses/address", address:bs.address if bs.address
+  %tr.representative
+    %th=Bs.human_attribute_name :representative
+    %td=bs.representative.full_name if bs.representative
+  %tr.area_code
+    %th=Bs.human_attribute_name :area_code
+    %td=bs.area_code
+  -if current_user.admin?
+    %tr.students
+      %th=Bs.human_attribute_name :students_count
+      %td=bs.students.count
+    %tr.created_at
+      %th=Bs.human_attribute_name :created_at
+      %td=l(bs.created_at.to_date)

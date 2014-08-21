@@ -1,0 +1,5 @@
+%ul.breadcrumb
+  %li
+    =link_to_unless_current t("titles.bs_list"), hq_bss_path
+  =breadcrumb_item bs_name(@bs), hq_bs_path(@bs)
+  =breadcrumb_item t('titles.students'), hq_bs_students_path(@bs)

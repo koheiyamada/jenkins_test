@@ -1,0 +1,8 @@
+%table.table.tutors
+  %thead
+    %tr
+      %th=Tutor.human_attribute_name :nickname
+  %tbody
+    -tutors.each do |tutor|
+      %tr
+        %td=user_display_name tutor

@@ -1,0 +1,16 @@
+%table.table.hq_users
+  %thead
+    %tr
+      %th=HqUser.human_attribute_name :user_name
+      %th=HqUser.human_attribute_name :full_name
+      %th=t('common.admin')
+      %th
+  %tbody
+    -hq_users.each do |hq_user|
+      %tr
+        %td=hq_user.user_name
+        %td=hq_user.full_name
+        %td
+          -if hq_user.admin?
+            .label=t('common.admin')
+        %td=img_link_to "common.detail", hq_hq_user_path(hq_user), class:"small"

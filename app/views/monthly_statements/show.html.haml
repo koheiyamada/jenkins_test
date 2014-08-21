@@ -1,0 +1,13 @@
+=content_for :subheader do
+  =render 'breadcrumbs'
+
+%h1=title t("titles.monthly_statement", month:l(@monthly_statement.date, :format => :month_year))
+
+=render 'menu'
+
+-if @monthly_statement.items.empty?
+  =t('common.not_found')
+-else
+  =render 'monthly_statement', monthly_statement:@monthly_statement
+
+=render 'show_actions'

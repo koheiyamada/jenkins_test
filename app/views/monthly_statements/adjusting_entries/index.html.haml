@@ -1,0 +1,51 @@
+=content_for :subheader do
+  =render 'breadcrumbs'
+
+%h1=title t('titles.adjusting_monthly_statement')
+
+%section
+  %h2=t('titles.monthly_statement', month:l(@monthly_statement.date, format: :month_year))
+  =render 'hq/monthly_statements/monthly_statement', monthly_statement:@monthly_statement
+
+%section
+  %h2=t('titles.adjusting_entries')
+  -if @adjusting_entries.empty?
+    .adjusting_entries
+      =t('common.not_found')
+  -else
+    %table.table.adjusting_entries
+      %thead
+        %tr
+          %th=t('common.billing')
+          %th=t('common.payment')
+          %th=t('common.note')
+          %th
+      %tbody
+        -@adjusting_entries.each do |adjusting_entry|
+          %tr
+            %td=number_to_currency adjusting_entry.amount_of_payment
+            %td=number_to_currency adjusting_entry.amount_of_money_received
+            %td=adjusting_entry.note
+            %td
+              =link_to({action:'show', id:adjusting_entry}, class:'btn btn-small', method:'delete', data:{confirm:t('messages.confirm_to_delete')}) do
+                %i.icon-remove
+                =t('common.delete')
+%section
+  %h2=t('titles.add_adjusting_entry')
+  .actions
+    =form_for Account::AdjustingEntry.new, url:{action:'create'} do |f|
+      %table.table
+        %thead
+          %tr
+            %th=t('common.billing')
+            %th=t('common.payment')
+            %th=t('common.note')
+            %th
+        %tr
+          %td=f.text_field :amount_of_payment, class: 'input-small'
+          %td=f.text_field :amount_of_money_received, class: 'input-small'
+          %td=f.text_field :note
+          %td
+            =button_tag class:'btn', data:{confirm: t('messages.confirm_to_add')} do
+              %i.icon-plus
+              =t('common.add')

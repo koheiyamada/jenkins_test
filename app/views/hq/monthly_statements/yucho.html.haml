@@ -1,0 +1,14 @@
+=content_for :subheader do
+  =render 'breadcrumbs'
+
+%h1=title t('yucho_account.list')
+
+%ul
+  %li
+    =link_to payments_hq_yucho_accounts_path(year: @year, month: @month), class: 'btn' do
+      %i.icon-chevron-right
+      =t('yucho_account.payments')
+  %li
+    =link_to receipts_hq_yucho_accounts_path(year: @year, month: @month), class: 'btn' do
+      %i.icon-chevron-right
+      =t('yucho_account.receipts')

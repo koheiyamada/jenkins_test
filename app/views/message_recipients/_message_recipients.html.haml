@@ -1,0 +1,24 @@
+%table.table.messages
+  %thead
+    %tr
+      %th=Message.human_attribute_name(:created_at)
+      %th 開封状況
+      %th=Message.human_attribute_name(:sender)
+      %th=Message.human_attribute_name(:title)
+      %th
+  %tbody
+    -message_recipients.each do |message_recipient|
+      -message = message_recipient.message
+      -if message.present?
+        %tr
+          %td=l(message.created_at, :format => :message)
+          -if message_recipient.is_read
+            %td.read
+              %div 既読
+          -else
+            %td.unread
+              %div 未読
+          %td=message_recipient.sender_name
+          %td=truncate message.title, length: 20
+          %td.actions
+            =yield message

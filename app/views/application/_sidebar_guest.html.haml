@@ -1,0 +1,10 @@
+%ul.sidebar
+  %li.section=render 'sidebar_section', text:t("common.users")
+  %li=sidebar_link t("menu.tutors"), gu_tutors_path
+
+  %li.section=render 'sidebar_section', text:t('titles.operation_check')
+  %li=sidebar_link t('titles.person_and_document_camera'), gu_web_camera_path
+
+  %li.section=render 'sidebar_section', text:t('titles.manuals')
+  %li=link_to t('titles.user_manual'), 'https://aidnet.jp/user-manual/', target: '_blank'
+  %li=link_to t('titles.trouble_manual'), 'https://aidnet.jp/trouble-manual/', target: '_blank'

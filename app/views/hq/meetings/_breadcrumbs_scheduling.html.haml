@@ -1,0 +1,5 @@
+%ul.breadcrumb
+  %li=link_to_unless_current t('titles.scheduling_meetings'), scheduling_hq_meetings_path
+  -if @meeting
+    -if @meeting.persisted?
+      =breadcrumb_item t('titles.meeting'), hq_meeting_path(@meeting)

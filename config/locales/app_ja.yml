@@ -1,0 +1,2132 @@
+ja:
+  common:
+    accounts: アカウント
+    add: 追加
+    address: 住所
+    address_format: '%{postal_code} %{address}'
+    address_format2: '%{postal_code} %{state} %{line1}%{line2}'
+    apply_entry: 申込
+    lessons: レッスン一覧
+    basic_lessons: ベーシックレッスン一覧
+    BasicLesson: ベーシックレッスン
+    birthday: "生年月日"
+    bs_app_form_status:
+      accepted: 済
+      discarded: 却下
+      new: 新規
+      rejected: 却下
+    cancel: キャンセル
+    datetime: 日時
+    delete: 削除
+    detail: 詳細
+    do_you_really_delete_this: 本当に削除しますか？
+    email: メール
+    email_address_pc: メールアドレス（PC）
+    empty: ありません
+    not_found: 見つかりません
+    full_name: 氏名
+    full_name_format: '%{last_name} %{first_name}'
+    go_to_top: トップに戻る
+    hometown_address: 帰省先住所
+    interviewer: 担当者
+    lesson_name: '%{subject}(%{time})'
+    lesson_style: レッスン形式
+    lesson_types:
+      BasicLesson: ベーシック
+      OptionalLesson: オプション
+      FriendsOptionalLesson: オプション
+      SharedOptionalLesson: オプション
+      TrialLesson: 体験
+      FreeOptionalLesson: 無料お試しレッスン
+      basic_lessons: ベーシックレッスン
+      optional_lessons: オプションレッスン
+    login: ログイン
+    name: 名前
+    new: 新しく作成する
+    optional_lessons: オプションレッスン一覧
+    OptionalLesson: オプションレッスン
+    phone_number: 電話番号
+    postal_code_sample: 例 123-4567(半角文字)
+    profile_of_x: '%{x}さんのプロフィール'
+    register_credit_card: "クレジットカード登録"
+    send_credit_info: "送信する"
+    registration: 登録
+    required: 必須
+    reserve: 予約する
+    search: 検索
+    search_by_postal_code: 郵便番号から検索
+    send: 送信
+    sign_in: サインイン
+    sign_out: サインアウト
+    skype_id: スカイプID
+    start_user_registration: "登録開始"
+    subject: 教科
+    submit: 提出
+    tutor: チューター
+    special_tutor: スペシャルチューター
+    weekday_schedules: 曜日ごとの指導時間設定
+    male: "男性"
+    female: "女性"
+    sex: "性別"
+    'yes': "はい"
+    'no': "いいえ"
+    yes_no_true: はい
+    yes_no_false: いいえ
+    charge_settings: "課金設定"
+    edit: "編集"
+    date: "日付"
+    time: "時刻"
+    interview: "面談"
+    terminate: "終了"
+    messages: "メッセージ"
+    lesson_schedule: "レッスン予定"
+    lesson_type: "種別"
+    back: "戻る"
+    change: "変更"
+    form_confirmation: "送信内容の確認"
+    sent_messages: "送信済み"
+    received_messages: "受信箱"
+    new_message: "新規メッセージ"
+    send_message: "メッセージ送信"
+    friend_id: "友人ID"
+    evaluation: "評価"
+    cs_sheet: "CSシート"
+    weekday: "曜日"
+    time_range: "時間帯"
+    confirm_to_delete: "削除しますか？"
+    units: "単位数"
+    lesson: "レッスン"
+    lesson_detail: "レッスン詳細"
+    misc: "その他"
+    favorite: "お気に入り"
+    students: "受講者"
+    accept: "引き受ける"
+    history: "履歴"
+    list: "一覧"
+    client: "依頼者"
+    open_lesson_room: "レッスン画面を開く"
+    cancel_lesson: "レッスンをキャンセルする"
+    files: "ファイル"
+    start: "スタート"
+    finish_lesson: "終了"
+    start_lesson: "レッスン開始"
+    whiteboard: "ホワイトボード"
+    document_camera: "ノートカメラ"
+    student: "受講者"
+    unreported_lessons: "レポート未記入"
+    id: "ID"
+    report: "レポート"
+    settings: "設定"
+    textbook: "テキスト"
+    current_address: "現住所"
+    headquarter: "本部"
+    bs: "BS"
+    favorite_tutor: "お気に入りチューター"
+    enter_as_tutor: "チューター視点閲覧"
+    enter_as_student: "受講者視点閲覧"
+    back_to_lesson_list: "レッスン一覧に戻る"
+    enter_lesson_room: "レッスン閲覧"
+    author: "作成者"
+    basic_lesson: "ベーシックレッスン"
+    optional_lesson: "オプションレッスン"
+    select: "選択"
+    new_basic_lesson_info: "ベーシックレッスン登録"
+    subject_selection: "科目の選択"
+    go_next: "次へ"
+    continue_registration: "一般会員登録を行う"
+    error: "エラー"
+    once_a_week: "週１回"
+    twice_a_week: "週２回"
+    start_time: "開始時刻"
+    grade: "学年"
+    tutor_selection: "チューター選択"
+    weekday_time_range_selection: "時間帯を選択"
+    confirmation: "確認"
+    wday_time_range: "時間帯"
+    group_lesson: "同時レッスン"
+    lesson_member_selection: "他の参加者を選択"
+    skip: "スキップ"
+    write_report: レポートを書く
+    read_report: レポートを見る
+    student_detail: "受講者情報"
+    lesson_student_selection: "受講者を選択"
+    tutor_schedule: "%{tutor}の%{time_range}の予定"
+    accountings: "会計"
+    examination: "模擬テスト"
+    all_bss: "全BS"
+    bs_representative_account: "BS代表者アカウント"
+    status: "状態"
+    bs_users: "教育コーチ一覧"
+    change_password: "パスワード変更"
+    switch_admin_right: "権限種別の変更"
+    not_set: "未指定"
+    breakdown: "内訳"
+    journal_entries: "支払・請求詳細"
+    month: "月"
+    amount: "料金"
+    original_question_sheet: "問題用紙原本"
+    undefined: 未設定
+    start_exam: "試験を開始する"
+    open: "開く"
+    go_to_prev_image: "前の画像へ"
+    go_to_next_image: "次の画像へ"
+    resume_exam: "試験を再開する"
+    enter_lesson_room_as_tutor: "チューターとして閲覧"
+    enter_lesson_room_as_x: "%{x}として閲覧"
+    leave_from_aid: "退会"
+    resign: "退会する"
+    bs_list: "BS一覧"
+    user: "アカウント情報"
+    contact: "お問い合わせ"
+    parent: "保護者"
+    applications: "申込"
+    left_from_aid: "退会済み"
+    back_to_aid: "復帰する"
+    all_subjects: "全教科"
+    my_subjects: "担当教科"
+    deselect: "解除"
+    stop: "停止"
+    change_schedule: "日程を変更する"
+    accept_extension: "延長を受ける"
+    enable_extension: "延長受付"
+    apply_extension: "延長を受ける"
+    tutor_id: "チューターID"
+    registered_tutor_name: "登録チューター名"
+    student_id: "受講者ID"
+    registered_student_name: "登録受講者氏名"
+    date_and_time_range: "%{date} %{from} 〜 %{to}"
+    hometown_address: "帰省先住所"
+    write_report: "レポートを書く"
+    read_report: "レポートを読む"
+    calculate: "計算する"
+    recalculate: "再計算する"
+    order_by_cs_points: "CSポイント順"
+    check_if_extendable: "延長可能か確認する"
+    update: "更新"
+    collage_grade: "回生"
+    only_if_not_graduated: "※現役の方のみ"
+    beginner: "仮"
+    upload: "アップロード"
+    inviting: "招待中"
+    lesson_material: "資料"
+    close: "閉じる"
+    back_to_lesson_page: "戻る"
+    refresh: "更新"
+    prev_month: "前月"
+    next_month: "次月"
+    yen: "円"
+    college_grade: "回生"
+    modify: "修正"
+    gmail_or_yahoo_mail: "GmailまたはYahooメール"
+    college_departent: "学部"
+    college: "大学"
+    major: "専攻"
+    graduate_college: "大学院"
+    high_school: "高校"
+    necessary: "必要"
+    retry: "やり直す"
+    prev_lesson_report: "前へ"
+    next_lesson_report: "次へ"
+    oldest_lesson_report: "一番古いレッスンレポート"
+    latest_lesson_report: "最新のレッスンレポート"
+    hobby: "趣味"
+    graduated: "既卒"
+    not_graduated: "現役"
+    nickname_or_hobby: "呼称・趣味"
+    clear: "クリア"
+    student_select: "受講者を選択"
+    reject: "断る"
+    order_by_cs_points_of_recent_lessons: "CSポイント順（最近のレッスンのみ）"
+    records: "帳票"
+    download_csv: "CSVをダウンロード"
+    hq_user: "本部スタッフ"
+    bs_user: "BSオーナー"
+    users: "ユーザ"
+    college_name: "大学名"
+    go_home: "ホームへ"
+    schedule_change: "日程変更"
+    schedule_cancel: "予定キャンセル"
+    current_time: "現在時刻"
+    elapsed_time: "経過時間"
+    self: "自分"
+    leave_room: "退室"
+    leave_lesson: "退出する"
+    job_count: "ジョブ数"
+    total: "合計"
+    coach: "教育コーチ"
+    unknown: "不明"
+    billing: "請求"
+    payment: "支払"
+    note: "備考"
+    adjust: "訂正"
+    less_than_20_year_old: "20歳未満"
+    twenties: "20代"
+    thirties: "30代"
+    more_than_40: "40歳以上"
+    day_user_left: "退会日"
+    reactivate_account: "アカウントを復帰する"
+    answer_book: "解答"
+    meeting: "面談"
+    register: "登録"
+    myself: "自分"
+    me: "自分"
+    admin: "管理者"
+    tax: "税"
+    yucho: "ゆうちょ銀行"
+    mitsubishi_tokyo_ufj: "三菱東京UFJ銀行"
+    account_number: "口座番号"
+    account_holder_name: "口座名義人"
+    kanji: "漢字"
+    kana: "かな"
+    kana2: "カナ"
+    bank_name: "銀行名"
+    kigo: "記号"
+    delete_user: "アカウントの削除"
+    start_time_hour: "時刻"
+    shared_lesson: "同時レッスン"
+    tutor_name: "チューター名"
+    basic_lesson_tutor_id: "ベーシック担当チューターID"
+    registered_tutor_full_name: "登録チューター氏名"
+    total_meeting_count: "累計面談回数"
+    special: "スペシャル"
+    please_wait: "しばらくお待ちください。"
+    file_output: "ファイル出力"
+    nickname: "呼称（ニックネーム）"
+    age: "年齢"
+    age_group: "年齢"
+    bytes_per_second: "１秒あたりのバイト数"
+    others: "その他"
+    lesson_fee: "レッスン料"
+    driver_license_number: "免許証番号"
+    passport_number: "パスポート番号"
+    driver_license_number_or_passport_number: "免許証番号またはパスポート番号"
+    pc_model_number: "使用する予定のパソコンメーカーと型番"
+    no_reason: "理由なし"
+    has_web_camera: "Ｗｅｂカメラの有無"
+    tutor_nickname: "チューター（呼称）"
+    existent: "有"
+    non_existent: "無"
+    year_month_day: "年月日"
+    version: "バージョン"
+    confirm: "確定"
+    subjects: "教科一覧"
+    select_file: "ファイルを選択"
+    email_confirmation: "メールアドレス（確認）"
+    line_speed: "回線速度"
+    file_not_found: "ファイルがありません。"
+    manuals: "マニュアル"
+    user_manual: "ユーザーマニュアル"
+    trouble_manual: "トラブルマニュアル"
+    unchangeable: "変更不可"
+    registration_complete: "登録完了"
+    request_complete: "お申し込み依頼完了"
+    reset: "リセット"
+  menu:
+    list: "一覧"
+    lessons: レッスン一覧
+    lesson_request: レッスン申込
+    lesson_reports: レッスンレポート
+    new_lesson_report: レポート作成
+    cs_sheets: CSシート一覧
+    profile: プロフィール
+    messages: メッセージ一覧
+    textbooks: テキスト参照
+    hq_accountants: 経理
+    hq_supports: サポート
+    hq_users: 一般
+    awards: 表彰
+    tutor_app_forms: チューターエントリー一覧
+    tutor_interviews: チューター面接
+    tutors: チューター一覧
+    bs_users: BS一覧
+    students: 受講者一覧
+    bs_app_forms: BSエントリー一覧
+    book: 支払
+    settings: システム設定
+    exams: 模擬テスト
+    edit: 編集
+    document_cameras: ノートカメラ送付先
+    lesson_reservation: レッスン予約
+    data_uploads: データアップロード
+    new_cs_sheet: CSシート作成
+    lesson_history: レッスン履歴
+    favorite_tutors: お気に入りチューター
+    handouts: 資料参照
+    interviews: 面談
+    charge_settings: "課金設定"
+    tutors_in_cs_order: "CSポイント順"
+    available_times: "レッスン時間設定"
+    parents: "保護者一覧"
+  titles:
+    accountants: 本部経理アカウント
+    favorite_tutors: お気に入りチューター一覧
+    guest_page: ゲストページ
+    new_parent: 保護者登録
+    lessons: レッスン一覧
+    lesson: レッスン
+    lesson_requests: レッスン申込一覧
+    lesson_report: レッスンレポート
+    lesson_reports: レッスンレポート一覧
+    bs_application_form: BS新規登録フォーム
+    students: 受講者一覧
+    student_detail: 受講者詳細
+    optional_lessons: オプションレッスン
+    tutor_search_cs: チューター一覧（満足度順）
+    cs_sheets: CSシート一覧
+    new_interview: 面談予約
+    interviews: 面談
+    student: 受講者
+    tutor: チューター
+    tutors: チューター一覧
+    tutor_search: チューター検索
+    bs_app_forms: BSエントリー一覧
+    lesson_reports_of_student: '%{student}のレッスンレポート'
+    messages: メッセージ一覧
+    parent_registration: "保護者申込フォーム"
+    new_student: "受講者登録"
+    profile: "プロフィール"
+    my_profile: "マイプロフィール"
+    edit_student: "受講者編集"
+    edit_student_charge_settings: "課金設定の変更"
+    lesson_history: "レッスン履歴"
+    edit_student_profile: "プロフィール変更"
+    student_top: "受講者トップ"
+    edit_profile: "プロフィール編集"
+    registration_accepted: "ユーザ登録を受け付けました"
+    charge_settings: "料金設定"
+    payments: "請求確認"
+    message: "メッセージ"
+    sent_messages: "送信済みのメッセージ"
+    lesson_reservation: "レッスン予約"
+    new_message: "メッセージ作成"
+    received_messages: "受信メッセージ一覧"
+    group_lesson_search: "同時レッスン検索"
+    new_cs_sheet: "CSシート作成"
+    lesson_time_settings: "レッスン時間の設定"
+    unavailable_days: "指導できない日"
+    available_time_ranges: "指導可能な時間帯"
+    available_times: "レッスン可能日時"
+    tutors_in_cs_order: "CSポイント順"
+    lesson_request_detail: "レッスン申込詳細"
+    new_lesson_report: "レッスンレポート作成"
+    unreported_lessons: "レポート未記入のレッスン"
+    cs_sheet: "CSシート"
+    tutor_profile: "チュータープロフィール"
+    basic_lesson_reservation: "ベーシックレッスン予約"
+    basic_lessons: "ベーシックレッスン一覧"
+    basic_lesson: "ベーシックレッスン"
+    new_optional_lesson: "オプションレッスン登録"
+    new_accountant: "新規本部経理アカウント"
+    supports: "本部ユーザサポートアカウント"
+    new_support: "新規本部ユーザサポートアカウント"
+    hq_users: "本部アカウント一覧"
+    new_hq_user: "新規本部通常アカウント"
+    tutor_interviews: "チューター面接一覧"
+    bs_list: "BS一覧"
+    bs: "BS情報"
+    bs_registered: "BS登録完了"
+    bs_users: "教育コーチ一覧"
+    edit_bs_user: "教育コーチの編集"
+    settings: "設定"
+    edit_system_settings: "システム設定編集"
+    edit_free_mode_settings: "無料体験設定編集"
+    accountings: "会計"
+    accountings_of_tutors: "チューターへの支払・請求"
+    accountings_of_students: "受講者への支払・請求"
+    exams_management: "模試管理"
+    exams_for_grade: "%{grade}対象模試"
+    exams_for_grade_subject: "%{grade}対象模試（%{subject}）"
+    new_exam_for_grade_subject: "%{grade}対象模試（%{subject}）登録"
+    exam_for_grade_subject_month: "%{grade}対象模試（%{subject}, %{month}）"
+    textbooks_management: "テキスト管理"
+    exams: "模試一覧"
+    exams_selection: "受験する模試の選択"
+    textbooks: "テキスト一覧"
+    resign: "退会"
+    left_bss: "退会済みのBS一覧"
+    tutor_app_form: "チューター新規登録フォーム"
+    parents: "保護者一覧"
+    parent: "保護者"
+    left_parents: "退会済みの保護者一覧"
+    error: "エラー"
+    subjects: "教科一覧"
+    subject_of: "教科：%{subject}"
+    new_subject: "教科作成"
+    new_basic_lesson_weekday_schedule: "曜日と時刻"
+    basic_lesson_infos: "ベーシックレッスン一覧"
+    basic_lesson_info: "ベーシックレッスン"
+    stop_basic_lesson: "ベーシックレッスンを停止する"
+    change_lesson_schedule: "レッスンの日程を変更する"
+    select_schedule: "日程の選択"
+    journal_entries: "支払・請求詳細"
+    optional_lesson: "オプションレッスン"
+    monthly_statement: "%{month}の集計"
+    monthly_statements: "支払・請求"
+    monthly_statements_of_year: "支払・請求: %{year}"
+    monthly_statements_of: "支払・請求:%{user}"
+    switching_payment_method_users: "支払方法変更希望者一覧"
+    switching_payment_method_user: "支払方法変更希望者"
+    edit_tutor: "チューター編集"
+    tutor_app_forms: "チューターエントリー一覧"
+    bs_app_form: "BS新規登録フォーム"
+    no_cs_sheets: "CSシート未記入"
+    monthly_results: "月別結果"
+    lesson_extension: "レッスン延長"
+    lesson_info: "レッスン情報"
+    lesson_time_schedule: "タイムスケジュール"
+    document_camera_users: "ノートカメラ送付先"
+    lessons_without_reports: "レポート未記入のレッスン一覧"
+    cancel_lesson: "レッスンをキャンセルする"
+    hq_user: "本部ユーザ"
+    edit_hq_user: "本部ユーザの編集"
+    access_authority: "アクセス権限"
+    edit_access_authority: "アクセス権限の変更"
+    leave_from_aid: "退会"
+    thank_you_for_using_aid: "ご利用ありがとうございました"
+    left_tutors: "退会済みのチューター一覧"
+    grade_groups: "学年グループ一覧"
+    new_grade_group: "学年グループを作成"
+    edit_grade_group: "学年グループを編集"
+    grade_group: "学年グループ"
+    teaching_subjects: "指導教科一覧"
+    new_teaching_subject: "指導教科を追加"
+    teaching_subject: "指導教科"
+    edit_teaching_subjects: "指導教科の編集"
+    tutor_account_created: "チューターのアカウントを作成しました"
+    lesson_materials: "レッスン資料"
+    new_lesson_material: "資料のアップロード"
+    invited_lessons: "招待されているレッスン一覧"
+    group_lesson_options: "同時レッスンの選択"
+    group_lesson: "同時レッスン"
+    monthly_usages: "利用状況"
+    monthly_usage_of: "%{month}の利用状況"
+    monthly_usage_between: "%{from}〜%{to}の利用状況"
+    monthly_usage: "月別利用状況"
+    new_tutor: "チューターアカウントの作成"
+    processed_tutor_app_forms: "チューターエントリー一覧（対処済み）"
+    bss: "BS一覧"
+    edit_lesson_report: "レッスンレポートを編集"
+    new_weekly_schedule: "時間帯の追加"
+    weekly_schedules: "指導可能な時間帯"
+    new_unavailable_day: "指導できない日を追加"
+    tutor_select: "チューター選択"
+    optional_lesson_reservation: "オプションレッスン予約"
+    group_lesson_select: "同時レッスン"
+    pending_basic_lesson_infos: "チューター承認待ちのベーシックレッスン一覧"
+    pending_approval: "承認待ち"
+    rejected: "不成立"
+    rejected_basic_lesson_infos: "不成立のベーシックレッスン一覧"
+    tutors_by_cs_points_of_recent_lessons: "チューター一覧：満足度順（最近のレッスンのみ）"
+    tutors_by_cs_points: "チューター一覧：満足度順"
+    document_cameras: "ノートカメラ一覧"
+    study_history: "学習履歴"
+    top: "ホーム"
+    home: "ホーム"
+    credit_card: "クレジットカード"
+    credit_card_registered: "クレジットカード登録完了"
+    credit_card_failure: "クレジットカード登録失敗"
+    credit_card_registered_from_free: "一般会員登録移行手続き完了"
+    credit_card_current: "登録中クレジットカード情報"
+    yucho_auto_payment: "ゆうちょ自動払込み"
+    lesson_request: "レッスン申込"
+    assigned_to_hq: "本部所属"
+    left: "退会済"
+    all_students: "全受講者"
+    change_address: "住所変更"
+    address: "住所"
+    bs_of_student: "担当BS"
+    edit_bs: "BS情報の編集"
+    slogan_for_tutor: "チューターへ一言"
+    message_from_headquarter: "本部からのメッセージ"
+    from_headquarter: "本部より"
+    jobs: "ジョブ一覧"
+    job_count: "ジョブ数"
+    job_stat: "ジョブ統計"
+    page_not_found: "ページがみつかりませんでした"
+    coach: "教育コーチ"
+    coaches: "教育コーチ一覧"
+    new_bs_user: "新規教育コーチ"
+    bs_user: "教育コーチ"
+    adjusting_monthly_statement: "月次集計の訂正"
+    adjusting_entries: "訂正内訳"
+    billing_students: "課金対象受講者一覧"
+    billing_and_payment: "支払・請求"
+    changing_payment: "支払い方法変更"
+    add_adjusting_entry: "訂正項目を追加"
+    change_password: "パスワード変更"
+    student_home: "受講者ホーム"
+    optional_lesson_requests: "オプションレッスンの申込一覧"
+    basic_lesson_requests: "ベーシックレッスンの申込一覧"
+    pending_optional_lessons: "チューター承認待ちのオプションレッスン一覧"
+    pending_lessons: "承認待ちのレッスン一覧"
+    registration: "登録"
+    student_registration: "受講者申込フォーム"
+    reenrollment: "再入会"
+    reactivation: "アカウントの復帰"
+    nonexistent_lesson: "このレッスンは存在しません"
+    new_basic_lesson_info: "ベーシックレッスン登録"
+    charge_limits: "課金上限設定"
+    answer_book: "解答"
+    textbook: "テキスト"
+    new_meeting: "面談登録"
+    meetings: "面談一覧"
+    meeting: "面談"
+    scheduling_meetings: "日程調整中の面談一覧"
+    meeting_member_type: "参加者の種類を選択"
+    forbidden: "アクセス権限がありません"
+    journal_entry: "仕訳"
+    system_settings: "システム設定"
+    free_mode_settings: "無料体験設定"
+    new_bank_account: "銀行口座の登録"
+    new_yucho_account: "ゆうちょ銀行口座のご登録"
+    yubin_chokin: "郵便貯金"
+    yucho_auto_payment: "ゆうちょ自動払込"
+    bank_account: "銀行口座"
+    yucho_account_confirmation: "ゆうちょ銀行口座のご確認"
+    new_mitsubishi_tokyo_ufj_account: "三菱東京UFJ銀行口座登録"
+    edit_bank_account: "銀行口座の変更"
+    shared_basic_lesson_infos: "同時ベーシックレッスン一覧"
+    add_basic_lesson_info_student: "レッスン参加者の追加"
+    widget_test: "ウィジェットのテスト"
+    meeting_schedules: "面談候補日時一覧"
+    edit_meeting_schedule: "面談候補日時の変更"
+    meeting_schedule: "面談候補日時"
+    new_member_cancellation: "退会"
+    membership_cancellations: "退会一覧"
+    membership_cancellation: "退会"
+    member_cancellation: "退会"
+    user: "ユーザー"
+    income_of_this_month: "今月の状況"
+    yucho_guide: "ゆうちょ案内"
+    membership_applications: "入会申込一覧"
+    student_membership_applications: "受講者入会申込一覧"
+    parent_membership_applications: "保護者入会申込一覧"
+    membership_application: "入会申込"
+    entry_fee: "入会金のお手続き"
+    guides: "ガイド"
+    special_tutor: "スペシャルチューター"
+    special_tutor_settings: "スペシャルチューター設定"
+    lesson_invitations: "レッスン招待一覧"
+    lesson_invitation: "レッスン招待"
+    monthly_statement_calculations: "月次計算書作成処理一覧"
+    operation_check: "動作確認"
+    document_camera_widgets: "ノートカメラ"
+    person_camera: "Webカメラ"
+    person_and_document_camera: "ノートカメラ&Webカメラ"
+    manuals: "マニュアル"
+    user_manual: "ユーザーマニュアル"
+    trouble_manual: "トラブルマニュアル"
+    confirmation: "確認"
+    job: "ジョブ"
+    all_messages: "すべてのメッセージ"
+    new_coach: "新規教育コーチ"
+    edit_coach: "教育コーチの編集"
+    messages_to_coaches: "教育コーチ宛のメッセージ一覧"
+    message_to_coach: "教育コーチ宛のメッセージ"
+    left_students: "退会済みの受講者一覧"
+    left_coaches: "退会済みの教育コーチ一覧"
+    absent_tutors: "長期間利用のないチューター一覧"
+    trial_students: "ゲストユーザー一覧"
+    daily_available_times: "オプションレッスン時間設定"
+    tutor_daily_available_times: "指導できる日"
+    basic_lesson_available_time_settings: "ベーシック指導可能日時"
+    basic_lesson_available_time_settings2: "ベーシックレッスン指導可能日時の設定"
+    optional_lesson_available_time_settings: "オプション指導可能日時"
+    optional_lesson_available_time_settings2: "オプションレッスン指導可能日時の設定"
+    master_tables: "マスターデータ"
+    payment_method: "支払方法"
+    payment_method_registration_content: "お支払い方法のご登録内容"
+    select_payment_method: "支払方法変更"
+    student_registration_complete: "受講者登録完了"
+    parent_registration_complete: "保護者登録完了"
+    yucho_account_applications: "ゆうちょ申込一覧"
+    closed: "終了"
+  sections:
+    exam_info: 試験情報
+  messages:
+    accepted_lesson: 'レッスンを引き受けました。'
+    rejected_lesson: 'レッスンを断りました'
+    confirm_lesson_cancellation: レッスンをキャンセルしますか？
+    confirm_interview_finished: この面談を完了したことにします。
+    confirm_cancellation: 取りやめますか？
+    confirm_to_leave: 本当に退会しますか？
+    confirm_to_delete: 本当に削除しますか？
+    added_to_favorites: お気に入りのチューターに追加されました。
+    account_created_please_login: "アカウントが作成されました。ここからログインしてください。"
+    message_sent: "メッセージを送信しました。"
+    error: "エラー"
+    lesson_canceled: "レッスンをキャンセルしました。"
+    message_deleted: "メッセージを削除しました。"
+    register_bs: "BSアカウントを作成しますか？"
+    password_updated: "パスワードが変更されました。"
+    this_exam_is_over: "この試験は終了しました。"
+    cannot_enter_room: "レッスン画面を開けません。"
+    lesson_is_over: "レッスンは終了しました。"
+    can_enter_at: "%{at} になるとレッスン画面を表示できます。"
+    user_name_format: "アルファベットのみ"
+    user_name_format_for_login_id: "システムへのログイン時に必要となりますユーザーIDをご指定ください。"
+    user_name_format_for_emails: "※入力可能文字は、英数字、ハイフン、アンダーバー、アットマーク、ピリオドのみとなります。"
+    lessons_left: "未実施のレッスンが残っています"
+    reject_bs: "BSエントリーを却下しますか？"
+    rejected_bs_application: "BSエントリーを却下しました。"
+    bs_left: "%{bs}が退会しました。"
+    changing_user_password: "次のユーザのパスワードを変更します"
+    tutor_left: "チューター %{tutor} のアカウントを停止しました。"
+    parent_left: "保護者が退会しました。"
+    account_created: "アカウントが作成されました。"
+    student_left: "受講者が退会しました。"
+    user_revived: "アカウントを復帰しました。"
+    cannot_destroy_subject_because_of_future_lessons: "レッスンが残っているのでこの教科を削除できません。"
+    cannot_destroy_subject_because_of_tutors: "担当チューターがいるため削除できません。"
+    supplied_basic_lessons: "ベーシックレッスンの日程を登録しました。"
+    supply_lessons: "レッスン日程を補充する"
+    lesson_schedule_changed: "レッスンの日程を変更しました。"
+    lesson_extended: "レッスンが延長されました。"
+    failed_to_apply_extension: "レッスンの延長に失敗しました。"
+    cs_sheet_score_5: "大変よかった　　　★★★★★　CSポイント＋2"
+    cs_sheet_score_4: "よかった　　　　　★★★★　　CSポイント＋1"
+    cs_sheet_score_3: "ふつう　　　　　　★★★　　　CSポイント±0"
+    cs_sheet_score_2: "よくなかった　　　★★　　　　CSポイント－1"
+    cs_sheet_score_1: "全然よくなかった　★　　　　　CSポイント－3"
+    cs_sheet_handout: "宿題などのプリントを用意してもらえた"
+    cs_sheet_quiz: "小テストを用意してもらえた"
+    cs_sheet_reason_bad_explanation: "説明がわかりにくかった"
+    cs_sheet_reason_many_mistakes: "チューター(先生)なのに、まちがいが多かった"
+    cs_sheet_reason_many_small_talks: "レッスンとは関係のない話が多かった"
+    cs_sheet_reason_mismatched: "こわい、暗いなどチューター(先生)の性格の問題"
+    cs_sheet_reason_pc_trouble: "画面が見えづらい、音がとぎれる、などパソコンの問題"
+    cs_sheet_reason_others: "その他"
+    cs_sheet_select_reason: "理由も□にチェックをいれてください。"
+    calculation_finished: "集計が終わりました。"
+    calculation_failed: "集計でエラーが発生しました。"
+    invalid_parameters: "パラメータが無効です。"
+
+    not_started_yet: "まだ始まっていません"# メールのタイトル
+    lesson_not_started_yet: "レッスンがまだ始まっていません。"
+    extendable: "延長可能です。"
+    waiting_for_lesson_extension_application: "レッスン延長を受付中"
+    changing_lesson_schedule: "レッスン日時の変更"
+    no_regular_tutors: "本登録のチューターが見つかりませんでした。"
+    lesson_material_uploaded: "資料をアップロードしました。"
+    confirm: "よろしいですか？"
+    no_group_lesson: "１人で受講する"
+    rejected_lesson_invitation: "レッスンへの招待を断りました。"
+    interview_datetimes: "面接希望日 朝１０時から夜の９時に１５分程度の面談 をします。申込日の三日後から候補日を３つ記入して下さい。"
+    updated: "更新しました。"
+    removed_from_favorites: "お気に入りから削除されました。"
+    tutor_become_regular: "本登録になりました。"
+    tutor_already_regular: "すでに本登録です。"
+    tutor_become_beginner: "仮登録になりました。"
+    tutor_already_beginner: "すでに仮登録です。"
+    credit_card_registered: "クレジットカードが登録されました。"
+    credit_card_is_registered: "クレジットカードは登録済みです。"
+    credit_card_required: "クレジットカードの登録が必要です。"
+    failed_to_accept_lesson: "レッスンを引き受けることができませんでした。"
+    failed_to_reject_lesson: "レッスンを断ることができませんでした。"
+
+    address_changed: "住所が変更されました。"
+    member_only: "入会すると表示されます"
+    member_only2: "入会後に表示"
+
+    tutor_not_undertake_group_lesson: "選択されたチューターは同時レッスンを受け付けていません。"
+    contact_hq_when_leaving_from_aid: "退会をご希望の場合は本部に直接ご連絡ください。"
+    students_also_leave_when_thier_parent_leaves: "保護者が退会すると保護者が管理している受講者も退会します。"
+    confirm_to_activate_account: "アカウントを復帰させますか？"
+    account_activated: "アカウントを復帰しました。"
+    out_of_tutor_weekday_schedule: "チューターの指導可能時間の範囲外です。"
+    tutor_unavailable_day: "チューターが指導できない日です。"
+    tutor_only_undertake_single_lesson: "このチューターは通常レッスンのみです。"
+    free_limit_over: |
+      無料レッスンの上限（%{num}回）に達しています。<br />
+      引き続き、レッスンを受講される場合は、プロフィール画面から一般会員登録ボタンをクリックし、手続きを行ってください。手続き完了後、レッスンのご予約が可能となります。
+    confirm_to_add: "追加しますか？"
+    forbidden: "アクセス権限がありません。"
+
+    user_deleted: "アカウントを削除しました。"
+    no_more_basic_lesson_students: "これ以上レッスンに参加する受講者を増やせません。"
+    please_wait: "しばらくお待ちください"
+    hankaku_only: "半角英数字でご入力ください"
+    hankaku_number_only: "半角数字でご入力ください。"
+    skype_id_format_is_invalid: "スカイプIDの入力値に誤りがあります。"
+    to_coaches: "教育コーチ宛"
+    because_bs_is_deactivated: "BSが退会したため"
+  bank_account:
+    account_types:
+      savings: 普通
+      checking: 当座
+
+    message:
+      current_bank_account_is_removed: "すでに銀行口座が登録されています。新たに登録すると、現在登録されているものは削除されます。"
+    change_account: "別の口座を登録"
+
+    titles:
+      new_general_account: "銀行口座登録"
+  mail_titles: &mail_titles
+    hq_user_created:
+      subject: "[AID Tutoring System]本部アカウントが作成されました"
+    bs_user_registered:
+      subject: "[AID Tutoring System]BSアカウントが作成されました"
+    bs_app_form_accepted:
+      subject: "[AID Tutoring System]BSの申込がありました"
+    tutor_app_form_accepted:
+      subject: "[AID Tutoring System]チューターの申込がありました"
+    tutor_created:
+      subject: "[AID Tutoring System]チューターアカウントが作成されました"
+    tutor_become_regular:
+      subject: "[AID Tutoring System]チューターが本登録になりました"
+    student_registration_form_created:
+      subject: "[AID Tutoring System]受講者の申込がありました"
+    student_created:
+      subject: "[AID Tutoring System]受講者アカウントが作成されました"
+    student_updated:
+      subject: "[AID Tutoring System]受講者が登録情報を更新しました"
+    student_no_bs_found:
+      subject: "[AID Tutoring System]受講者の住所を担当するBSが見つかりませんでした"
+    student_organization_changed:
+      subject: "[AID Tutoring System]保護者・受講者の担当教育コーチが変更されました"
+    parent_registration_form_created:
+      subject: "[AID Tutoring System]保護者の利用申込がありました"
+    parent_created:
+      subject: "[AID Tutoring System]保護者アカウントが作成されました"
+    parent_updated:
+      subject: "[AID Tutoring System]保護者が登録情報を更新しました"
+    lesson_schedule_change_requested:
+      subject: "[AID Tutoring System]レッスン日時の変更希望がありました"
+    lesson_invitation_rejected:
+      subject: "[AID Tutoring System]レッスンの招待が断られました"
+    lesson_started:
+      subject: "[AID Tutoring System]レッスンが開始されました"
+    lesson_ended:
+      subject: "[AID Tutoring System]レッスンが終了しました"
+    lesson_cancelled:
+      subject: "[AID Tutoring System]レッスンがキャンセルされました"
+    cs_report_not_written:
+      subject: "[AID Tutoring System]CSシート記入のお願い"
+    basic_lesson_info_accepted:
+      subject: "[AID Tutoring System]ベーシックレッスンの申込が承諾されました"
+    basic_lesson_info_rejected:
+      subject: "[AID Tutoring System]ベーシックレッスンが成立しませんでした"
+    charge_limit_approaching:
+      subject: "[AID Tutoring System]レッスン料金についてのお知らせ"
+    charge_limit_reached:
+      subject: "[AID Tutoring System]上限金額のお知らせ"
+    optional_lesson_requested:
+      subject: "[AID Tutoring System]オプションレッスンの申込がありました"
+    optional_lesson_accepted:
+      subject: "[AID Tutoring System]オプションレッスンが成立しました"
+    optional_lesson_rejected:
+      subject: "[AID Tutoring System]オプションレッスンのマッチングが成立しませんでした"
+    optional_lesson_ignored:
+      subject: "[AID Tutoring System]オプションレッスンの申込が無視されました"
+    basic_lesson_info_activated:
+      subject: "[AID Tutoring System]ベーシックレッスンが確定しました"
+    message_created:
+      subject: "[AID Tutoring System]メッセージを受信しました"
+    lesson_coming_notification:
+      subject: "[AID Tutoring System]レッスンの時間が近づいています"
+    favorite_tutor_weekday_schedules_changed:
+      subject: "[AID Tutoring System]お気に入りチューターの指導時間が変更されました"
+    meeting_skipped:
+      subject: "[AID Tutoring System]面談のお願い"
+    membership_cancelled:
+      subject: "[AID Tutoring System]退会処理が完了しました"
+    membership_application_rejected:
+      subject: "[AID Tutoring System]入会申込を受け付けることができませんでした"
+    meeting_registered:
+      subject: "[AID Tutoring System]面談候補日時が登録されました"
+    meeting_schedule_selected:
+      subject: "[AID Tutoring System]面談希望日時が選択されました"
+    coach_created:
+      subject: "[AID Tutoring System]教育コーチアカウントが作成されました"
+    tutor_lesson_cancelled:
+      subject: "[AID Tutoring System]チューターがレッスンをキャンセルしました"
+    monthly_payment_fixed:
+      subject: "[AID Tutoring System]%{x}月分ご請求金額のご連絡"
+    lesson_skipped_because_of_tutor:
+      subject: "[AID Tutoring System]チューターの都合によりレッスンが行われませんでした"
+    lesson_skipped_because_of_student:
+      subject: "[AID Tutoring System]受講者様のご都合によりレッスンが不開催となりました"
+    being_locked:
+      subject: "[AID Tutoring System]アカウント情報のお知らせ"
+    membership_application_created:
+      subject: "[AID Tutoring System]【重要】お申し込みありがとうございました"
+    did_cancel_lesson:
+      subject: "[AID Tutoring System]レッスンをキャンセルしました"
+    student_lesson_cancelled:
+      subject: "[AID Tutoring System]受講者がレッスンをキャンセルしました"
+    user_email_changed:
+      subject: "[AID Tutoring System]メールアドレスを変更しました"
+    basic_lesson_info_closed:
+      subject: "[AID Tutoring System]ベーシックレッスンをキャンセルしました"
+
+  user_mailer:
+    <<: *mail_titles
+    registration_accepted:
+      subject: "[AID Tutoring System]登録を受け付けました"
+    student_registration_form_created:
+      subject: "[AID Tutoring System] ご登録に関するお手続きのご案内"
+    optional_lesson_requested:
+      subject: "[AID Tutoring System]オプションレッスンの依頼"
+    optional_lesson_accepted:
+      subject: "[AID Tutoring System]オプションレッスンが成立しました"
+    optional_lesson_rejected:
+      subject: "[AID Tutoring System]オプションレッスンが断られました"
+    optional_lesson_ignored:
+      subject: "[AID Tutoring System]オプションレッスン申込に反応がありませんでした"
+    basic_lesson_info_activated:
+      subject: "[AID Tutoring System]ベーシックレッスンが登録されました"
+    bs_app_form_accepted:
+      subject: "[AID Tutoring System]教育コーチエントリーを受付けました"
+    tutor_app_form_accepted:
+      subject: "[AID Tutoring System]チューターエントリーを受付けました"
+    parent_created:
+      subject: "[AID Tutoring System]保護者アカウント登録完了のお知らせ"
+    parent_registration_form_created:
+      subject: "[AID Tutoring System] ご登録メールアドレスの確認"
+    payment_method_changed:
+      subject: "[AID Tutoring System] お支払い方法のご変更完了のお知らせ"
+    premium_registration_with_credit_card:
+      subject: "[AID Tutoring System] 一般会員登録移行手続き完了"
+    yucho_account_application_created:
+      subject: "[AID Tutoring System] ゆうちょ自動払込申請手続きのご連絡"
+    yucho_account_application_rejected:
+      subject: "[AID Tutoring System] お支払い方法のご変更不可のお知らせ"
+    membership_application_created_at_free_user:
+      subject: "[AID Tutoring System] 一般会員登録移行手続き受付完了"
+    premium_registration_with_yucho:
+      subject: "[AID Tutoring System] 【重要】一般会員登録完了のお知らせ"
+
+  student_mailer:
+    <<: *mail_titles
+    registration_accepted:
+      subject: "[AID Tutoring System]登録を受け付けました"
+    optional_lesson_requested:
+      subject: "[AID Tutoring System]オプションレッスンを申し込みました"
+    optional_lesson_ignored:
+      subject: "[AID Tutoring System]オプションレッスン申込に反応がありませんでした"
+    basic_lesson_info_activated:
+      subject: "[AID Tutoring System]ベーシックレッスンが登録されました"
+    lesson_cancelled:
+      subject: "[AID Tutoring System]レッスンがキャンセルされました"
+    student_created:
+      subject: "[AID Tutoring System]【 重要 】お申込ありがとうございました"
+    change_email_student:
+      subject: "[AID Tutoring System] ご登録メールアドレスの変更"
+
+  tutor_mailer:
+    <<: *mail_titles
+    optional_lesson_requested:
+      subject: "[AID Tutoring System]オプションレッスンの依頼"
+    optional_lesson_rejected:
+      subject: "[AID Tutoring System]オプションレッスンを断りました"
+    lesson_cancelled:
+      subject: "[AID Tutoring System]レッスンがキャンセルされました"
+    basic_lesson_info_activated:
+      subject: "[AID Tutoring System]ベーシックレッスンが登録されました"
+    tutor_created:
+      subject: "[AID Tutoring System]【 重要 】チューターアカウントが登録されました"
+    tutor_become_regular:
+      subject: "[AID Tutoring System]本登録のお知らせ"
+    change_email_tutor:
+      subject: "[AID Tutoring System] ご登録メールアドレスの変更"
+
+  bs_user_mailer:
+    <<: *mail_titles
+    registration_accepted:
+      subject: "[AID Tutoring System]登録を受け付けました"
+    optional_lesson_requested:
+      subject: "[AID Tutoring System]オプションレッスンの依頼"
+    optional_lesson_accepted:
+      subject: "[AID Tutoring System]オプションレッスンが成立しました"
+    optional_lesson_rejected:
+      subject: "[AID Tutoring System]オプションレッスンが成立しませんでした"
+    optional_lesson_ignored:
+      subject: "[AID Tutoring System]オプションレッスンが成立しませんでした"
+    basic_lesson_info_activated:
+      subject: "[AID Tutoring System]ベーシックレッスンが登録されました"
+    bs_user_registered:
+      subject: "[AID Tutoring System]【 重要 】BSアカウントを登録しました"
+    meeting_skipped:
+      subject: "[AID Tutoring System]面談が開催されませんでした"
+    change_email_bs_user:
+      subject: "[AID Tutoring System] ご登録メールアドレスの変更"
+
+  hq_user_mailer:
+    <<: *mail_titles
+    registration_accepted:
+      subject: "[AID Tutoring System]登録を受け付けました"
+    message_created:
+      subject: "[AID Tutoring System]メッセージを受信しました"
+    optional_lesson_requested:
+      subject: "[AID Tutoring System]オプションレッスンの依頼"
+    optional_lesson_accepted:
+      subject: "[AID Tutoring System]オプションレッスンが成立しました"
+    optional_lesson_rejected:
+      subject: "[AID Tutoring System]オプションレッスンが成立しませんでした"
+    optional_lesson_ignored:
+      subject: "[AID Tutoring System]オプションレッスンが成立しませんでした"
+    basic_lesson_info_activated:
+      subject: "[AID Tutoring System]ベーシックレッスンが登録されました"
+    bs_user_registered:
+      subject: "[AID Tutoring System]BSアカウントを登録しました"
+    bs_app_form_accepted:
+      subject: "[AID Tutoring System]BSエントリーを受け付けました"
+    tutor_app_form_accepted:
+      subject: "[AID Tutoring System]チューターエントリーを受付けました"
+    tutor_created:
+      subject: "[AID Tutoring System]チューターアカウントが登録されました"
+    membership_application_rejected:
+      subject: "[AID Tutoring System]受講者の入会申込を断りました"
+    meeting_skipped:
+      subject: "[AID Tutoring System]面談が開催されませんでした"
+    change_email_hq_user:
+      subject: "[AID Tutoring System] ご登録メールアドレスの変更"
+
+  parent_mailer:
+    <<: *mail_titles
+    student_created:
+      subject: "[AID Tutoring System]お申込ありがとうございました"
+    parent_created:
+      subject: "[AID Tutoring System]【 重要 】アカウントが登録されました"
+    email_confirmation_by_parent:
+      subject: "[AID Tutoring System] ご登録メールアドレスの確認"
+    change_email_parent:
+      subject: "[AID Tutoring System] ご登録メールアドレスの変更"
+
+  organization_mailer:
+    <<: *mail_titles
+    basic_lesson_info_accepted:
+      subject: "[AID Tutoring System]ベーシックレッスンが登録されました"
+    basic_lesson_info_rejected:
+      subject: "[AID Tutoring System]ベーシックレッスンが成立しませんでした"
+
+  system_admin_mailer:
+    error_happened:
+      subject: "[AID Tutoring System] Application Error"
+    scheduled_job_error_happened:
+      subject: "[AID Tutoring System] Scheduled Job Error"
+    background_job_error:
+      subject: "[AID Tutoring System] Background Job Error"
+    error_on_charging:
+      subject: "[AID Tutoring System] Error on Charging"
+
+  monitoring_mailer:
+    message_created:
+      subject: "[AID Tutoring System][監視用]メッセージを受信しました"
+
+  lesson_status:
+    new: 申込中
+    accepted: 未開催
+    rejected: 不成立
+    open: 開催中
+    done: 完了
+    not_started: 不開催
+    ignored: 無視
+    reported: 完了（レポート提出済）
+    cancelled: キャンセル
+    aborted: 中止
+    rescheduling: 日程調整中
+
+  basic_lesson_info_status:
+    new: 登録中
+    pending: 承認待ち
+    pending_approval: 承認待ち
+    rejected: 不成立
+    active: 有効
+    closed: 終了
+
+  access_authorities:
+    - なし
+    - 読み取り
+    - 読み書き
+
+  account_items:
+    entry_fee: 入会金
+    bs_id_management_fee: BS ID管理費
+    student_id_management_fee: 受講者ID管理費
+    textbook_usage_fee: 教科書利用料
+    basic_lesson_tutor_fee: ベーシックレッスン講師料
+    optional_lesson_tutor_fee: オプションレッスン講師料
+    tutor_referral_fee: チューター紹介料
+    student_referral_fee: 受講者紹介料
+    basic_lesson_fee: ベーシックレッスン授業料
+    optional_lesson_fee: オプションレッスン授業料
+    exam2_fee: 模試代（２科目）
+    exam3_fee: 模試代（３科目）
+    exam4_fee: 模試代（４科目）
+    exam5_fee: 模試代（５科目）
+    lesson_sale_amount: レッスン手数料
+    scoring_fee: 模試採点費
+    textbook_rental_fee: テキストライブラリ
+    bs_textbook_rental_fee: テキストライブラリ（BS）
+    soba_id_management_fee: SOBA ID管理費
+    beginner_tutor_discount: 新規登録チューター割引
+    group_lesson_discount: お友達受講割引
+    group_lesson_premium: お友達受講賃金割増
+    lesson_delay_reduction: チューター遅刻減額
+    lesson_cancellation_penalty: チューター遅刻中止ペナルティ
+    lesson_extension_fee: レッスン延長受講料
+    lesson_extension_tutor_fee: レッスン延長講師料
+    adjusting_entry: 修正
+    special_tutor_fee: スペシャルチューターID管理費
+    hq_user_reference_discount: 本部紹介割引料
+
+  charge_settings:
+    names:
+      entry_fee: 入会金
+      bs_id_management_fee: BS ID管理費
+      student_id_management_fee: 受講者ID管理費
+      textbook_usage_fee: 教科書利用料
+      basic_lesson_tutor_fee: ベーシックレッスン講師料
+      optional_lesson_tutor_fee: オプションレッスン講師料
+      tutor_referral_fee: チューター紹介料
+      student_referral_fee: 受講者紹介料
+      basic_lesson_fee: ベーシックレッスン授業料
+      optional_lesson_fee: オプションレッスン授業料
+      exam2_fee: 模試代（２科目）
+      exam3_fee: 模試代（３科目）
+      exam4_fee: 模試代（４科目）
+      exam5_fee: 模試代（５科目）
+      lesson_sale_amount: レッスン手数料
+      scoring_fee: 模試採点費
+      textbook_rental_fee: テキストライブラリ
+      bs_textbook_rental_fee: テキストライブラリ（BS）
+      soba_id_management_fee: SOBA ID管理費
+      beginner_tutor_discount: 新規登録チューター割引
+      group_lesson_discount: お友達受講割引
+      group_lesson_premium: お友達受講賃金割増
+      lesson_delay_reduction: チューター遅刻減額
+      lesson_cancellation_penalty: チューター遅刻中止ペナルティ
+      lesson_extension_fee: レッスン延長受講料
+      lesson_extension_tutor_fee: レッスン延長講師料
+      adjusting_entry: 修正
+      tutor_default_hourly_wage: 仮登録チューター時給
+      regular_tutor_default_hourly_wage: 本登録チューター初期時給
+      graduated_regular_tutor_default_hourly_wage: 既卒本登録チューター初期時給
+      special_tutor_fee: スペシャルチューターID管理費
+
+  teaching_subjects:
+    levels:
+      -
+      -
+        - なし
+        - 通常
+        - 受験
+      -
+        - なし
+        - 通常
+        - 受験
+      -
+        - なし
+        - 通常
+        - 難関
+      -
+        - なし
+        - 通常
+        - センター
+        - 難関
+
+  labels:
+    recipients: 送り先
+    all_students: 受講者全員
+    all_bs_users: BS全員
+    all_bss: 全BS
+    all_tutors: チューター全員
+    all_parents: "保護者全員"
+    all_coaches: "全教育コーチ"
+  grade:
+    -
+    - 小学3年
+    - 小学4年
+    - 小学5年
+    - 小学6年
+    - 中学1年
+    - 中学2年
+    - 中学3年
+    - 高校1年
+    - 高校2年
+    - 高校3年
+    - その他
+  grades:
+    es1:
+      name: 小学1年
+    es2:
+      name: 小学2年
+    es3:
+      name: 小学3年
+    es4:
+      name: 小学4年
+    es5:
+      name: 小学5年
+    es6:
+      name: 小学6年
+    jh1:
+      name: 中学1年
+    jh2:
+      name: 中学2年
+    jh3:
+      name: 中学3年
+    hs1:
+      name: 高校1年
+    hs2:
+      name: 高校2年
+    hs3:
+      name: 高校3年
+    prep:
+      name: 大学受験者
+    other:
+      name: 社会人
+    es5e:
+      name: 小学5年（中学受験）
+    es6e:
+      name: 小学6年（中学受験）
+    other_e:
+      name: 社会人（大学受験）
+
+  helpers:
+    label:
+      bs_app_form:
+        name: 名前
+        first_name: 名
+        last_name: 姓
+        corporate_name: エリア名
+        phone_number: 電話番号
+        email: メールアドレス
+        skype_id: スカイプID
+        representative_birthday: 代表者生年月日
+      hq_accountant:
+        user_name: ユーザ名
+        email: メール
+        password: パスワード
+      cs_sheet:
+        content: 内容
+        score: 評価
+        handout: 宿題などのプリントを用意してもらえた
+        quiz: 小テストを用意してもらえた
+      lesson_report:
+        content: レポート
+      user_info:
+        phone_mail: メール（携帯）
+        pc_mail: メール（PC）
+        first_name: 名
+        last_name: 氏
+        phone_number: 電話番号
+        reference_user_name: 紹介者
+        line_speed: 回線速度
+        pc_spec: PCスペック
+      user:
+        user_name: ユーザーID
+        password: パスワード
+        first_name: 名
+        last_name: 氏
+        remember_me: ログインしたままにする
+      address:
+        postal_code: 郵便番号
+        address: 住所
+      basic_lesson_form:
+        tutor_id: チューター
+        subject_id: 科目
+        year_month: 月
+        wday: 曜日
+        start_time: 開始時刻
+        units: 単位数
+        group_lesson: 同時レッスン可
+      optional_lesson:
+        tutor_id: チューター
+        subject_id: 科目
+        year_month: 月
+        wday: 曜日
+        start_time: 開始時刻
+        units: 単位数
+        group_lesson: 同時レッスン可
+      message:
+        recipients: 送り先
+        title: 件名
+        text: 本文
+      tutor_info:
+        first_name: 名
+        last_name: 姓
+        phone_number: 電話番号
+        phone_mail: メール（携帯）
+        pc_mail: メール（PC）
+        skype_id: スカイプID
+        photo: 写真
+        nickname: 呼称（ニックネーム）
+        college: 大学
+        department: 学部
+        year_of_admission: 入学年
+        year_of_graduation: 卒業年
+        #activities: 趣味・活動
+        teaching_experience: 家庭教師経験
+        teaching_results: 指導合格実績
+        free_description: 自己アピール
+        high_school: 出身高校
+        birth_place: 出身地
+      credit_card:
+        number: クレジットカード番号
+        expire: クレジットカード有効期限 (月/年)
+        security_code: セキュリティコード (CVV2/CVC2/CID)
+  views:
+    pagination:
+      first: "&laquo; 先頭"
+      last: "最後 &raquo;"
+      previous: "&lsaquo; 前"
+      next: "次 &rsaquo;"
+      truncate: "..."
+  home:
+    index:
+      tutor_application: チューターエントリー
+      apply: 申し込む
+      bs_application: BSエントリー
+    registration:
+      tutor_application: チューターエントリー
+      apply: 申し込む
+      bs_application: BSエントリー
+  bs_app_forms:
+    new:
+      bs_application_form: BS新規登録フォーム
+      address: 住所
+      representative_name: "代表者氏名"
+    form:
+      bs_application_form: BS新規登録フォーム
+      address: 住所
+      representative_name: "代表者姓名"
+    first:
+      agree: プライバシーポリシーに同意する
+      disagree: 同意しない
+    show:
+      corporate_name: "エリア名"
+      confirmation: "送信内容の確認"
+      reject: 却下する
+  hq:
+    tutor_app_forms:
+      show:
+        create_tutor_account: このチューターのアカウントを作成する
+      account_created:
+        to_this_account_page: "このアカウントのページヘ"
+    bs_app_forms:
+      registered:
+        to_this_bs_page: "このBSのページへ"
+  st:
+    lessons:
+      show:
+        write_cs_sheet: レポートを書く
+        read_cs_sheet: レポートを見る
+      reserve:
+        find_tutor: "チューター検索"
+        find_group_lesson: "同時レッスン検索"
+    lesson_reports:
+      show:
+        title: 'レポート：%{lesson}'
+    lesson_cs_sheets:
+      show:
+        title: 'レポート：%{lesson}'
+    tutors:
+      favorites:
+        remove_from_favorites: お気に入りから削除
+      favorite_tutor_row:
+        remove_from_favorites: お気に入りから削除
+        confirm: お気に入りから削除しますか？
+      show:
+        reserve_lesson: "レッスン予約"
+        add_to_favorite: "チューターお気に入り登録"
+        remove_from_favorite: "お気に入りから削除"
+    cs_sheets:
+      index:
+        write_cs_sheet: "レポート作成"
+  tu:
+    lessons:
+      show:
+        write_report: レポートを書く
+        read_report: レポートを見る
+    settings:
+      weekday_schedules:
+        index:
+          confirmation: 削除しますか？
+          available_time_ranges: "レッスン可能な時間帯"
+          unavailable_days: "レッスンができない日"
+    lesson_requests:
+      show:
+        accept_matching: "マッチング承諾"
+        deny_matching: "マッチング辞退"
+  tutor_app_forms:
+    first:
+      agree: プライバシーポリシーに同意します
+      disagree: 同意しない
+    new:
+      tutor_application_form: チューター新規登録フォーム
+    accepted:
+      title: "エントリーが完了しました"
+    edit:
+      tutor_application_form: チューター新規登録フォーム
+    form:
+      hometown_address: 帰省先住所
+      current_address: 現住所
+      gmail_or_yahoo_mail: "GmailまたはYahooメール"
+      use_document_camera: "必要"
+      do_volunteer_work: "可能"
+      special_tutor: "希望する"
+      interview_datetimes: "面接希望日 朝１０時から夜の９時に１５分程度の面談 をします。申込日の三日後から候補日を３つ記入して下さい。"
+  time:
+    formats:
+      only_time: ! '%H:%M'
+      only_time2: '%-H時%M分'
+      lesson_time: '%-m月%-d日(%a) %H時%M分 %Z'
+      lesson_time_short: '%-m月%-d日 %H:%M'
+      message: '%m月%d日 %H:%M'
+      promise: '%Y年%-m月%d日 %H時%M分 %Z'
+      time_zone: '%Z'
+      time_zone2: '%Z %:z'
+      year_to_minute: '%Y年%-m月%d日 %H時%M分%Z'
+      wday: '%a'
+  date:
+    formats:
+      month_year: ! '%Y年 %m月'
+      month_year2: '%-Y年 %-m月'
+      month_day_wday: ! '%-m月%-d日(%a)'
+      only_wday: '%a'
+      year_month_day_wday: ! '%Y年%-m月%-d日(%a)'
+      month_day: '%m月%d日'
+      month_day2: '%-m月%d日'
+      unavailable_day: '%Y年%m月%d日'
+      month: '%-m月'
+      year_month_day: '%Y年%-m月%d日'
+      year_month_day2: '%Y年%-m月%-d日'
+      iso8601: '%Y-%m-%d'
+  form:
+    agree: "同意する"
+    disagree: "同意しない"
+    within_n_characters: "%{n}字以内"
+    message:
+      image_formats: "JPEG, GIF, PNG形式のみ"
+  registration_parents:
+    complete:
+      register_students: "受講者登録開始"
+  pa:
+    students:
+      index:
+        new_account: "新規登録"
+        show: "表示"
+      show:
+        title: "受講者詳細"
+  bs:
+    students:
+      basic_lesson_infos:
+        form:
+          time:
+            tutor_schedule: "%{tutor}の%{time_range}の予定"
+    bs_info: "エリア情報"
+    owner: "オーナー"
+    area_name: "BSエリア名"
+    owner_full_name: "BSオーナー氏名"
+    confirm_to_reactivate: "このBSを復帰しますか？"
+    failed_to_deactivate: "BSを退会できませんでした。"
+  formats:
+    days: "%{days}日"
+  students:
+    basic_lesson_infos:
+    user_name_exist: "入力されたユーザーIDは利用中です。"
+    nickname_exist: "入力されたニックネームは利用中です。"
+    sex_blank: "性別を選択してください。"
+  modules:
+    year_control:
+      prev_year: "前年"
+  lesson:
+    accept_invitation: "招待を受ける"
+    reject_invitation: "招待を断る"
+    no_group_lesson: "一人で受講する"
+    not_select_student: "同時レッスン可"
+    select_student: "友達をさそう"
+    message:
+      no_group_lesson: "チューターと1対1でレッスンを行います。"
+      not_select_student: "1人の先生が、2人の受講者を1人ずつ交互に指導するスタイルのレッスンです。"
+      select_student: "1人の先生が、2人の受講者を一緒に指導するスタイルのレッスンです。"
+      joined: "このレッスンに参加しました。"
+      confirm_joining_to_group_lesson: "このレッスンに参加しますか？"
+      failed_to_cancel: "キャンセルできませんでした。"
+      check_if_group_lesson: "同時レッスンの場合はチェックを入れてください。"
+      request_canceled: "申込をキャンセルしました。"
+      nonexistent_lesson: "このレッスンは存在しないかキャンセルされた可能性があります。"
+      confirm_to_cancel_request: "申込を取りやめますか？"
+      failed_to_extend_because: "レッスンを延長できませんでした。%{reasons}"
+      extended: "延長されました。"
+      lesson_extension_request_not_acceptable_yet: "レッスンの延長はまだ受け付けていません。"
+      lesson_extension_request_not_acceptable: "レッスンは延長できません。"
+      not_extendable: "延長できません。"
+      waiting_for_extension: "レッスンの延長を申し込みました。"
+      extension_requested: "レッスンの延長を申し込まれています。"
+      extend_lesson: "延長する"
+      cannot_enter_room: "現在入室できません"
+      cannot_accept_this_invitation: "このレッスンの招待は受けることができません。"
+      failed_to_accept_invitation: "招待を受けることができませんでした。"
+      student_added: "受講者が追加されました。"
+      confirm_to_add_student: "受講者を追加しますか？"
+      not_started: "レッスンは開催されませんでした。"
+      single_lesson_only_because_beginner_tutor: "こちらのチューターは、仮登録中であるため、本登録に切り替わり次第、 同時レッスンとお友達レッスンも選択可能となります。"
+      explanation_about_free_user: "同時レッスン・お友達レッスンは、無料レッスン対象外となります。"
+      warning_about_friend_lesson: "同時レッスンならびに友達レッスンにおいて、一方の方が参加されなかった場合は、通常レッスンとなります。"
+      cannot_take_special_tutor_lesson: "スペシャルチューターによるレッスンは、無料レッスン対象外となります。"
+      cannot_cancel_because_already_fixed: "申し込みはすでに完了しています。"
+    join_group_lesson: "このレッスンに参加する"
+    styles:
+      BasicLessonInfo: 通常レッスン
+      FriendsBasicLessonInfo: お友達レッスン
+      SharedBasicLessonInfo: 同時レッスン
+      single: 通常レッスン
+      friends: お友達レッスン
+      shared: 同時レッスン
+      trial: 体験レッスン
+    errors:
+      not_invitee: "このレッスンに招待されていません。"
+      full: "これ以上参加できません。"
+    select_lesson_material: "資料を開く"
+    select_textbook: "テキストを開く"
+    titles:
+      select_lesson_material: "資料選択"
+      not_started: "不開催のレッスン一覧"
+      date_select: "日程の選択"
+      tutor_daily_available_times: "指導可能な時間帯"
+      time_select: "時刻の選択"
+    help: "ヘルプ"
+    start: "スタート"
+    add_another_time_range: "時間帯を追加する"
+    add_another_student: "他の受講者を追加する"
+    new_single_lesson: "通常レッスン"
+    new_shared_lesson: "同時レッスン"
+    new_friends_lesson: "お友達レッスン"
+    select_nth_student: "受講者を選択（%{n}人目）"
+    style_select: "スタイルの選択"
+    select_friend: "友達を選択"
+    extend: "延長する"
+    only_not_full: "受講者追加可のみ"
+    hour: "時"
+    accounting: "レッスン会計"
+    schedule_change: "日程変更"
+    student_full_name: "受講者氏名"
+    student_grade: "受講者学年"
+    tutor_nickname: "チューター呼称"
+    style: "形式"
+    fee_per_unit: "レッスン単価"
+    fee: "レッスン代金"
+    date: "レッスン日"
+    datetime: "レッスン日時"
+    reload_room: "復帰"
+    request_extension: "レッスン延長を依頼する"
+    form:
+      reset: "再選択"
+    schedule_and_tutor: "%{day} %{from}-%{to} %{tutor}先生"
+    abort: "レッスンを中止する"
+    leave_temoporarily: "一時退室"
+    start_time: "レッスン予定時刻"
+    student_cancelled: "受講者がキャンセルしました"
+  placeholders:
+    tutor:
+      teaching_experience: "教えた生徒の学年、教科、期間を書いてください"
+  tutor:
+    become_regular: "本登録にする"
+    become_beginner: "仮登録にする"
+    message:
+      confirm_to_become_regular: "このチューターを本登録にしますか？"
+      confirm_to_become_beginner: "このチューターを仮登録にしますか？"
+      type_changed: "種別が変更されました。"
+      current_type_is_x: "現在のチューター種別は「%{x}」です。"
+    regular: "本登録"
+    special: "スペシャル"
+    regular_from_beginning: "本登録で開始"
+    undertake_group_lesson: "同時レッスン（お友達レッスン）可"
+    become_normal_tutor: "通常のチューターに変更"
+    become_special_tutor: "スペシャルチューターに変更"
+    become_regular_when_special_tutor: "スペシャルチューターは自動的に本登録になります。"
+    about_nickname: "（※受講者もしくは保護者から～～先生と呼ばれる名前となります）"
+    remove_from_favorites: "お気に入りから削除"
+    types:
+      beginner: "仮登録"
+      regular: "本登録"
+      special: "スペシャルチューター"
+      no_select: "指定なし"
+    regular_labels:
+      new: "仮"
+      beginner: "仮"
+      regular: "本"
+      special: "本"
+    graduated_labels:
+      new: "仮"
+      beginner: "仮"
+      regular: "本"
+      special: "本"
+    weekday_schedules:
+      all_days: "毎日"
+      not_set: "ベーシックレッスンの指導可能日時が指定されていません。"
+    cs_points: "CSポイント累計"
+    average_cs_points: "CSポイント平均"
+    available_weekdays: "指導可能曜日"
+    available_weekdays_of_tutor: "%{tutor}の指導可能曜日"
+    total_lesson_units: "レッスン指導単位数"
+    lesson_cancellation_count: "キャンセル回数"
+    wages_per_unit: "１単位（45分）あたりの基本報酬"
+    rewards: 報酬
+    has_not_logged_in_for_more_than_three_months: "3ヶ月以上ログインしていない。"
+    days_to_lose_membership: "自動退会までの日数"
+    titles:
+      change_type: "チューター種別の変更"
+    about_being_regular_tutor: "本登録になるには条件を満たす必要があります。"
+    change_type: "種別変更"
+    about_being_regular_tutor2: "本登録になる条件を満たしている場合は仮登録にはできません。"
+    about_college: "中退の場合は、大学名の後ろに（中退）とご記入ください。"
+    enter_content_with_high_retrievability: "受講者がチューターを探す際に、検索されやすいキーワードをご記入ください"
+    form:
+      hobby: "趣味・好きなアーティスト・好きなタレント・好きなスポーツなどご自由にお書き下さい"
+    about_reference_for_hq_user: "対象アカウント：本部、BS、教育コーチ、チューター"
+    college_name_format: "%{college}大学"
+    college_name_pattern: "\\A(.+)大学\\Z"
+    department_name_format: "%{department}学部"
+    department_name_pattern: "\\A(.+)学部\\Z"
+    faculty_name_format: "%{faculty}学科"
+    faculty_name_pattern: "\\A(.+)学科\\Z"
+    graduate_college_name_format: "%{graduate_college}大学院"
+    graduate_college_name_pattern: "\\A(.+)大学院\\Z"
+    graduate_college_department_name_format: "%{graduate_college_department}研究科"
+    graduate_college_department_name_pattern: "\\A(.+)研究科\\Z"
+    major_name_format: "%{major}専攻"
+    major_name_pattern: "\\A(.+)専攻\\Z"
+    nickname_format: "%{nickname}先生"
+    nickname_pattern: "\\A(.+)先生\\Z"
+  title:
+    new_credit_card: "クレジットカードのご登録"
+    how_to_leave_from_aid: "退会方法"
+    edit_charge_setting: "料金設定の変更"
+  message:
+    not_ready_to_pay: "支払情報の登録が完了していません。"
+    press_ctrl_key_to_select_multiple_recipients: "送り先を複数指定されたい場合や解除されたい場合は、「Ctrl」キーを押しながらクリックしてください。"
+    about_privacy: "本システムで送受信されるメッセージ内容は、データの一元管理を行わせて頂くため、本部にも同時配信させて頂いております。 　尚、個人情報等の連絡先交換も一切固く禁止しておりますので、十二分に遵守して頂けますよう宜しくお願い致します。"
+    reply: "返信"
+  meeting:
+    two_people_meeting: "二者面談"
+    title:
+      select_student: "受講者を選択"
+      select_schedule: "候補日時を選択"
+      room: "面談ルーム"
+      select_parent: "保護者を選択"
+      done: "終了した面談一覧"
+      select_special_tutors: "スペシャルチューターを選択"
+    message:
+      confirm_to_select_schedule: "この日時を選択しますか？"
+      confirm_to_close: "面談を終了しますか？"
+      about_two_people_meeting: "本部またはBSと、保護者または受講者との面談を設定します。"
+      about_special_tutor_meeting: "本部またはBS、スペシャルチューター、保護者または受講者の三者での面談を設定します。"
+      today_is_not_the_meeting_day: "本日は面談日ではありません。"
+      up_to_three_schedules_can_be_seledted: "面談候補日は、最大3つまで指定する事ができます"
+    close_meeting: "終了する"
+    status:
+      registering: 登録中
+      scheduling: 日程調整中
+      scheduled: 開催予定
+      done: 完了
+    three_people_meeting: "三者面談"
+  meeting_report:
+    title:
+      new: "面談レポート作成"
+      show: "面談レポート"
+      edit: "面談レポートの修正"
+  yucho_account:
+    message:
+      second_text_field_can_be_blank: "※記号と番号の間に1桁の数字がない場合は、真ん中の入力欄は空欄にしてください。"
+    list: "郵貯請求者一覧"
+    payments: "振込リスト"
+    payments_of_month: "振込リスト: %{year}年%{month}月"
+    items:
+      kigo: 通帳記号
+      bango: 通帳番号
+      name_kana: 通帳カナ氏名
+      amount_of_payment: 預入金額
+      user_name: 個人番号
+      matching: 照会処理
+      billing: 請求金額
+      customer_id: 顧客番号
+
+    payments_file: "郵貯形式CSVファイル出力"
+    yucho_csv_file: "郵貯形式CSVファイル出力"
+    file_not_ready: "ファイルがまだ準備できていません。少し待ってから再度お試しください。"
+    receipts: "受取リスト"
+    receipts_of_month: "受取リスト: %{year}年%{month}月"
+    billings_of_month: "受取リスト: %{year}年%{month}月"
+    automatic_payments: "ゆうちょ自動払込リスト"
+    automatic_payments_of_month: "ゆうちょ自動払込リスト: %{year}年%{month}月"
+    automatic_receipts: "ゆうちょ自動受取リスト"
+    automatic_receipts_of_month: "ゆうちょ自動受取リスト: %{year}年%{month}月"
+  student_info:
+    messages:
+      about_note: "AIDnetに期待すること、志望動機、教科など"
+  lesson_material:
+    confirm_to_delete: "資料を削除しますか？"
+    deleted: "資料を削除しました。"
+  meeting_schedule:
+    confirm_to_delete: "面談日時を削除しますか？"
+    no_preferrable_schedule: "該当候補日なし"
+  parent:
+    errors:
+      student_is_busy: "受講者がレッスン中か面談中です。"
+    titles:
+      registration_form: "保護者新規登録フォーム"
+    full_name: "保護者氏名"
+  membership_cancellation:
+    confirm_to_delete: "アカウントを復帰させますか？"
+    statuses:
+      new: 処理中
+      done: 完了
+      error: エラー
+    by_hq_user: "本部スタッフによる退会処理。"
+    by_hq_user_x: "本部スタッフ %{x} による退会処理。"
+  student:
+    cannot_cancel_membership_because_in_lesson: "はレッスン中のため退会できません。"
+    cannot_leave_because_in_meeting: "は面談中のため退会出来ません"
+    cannot_leave_because_in_exam: "は模試中のため退会できません。"
+    about_nickname: "※チューター（家庭教師）に公開される名前となります"
+    about_full_name: "※チューター（家庭教師）には公開されません。"
+    phone_email_label: "メールアドレス（携帯もしくはPC）"
+    coach: "教育コーチ"
+    assign_coach: "担当教育コーチの割り当て"
+    membership_cancellation:
+      because_parent_is_leaving: "保護者退会のため"
+    titles:
+      registration_form: "受講者新規登録フォーム"
+      lesson_tutors: "レッスンを受けたことのあるチューター一覧"
+    cannot_reactivate_because_parent_is_inactive: "保護者が退会しているためこのアカウントを復帰することはできません。"
+    no_parent: "-"
+  tutor_monthly_income:
+    not_calculated_yet: "集計結果がありません。"
+  membership_application:
+    applicant: "申込者"
+    application: "申込情報"
+    confirm_to_accept: "登録しますか？"
+    accept: "登録"
+    reject: "取消"
+    confirm_to_reject: "断りますか？"
+    bank_account: "銀行口座"
+    accepted: "登録しました。"
+    statuses:
+      new: "申込中"
+      accepted: "登録済"
+      rejected: "却下"
+    complete: "入会申込完了"
+    entry_fee: "入会金のお手続き"
+    rejected: "入会申込を却下しました。"
+    procedure: "お申込の手続き"
+  tutors:
+    confirm_to_become_normal_tutor: "通常のチューターに変更しますか？"
+    confirm_to_become_special_tutor: "スペシャルチューターに変更しますか？"
+  yucho_receipt_writer:
+    heading: "通帳記号,通帳番号,通帳カナ氏名,預入金額,個人番号,照会処理"
+  yucho_payment_writer:
+    heading: "通帳記号,通帳番号,通帳カナ氏名,請求金額,顧客番号,照会処理"
+  hq_yucho_billing:
+    heading: "通帳記号,通帳番号,通帳カナ氏名,請求金額,顧客番号,照会処理"
+  hq_yucho_payment:
+    heading: "通帳記号,通帳番号,通帳カナ氏名,預入金額,個人番号,照会処理"
+  lesson_invitation:
+    accepted: "招待を受けました。"
+    rejected: "招待を断りました。"
+    messages:
+      this_lesson_has_been_accepted: このレッスンは承諾済みです。
+      this_lesson_has_been_rejected: このレッスンはお断り済みです。
+      this_lesson_is_not_active: "このレッスンは無効です。"
+    statuses:
+      new: 未回答
+      accepted: 承諾済
+      rejected: 断り済
+    go_to_lesson_page: "レッスンページヘ"
+  tutor_app_form:
+    about_nickname: "（※受講者もしくは保護者から～～先生と呼ばれる名前となります）"
+    reject: "却下する"
+    rejected: "エントリーを却下しました。"
+    statuses:
+      new: 新規
+      accepted: 済
+      rejected: 却下
+    about_graduated: "（大学院生は既卒扱いとなります。）"
+    department: "学部"
+    college: "大学"
+    faculty: "学科"
+    graduate_college: "大学院"
+    graduate_college_department: "研究科"
+    major: "専攻"
+    driver_license_number_or_passport_number: "免許証番号またはパスポート番号"
+    about_pc_model_number: "何か問題が起きたときにこちらでお調べします。例）ノートカメラが映らないなど"
+    about_free_description: "※こちらの自己アピールは、受講者がチューターを検索される際のキーワード対象範囲になるため、受講者にアピールできる内容を記入しましょう！"
+    about_favorite_books: "受験時に使用されて良かったお勧めの参考書があればお書き下さい。"
+    about_jyuku_history: "中学受験・高校受験・大学受験時に通われていた塾等があれば、ご記入ください。"
+    about_interview_datetimes: "チューター採用面接を実施させて頂きますので、本日より3日後以降にてご都合のよい日時を第3希望までご指定ください。なお、時間帯は10時〜21時の間とさせて頂きます。"
+    about_college: "中退の場合は、大学名の後ろに（中退）とご記入ください。"
+    confirm_to_delete: "削除しますか？"
+  monthly_statement_calculation:
+    statuses:
+      success: "成功"
+      error: "エラー"
+      new: "未実施"
+  tutor_search:
+    min_lesson_fee: "レッスン料下限"
+    max_lesson_fee: "レッスン料上限"
+    simple: "簡易"
+    detailed: "詳細"
+    start_time: "レッスン開始時刻"
+    end_time: "レッスン終了時刻"
+    hour: "時"
+    minute: "分"
+    grade: "対象学年"
+    subject: "受講科目"
+    not_selected: "指定なし"
+    level: "難度（レベル）"
+    wday: "レッスン可能曜日"
+    college: "大学"
+    department: "学部"
+    graduate_college: "大学院"
+    major: "専攻"
+    sort_keys:
+      cs_points: "CSポイント(累計)"
+      average_cs_points: "CSポイント(平均)"
+      lesson_fee: "レッスン料"
+      career_length: "在籍期間"
+      lesson_units: "レッスン指導単位数"
+      cancellation_count: "キャンセル回数"
+    sort_orders:
+      asc: "昇順"
+      desc: "降順"
+    hit_count: "検索にヒットした人数"
+    total_tutor_count: "検索対象人数"
+    and_or_and: "かつ（AND）"
+    and_or_or: "もしくは（OR）"
+  soba_widget:
+    publisher: "配信側"
+    subscriber: "受信側"
+  bank:
+    titles:
+      list: "銀行一覧"
+      new: "銀行を追加"
+      edit: "銀行の編集"
+    about_code: "例：yucho, mitsubishi_tokyo_ufj"
+    messages:
+      confirm_to_delete: "削除しますか？"
+      cannot_delete_because_bank_accounts_exist: "この銀行の口座が残っているため削除できません。"
+    other: "その他"
+  weekday_schedule:
+    formats:
+      default: "%{wday} %{from} - %{to}"
+    no_schedules: "まだ、レッスン可能な時間帯を指定されておられません。"
+    able_to_request_lessons: "※レッスン可能な時間帯が指定されていませんが、レッスン予約は可能です。"
+  subject_level:
+    codes:
+      none: "なし"
+      normal: "通常"
+      exam: "受験"
+      center: "センター"
+      high: "難関"
+      toeic_under_400: "TOEIC 400点未満"
+      toeic_400: "TOEIC 400点以上"
+      toeic_600: "TOEIC 600点以上"
+      toeic_800: "TOEIC 800点以上"
+      introduction: 入門
+      basic: 初級
+      intermediate: 中級
+      advanced: 上級
+    titles:
+      list: "難易度"
+      new: "難易度追加"
+  monthly_statement:
+    calculate: "当月分を集計する"
+    period_from_to: "集計期間：%{from}〜%{to}"
+    billing_amount: "請求金額"
+    consumption_tax: "消費税"
+    bill: "明細書"
+    payment_amount: "支払総額"
+  address:
+    postal_code: "郵便番号"
+  question:
+    how_to_find:
+      title: "エイドネットを知ったキッカケ"
+      -#title2: "エイドネットを知ったきっかけ"
+      search_engine: "検索エンジン"
+      poster: "ポスター"
+      flyer: "チラシ"
+      mass_media: "マスメディア"
+      answer_option:
+        web_site: "ホームページ"
+        search_engine_yahoo: "Yahoo!"
+        search_engine_google: "Google"
+        search_engine_other: "その他"
+        poster_public_transport: "公共交通機関"
+        poster_public_facilities: "公共施設"
+        poster_stores: "店舗掲示"
+        poster_other: "その他"
+        acquaintance: "知人からの紹介"
+        flyer_newspaper: "新聞折込"
+        flyer_town_magazine: "タウン誌"
+        flyer_free_paper: "フリーペーパー"
+        flyer_handover: "手渡し"
+        flyer_other: "その他"
+        mass_media_tv: "テレビCM"
+        mass_media_radio: "ラジオ"
+        mass_media_newspaper: "新聞"
+        mass_media_other: "その他"
+        dm: "DM"
+    reason_to_enroll:
+      title: "ご登録理由"
+      answer_option:
+        attractive_tutors: "チューターが魅力的だから"
+        available_at_home: "自宅でできるから"
+        inexpensive: "授業料が安かったから"
+        document_cameras: "ノートカメラでの授業だから"
+        college_of_tutors: "志望校のチューターに見てもらえるようだから"
+        acquaintance: "知人からの紹介"
+        time_flexibility: "自分の好きなときにできるから"
+        coarch_system: "教育コーチ制度が魅力的だから"
+        free_lesson: "無料で%{num}レッスン受講できるから"
+        free_user: "無料会員として気軽に試せるから"
+        other: "その他"
+    has_web_camera:
+      title: "Ｗｅｂカメラの有無"
+  answer_option:
+    web_site: "ホームページ"
+    search_engine_yahoo: "Yahoo!"
+    search_engine_google: "Google"
+    search_engine_other: "その他"
+    poster_public_transport: "公共交通機関"
+    poster_public_facilities: "公共施設"
+    poster_stores: "店舗掲示"
+    poster_other: "その他"
+    acquaintance: "知人からの紹介"
+    flyer_newspaper: "新聞折込"
+    flyer_town_magazine: "タウン誌"
+    flyer_free_paper: "フリーペーパー"
+    flyer_handover: "手渡し"
+    flyer_other: "その他"
+    mass_media_tv: "テレビCM"
+    mass_media_radio: "ラジオ"
+    mass_media_newspaper: "新聞"
+    mass_media_other: "その他"
+    dm: "DM"
+    # hogehoge
+    attractive_tutors: "チューターが魅力的だから"
+    available_at_home: "自宅でできるから"
+    inexpensive: "授業料が安かったから"
+    document_cameras: "ノートカメラでの授業だから"
+    college_of_tutors: "志望校のチューターに見てもらえるようだから"
+    acquaintance: "知人からの紹介"
+    time_flexibility: "自分の好きなときにできるから"
+    coarch_system: "教育コーチ制度が魅力的だから"
+    free_lesson: "無料で%{num}レッスン受講できるから"
+    free_user: "無料会員として気軽に試せるから"
+    other: "その他"
+    # hogehoge
+    built_in: 内蔵Ｗｅｂカメラあり
+    separate: 外付けＷｅｂカメラあり
+    none: Ｗｅｂカメラなし
+  student_entry_form:
+    how_to_find_question:
+      not_answered: "エイドネットを知ったきっかけを選んでください。"
+    reason_to_enroll_question:
+      not_answered: "入会理由を選んでください。"
+    has_web_camera:
+      not_answered: "Ｗｅｂカメラの有無を選んでください。"
+  has_web_camera:
+    built_in: "内蔵Ｗｅｂカメラあり"
+    separate: "外付けＷｅｂカメラあり"
+    "no": "Ｗｅｂカメラなし"
+  coach:
+    titles:
+      index: "教育コーチ一覧"
+  student_coach:
+    assign_coach: "教育コーチを割り当てる"
+    assign: "決定"
+    no_coaches: "教育コーチがいません。"
+    coach: "教育コーチ"
+    coach_not_found: "選択された教育コーチはこのBSに所属しておりません。"
+    change_coach: "変更する"
+    not_assigned: "現在この受講者には担当の教育コーチが割り当てられていません。"
+    wait_for_coach_assigned: "近日中に担当教育コーチを割り当てさせて頂きますので、しばらくお待ち下さい。"
+  user:
+    deactivate: "停止"
+    reactivate: "再開"
+    confirm_to_deactivate: "アカウントを停止しますか？"
+    confirm_to_activate: "アカウントを再開しますか？"
+    messages:
+      this_account_is_deactivated: "このアカウントは現在停止されています。"
+      nickname_is_taken: "%{attribute}は既に使用されているため、別のニックネームをご指定ください。"
+  lesson_request_rejection:
+    titles:
+      new: "レッスン申込を断る"
+    confirm_to_reject: "本当にこの申込を断りますか？"
+  tutor_lesson_cancellation:
+    because_of_leaving: "退会するため。"
+    titles:
+      new: "レッスンのキャンセル"
+    confirm_to_cancel: "レッスンをキャンセルしますか？"
+  lesson_cancellation:
+    titles:
+      new: "レッスンのキャンセル"
+    confirm_to_cancel: "本当にこのレッスンをキャンセルしますか？"
+  system_settings:
+    minutes_ago: "分前まで"
+    from_minutes_ago: "分前から"
+  tutor_price:
+    lesson_fees: "レッスン料金表"
+  billing:
+    lesson_fee: "【レッスン料金】"
+  lesson_charge:
+    bs_share: "代理店手数料"
+  bs_app_form:
+    about_preferred_areas: "購入希望エリアを第１希望～第３希望までを入力してください。"
+    confirm_to_delete: "削除しますか？"
+  trial_lesson:
+    titles:
+      new: "体験レッスン新規作成"
+      list: "体験レッスン一覧"
+  trial_student:
+    titles:
+      new: "新規作成"
+      list: "ゲストユーザー一覧"
+    messages:
+      confirm_to_delete: "このアカウントを削除しますか？"
+  daily_available_times:
+    titles:
+      new: "新規作成"
+      date_select: "指導可能な日にちを追加"
+      time_select: "指導可能な時間帯を追加"
+      available_times_of_selected_day: "指導可能な時間帯"
+      edit: "編集"
+      changes: "変更点"
+      add: "追加する時間帯"
+      delete: "削除する時間帯"
+      date_select2: "日時を選択"
+      time_ranges: "時間帯"
+    messages:
+      too_short: "指導可能な時間帯としてご指定できる時間範囲は、最低60分以上となります"
+      must_be_more_than_n_minutes: "指導可能な時間帯としてご指定できる時間範囲は、最低%{n}分以上となります"
+      overlapping: "時間帯が重複しています"
+      empty: "指導可能な時間帯が指定されていません"
+      leaving_without_saving_changes: "確定ボタンが押されていないため、変更内容が反映されませんがよろしいでしょうか？"
+  monthly_charging_user:
+    titles:
+      list: "ライセンス対象アカウント一覧"
+      stat: "ライセンス対象アカウント数"
+    user_count: "アカウント数"
+  no_charging_user:
+    titles:
+      index: "ライセンス対象除外アカウント一覧"
+      new: "追加"
+  my_messages:
+    messages:
+      file_too_large: "ファイルのサイズが大きすぎます。"
+      file_upload_error: "ファイルの送信でエラーが発生しました。"
+  email_confirmation_form:
+    guide: "ご案内"
+    agree_pledge_label: 利用契約約款に同意します。
+  registration:
+    mail_certification: "メール認証"
+  operating_system:
+    titles:
+      index: "OS一覧"
+      edit: "OSを編集"
+  lesson_settings:
+    title:
+      show: "レッスン設定"
+      edit: "レッスン設定の変更"
+    from_x_minutes_ago: "レッスン開始時刻の %{x} 分前から"
+    until_x_minutes_later: "レッスン開始時刻の %{x} 分後まで"
+    from_x_minutes_ago: "レッスン開始予定時刻の %{x} 分前から"
+    to_x_minutes_later: "レッスン開始予定時刻の %{x} 分後まで"
+    to_x_minutes_later_since_end_time: "レッスン終了予定時刻の %{x} 分後まで"
+    x_minutes_later_since_actual_start_time: "レッスンが開始して %{x} 分後まで"
+    x_minutes_later_since_actual_end_time: "レッスンが終了して %{x} 分後まで"
+    of_lesson_start_time: "レッスン開始時刻の"
+    of_lesson_end_time: "レッスン終了時刻の"
+    of_lesson_actual_start_time: "レッスン開始時刻の"
+    since_minutes_ago: "分前から"
+    until_minutes_later: "分後まで"
+    about_dropout_limit: "レッスン開始予定時刻からこの時間（分）が経過すると、チューターが入室済みの場合は自動的にレッスンが開始されます。"
+    unchangeable: "（変更不可）"
+    from_zero_to_ten_minuts: "（調整可能範囲:0分ー10分）"
+    of_lesson_actual_end_time: "レッスン終了時刻の"
+    limit_to_n_lessons: "%{n} レッスンまで"
+    limit_to_x_lessons: "レッスンまで"
+    at_least_one: "（調整可能範囲:1以上）"
+  teaching_subject:
+    select_all: "全て選択"
+    unselect_all: "選択解除"
+  student_received_messages:
+    titles:
+      list: "%{student}の受信メッセージ一覧"
+  student_sent_messages:
+    titles:
+      list: "%{student}の送信メッセージ一覧"
+  student_messages:
+    titles:
+      list: "受講者のメッセージ一覧"
+      list_of_x: "%{student}のメッセージ一覧"
+      index: メッセージ一覧
+  all_student_messages:
+    titles:
+      index: "受講者のメッセージ一覧"
+  coach_messages:
+    titles:
+      list: "教育コーチのメッセージ一覧"
+  user_messages:
+    titles:
+      list_of_x: "%{user}のメッセージ一覧"
+  message_recipient:
+    unknown_sender: "不明"
+  basic_lesson_info:
+    add_this_schedule: "この時間帯を追加する"
+    set_schedule: "決定"
+    add_schedule: "追加"
+    remove_schedule: "削除"
+    do_not_use_back_button: "ブラウザの「戻る」ボタンを使用しないでください。"
+    schedules_must_not_be_empty: "少なくとも１つの時間帯を指定してください。"
+    confirm_to_reset_students: "受講者の選択をやり直しますか？"
+    confirm_to_reset_tutor: "チューターの選択をやり直しますか？"
+    confirm_to_reset_wday_schedules: "時間帯を修正しますか？"
+    confirm_to_make_request: "ベーシックレッスンの申し込みを中止しますか？"
+    failed_to_cancel_building_request: "ベーシックレッスンの申し込みを中止できませんでした。"
+    request_is_cancelled: "ベーシックレッスンの申し込みを取りやめました。"
+    students_should_not_be_empty: "受講者が指定されていません。"
+    titles:
+      close: "レッスンの終了"
+    close: "レッスンを終了する"
+    messages:
+      closed_lesson: "レッスンを終了しました。"
+      confirm_to_close: "本当にこのベーシックレッスンを終了しますか？"
+      cancel_selected_lessons: "選択したレッスンをキャンセル"
+      confirm_to_cancel: "本当に選択したレッスンをキャンセルしますか？"
+    stop_auto_extension: "自動延長を停止"
+    start_auto_extension: "自動延長を有効にする"
+    closed: "終了"
+    time_range: "%{wday} %{from}-%{to}"
+    time_range_and_tutor: "%{wday} %{from}-%{to} %{tutor}先生"
+  optional_lesson:
+    add_this_schedule: "この時間帯を追加する"
+    set_schedule: "決定"
+    add_schedule: "追加"
+    remove_schedule: "削除"
+    do_not_use_back_button: "ブラウザの「戻る」ボタンを使用しないでください。"
+    schedules_must_not_be_empty: "少なくとも１つの時間帯を指定してください。"
+    confirm_to_reset_students: "受講者の選択をやり直しますか？"
+    confirm_to_reset_tutor: "チューターの選択をやり直しますか？"
+    confirm_to_reset_schedule: "時間を変更しますか？"
+    confirm_to_cancel_request: "オプションレッスンの申し込みを中止しますか？"
+    failed_to_cancel_building_request: "オプションレッスンの申し込みを中止できませんでした。"
+    request_is_cancelled: "オプションレッスンの申し込みを取りやめました。"
+    students_should_not_be_empty: "受講者が指定されていません。"
+  customer_type:
+        premium: 一般会員
+        free: 無料会員
+        request_to_premium: 一般会員移行中
+        guest: ゲスト
+  yucho_account_application:
+    current_yucho_account: "登録中銀行口座"
+    new_yucho_account: "申請中銀行口座"
+    accept: "登録"
+    reject: "取消"
+    accepted: "支払方法の変更希望を許可しました。"
+    rejected: "支払方法の変更希望を取り消しました。"
+  lesson_report:
+    search:
+      tutor_or_student: "作成者名（チューター）もしくは受講者名"

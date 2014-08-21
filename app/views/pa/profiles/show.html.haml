@@ -1,0 +1,9 @@
+-if @parent == current_user
+  %h1=title t('titles.my_profile')
+-else
+  %h1=title t('titles.profile')
+.buttons_left
+  =img_link_to "common.edit", edit_pa_profile_path
+  =link_to t('common.change_password'), change_password_pa_profile_path, class:'btn'
+  =img_link_to 'common.leave_from_aid', new_pa_membership_cancellation_path
+=render 'parents/parent', parent: @parent

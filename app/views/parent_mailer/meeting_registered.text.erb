@@ -1,0 +1,9 @@
+<%= @parent.full_name %>様
+
+教育コーチ<%= @meeting.creator.full_name %>様からAID Tutoring Systemに面談候補日時が登録されました。
+
+システムにログインして頂き、希望日の選択をお願い致します。
+
+<%- @meeting.schedules.each do |schedule| -%>
+<%= l schedule.datetime, format: :promise %> 〜
+<% end %>

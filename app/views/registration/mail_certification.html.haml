@@ -1,0 +1,7 @@
+.registration-form.confirmation2
+  %h1=title t('registration.mail_certification')
+
+  =render 'shared/about_form'
+  =form_for @email_confirmation_form, url: {action: :process_mail_certification}, as: :email_confirmation_form, html: {class: 'form-inline'} do |f|
+    =render 'application/validation_errors', model: @email_confirmation_form
+    =render 'email_confirmation_forms/form', f: f

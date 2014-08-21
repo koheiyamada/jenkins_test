@@ -1,0 +1,7 @@
+.button-menu
+  -if @tutor
+    -if @tutor.active?
+      =link_to t('titles.teaching_subjects'), hq_tutor_teaching_subjects_path(@tutor), class: 'btn btn-small'
+      -if current_user.can_access?(:tutor, :accounting)
+        =link_to t('titles.monthly_statements'), hq_tutor_monthly_statements_path(@tutor), class: 'btn btn-small'
+        =link_to t('titles.bank_account'), hq_tutor_bank_account_path(@tutor), class: 'btn btn-small'

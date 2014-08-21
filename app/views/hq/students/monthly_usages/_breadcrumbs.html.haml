@@ -1,0 +1,7 @@
+%ul.breadcrumb
+  %li
+    =link_to_unless_current t("titles.students"), hq_students_path
+  =breadcrumb_item user_display_name(@student), hq_student_path(@student)
+  =breadcrumb_item t("titles.monthly_usages"), hq_student_monthly_usages_path(@student)
+  -if @monthly_stat
+    =breadcrumb_item t("titles.monthly_usage_of", month:l(@monthly_stat.year_month, :format => :month_year)), {action:"year_month", year:@monthly_stat.year, month:@monthly_stat.month}

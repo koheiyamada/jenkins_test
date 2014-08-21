@@ -1,0 +1,10 @@
+.centered
+  %h1=title t("common.registration")
+  .short-message
+    %p
+      クレジットカード、もしくは郵便貯金の口座の登録を行います。
+    %p
+      クレジットカード、もしくは郵便貯金の口座をお持ちですか？
+  .buttons
+    =img_link_to 'common.yes', consent_students_path
+    =img_link_to 'common.no', no_credit_card_students_path

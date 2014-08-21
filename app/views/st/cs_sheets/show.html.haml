@@ -1,0 +1,9 @@
+=content_for :subheader do
+  =render "breadcrumbs"
+
+%h1=title t('titles.cs_sheet')
+
+=render 'cs_sheet', cs_sheet:@cs_sheet
+
+.buttons
+  =link_to t('common.lesson_detail'), st_lesson_path(@cs_sheet.lesson), class: 'btn'

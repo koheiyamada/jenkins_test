@@ -1,0 +1,8 @@
+/ チューターが閲覧できる内容のみを含むこと
+%table.table.student.student-detail
+  %tr
+    %th=User.human_attribute_name :nickname
+    %td=student.nickname
+  %tr
+    %th=StudentInfo.human_attribute_name :grade
+    %td=grade(student)

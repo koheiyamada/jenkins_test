@@ -1,0 +1,25 @@
+.student-detail {
+  th {
+    width: 40%;
+  }
+}
+
+.students {
+  .actions {
+    > * {
+      margin-left: 1px;
+    }
+  }
+}
+
+#search_grade, #search_customer_type {
+	width:160px;
+}
+
+.table.profile {
+  margin-top: 10px;
+}
+
+.table.student.student-detail {
+  margin-top: 10px;
+}

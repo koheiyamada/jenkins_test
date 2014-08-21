@@ -1,0 +1,22 @@
+%h1=title t("common.new_basic_lesson_info")
+
+=render "basic_lesson_info", basic_lesson_info:@basic_lesson_info
+
+%h2=t("titles.new_basic_lesson_weekday_schedule")
+
+-if @basic_lesson_info.tutor.present?
+  =render 'tutors/weekday_schedules3', tutor: @basic_lesson_info.tutor
+
+=render 'application/validation_errors', model:@basic_lesson_info
+
+=form_for @basic_lesson_info, url: wizard_path, method: :put, html: {class: 'form-inline edit_basic_lesson_info'} do |f|
+  =f.fields_for :schedules do |schedule|
+    =render 'schedule_fields', f: schedule
+  %span.links
+    =link_to_add_association t('basic_lesson_info.add_schedule'), f, :schedules, class: 'btn'
+
+  .form-actions.buttons
+    =link_to t('common.cancel'), {action: :cancel}, method: :post, data: {confirm: t('basic_lesson_info.confirm_to_make_request')}, class: 'btn'
+    =f.submit t('basic_lesson_info.set_schedule'), class: 'btn btn-primary'
+    -if @basic_lesson_info.schedules.select{|s| s.persisted?}.any?
+      =link_button_to 'forward', t('common.skip'), wizard_path(:confirmation)

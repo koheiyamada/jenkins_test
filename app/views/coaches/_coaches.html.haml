@@ -1,0 +1,19 @@
+%table.table.coach-list
+  %thead
+    %tr
+      %th=Coach.human_attribute_name :photo
+      %th=Coach.human_attribute_name :name
+      %th=Coach.human_attribute_name :sex
+      -#%td=Coach.human_attribute_name :age
+      %th=Coach.human_attribute_name :organization
+      %th
+  %tbody
+    -coaches.each do |coach|
+      %tr
+        %td=user_image coach, width: 64
+        %td=user_display_name coach
+        %td=sex coach
+        -#%td=user_age coach
+        %td=user_organization coach
+        %td
+          =img_link_to 'common.detail', {action: :show, id: coach}, class: 'small'

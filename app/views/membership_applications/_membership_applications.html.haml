@@ -1,0 +1,14 @@
+%table.table.membership-applications
+  %thead
+    %tr
+      %th=MembershipApplication.human_attribute_name :user
+      %th=MembershipApplication.human_attribute_name :created_at
+      %th=MembershipApplication.human_attribute_name :status
+      %th
+  %tbody
+    -membership_applications.each do |ma|
+      %tr.membership-application{class: "is-#{ma.status}"}
+        %td=user_display_name ma.user
+        %td=l ma.created_at, format: :promise
+        %td=membership_application_status ma
+        %td=yield ma

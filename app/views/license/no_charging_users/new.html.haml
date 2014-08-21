@@ -1,0 +1,22 @@
+=content_for :subheader do
+  =render 'breadcrumbs'
+
+%h1=title t('no_charging_user.titles.index')
+
+=render 'users/search'
+
+-if @users.empty?
+  =t('common.not_found')
+-else
+  %table.table.users
+    %tbody
+      -@users.each do |user|
+        %tr
+          %td=user.id
+          %td=user.user_name
+          %td=user_type user
+          %td=user.full_name
+          %td
+            =form_for [:license, @no_charging_user] do |f|
+              =f.hidden_field :user_id, value: user.id
+              =f.submit t('common.add'), class: 'btn btn-small'

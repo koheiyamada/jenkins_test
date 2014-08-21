@@ -1,0 +1,5 @@
+%table.table.access_authority
+  -AccessAuthority.keys.each do |key|
+    %tr
+      %th=AccessAuthority.human_attribute_name key
+      %td=t("access_authorities")[access_authority.send key]

@@ -1,0 +1,48 @@
+.error-messages-holder
+
+=render "application/validation_errors", model:@message
+
+-@message.recipients.select{|r| r.errors.any?}.each do |r|
+  %p=r.errors.full_messages.join(", ")
+
+
+=form_for @message, url:url do |f|
+  .explanation.help=t('message.about_privacy')
+  =f.hidden_field :original_message_id
+  %table.table
+    %tbody
+      %tr
+        %th=label_tag :recipients, t("labels.recipients")
+        %td.recipients
+          -if @message.recipients.present?
+            %ul.recipient_list
+              -@message.recipients.each do |recipient|
+                %li=user_display_name recipient
+                =hidden_field_tag "recipients[#{recipient.class.name.underscore}][]", recipient.id
+          -else
+            .help=t('message.press_ctrl_key_to_select_multiple_recipients')
+            =render "headquarter_select", f:f
+            =render "bss_select", f:f
+            =render "tutors_select", f:f
+            =render "students_select", f:f
+            =render "parents_select", f:f
+      %tr
+        %th=f.label :title
+        %td.title=f.text_field :title
+      %tr
+        %th=f.label :text
+        %td.text=f.text_area :text
+      %tr
+        %th=f.label :message_files
+        %td.message-files{data: {max_count: SystemSettings.max_message_files_count, max_file_size: 20000000}}
+          .file-field.btn.btn-small
+            %span=t('common.select_file')
+            .field=file_field_tag 'user_files[]'
+          .selected-files
+          =render 'shared/progress_bar', id: 'file-upload-progress'
+  .actions.buttons
+    =img_submit 'common.send'
+
+#templates
+  =render 'shared/error_messages_template'
+  =render 'error_messages'

@@ -1,0 +1,23 @@
+- checkbox = false unless defined?(checkbox)
+%table.table.lesson-list
+  %thead
+    %tr
+      -if checkbox
+        %th
+      %th=t("common.datetime")
+      %th=BasicLesson.human_attribute_name :status
+      %th=BasicLesson.human_attribute_name :established
+      %th=BasicLesson.human_attribute_name :journalized
+      %th
+  %tbody
+    -lessons.each do |lesson|
+      %tr.lesson{class: lesson.cancelled? ? 'lesson-cancelled' : ''}
+        -if checkbox
+          %td
+            -unless lesson.cancelled? || !current_user.can_cancel?(lesson)
+              =check_box_tag 'id[]', lesson.id, false, disabled: (lesson.cancelled? || !current_user.can_cancel?(lesson))
+        %td=lesson_time_range(lesson)
+        %td=lesson_status lesson
+        %td=yes_no(lesson.established?)
+        %td=yes_no(lesson.journalized_at.present?)
+        %td.actions=yield lesson

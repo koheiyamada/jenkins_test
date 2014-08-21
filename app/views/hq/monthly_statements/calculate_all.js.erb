@@ -1,0 +1,41 @@
+<% if @monthly_statement_calculation.errors.any? %>
+
+var messages = [<%= @monthly_statement_calculation.errors.full_messages.map{|msg| "\"#{msg}\""}.join(', ') %>];
+AID.showErrorMessages(messages);
+
+<% else %>
+
+var MonthlyStatementCalculation = Backbone.Model.extend({
+  urlRoot: "<%= hq_monthly_statement_calculations_path %>"
+});
+
+var MonthlyStatementCalculationView = Backbone.View.extend({
+  initialize: function() {
+    var self = this
+    _.bindAll(this)
+    this.model.on('change:status', this.onStatusChanged);
+    AID.startWaiting(function() {
+      self.model.fetch();
+    });
+  },
+
+  onStatusChanged: function() {
+    if (this.model.get('status') === 'success') {
+      alert("<%= t("messages.calculation_finished") %>");
+    } else if (this.model.get('status') === 'error') {
+      alert("<%= t('messages.calculation_failed') %>");
+    } else {
+      alert('???' + this.model.get('status'));
+    }
+    AID.stopWaiting()
+    location.reload()
+  }
+});
+
+var calculation = new MonthlyStatementCalculation(<%= raw @monthly_statement_calculation.to_json %>);
+
+if (calculation.get('status') === 'new') {
+  var calculationView = new MonthlyStatementCalculationView({model: calculation});
+}
+
+<% end %>

@@ -1,0 +1,10 @@
+%table.table.exams
+  %thead
+    %tr
+      %th=Exam.human_attribute_name :name
+      %th
+  %tbody
+    -exams.each do |exam|
+      %tr
+        %td=exam_name(exam)
+        %td=yield exam

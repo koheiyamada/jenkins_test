@@ -1,0 +1,11 @@
+%h1=title t("titles.new_optional_lesson")
+
+%h2=t("common.confirmation")
+
+=render "application/validation_errors", model:@optional_lesson
+
+=render "lessons/lesson_under_construction", lesson:@optional_lesson
+
+.buttons
+  =img_link_to "common.cancel", {action:"cancel"}, method:"post", data:{confirm:t("messages.confirm_cancellation")}
+  =img_link_to "common.send", wizard_path, method:"put"

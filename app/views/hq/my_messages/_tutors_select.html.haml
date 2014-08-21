@@ -1,0 +1,10 @@
+.recipients-select
+  %h4
+    %i.icon-user
+    =t('common.tutor')
+  .all
+    =label_tag "recipients[all_tutors]", class:"checkbox" do
+      =check_box_tag "recipients[all_tutors]"
+      =t("labels.all_tutors")
+  .individuals
+    =select_tag "recipients[tutor]", options_from_collection_for_select(current_user.active_tutors, :id, :full_name), multiple:true

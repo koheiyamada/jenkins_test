@@ -1,0 +1,22 @@
+%table.table.hq_user
+  %tr
+    %th=HqUser.human_attribute_name :user_name
+    %td
+      =hq_user.user_name
+      -if hq_user.admin?
+        .label=t('common.admin')
+  %tr
+    %th=HqUser.human_attribute_name :full_name
+    %td=hq_user.full_name
+
+  %tr
+    %th=HqUser.human_attribute_name :full_name_kana
+    %td=hq_user.full_name_kana
+
+  %tr
+    %th=HqUser.human_attribute_name :email
+    %td=hq_user.email
+
+  %tr
+    %th=HqUser.human_attribute_name :timezone
+    %td=hq_user.timezone

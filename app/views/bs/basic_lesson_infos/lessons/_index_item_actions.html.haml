@@ -1,0 +1,4 @@
+=img_link_to 'common.detail', bs_lesson_path(lesson), class: 'small'
+=img_link_to 'common.cancel',
+  cancel_bs_basic_lesson_info_lesson_path(@basic_lesson_info, lesson),
+  method: :post, class: 'small', data: {confirm: t('messages.confirm_lesson_cancellation')}

@@ -1,0 +1,28 @@
+%table.table
+  %tr
+    %th#email_table_head
+      %span.required=t('common.email')
+    %td
+      .email
+        =f.text_field :email_local, class: 'input-medium'
+        @
+        =f.text_field :email_domain, class: 'input-medium'
+        %a.btn{href: '#guide', data: {toggle: 'modal'}, tabindex: -1}=t('email_confirmation_form.guide')
+
+.pledge
+  %iframe(src="/pledges/user.txt" width="100%" height="300px")
+
+
+=f.label :agree_pledge, class:'agree_pladge', id:'agreement_check' do
+  =f.check_box :agree_pledge
+  =t('email_confirmation_form.agree_pledge_label')
+
+.form-actions.buttons
+  =img_submit 'common.send'
+
+#guide.modal.hide
+  .modal-header
+    %button.close{data: {dismiss: 'modal'}} &times;
+    %h3=t('email_confirmation_form.guide')
+  .modal-body
+    =render 'shared/about_email'

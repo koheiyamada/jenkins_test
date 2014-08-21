@@ -1,0 +1,13 @@
+.tab-content
+  .textbook-select.tab-pane.active
+    %table.table.textbooks
+      -Textbook.all.each do |textbook|
+        %tr
+          %td.textbook{"data-id" => textbook.id}=textbook.title
+  .textbook-view.tab-pane
+    .textbook-header
+      =button_tag t('common.answer_book'), class: 'show-answer-book btn btn-small'
+      =link_button_to 'remove', t('common.close'), '#', class:'close_button btn-small'
+    .textbook-holder
+  %a(data-target=".desk.student-#{student.id} .textbook-select" data-toggle="tab" href="#")
+  %a(data-target=".desk.student-#{student.id} .textbook-view" data-toggle="tab" href="#")

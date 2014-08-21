@@ -1,0 +1,6 @@
+オプションレッスンのマッチングが成立しませんでした。
+
+<%= render "lesson", lesson:@lesson %>
+<%= st_lesson_url(@lesson) %>
+
+<%= render 'lessons/reason', model: @lesson.lesson_request_rejection %>

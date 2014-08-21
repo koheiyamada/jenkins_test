@@ -1,0 +1,17 @@
+<%= user_display_name @message.sender, @recipient %>さんからメッセージが届きました。
+
+件名：<%= @message.title %>
+
+本文：
+<%= @message.text %>
+
+
+以下URLをクリックして、送信者への既読通知にご協力ください。
+<%# Message#set_recipient_names　を参考%>
+<%= case @recipient.type
+	when 'HqUser'  then hq_message_url(@message)
+	when 'Coach', 'BsUser' then bs_message_url(@message)
+	when 'Tutor'   then tu_message_url(@message)
+	when 'Parent'  then pa_message_url(@message)
+	when 'Student' then st_message_url(@message)
+	end %>

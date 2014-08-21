@@ -1,0 +1,14 @@
+%table.table
+  %thead
+    %tr
+      %th=MonthlyStatementCalculation.human_attribute_name :year
+      %th=MonthlyStatementCalculation.human_attribute_name :month
+      %th=MonthlyStatementCalculation.human_attribute_name :status
+      %th=MonthlyStatementCalculation.human_attribute_name :created_at
+  %tbody
+    -monthly_statement_calculations.each do |calc|
+      %tr
+        %td=calc.year
+        %td=calc.month
+        %td=t("monthly_statement_calculation.statuses.#{calc.status}")
+        %td=l calc.created_at, format: :promise

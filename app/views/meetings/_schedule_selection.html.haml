@@ -1,0 +1,15 @@
+.schedule-line
+  %span.schedule
+    =l schedule.datetime, format: :promise
+  %span.action
+    =link_to "#{meeting.id}/schedules/#{schedule.id}/select", method: 'post', class: 'btn btn-mini btn-primary', data: {confirm: t('meeting.message.confirm_to_select_schedule')} do
+      %i.icon-ok
+      =t('common.select')
+    =link_button_to 'edit', t('common.edit'), "#{meeting.id}/schedules/#{schedule.id}/edit", class: 'btn-mini'
+    -if meeting.schedules.count > 1
+      =link_to "#{meeting.id}/schedules/#{schedule.id}", method: 'delete', class: 'btn btn-mini', data: {confirm: t('meeting_schedule.confirm_to_delete')} do
+        %i.icon-remove
+        =t('common.delete')
+-if schedule.meeting_members.present?
+  .preferences
+    =schedule.meeting_members.map{|meeting_member| user_display_name(meeting_member.user)}.join(', ')

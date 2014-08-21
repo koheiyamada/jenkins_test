@@ -1,0 +1,33 @@
+%h1=title t("titles.new_optional_lesson")
+
+=render "lessons/lesson_under_construction", lesson:@optional_lesson
+
+%section
+  %h3=t("common.tutor_schedule", tutor:@optional_lesson.tutor_full_name, time_range:l(@time_range.start_at.to_date, :format => :month_day_wday) + time_range(@time_range.start_at, @time_range.end_at))
+  -time_ranges = @time_range.reserved_time_ranges
+  -if time_ranges[:basic_lessons].blank? && time_ranges[:optional_lessons].blank?
+    =t('common.not_found')
+  -else
+    -time_ranges.each do |lesson_type, ranges|
+      .lesson-schedule
+        %h5=t("common.lesson_types.#{lesson_type}")
+        -ranges.each do |range|
+          .time-range=time_range(*range)
+
+=render "application/validation_errors", model:@optional_lesson
+
+=form_for @optional_lesson, url:wizard_path, method:"put" do |f|
+  %table.table
+    %tbody
+      %tr
+        %th=t("common.date")
+        %td=l(@optional_lesson.start_time.to_date, :format => :month_day_wday)
+      %tr
+        %th=f.label :start_time
+        %td=f.time_select :start_time, {:minute_step => 15}, class:"span2"
+      %tr
+        %th=f.label :units
+        %td=f.select :units, (@optional_lesson.students.map(&:min_lesson_units).max .. 3), {}, class:"span2"
+  .form-actions.buttons
+    =img_link_to "common.cancel", {action:"cancel"}, method:"post", data:{confirm:t("messages.confirm_cancellation")}
+    =img_submit "common.go_next"

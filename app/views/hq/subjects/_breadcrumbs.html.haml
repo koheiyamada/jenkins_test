@@ -1,0 +1,8 @@
+%ul.breadcrumb
+  %li
+    =link_to_unless_current t("titles.subjects"), hq_subjects_path
+  -if @subject
+    -if @subject.new_record?
+      =breadcrumb_item t('titles.new_subject'), new_hq_subject_path(@subject)
+    -else
+      =breadcrumb_item @subject.name, hq_subject_path(@subject)

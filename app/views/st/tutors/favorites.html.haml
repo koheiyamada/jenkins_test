@@ -1,0 +1,11 @@
+=content_for :tabmenu do
+  =render "nav_tab"
+
+%h1=title t("titles.favorite_tutors")
+
+-if @tutors.blank?
+  =t('common.not_found')
+-else
+  =render layout:"tutors/tutors", locals:{tutors:@tutors} do |tutor|
+    =img_link_to "common.detail", st_tutor_path(tutor), class:"small"
+

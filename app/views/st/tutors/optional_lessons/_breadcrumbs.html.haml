@@ -1,0 +1,6 @@
+%ul.breadcrumb
+  %li
+    =link_to_unless_current t("titles.tutors"), st_tutors_path
+  =breadcrumb_item @tutor.nickname, st_tutor_path(@tutor)
+  -if @optional_lesson.present?
+    =breadcrumb_item t('titles.optional_lesson_reservation'), new_st_tutor_optional_lesson_path(@tutor)

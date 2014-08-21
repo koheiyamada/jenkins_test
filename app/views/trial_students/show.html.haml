@@ -1,0 +1,17 @@
+=content_for :subheader do
+  =render 'breadcrumbs'
+
+%h1=title t("titles.student")
+
+=render 'menu'
+.buttons_left
+  =link_to edit_hq_trial_student_path(@student), class: 'btn btn-primary' do
+    %i.icon-edit
+    =t('common.edit')
+  =link_to change_password_hq_trial_student_path(@student), class: 'btn' do
+    =t('common.change_password')
+  =link_to hq_trial_student_path(@student), method: :delete, data: {confirm: t('trial_student.messages.confirm_to_delete')}, class: 'btn' do
+    %i.icon-remove
+    =t('common.delete')
+
+=render 'trial_student', student: @student

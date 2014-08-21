@@ -1,0 +1,79 @@
+=form_tag nil, method: :get, class: 'form-search' do
+  =hidden_field_tag 'q', ''
+  %table
+    %tr
+      %td
+        %span.sex
+          =label_tag :sex_male, class: 'radio' do
+            =radio_button_tag :sex, 'male', params[:sex] == 'male'
+            =t('common.male')
+          =label_tag :sex_female, class: 'radio' do
+            =radio_button_tag :sex, 'female', params[:sex] == 'female'
+            =t('common.female')
+        %span.graduated
+          =label_tag :graduated_false, class: 'radio' do
+            =radio_button_tag :graduated, false, params[:graduated] == 'false'
+            =t('common.not_graduated')
+          =label_tag :graduated_true, class: 'radio' do
+            =radio_button_tag :graduated, true, params[:graduated] == 'true'
+            =t('common.graduated')
+    %tr
+      %td
+        %span.regular
+          =label_tag :tutor_type, class: 'radio' do
+            =radio_button_tag :tutor_type, 'none', params[:tutor_type].blank? || params[:tutor_type] == 'none'
+            =t('tutor.types.no_select')
+          =label_tag :tutor_type_beginner, class: 'radio' do
+            =radio_button_tag :tutor_type, 'beginner', params[:tutor_type] == 'beginner'
+            =t('tutor.types.beginner')
+          =label_tag :tutor_type_regular, class: 'checkbox' do
+            =radio_button_tag :tutor_type, 'regular', params[:tutor_type] == 'regular'
+            =t('tutor.types.regular')
+          =label_tag :tutor_type_special, class: 'checkbox' do
+            =radio_button_tag :tutor_type, 'special', params[:tutor_type] == 'special'
+            =t('tutor.types.special')
+    %tr
+      %td
+        =label_tag :undertake_group_lesson, class:'checkbox' do
+          =check_box_tag :undertake_group_lesson, '1', params[:undertake_group_lesson]
+          =t('tutor.undertake_group_lesson')
+
+    %tr
+      %td.age-group
+        =select_tag :age_group_id,
+          options_for_select([t('common.less_than_20_year_old'), t('common.twenties'), t('common.thirties'), t('common.more_than_40')].zip(1..4), params[:age_group_id]), prompt: t('common.age_group')
+
+    %tr
+      %td
+        %span.subject=select_tag :subject_id, options_from_collection_for_select(@subjects || Subject.all, :id, :name, params[:subject_id]), :prompt => t('common.subject'), :class => 'input-small'
+
+    %tr
+      %td
+        %span.wday=select_tag :wday, options_for_select(t('date.abbr_day_names').zip(0..6), params[:wday]), :prompt => t('common.weekday'), :placeholder => t('common.weekday'), :class => 'input-small'
+
+    %tr
+      %td
+        %span.wday
+          =select_time(@tutor_search && @tutor_search.start_time,
+                       {minute_step: 15, prompt: {hour: t('tutor_search.hour'), minute: t('tutor_search.minute')}, prefix: 'start_time'},
+                       class: 'input-small')
+        %span=t('tutor_search.start_time')
+
+    %tr
+      %td.lesson-fee
+        =number_field_tag :min_lesson_fee, params[:min_lesson_fee], :placeholder => t('tutor_search.min_lesson_fee')
+        \-
+        =number_field_tag :max_lesson_fee, params[:max_lesson_fee], :placeholder => t('tutor_search.max_lesson_fee')
+
+    %tr
+      %td.college
+        =text_field_tag :college, params[:college], :placeholder => t('common.college')
+
+    -#%tr
+    -#  %td.nickname
+    -#    =text_field_tag :nickname, params[:nickname], :placeholder => t('common.nickname')
+
+    %tr
+      %td
+        =img_submit 'common.search'
+        =img_link_to 'common.clear', '#clear'

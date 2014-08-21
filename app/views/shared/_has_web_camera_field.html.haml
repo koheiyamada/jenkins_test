@@ -1,0 +1,5 @@
+%tr
+  %th=f.label :has_web_camera, class: 'required'
+  %td
+    =f.select :has_web_camera, [[t('has_web_camera.built_in'),:built_in], [t('has_web_camera.separate'),:separate], [t('has_web_camera.no'),:no]], class: 'input-medium'
+    =render 'shared/about_web_camera'

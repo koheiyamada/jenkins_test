@@ -1,0 +1,28 @@
+%h1=title t('titles.basic_lesson_available_time_settings2')
+
+%section
+  %h2=t('titles.weekly_schedules')
+  -if @weekday_schedules.blank?
+    =t('common.not_found')
+  -else
+    %table.table.weekday_schedules
+      %thead
+        %tr
+          %th=t("common.weekday")
+          %th=t("common.time_range")
+          %th
+      %tbody
+        -@weekday_schedules.group_by(&:wday).each do |wday, schedules|
+          %tr.weekday_schedule
+            %td.wday=t('date.abbr_day_names')[wday]
+            %td.time_ranges
+              -schedules.map do |schedule|
+                %span.time_range
+                  =time_range(schedule.start_time, schedule.end_time)
+                  %span.delete-button
+                    =link_to tu_settings_weekday_schedule_path(schedule), method: :delete, data: {confirm: t(".confirmation")}, title: t('common.delete') do
+                      &times;
+
+%section
+  %h2=t('titles.new_weekly_schedule')
+  .new_weekday_schedule_holder{data: {form_path: new_tu_settings_weekday_schedule_path}}

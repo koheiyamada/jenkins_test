@@ -1,0 +1,16 @@
+%table.table.students
+  %thead
+    %tr
+      %th=t("common.full_name")
+      %th=t("common.grade")
+      %th=Student.human_attribute_name :organization_id
+      %th=t('common.coach')
+      %th
+  %tbody
+    -students.each do |student|
+      %tr
+        %td=student.full_name
+        %td=grade(student)
+        %td=user_organization student
+        %td=user_display_name student.coach if student.coach.present?
+        %td=yield student

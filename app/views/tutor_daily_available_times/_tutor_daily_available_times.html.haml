@@ -1,0 +1,4 @@
+.tutor-daily-available-times
+  -tutor_daily_available_times.each do |t|
+    .tutor-daily-available-time
+      %span.time-range=render 'shared/date_time_range2', from: t.start_at, to: t.end_at

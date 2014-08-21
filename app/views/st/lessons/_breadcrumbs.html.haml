@@ -1,0 +1,14 @@
+-if @lesson.under_request?
+  %ul.breadcrumb
+    %li
+      =link_to_unless_current t('titles.lesson_requests'), requests_st_lessons_path
+    -if @lesson
+      =breadcrumb_item t('titles.lesson_request'), st_lesson_path(@lesson)
+-else
+  %ul.breadcrumb
+    %li
+      =link_to_unless_current t('titles.lessons'), st_lessons_path
+    -if @lesson
+      =breadcrumb_item t('titles.lesson'), st_lesson_path(@lesson)
+      -if @message
+        =breadcrumb_item t('titles.change_lesson_schedule'), change_schedule_st_lesson_path(@lesson)

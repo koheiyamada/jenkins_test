@@ -1,0 +1,21 @@
+=content_for :tabmenu do
+  =render "nav_tab"
+
+%h1=title t("titles.students")
+
+=render "menu"
+
+-if @students.blank?
+  = t('common.not_found')
+-else
+  =render layout: 'students/students_for_bs_user', locals:{students:@students} do |student|
+    =link_to bs_student_path(student), class: 'btn btn-small btn-primary' do
+      %i.icon-signin
+      =t('common.detail')
+    =link_to bs_student_lesson_reports_path(student), class: 'btn btn-small' do
+      %i.icon-file-alt
+      =t('common.report')
+    =link_to new_bs_my_message_path(recipients:student.id), class: 'btn btn-small' do
+      %i.icon-envelope-alt
+      =t('common.send_message')
+  =paginate(@students)

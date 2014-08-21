@@ -1,0 +1,5 @@
+%ul.breadcrumb
+  %li=link_to_unless_current t('titles.scheduling_meetings'), {action: 'scheduling'}
+  -if @meeting
+    -if @meeting.persisted?
+      =breadcrumb_item t('titles.meeting'), {action: 'show', id: @meeting}

@@ -1,0 +1,171 @@
+@import "base";
+
+.tutor-search {
+  display: inline-block;
+  padding: 4px;
+  //background-color: #ddd;
+  text-align: left;
+
+  .search-box-pane {
+    margin-bottom: 6px;
+  }
+
+  .sex, .graduated, .regular {
+    .radio {
+      margin: 0;
+      margin-right: 8px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  .grade_subject_level_fields {
+    margin: 10px 0;
+    td > div {
+      display: inline-block;
+    }
+  }
+
+  .daily_available_times {
+    margin: 10px 0;
+
+    .and_or {
+      td {
+        padding: 6px 0;
+      }
+    }
+  }
+
+  .time-range {
+    > div {
+      display: inline-block;
+      margin-right: 10px;
+    }
+  }
+
+  .lesson-fee, .college, .graduate_college {
+    display: inline-block;
+    margin: 10px 3px 10px 0;
+    input {
+      margin-bottom: 2px;
+    }
+  }
+
+  .options {
+    margin-top: 6px;
+  }
+
+  .tutor-search-result-stat {
+    margin-top: 6px;
+  }
+
+  .weekday_schedule {
+    label {
+      margin-right: 4px;
+    }
+  }
+
+  .sort {
+    .order {
+      label {
+        margin-right: 4px;
+      }
+    }
+  }
+
+  .radio-button-group {
+    display: inline-block;
+    padding: 4px 8px;
+    margin-right: 4px;
+    border: 1px solid #ccc;
+    @include border-radius(5px);
+
+    #sex_male {
+      width: 12px;
+    }
+  }
+
+  .selected-dates {
+    max-width: 450px;
+  }
+
+  .selected-date {
+    display: inline-block;
+    padding: 2px 4px;
+    margin: 2px;
+    @include border-radius(4px);
+    background-color: #ddd;
+
+    .delete-button {
+      //padding: 2px 4px;
+      @include border-radius(4px);
+      color: #888;
+      
+      &:hover {
+        color: #333;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.tutor-search-results {
+
+}
+
+@mixin tutor-info {
+  .photo {
+    width: 72px;
+    position: relative;
+
+    .actions {
+      margin-top: 8px;
+    }
+  }
+
+  img {
+    max-width: 64px;
+  }
+  .name {
+    margin-right: 1em;
+  }
+
+  .lesson_fee {
+    margin-right: 1em;
+  }
+
+  .sex {
+    margin-left: 1em;
+  }
+
+  .cs_points {
+    margin-left: 1em;
+  }
+
+  .average_cs_points {
+    margin-left: 1em;
+  }
+
+  .item {
+    padding: 2px 4px;
+    margin-right: 2px;
+    background-color: $aid-gray;
+  }
+}
+
+.tutor-search-result {
+  @include tutor-info;
+}
+
+.tutors {
+  li.tutor {
+    @include tutor-info;
+
+    .member_only {
+      font-size: small;
+      color: $soba-gray;
+    }
+  }
+}

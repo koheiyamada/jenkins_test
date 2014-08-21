@@ -1,0 +1,5 @@
+%ul.breadcrumb
+  %li
+    =link_to_unless_current t("titles.grade_groups"), hq_grade_groups_path
+  -if @grade_group
+    =breadcrumb_item @grade_group.name, hq_grade_group_path(@grade_group)

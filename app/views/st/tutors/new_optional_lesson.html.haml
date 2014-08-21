@@ -1,0 +1,6 @@
+=content_for :subheader do
+  =render "breadcrumbs"
+
+%h1=title t("titles.error")
+
+=render "application/validation_errors", model:@optional_lesson

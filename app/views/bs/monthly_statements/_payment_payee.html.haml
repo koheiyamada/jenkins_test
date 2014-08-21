@@ -1,0 +1,18 @@
+.payee-pane
+  .area
+    .guide-text="(#{t('bs.area_name')})"
+    =@bs.name
+  .demandee
+    .guide-text="(#{t('bs.owner_full_name')})"
+    .name
+      =@bs.owner.full_name
+      %span.prefix
+        様
+  .message
+    下記の計算期間に行われたレッスンに対する手数料を
+    %br/
+    下記の通りお振込みいたします。
+    %br/
+    支払総額がマイナスの場合は、右記振込先まで当該金額を
+    %br/
+    お振込み下さい。

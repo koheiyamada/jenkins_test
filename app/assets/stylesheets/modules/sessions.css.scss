@@ -1,0 +1,24 @@
+@import "base";
+
+.new_user {
+  text-align: center;
+  >table {
+    margin:0 auto;
+    margin-bottom: 20px;
+  }
+  label {
+    display:inline;
+  }
+}
+
+.login_form {
+  padding: 30px 10px 10px;
+  margin-top: 60px;
+  margin-bottom: 200px;
+  @include border-radius(6px);
+  @include box-shadow;
+  background-color: #e8e8e8;
+  .links {
+    margin-top: 30px;
+  }
+}

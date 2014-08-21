@@ -1,0 +1,22 @@
+=content_for :subheader do
+  =render "breadcrumbs"
+/=render "nav_tab"
+
+%h1=title t("titles.bs")
+
+-if @bs.active?
+  =render "menu", bs:@bs
+  .buttons_left
+  -if @bs.active?
+    -if  current_user.can_access?(:bs, :write)
+      =link_to t('common.edit'), edit_hq_bs_path(@bs), class:'btn'
+    -if  current_user.can_access?(:bs_user, :read)
+      =link_to t("common.bs_users"), hq_bs_bs_users_path(@bs), class:'btn'
+    -if  current_user.can_access?(:student, :read)
+      =link_to t('titles.students'), hq_bs_students_path(@bs), class:'btn'
+  -else
+    -if current_user.can_access?(:bs, :write)
+      =link_to t('common.back_to_aid'), activate_hq_bs_path(@bs), method: :post, class: 'btn', data: {confirm: t('bs.confirm_to_reactivate')}
+      =link_to t('common.delete_user'), {id: @bs}, method: :delete, class: 'btn', data: {confirm: t('messages.confirm_to_delete')}
+
+=render 'bss/bs', bs: @bs

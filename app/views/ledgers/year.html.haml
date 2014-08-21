@@ -1,0 +1,15 @@
+%h1=title t("titles.ledgers") + ":#{@year}"
+
+.navigation
+  =link_to (@year - 1), {year:@year - 1}
+  =link_to (@year + 1), {year:@year + 1}
+
+%table.table.ledgers
+  -(1 .. 12).each do |m|
+    %tr
+      %td=link_to t("date.abbr_month_names")[m], {action:"month", month:m}
+      %td
+        -if @ledger_strips.has_key?(m)
+          A
+        -else
+          B

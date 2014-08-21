@@ -1,0 +1,88 @@
+%ul.sidebar
+  -if [:bs_user, :tutor, :student, :parent].any?{|resource| current_user.can_access?(resource, :read)}
+    %li.section=render 'sidebar_section', text:t("common.users")
+  -if current_user.can_access?(:bs, :read)
+    %li=sidebar_link t('titles.bss'), hq_bss_path
+  -if current_user.can_access?(:tutor, :read)
+    %li=sidebar_link t("menu.tutors"), hq_tutors_path
+  -if current_user.can_access?(:student, :read)
+    %li=sidebar_link t("menu.students"), hq_students_path
+  -if current_user.can_access?(:parent, :read)
+    %li=sidebar_link t("menu.parents"), hq_parents_path
+  -if current_user.can_access?(:bs_user, :read)
+    %li=sidebar_link t('titles.coaches'), hq_coaches_path
+  -if current_user.can_access?(:student, :read)
+    %li=sidebar_link t('titles.trial_students'), hq_trial_students_path
+
+  -if [:bs_app_form, :tutor_app_form].any?{|resource| current_user.can_access?(resource, :read)}
+    %li.section=render 'sidebar_section', text:t("common.applications")
+  -if current_user.can_access?(:bs_app_form, :read)
+    %li=sidebar_link t("menu.bs_app_forms"), hq_bs_app_forms_path
+  -if current_user.can_access?(:tutor_app_form, :read)
+    %li=sidebar_link t("menu.tutor_app_forms"), hq_tutor_app_forms_path
+  -if current_user.can_access?(:parent, :read)
+    %li=sidebar_link t("titles.parent_membership_applications"), parents_hq_membership_applications_path
+  -if current_user.can_access?(:student, :read)
+    %li=sidebar_link t("titles.student_membership_applications"), students_hq_membership_applications_path
+  -if current_user.admin?
+    %li=sidebar_link t('titles.membership_cancellations'), hq_membership_cancellations_path
+
+  %li.section=render 'sidebar_section', text:t("common.lesson")
+  -if current_user.can_access?(:lesson, :read)
+    %li=sidebar_link t("menu.lessons"), hq_lessons_path
+    %li=sidebar_link t('titles.basic_lesson_infos'), hq_basic_lesson_infos_path
+    %li=sidebar_link t('titles.pending_lessons'), pending_hq_lessons_path
+    -if current_user.can_access? :lesson, :write
+      %li=sidebar_link t("menu.lesson_reservation"), new_hq_lesson_path
+  -if current_user.can_access?(:lesson_report, :read)
+    %li=sidebar_link t("menu.lesson_reports"), hq_lesson_reports_path
+  -if current_user.can_access?(:cs_sheet, :read)
+    %li=sidebar_link t("menu.cs_sheets"), hq_cs_sheets_path
+
+  -if current_user.can_access?(:message, :read)
+    %li.section=render 'sidebar_section', text:t("common.messages")
+    %li=sidebar_link t("menu.messages"), hq_messages_path
+    .badge=link_to "未読 #{number_of_unread_message}件", hq_messages_path('search[is_read]'=> false, q: '')
+    %li=sidebar_link t('titles.all_messages'), hq_all_messages_path
+
+  -if current_user.can_access? :meeting, :read
+    %li.section=render 'sidebar_section', text: t('common.meeting')
+    %li=sidebar_link t('titles.meetings'), hq_meetings_path
+    %li=sidebar_link t('titles.scheduling_meetings'), scheduling_hq_meetings_path
+
+  -if current_user.can_access?(:accounting, :read)
+    %li.section=render 'sidebar_section', text:t("common.accountings")
+    %li=sidebar_link t("titles.monthly_statements"), hq_monthly_statements_path
+    %li=sidebar_link t("titles.switching_payment_method_users"),hq_yucho_account_applications_path
+
+  -if current_user.can_access?(:document_camera, :read)
+    %li.section=render 'sidebar_section', text:t('common.records')
+    %li=sidebar_link t("menu.document_cameras"), hq_document_cameras_path
+
+  -if current_user.can_access?(:textbook, :read)
+    %li.section=render 'sidebar_section', text:t("common.textbook")
+    %li=sidebar_link t("titles.textbooks_management"), hq_textbooks_path
+
+  %li.section=render 'sidebar_section', text:t("common.accounts")
+  %li=sidebar_link t("titles.profile"), hq_profile_path
+  -if current_user.can_access?(:hq_user, :read)
+    %li=sidebar_link t("titles.hq_users"), hq_hq_users_path
+
+  -if current_user.can_access?(:system_settings, :read)
+    %li.section=render 'sidebar_section', text:t("common.settings")
+    %li=sidebar_link t("menu.settings"), hq_system_settings_path
+    %li=sidebar_link t('titles.charge_settings'), hq_charge_settings_path
+    %li=sidebar_link t('lesson_settings.title.show'), hq_lesson_settings_path
+    %li=sidebar_link t('titles.free_mode_settings'), hq_free_mode_settings_path
+    %li=sidebar_link t('common.others'), hq_settings_path
+
+  %li.section=render 'sidebar_section', text:t('titles.operation_check')
+  %li=sidebar_link t('titles.person_and_document_camera'), videos_widgets_path
+
+  -if current_user.can_access?(:accounting, :read)
+    %li.section=render 'sidebar_section', text:t("common.others")
+    %li=sidebar_link t("monthly_charging_user.titles.stat"), license_monthly_charging_users_path
+
+  %li.section=render 'sidebar_section', text:t('titles.manuals')
+  %li=link_to t('titles.user_manual'), 'https://aidnet.jp/user-manual/', target: '_blank'
+  %li=link_to t('titles.trouble_manual'), 'https://aidnet.jp/trouble-manual/', target: '_blank'

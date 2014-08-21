@@ -1,0 +1,7 @@
+=form_for @weekday_schedule, url:tu_settings_weekday_schedules_path, remote: true, html:{class:'form-inline'} do |f|
+  =render 'application/validation_errors', model: @weekday_schedule
+  =f.select :wday, t("date.abbr_day_names").zip(0..6), {}, class:"span1"
+  =f.time_select :start_time, {minute_step:15}, class:"span1"
+  \-
+  =f.time_select :end_time, {minute_step:15}, class:"span1"
+  =f.submit t('common.add'), class: 'btn btn-primary'

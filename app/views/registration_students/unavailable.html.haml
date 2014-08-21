@@ -1,0 +1,12 @@
+.centered
+  %p ユーザ登録が完了しませんでした。
+  -if @student_registration_form.pc_spec_low?
+    %p 理由：PCのパフォーマンスが本システムに対応していません。
+  -if @student_registration_form.line_speed_too_slow?
+    %p 理由：インターネットの通信速度が本システムをご利用いただくのに十分ではありません。
+
+  %p 再度やり直すか、サポートセンターにお問い合わせください。
+
+  .buttons
+    =img_link_to "common.retry", {action:'form'}, class:"large"
+    =img_link_to "common.go_to_top", registration_path, class:"large"

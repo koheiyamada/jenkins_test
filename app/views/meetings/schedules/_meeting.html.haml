@@ -1,0 +1,10 @@
+%table.table.meeting.meeting-registering
+  %tr
+    %th=Meeting.human_attribute_name :members
+    %td
+      %ul
+        -@meeting.members.each do |member|
+          %li=user_display_name_with_role member
+  %tr
+    %th=Meeting.human_attribute_name :status
+    %td=meeting_status(@meeting)

@@ -1,0 +1,14 @@
+%table.table.membership-applications
+  %thead
+    %tr
+      %th=MembershipApplication.human_attribute_name :user
+      %th=User.human_attribute_name :type
+      %th=MembershipApplication.human_attribute_name :created_at
+      %th
+  %tbody
+    -yucho_account_applications.each do |ya|
+      %tr.membership-application{class: "is-#{ya.status}"}
+        %td=user_display_name ya.user
+        %td=user_type ya.user
+        %td=l ya.created_at, format: :promise
+        %td=yield ya

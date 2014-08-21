@@ -1,0 +1,5 @@
+.menu
+  -if @basic_lesson_info
+    =img_link_to "titles.lessons", bs_student_basic_lesson_info_lessons_path(@student, @basic_lesson_info)
+  -else
+    =img_link_to "common.new",new_bs_student_basic_lesson_info_path(@student)

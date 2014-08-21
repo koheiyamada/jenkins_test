@@ -1,0 +1,349 @@
+@import 'base';
+
+a.imgbtnlink {
+    display: inline-block; 
+    vertical-align: baseline;
+    padding: 0px;
+}
+
+img.imgbtnovr {
+}
+
+div.imgbtnwrap {
+  div.menu-item {
+    display:inline-block !important;
+    border: hidden 0px !important;
+    background-color: transparent !important;   
+    padding: 0 !important;
+    margin: 0 8px !important;  
+  }
+}
+
+button.imgbtnwrap {
+    border: none;
+    padding: 0px;   
+}
+
+button[disabled] {
+    img.imgbtnovr {
+      -webkit-filter: saturate(70%);
+      -moz-filter: saturate(70%);
+      -o-filter: saturate(70%);
+      -ms-filter: saturate(70%);
+      filter: saturate(70%); 
+      
+      -webkit-filter: brightness(70%);
+      -moz-filter: brightness(70%);
+      -o-filter: brightness(70%);
+      -ms-filter: brightness(70%);
+      filter: brightness(70%); 
+
+      -webkit-filter: contrast(50%);
+      -moz-filter: contrast(50%);
+      -o-filter: contrast(50%);
+      -ms-filter: contrast(50%);
+      filter: contrast(50%);      
+    }
+    background-color: #444;
+}
+
+td {
+    a.imgbtnlink {
+        margin: -4px 0;
+    }    
+}
+
+/*disabled属性でjsから動的にボタンを有効/無効切り替えできるように*/
+div.dyn_imgbtn_wrap {
+  position: relative !important;
+  left:0px;
+  top:0px;
+  display: inline-block;
+  margin: 0px;
+  padding: 0px;
+  a{
+    visibility: visible;
+    position:relative;
+    z-index: 1;
+    display: inline-block; 
+    vertical-align: baseline;
+    padding: 0px;
+    margin: 0px !important;
+  }
+  img.imgbtn_disabled {
+    position:absolute;
+    left:0px;
+    top:0px;
+    z-index:0;
+  }
+  a[disabled] {
+    visibility: hidden !important;
+  }
+}
+
+ul.button-list{
+    li {
+        display: inline-block;
+        margin:0 8px;     
+    }
+    text-align: center;
+}
+
+div.group_lesson_options{
+  max-width: $aid-right-column-width;
+
+  table.lessson_options {
+    margin: 0 20px;
+    text-align: center;
+    td {
+      width: 33%;
+      padding: 0 16px;
+      text-align: center;
+      vertical-align: top;
+      a.imgbtnlink {
+        display: block !important;
+        margin: 0px !important;
+      }
+    }
+  }
+}
+
+/*前へ、次への文字埋め込み用可変長ボタン*/
+a.navi_left{
+  position:relative;
+  display: inline-block;
+  font-size: 14px;
+  padding: 0px !important;
+  margin: 0px 13px 0px 25px !important;
+  background-image: url(/assets/navibase_prev.gif);
+  background-repeat: no-repeat;
+  background-position: -25px, 0px;
+  height: 26px;
+  line-height :26px;
+}
+
+a.navi_left:before {  
+  content: "";  
+  padding: 0px;
+  margin:0px;
+  background-image: url(/assets/navibase_prev.gif);
+  background-position: left top;  
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: -25px;
+  padding-left: 25px;  
+} 
+
+a.navi_left:after {
+  content: "";  
+  padding: 0px;
+  margin:0px;
+  background-image: url(/assets/navibase_prev.gif);
+  background-position: right top;  
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  right: -13px;
+  padding-right: 13px;
+} 
+
+a.navi_left:hover{
+  position:relative;
+  display: inline-block;
+  font-size: 14px;
+  padding: 0px !important;
+  margin: 0px 13px 0px 25px !important;
+  background-image: url(/assets/navibase_prev_over.gif);
+  height: 26px;
+  line-height :26px;
+  background-repeat: no-repeat;
+  background-position: -25px, 0px;
+}
+
+a.navi_left:hover:before {
+  content: "";  
+  padding: 0px;
+  margin:0px;
+  background-image: url(/assets/navibase_prev_over.gif);
+  background-position: left top;  
+  height: 100%;  
+  position: absolute;
+  top: 0px;
+  left: -25px;
+  padding-left: 25px;
+} 
+
+a.navi_left:hover:after {
+  content: "";  
+  padding: 0px;
+  margin:0px;
+  background-image: url(/assets/navibase_prev_over.gif);
+  background-position: right top;  
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  right: -13px;
+  padding-right: 13px;
+} 
+
+a.navi_right{
+  position:relative;
+  display: inline-block;
+  font-size: 14px;
+  padding: 0px !important;
+  margin: 0px 25px 0px 13px !important;
+  background-image: url(/assets/navibase_next.gif);
+  background-repeat: no-repeat;
+  background-position: -25px, 0px;
+  height: 26px;
+  line-height :26px;
+}
+
+a.navi_right:before {  
+  content: "";  
+  padding: 0px;
+  margin:0px;
+  background-image: url(/assets/navibase_next.gif);
+  background-position: left top;  
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: -13px;
+  padding-left: 13px;  
+} 
+
+a.navi_right:after {
+  content: "";  
+  padding: 0px;
+  margin:0px;
+  background-image: url(/assets/navibase_next.gif);
+  background-position: right top;  
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  right: -25px;
+  padding-right: 25px;
+} 
+
+a.navi_right:hover{
+  position:relative;
+  display: inline-block;
+  font-size: 14px;
+  padding: 0px !important;
+  margin: 0px 25px 0px 13px !important;
+  background-image: url(/assets/navibase_next_over.gif);
+  height: 26px;
+  line-height :26px;
+  background-repeat: no-repeat;
+  background-position: -25px, 0px;
+}
+
+a.navi_right:hover:before {  
+  content: "";  
+  padding: 0px;
+  margin: 0px;
+  background-image: url(/assets/navibase_next_over.gif);
+  background-position: left top;  
+  height: 100%;  
+  position: absolute;
+  top: 0px;
+  left: -13px;
+  padding-left: 13px;
+} 
+
+a.navi_right:hover:after {
+  content: "";  
+  padding: 0px;
+  margin: 0px;
+  background-image: url(/assets/navibase_next_over.gif);
+  background-position: right top;  
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  right: -25px;
+  padding-right: 25px;
+}
+
+/*「{ユーザー名}として閲覧」の文字埋め込み用可変長ボタン*/
+a.enter_lesson_as{
+  position:relative;
+  top: 3px;
+  display: inline-block;
+  font-size: 18px;
+  font-weight: bold;
+  padding: -2px 0 2px 0 !important;
+  margin: 0px 95px 0px 29px !important;
+  background-image: url(/assets/common.enter_lesson_room_as_x.gif);
+  background-repeat: no-repeat;
+  background-position: -29px, 0px;
+  height: 30px;
+  line-height :34px;
+}
+
+a.enter_lesson_as:before {  
+  content: "";  
+  padding: 0px;
+  margin:0px;
+  background-image: url(/assets/common.enter_lesson_room_as_x.gif);
+  background-position: left top;  
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: -29px;
+  padding-left: 29px;  
+} 
+
+a.enter_lesson_as:after {
+  content: "";  
+  padding: 0px;
+  margin:0px;
+  background-image: url(/assets/common.enter_lesson_room_as_x.gif);
+  background-position: right top;  
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  right: -95px;
+  padding-right: 95px;
+} 
+
+a.enter_lesson_as:hover{
+  position:relative;
+  top: 3px;
+  display: inline-block;
+  font-size: 18px;
+  font-weight: bold;
+  padding: -2px 0 2px 0 !important;
+  margin: 0px 95px 0px 29px !important;
+  background-image: url(/assets/common.enter_lesson_room_as_x_over.gif);
+  height: 30px;
+  line-height :34px;
+  background-repeat: no-repeat;
+  background-position: -29px, 0px;
+}
+
+a.enter_lesson_as:hover:before {
+  content: "";  
+  padding: 0px;
+  margin:0px;
+  background-image: url(/assets/common.enter_lesson_room_as_x_over.gif);
+  background-position: left top;  
+  height: 100%;  
+  position: absolute;
+  top: 0px;
+  left: -29px;
+  padding-left: 29px;
+} 
+
+a.enter_lesson_as:hover:after {
+  content: "";  
+  padding: 0px;
+  margin:0px;
+  background-image: url(/assets/common.enter_lesson_room_as_x_over.gif);
+  background-position: right top;  
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  right: -95px;
+  padding-right: 95px;
+} 

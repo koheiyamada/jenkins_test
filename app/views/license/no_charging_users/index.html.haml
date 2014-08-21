@@ -1,0 +1,23 @@
+-if current_user.system_admin?
+  =content_for :tabmenu do
+    =render 'nav_tab'
+
+%h1=title t('no_charging_user.titles.index')
+
+.button-menu
+  =link_to t('no_charging_user.titles.new'), new_license_no_charging_user_path, class: 'btn btn-small'
+
+-if @no_charging_users.empty?
+  =t('common.not_found')
+-else
+  %table.table
+    %tbody
+      -@no_charging_users.each do |u|
+        -user = u.user
+        %tr
+          %td=user.id
+          %td=user.user_name
+          %td=user_type(user)
+          %td=user.full_name
+          %td=link_to t('common.delete'), license_no_charging_user_path(u), method: :delete, class: 'btn btn-small', data: {confirm: t('messages.confirm_to_delete')}
+  =paginate @no_charging_users

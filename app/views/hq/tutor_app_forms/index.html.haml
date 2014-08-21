@@ -1,0 +1,11 @@
+=content_for :tabmenu do
+  =render 'nav_tab'
+
+%h1=title t("titles.tutor_app_forms")
+
+-if @tutor_app_forms.blank?
+  =t('common.not_found')
+-else
+  =render layout:"tutor_app_forms/tutor_app_forms", locals:{tutor_app_forms:@tutor_app_forms} do |tutor_app_form|
+    =img_link_to "common.detail", hq_tutor_app_form_path(tutor_app_form), class:"small"
+  =paginate @tutor_app_forms

@@ -1,0 +1,12 @@
+=content_for :subheader do
+  =render "breadcrumbs"
+
+%h1=title "#{t('titles.document_camera_users')}: #{l(@date, :format => :year_month_day)}"
+
+=render 'menu'
+
+-if @document_cameras.empty?
+  =t('common.not_found')
+-else
+  =render 'document_cameras', document_cameras:@document_cameras
+  =paginate @document_cameras

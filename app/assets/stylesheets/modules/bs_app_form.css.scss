@@ -1,0 +1,53 @@
+.bs_application_form_list_item {
+  border-bottom: 1px solid #ccc;
+  div {
+    display:inline-block;
+    padding-right: 10px;
+
+    &.name {
+      width: 10%;
+    }
+    &.phone_number {
+      width: 13%;
+    }
+    &.postal_code {
+
+    }
+  }
+}
+
+.bs-app-form {
+  td:first-child {
+    width: 16em;
+  }
+
+  tbody > tr > th {
+    width: 40%;
+  }
+}
+
+.bs_app_form {
+
+}
+
+.bs_app_form-row {
+  &.is-new {
+
+  }
+  &.is-accepted {
+    //background-color: #eee;
+  }
+  &.is-rejected {
+    //background-color: #eee;
+  }
+}
+
+.new_bs_app_form, .edit_bs_app_form {
+  .full_name_kana, .full_name {
+    label {
+      display:inline-block;
+      width: 2em;
+      text-align: right;
+    }
+  }
+}

@@ -1,0 +1,10 @@
+-if @hq_user == current_user
+  %h1=title t('titles.my_profile')
+-else
+  %h1=title t('titles.profile')
+
+=render 'hq/hq_users/hq_user', hq_user:@hq_user
+
+.buttons
+  =img_link_to "common.edit", edit_hq_profile_path
+  =link_to t('common.change_password'), change_password_hq_profile_path, class:'btn'

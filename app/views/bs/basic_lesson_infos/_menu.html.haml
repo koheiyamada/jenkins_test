@@ -1,0 +1,6 @@
+.button-menu
+  -if @basic_lesson_info
+    -if @basic_lesson_info.active?
+      =link_to t('common.lessons'), bs_basic_lesson_info_lessons_path(@basic_lesson_info), class: 'btn btn-small'
+  -else @basic_lesson_info.blank?
+    =link_to t('common.new'), new_bs_basic_lesson_info_path, class: 'btn btn-small'

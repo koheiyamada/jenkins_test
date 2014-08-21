@@ -1,0 +1,20 @@
+%table.table
+  %tr
+    %th#email_table_head
+      %span.required=t('common.email')
+    %td
+      .email
+        =f.text_field :email_local, class: 'input-medium',:required => true, :pattern =>"[a-zA-Z0-9_-.]{2,20}"
+        @
+        =f.text_field :email_domain, class: 'input-medium',:required => true, :pattern =>"[a-zA-Z0-9_-.]{3,12}"
+        %a.btn{href: '#guide', data: {toggle: 'modal'}, tabindex: -1}=t('email_confirmation_form.guide')
+
+.form-actions.buttons
+  =img_submit 'common.send'
+
+#guide.modal.hide
+  .modal-header
+    %button.close{data: {dismiss: 'modal'}} &times;
+    %h3=t('email_confirmation_form.guide')
+  .modal-body
+    =render 'shared/about_email'

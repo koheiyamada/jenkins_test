@@ -1,0 +1,8 @@
+%ul.breadcrumb
+  -if @membership_application
+    -role = @membership_application.user.class.name.underscore
+    %li=link_to_unless_current t("titles.#{role}_membership_applications"), {action: role.pluralize}
+  -else
+    %li=link_to_unless_current t('titles.membership_applications'), {action: @membership_application.user.class.name.underscore.pluralize}
+  -if @membership_application
+    =breadcrumb_item t('titles.membership_application'), hq_membership_application_path(@membership_application)

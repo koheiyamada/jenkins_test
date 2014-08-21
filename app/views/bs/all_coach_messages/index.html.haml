@@ -1,0 +1,10 @@
+%h1=title t('coach_messages.titles.list')
+
+=render 'menu'
+
+-if @messages.empty?
+  =t('common.not_found')
+-else
+  =render layout: 'messages/messages_all', locals: {messages: @messages} do |message|
+    =render 'messages/buttons2', path: url_for(action: :show, id: message)
+  =paginate(@messages)

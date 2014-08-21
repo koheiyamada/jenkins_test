@@ -1,0 +1,11 @@
+=content_for :tabmenu do
+  =render "nav_tab"
+
+%h1=title t('trial_lesson.titles.list')
+
+-if @lessons.blank?
+  =t('common.not_found')
+-else
+  =render layout:'lessons/lessons', locals: {lessons: @lessons} do |lesson|
+    =img_link_to 'common.detail', hq_trial_lesson_path(lesson), class: 'small'
+  =paginate @lessons

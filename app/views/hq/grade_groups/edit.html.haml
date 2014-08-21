@@ -1,0 +1,15 @@
+%h1=title t("titles.edit_grade_group")
+
+=form_for [:hq, @grade_group] do |f|
+  %table.table
+    %tr
+      %th=f.label :name
+      %td=f.text_field :name, class:"input-xlarge"
+    %tr
+      %th=label_tag :grade_id, Grade.model_name.human
+      %td
+        =select_tag :grade_id,
+          options_from_collection_for_select(Grade.order_by_grade, :id, :name, @grade_group.grade_ids),
+          multiple: true
+  .form-actions.buttons
+    =img_submit "common.update"

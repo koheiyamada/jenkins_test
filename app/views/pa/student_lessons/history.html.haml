@@ -1,0 +1,12 @@
+-title t("titles.study_history")
+=content_for :tabmenu do
+  =render 'nav_tab'
+
+=render "pa/student_header", student:@student
+
+-if @lessons.blank?
+  =t('common.not_found')
+-else
+  =render layout:'lessons/lessons', locals:{lessons:@lessons} do |lesson|
+    =img_link_to "common.detail", pa_student_lesson_path(@student, lesson), class:'small'
+  =paginate @lessons

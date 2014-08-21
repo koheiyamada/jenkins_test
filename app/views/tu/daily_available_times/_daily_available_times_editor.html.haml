@@ -1,0 +1,15 @@
+.daily-available-times-editor
+  .date-select
+    =hidden_field_tag :date
+    .date_picker
+
+  .time-select
+
+    %span
+      =select_time(@start_time,
+                   {minute_step: 15, prompt: {hour: t('tutor_search.hour'), minute: t('tutor_search.minute')}, prefix: 'start_time'},
+                   class: 'input-small')
+    %span
+      =select_time(@end_time,
+                   {minute_step: 15, prompt: {hour: t('tutor_search.hour'), minute: t('tutor_search.minute')}, prefix: 'end_time'},
+                   class: 'input-small')

@@ -1,0 +1,20 @@
+=content_for :subheader do
+  =render 'breadcrumbs'
+
+%h1=title t('titles.lesson_invitation')
+
+%h2=LessonInvitation.human_attribute_name :lesson
+
+=render 'application/validation_errors', model: @lesson_invitation
+
+=render 'lessons/lesson_info', lesson: @lesson_invitation.lesson
+
+.buttons
+  -if @lesson_invitation.active?
+    =img_link_to 'lesson.accept_invitation', accept_st_lesson_invitation_path(@lesson_invitation), method: :post, data:{confirm:t('messages.confirm')}
+    =img_link_to 'lesson.reject_invitation', reject_st_lesson_invitation_path(@lesson_invitation), method: :post, data:{confirm:t('messages.confirm')}
+  -else
+    -if @lesson_invitation.new?
+      .alert=t('lesson_invitation.messages.this_lesson_is_not_active')
+    -elsif @lesson_invitation.errors.empty?
+      .alert=t("lesson_invitation.messages.this_lesson_has_been_#{@lesson_invitation.status}")

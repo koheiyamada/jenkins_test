@@ -1,0 +1,9 @@
+%h1=title t("titles.lesson_reports")
+
+-if @lesson_reports.blank?
+  =t('common.not_found')
+-else
+  %table.table.lesson_reports
+    -@lesson_reports.each do |lesson_report|
+      %tr.lesson_report
+        %td.lesson=lesson_name(lesson_report.lesson)

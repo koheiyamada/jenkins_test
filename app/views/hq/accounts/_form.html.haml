@@ -1,0 +1,27 @@
+=form_for account, url:url do |f|
+  -if account.errors.any?
+    .alert
+      %ul
+        -account.errors.full_messages.each do |msg|
+          %li=msg
+  %table.table
+    %tr
+      %th=f.label :user_name
+      %td=f.text_field :user_name
+    %tr
+      %th=f.label :full_name
+      %td
+        .field.full_name
+          =f.label :last_name
+          =f.text_field :last_name
+        .field.full_name
+          =f.label :first_name
+          =f.text_field :first_name
+    %tr
+      %th=f.label :email
+      %td=f.email_field :email
+    %tr
+      %th=f.label :password
+      %td=f.password_field :password
+  .actions.buttons
+    =f.submit

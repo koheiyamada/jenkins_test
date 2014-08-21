@@ -1,0 +1,36 @@
+%ul.tutor-search-results.tutors
+  -tutors.each do |tutor|
+    %li
+      %table.table.tutor-search-result
+        %tr
+          %td.photo(rowspan="4")
+            =user_image tutor
+            .actions
+              =yield tutor
+          %td
+            %span.name
+              =user_display_name tutor
+            %span.lesson_fee
+              %span.item
+                =t('common.lesson_fee')
+              =number_to_currency tutor.base_lesson_fee
+            %span.registered_at
+              %span.item=Tutor.human_attribute_name :registered_day
+              =l tutor.registered_day, format: :year_month_day2
+        %tr
+          %td
+            %span.regular.label.label-info=t("tutor.regular_labels.#{tutor.info.status}")
+            %span.graduated=tutor_graduated_label(tutor)
+            %span.sex=sex(tutor)
+        %tr
+          %td=render 'tutors/college_rows_for_list', tutor: tutor
+        %tr
+          %td
+            %span
+              %span.item
+                =Tutor.human_attribute_name :current_sign_in_at
+              =tutor_current_sign_in_date tutor
+            %span.wdays
+              %span.item
+                =t('tutor.days_to_lose_membership')
+              =tutor_auto_membership_losing_days_count tutor

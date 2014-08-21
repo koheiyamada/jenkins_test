@@ -1,0 +1,6 @@
+.buttons
+  -if current_user.can_access? :accounting, :write
+    =link_to t('common.adjust'), hq_bs_monthly_statement_adjusting_entries_path(@bs, @monthly_statement), class:'btn'
+  =link_to t('titles.journal_entries'), hq_bs_monthly_statement_journal_entries_path(@bs, @monthly_statement), class:'btn'
+  -if params[:debug]
+    =link_to t('monthly_statement.calculate'), calculate_hq_bs_monthly_statement_path(@bs, @monthly_statement), method: 'post', class:'btn'

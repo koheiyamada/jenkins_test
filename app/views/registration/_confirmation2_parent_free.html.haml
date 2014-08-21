@@ -1,0 +1,25 @@
+%article.registration-form.confirmation2
+  %h1 重要なご確認事項
+
+  -if @checkbox_validate
+    .alert.alert-error
+      %button.close(type="button" data-dismiss="alert") &times;
+      %ul
+        %li ご確認事項に同意してください。
+
+  %p
+    無料会員から一般会員に移行される際、
+    %br
+    保護者様名義のクレジットカードもしくはゆうちょ口座が必要となります。
+
+  %div.services
+    =image_tag 'registration/yucho.png'
+    =image_tag 'registration/visa.png'
+    =image_tag 'registration/master.png'
+    
+  =form_tag '/process_confirmation2' do
+    =label_tag :has_payment_method, class:"checkbox" do
+      =check_box_tag :has_payment_method
+      ='了承しました'
+    .form-action.buttons
+      =img_submit 'common.go_next'

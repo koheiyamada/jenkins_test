@@ -1,0 +1,14 @@
+%table.table.schedules.weekday_schedules
+  %thead
+    %tr
+      %th=t("common.weekday")
+      %th=t("common.time_range")
+      %th
+  %tbody
+    -tutor.weekday_schedules.sort.group_by(&:wday).each do |wday, schedules|
+      %tr.weekday_schedule
+        %td.wday=t('date.abbr_day_names')[wday]
+        %td.time_ranges
+          -schedules.map do |schedule|
+            %span.time_range
+              =time_range(schedule.start_time, schedule.end_time)

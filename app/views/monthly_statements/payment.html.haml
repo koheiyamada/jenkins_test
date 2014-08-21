@@ -1,0 +1,14 @@
+-title t('monthly_statement.bill')
+
+.payment-details.container
+  .title-pane
+    =render 'payments/title'
+  .row
+    .span6
+      =render 'payment_payee'
+      =render 'payment_monthly_statement'
+    .demander-pane.span6
+      =render 'payments/payer'
+  .row
+    .span12
+      =render 'payment_details'

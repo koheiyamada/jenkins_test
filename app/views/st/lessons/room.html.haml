@@ -1,0 +1,30 @@
+#lesson-room.lesson-room-for-student{data: {lesson_id: @lesson.id, user_id: current_user.id, user_type: current_user.role}}
+  -if @lesson.ended?
+    =render 'lesson_ended', lesson: @lesson
+  -elsif @lesson.not_started?
+    =render 'lesson_not_started', lesson: @lesson
+  -else
+    =render "lesson_room_#{@lesson.style}", lesson:@lesson
+    .lesson-information.row-fluid
+      .span6
+        %section
+          %h2=t("titles.lesson_time_schedule")
+          =render "lessons/time_schedule", lesson:@lesson
+      .span6
+        %section
+          %h2=t("titles.lesson_extension")
+          =render 'lesson_extension_requests/lesson_extension_request'
+        %section
+          %h2=t('titles.lesson_abortion')
+          =render 'lesson_abortion', lesson:@lesson
+    .lesson-monitor-for-student
+  .lesson-notifications
+
+#debug
+  .lesson-extension-request
+    %table.table
+      %tr
+        %td(colspan="2")
+          %button.create-extension-request.btn(href="#")=t('lesson.request_extension')
+
+=render "lessons/templates", student:current_user, lesson:@lesson

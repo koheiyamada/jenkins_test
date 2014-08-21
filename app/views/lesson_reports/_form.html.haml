@@ -1,0 +1,68 @@
+=render "validation_errors", model:lesson_report
+
+=form_for lesson_report, url:url do |f|
+  %table.table
+    %tr
+      %th=LessonReport.human_attribute_name :tutor_user_name
+      %td=lesson_report.tutor.user_name
+      %th=LessonReport.human_attribute_name :tutor_full_name
+      %td=lesson_report.tutor.full_name
+    %tr
+      %th=LessonReport.human_attribute_name :student_user_name
+      %td=user_name lesson_report.student
+      %th=LessonReport.human_attribute_name :student_full_name
+      %td=user_display_name lesson_report.student
+    %tr
+      %th=LessonReport.human_attribute_name :datetime
+      %td{colspan:3}=lesson_time_range(lesson_report)
+    %tr
+      %th=LessonReport.human_attribute_name :lesson_type
+      %td{colspan: 3}
+        =f.label :lesson_type_basiclesson, nil, class:"radio" do
+          =f.radio_button :lesson_type, "BasicLesson"
+          =t("common.basic_lesson")
+        =f.label :lesson_type_optionallesson, nil, class:"radio" do
+          =f.radio_button :lesson_type, "OptionalLesson"
+          =t("common.optional_lesson")
+    %tr
+      %th=LessonReport.human_attribute_name :grade
+      %td=grade(lesson_report.student.grade)
+      %th=f.label :subject_id, class: 'required'
+      %td=f.collection_select :subject_id, (@student ? @student.subjects : Subject.all), :id, :name, :include_blank => true
+    %tr
+      %td(colspan="4")
+        =f.label :lesson_content, class: 'required'
+        =f.text_area :lesson_content, max_length: 1000
+    %tr
+      %th
+        %span.required=LessonReport.human_attribute_name :homework_result
+      %td(colspan="3")
+        -LessonReport.homework_result_options.each do |option|
+          =f.label "homework_result_#{option}", nil, class:"radio" do
+            =f.radio_button :homework_result, option
+            =LessonReport.human_attribute_name("homework_result_#{option}")
+    %tr
+      %th=f.label :textbook_usage
+      %td(colspan="3")=f.text_field :textbook_usage, class:"span6"
+    %tr
+      %th=f.label :has_attached_files
+      %td(colspan="3" )=f.check_box :has_attached_files
+    %tr
+      %td(colspan="4" )
+        =f.label :homework
+        =f.text_area :homework, class:"span9", max_length: 256
+    %tr
+      %td(colspan="4" )
+        =f.label :understanding, class: 'required'
+        =f.text_area :understanding, class:"span9", max_length: 1000
+    %tr
+      %td(colspan="4" )
+        =f.label :word_to_student, class: 'required'
+        =f.text_area :word_to_student, class:"span9", max_length: 1000
+    %tr
+      %td(colspan="4" )
+        =f.label :note
+        =render 'about_note'
+        =f.text_area :note, class:"span9", max_length: 1000
+  .form-actions.buttons
+    =f.submit t('common.submit'), class: 'btn'

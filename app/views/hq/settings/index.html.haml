@@ -1,0 +1,6 @@
+%h1=title t('titles.settings')
+
+%ul.item-list
+  %li
+    %i.icon-angle-right
+    =link_to_if current_user.can_access?(:bank, :read), t('bank.titles.list'), hq_banks_path

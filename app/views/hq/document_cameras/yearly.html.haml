@@ -1,0 +1,10 @@
+%h1=title t("titles.document_camera_users")
+
+=render 'year_navigation'
+
+%table.table
+  %tbody
+    -(1..12).each do |month|
+      %tr
+        %td=link_to t('date.abbr_month_names')[month], monthly_hq_document_cameras_path(year:@year, month:month)
+        %td=@monthly_counts[month]

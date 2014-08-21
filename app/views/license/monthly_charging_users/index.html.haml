@@ -1,0 +1,21 @@
+-if current_user.system_admin?
+  =content_for :tabmenu do
+    =render 'nav_tab'
+
+%h1=title "#{t('monthly_charging_user.titles.stat')}: #{@year}"
+
+=render 'year_navigation'
+
+%table.table
+  %thead
+    %tr
+      %th=MonthlyChargingUser.human_attribute_name :month
+      %th=t('monthly_charging_user.user_count')
+      %th
+  %tbody
+    -(1..12).each do |month|
+      %tr
+        %th=month
+        %td
+          =@monthly_count.has_key?(month) ? @monthly_count[month] : '-'
+        %td=link_to t('common.detail'), {action: :month, year: @year, month: month}, class: 'btn btn-small'

@@ -1,0 +1,25 @@
+#lesson-room{data: {lesson_id: lesson.id, user_id: current_user.id, user_type: current_user.role}}
+  .lesson-room.clearfix.is-monitoring
+    .video-column
+      .video
+        =render 'soba_widgets/video_subscriber', channel: lesson_video_channel(lesson, student), width:216, height:162
+      .video
+        =render 'soba_widgets/video_subscriber', channel: lesson_video_channel(lesson, lesson.tutor), width:216, height:162
+      -if lesson.friends_lesson?
+        -lesson.students.each do |another_student|
+          -if another_student != student
+            .video
+              =render 'soba_widgets/video_subscriber', channel: lesson_video_channel(lesson, another_student), width:216, height:162
+    .desks.tabbable.tabs-below
+      .tab-content
+        .tab-pane.desk-pane.my-desk.active
+          =render 'student_desk', lesson:lesson, student:student
+        .tab-pane.desk-pane.tutor-desk
+          =render 'tutor_desk', lesson:lesson
+      %ul.nav.nav-tabs
+        %li.active
+          %a(data-target=".my-desk" data-toggle="tab" href="#")=student.nickname
+        %li
+          %a(data-target=".tutor-desk" data-toggle="tab" href="#")=lesson.tutor.nickname
+
+=render "templates"

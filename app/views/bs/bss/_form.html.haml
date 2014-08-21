@@ -1,0 +1,22 @@
+=form_for bs, url:{action:'update'} do |f|
+  %table.table
+    %tr
+      %th=Bs.human_attribute_name :name
+      %td=bs.name
+    %tr
+      %th=Bs.human_attribute_name :email
+      %td=f.email_field :email
+    %tr
+      %th=Bs.human_attribute_name :phone_number
+      %td=f.text_field :phone_number
+    %tr
+      %th=Bs.human_attribute_name :address
+      %td=render 'addresses/form', address:bs.address if bs.address
+    %tr
+      %th=Bs.human_attribute_name :representative_id
+      %td=f.collection_select :representative_id, bs.bs_users, :id, :full_name
+    %tr
+      %th=Bs.human_attribute_name :area_code
+      %td=bs.area_code
+  .form-action.buttons
+    =img_submit "common.update"

@@ -1,0 +1,11 @@
+=content_for :subheader do
+  =render "breadcrumbs"
+
+%h1=title t("titles.lesson_report")
+
+=render 'navigation', lesson_report:@lesson_report
+
+=render "lesson_report", lesson_report:@lesson_report
+
+.buttons
+  =img_link_to "common.edit", edit_hq_lesson_report_path(@lesson_report)

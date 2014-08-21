@@ -1,0 +1,30 @@
+%table.table.student-table
+  %tbody
+    %tr
+      %th=t("common.name")
+      %td=student.full_name
+    %tr
+      %th=t("common.email")
+      %td=student.email
+    %tr
+      %th=Student.human_attribute_name(:user_name)
+      %td=student.user_name
+    %tr
+      %th=Student.human_attribute_name(:nickname)
+      %td=student.nickname
+    %tr
+      %th=t("common.birthday")
+      %td=l(student.birthday) if student.birthday
+    %tr
+      %th=t("common.sex")
+      %td=t("common.#{student.sex}") if student.sex
+
+    %tr
+      %th=StudentInfo.human_attribute_name(:academic_results)
+      %td=student.academic_results
+    %tr
+      %th=StudentInfo.human_attribute_name(:grade)
+      %td=grade(student)
+    %tr
+      %th=Student.human_attribute_name :registered_date
+      %td=student_registered_day student

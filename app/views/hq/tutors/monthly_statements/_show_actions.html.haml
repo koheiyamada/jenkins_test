@@ -1,0 +1,5 @@
+.buttons
+  =link_to t('common.adjust'), hq_tutor_monthly_statement_adjusting_entries_path(@tutor, @monthly_statement), class:'btn'
+  =link_to t('titles.journal_entries'), hq_tutor_monthly_statement_journal_entries_path(@tutor, @monthly_statement), class:'btn'
+  -if params[:debug]
+    =link_to t('monthly_statement.calculate'), calculate_hq_tutor_monthly_statement_path(@tutor, @monthly_statement), method: :post, class: 'btn'

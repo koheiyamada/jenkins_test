@@ -1,0 +1,121 @@
+- registration_flg ||= false
+- @validation_data ||= []
+- if @validation_data.present?
+  .alert.alert-error
+    - if @validation_data.include?("sex_blank")
+      %p=t('students.sex_blank')
+    - if @validation_data.include?("user_name_exist")
+      %p=t('students.user_name_exist')
+    - if @validation_data.include?("nickname_exist")
+      %p=t('students.nickname_exist')
+=form_for student, url:url do |f|
+  -if @student_form.present?
+    =render 'application/validation_errors2', model: @student_form
+  -else
+    =render 'application/validation_errors', model:student
+  %table.table
+    %tr
+      %th=f.label :user_name, class: 'required'
+      -if registration_flg == true
+        %td=f.text_field :user_name, :required => true
+      -elsif current_user.admin? || current_user == student
+        %td=f.text_field :user_name, :required => true
+      -else
+        %td=f.text_field :user_name, :required => true, :readonly => true
+    %tr
+      %th
+        %span.required=User.human_attribute_name :full_name
+      %td
+        .full_name
+          =f.label :last_name
+          =f.text_field :last_name, :required => true, class: 'input-small'
+          =f.label :first_name
+          =f.text_field :first_name, :required => true, class: 'input-small'
+    %tr
+      %th
+        %span.required=User.human_attribute_name :full_name_kana
+      %td
+        .full_name_kana
+          =f.label :last_name_kana
+          =f.text_field :last_name_kana, :required => true, class: 'input-small'
+          =f.label :first_name_kana, :required => true
+          =f.text_field :first_name_kana, class: 'input-small'
+
+    -if student.persisted?
+      -if current_user.hq_user? || current_user == student.parent || current_user == student
+        %tr
+          %th=f.label :organization_id
+          %td=f.collection_select :organization_id, Organization.only_active, :id, :name
+      -else
+        %tr
+          %th=t("common.bs")
+          %td=student.organization.name if student.organization
+
+    =render 'users/email_field', f: f
+
+    %tr
+      %th=f.label :nickname, class: 'required'
+      %td
+        =f.text_field :nickname, :required => true
+        .help=t('student.about_nickname')
+    %tr
+      %th=f.label :birthday, class: 'required'
+      %td=f.date_select :birthday, {start_year: 1900, end_year: Date.today.year}, class:'input-small'
+    %tr
+      %th=f.label :sex, class: 'required'
+      %td
+        =f.label :sex_male, id: 'sex_male', class: 'radio' do
+          =f.radio_button :sex, 'male'
+          =t('common.male')
+        =f.label :sex_female, id: 'sex_famale', class: 'radio' do
+          =f.radio_button :sex, 'female'
+          = t('common.female')
+    %tr
+      %th=f.label :phone_number, class: 'required'
+      %td
+        =f.telephone_field :phone_number, :required => true, :pattern =>"[0-9-]{6,20}"
+        .help=t('messages.hankaku_only')
+    %tr
+      %th
+        %span.required=t("common.address")
+      %td=render 'addresses/form', address:student.address
+
+    =fields_for(student.student_info) do |sf|
+      %tr
+        %th=sf.label :school
+        %td=sf.text_field :school
+      %tr
+        %th=sf.label :grade_id, class: 'required'
+        %td
+          -#-if current_user.present? && student?
+            -#=grade(student)
+          -#-else
+          =sf.select :grade_id, options_for_select(Grade.order_by_grade.map{|g| [grade(g), g.id]}, student.grade && student.grade.id), {}, class:"span2"
+
+    =render 'specs/fields2', f: f, user_operating_system: student.user_operating_system
+
+    -if student.independent?
+      =render 'shared/has_web_camera_field', f: f
+      =render 'questions/form_for_how_to_find', answer: @student_form.how_to_find
+      =render 'questions/form_for_reason_to_enroll', answer: @student_form.reason_to_enroll
+
+    -if current_user.present? && current_user.hq_user?
+      %tr
+        %th=f.label :reference_user_name
+        %td
+          =f.text_field :reference_user_name, placeholder:Student.human_attribute_name(:user_name)
+      %tr
+        %th=f.label :free_lesson_limit_number
+        %td
+          =f.number_field :free_lesson_limit_number, min: 0, :required => true
+      %tr
+        %th=f.label :free_lesson_reservation
+        %td
+          =f.number_field :free_lesson_reservation, min: 0, :required => true
+      %tr
+        %th=f.label :free_lesson_taken
+        %td
+          =f.number_field :free_lesson_taken, min: 0, readonly: true
+
+  .form-actions.buttons
+    =f.submit class: 'btn'

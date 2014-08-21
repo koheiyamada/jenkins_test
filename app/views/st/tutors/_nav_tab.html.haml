@@ -1,0 +1,6 @@
+%ul.nav.nav-tabs
+  =render "nav_tab_item", text:t("common.search"), path:st_tutors_path
+  =render "nav_tab_item", text:t("common.favorite"), path:favorites_st_tutors_path
+  -if SystemSettings.cs_point_visible?
+    =render "nav_tab_item", text:t("common.order_by_cs_points"), path:cs_st_tutors_path
+    =render "nav_tab_item", text:t('common.order_by_cs_points_of_recent_lessons'), path:cs_recent_st_tutors_path

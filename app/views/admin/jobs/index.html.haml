@@ -1,0 +1,7 @@
+%h1=title t('titles.jobs')
+
+-if @jobs.empty?
+  =t('common.not_found')
+-else
+  =render 'jobs', jobs:@jobs
+  =paginate @jobs

@@ -1,0 +1,24 @@
+=content_for :subheader do
+  =render "breadcrumbs"
+
+%h1=title t("titles.basic_lesson")
+
+=render 'menu'
+
+=render "basic_lesson_infos/basic_lesson_info", basic_lesson_info:@basic_lesson_info
+
+.buttons
+  =link_to t('common.lessons'), hq_student_basic_lesson_info_lessons_path(@student, @basic_lesson_info), class: 'btn'
+  -if current_user.can_access? :lesson, :write
+    -if @basic_lesson_info.auto_extension
+      =link_to t('common.stop'), turn_off_auto_extension_hq_student_basic_lesson_info_path(@student, @basic_lesson_info), method: :post, :data => {:confirm => t('messages.confirm_turn_off_auto_extension')}, class: 'btn'
+    -else
+      =link_to BasicLessonInfo.human_attribute_name(:auto_extension), turn_on_auto_extension_hq_student_basic_lesson_info_path(@student, @basic_lesson_info), method:"post", :data => {:confirm => t('messages.confirm_turn_on_auto_extension')}, class:"btn"
+
+-#-if @basic_lesson_info.lessons.future.blank?
+-#  =t('common.not_found')
+-#  .actions
+-#    =link_to t("common.add"), {action:"extend"}, method:"post", class:"btn"
+-#-else
+-#  =render layout:"lessons/lessons", locals:{lessons:@basic_lesson_info.lessons.future} do |lesson|
+-#    =img_link_to "common.detail", hq_lesson_path(lesson), class:"small"

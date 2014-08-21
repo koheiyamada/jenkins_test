@@ -1,0 +1,17 @@
+%h1=title t("titles.new_optional_lesson")
+
+=render "lessons/lesson_under_construction", lesson:@optional_lesson
+
+%h2=t("common.tutor_selection")
+
+=render "application/validation_errors", model:@optional_lesson
+
+=render "shared/search_box"
+
+-if @tutors.blank?
+  =t('common.not_found')
+-else
+  =render layout:"tutors/tutors", locals:{tutors:@tutors} do |tutor|
+    =img_link_to "common.select", wizard_path(nil, tutor_id:tutor.id), method:"put", class:"small"
+.buttons
+  =img_link_to "common.cancel", {action:"cancel"}, method:"post", data:{confirm:t("messages.confirm_cancellation")}

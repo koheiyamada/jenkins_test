@@ -1,0 +1,102 @@
+%table.table.student.student-detail
+  -if user_can_see_user_name? student
+    %tr
+      %th=Student.human_attribute_name :user_name
+      %td=user_name student
+  %tr
+    %th=Student.human_attribute_name :full_name
+    %td=student.full_name
+
+  %tr
+    %th=Student.human_attribute_name :full_name_kana
+    %td=student.full_name_kana
+
+  %tr
+    %th=Student.human_attribute_name :parent_id
+    %td
+      -if student.parent.present?
+        .full_name=student.parent.full_name
+        -if hq_user?
+          .user_name=student.parent.user_name
+      =t('student.no_parent')
+  %tr
+    /%th=t("common.bs")
+    /%td=student.organization.name if student.organization
+  %tr
+    %th=t("common.coach")
+    %td=user_display_name student.coach if student.coach.present?
+  %tr
+    %th=Student.human_attribute_name :email
+    %td=student.email
+  %tr
+    /%th=Student.human_attribute_name :phone_email
+    /%td=student.phone_email
+  %tr
+    %th=User.human_attribute_name :nickname
+    %td=student.nickname
+  %tr
+    %th=User.human_attribute_name :birthday
+    %td=l(student.birthday, format: :year_month_day2) if student.birthday
+  -unless student.independent?
+    %tr
+      %th=StudentInfo.human_attribute_name :school
+      %td=student.school
+  %tr
+    %th=StudentInfo.human_attribute_name :grade
+    %td=grade(student)
+  %tr
+    %th=t("common.phone_number")
+    %td=student.phone_number
+  %tr
+    %th=t("common.address")
+    %td=render "addresses/address", address:student.address if student.address
+
+  =render 'specs/rows2', spec:student
+
+  -if student.payment_method
+    -unless SystemSettings.free_mode?
+      %tr
+        %th=PaymentMethod.model_name.human
+        %td=user_payment_method student.payment_method
+
+  %tr
+    %th=Student.human_attribute_name :reference_user_name
+    %td
+      - if student.reference.present?
+        =student.reference.user_name
+        -if student.referenced_by_hq_user?
+          %span.label.label-success=t('common.hq_user')
+
+  -if student.independent?
+    =render 'shared/has_web_camera', user: student
+    -#=render 'questions/has_web_camera', answer: student.answers.to_question(:has_web_camera).first
+    =render 'questions/how_to_find_row', answer: student.answers.to_question(:how_to_find).first
+    =render 'questions/reason_to_enroll_row', answers: student.answers.to_question(:reason_to_enroll)
+
+  %tr
+    %th=StudentInfo.human_attribute_name :note
+    %td
+      =simple_format student.student_info.note
+
+  %tr
+    %th=Student.human_attribute_name :registered_date
+    %td=student_registered_day student
+
+  %tr
+    %th=Student.human_attribute_name :current_sign_in_at
+    %td=l student.current_sign_in_at, format: :promise if student.current_sign_in_at
+
+  %tr
+    %th=Student.human_attribute_name :timezone
+    %td=student.timezone
+
+  -if current_user.hq_user?
+    %tr
+      %th=Student.human_attribute_name :free_lesson_limit_number
+      %td=student.free_lesson_limit_number
+    %tr
+      %th=Student.human_attribute_name :free_lesson_reservation
+      %td=student.free_lesson_reservation
+    %tr
+      %th=Student.human_attribute_name :free_lesson_taken
+      %td=student.free_lesson_taken

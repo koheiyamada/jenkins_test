@@ -1,0 +1,32 @@
+h1=title t('titles.job')
+
+table.table.job
+  tr
+    th=Delayed::Job.human_attribute_name :id
+    td=@job.id
+  tr
+    th=Delayed::Job.human_attribute_name :run_at
+    td=l @job.run_at, format: :promise
+  tr
+    th=Delayed::Job.human_attribute_name :queue
+    td=@job.queue
+  tr
+    th=Delayed::Job.human_attribute_name :owner_type
+    td=@job.owner_type
+  tr
+    th=Delayed::Job.human_attribute_name :owner_id
+    td=@job.owner_id
+  tr
+    th=Delayed::Job.human_attribute_name :created_at
+    td=l @job.created_at, format: :promise
+  tr
+    th=Delayed::Job.human_attribute_name :failed_at
+    td
+      -if @job.failed_at
+        =l @job.created_at, format: :promise
+  tr
+    th=Delayed::Job.human_attribute_name :handler
+    td=simple_format @job.handler
+  tr
+    th=Delayed::Job.human_attribute_name :last_error
+    td=simple_format @job.last_error

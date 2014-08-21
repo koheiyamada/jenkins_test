@@ -1,0 +1,42 @@
+%h1=title t('lesson_settings.title.show')
+
+%table.table.lesson_settings
+  %tbody
+    %tr
+      %th=LessonSettings.human_attribute_name :tutor_entry_period_before_start_time
+      %td=t('lesson_settings.from_x_minutes_ago', x: @lesson_settings.tutor_entry_period_before_start_time)
+    %tr
+      %th=LessonSettings.human_attribute_name :tutor_entry_period_after_start_time
+      %td=t('lesson_settings.to_x_minutes_later', x: @lesson_settings.tutor_entry_period_after_start_time)
+    %tr
+      %th=LessonSettings.human_attribute_name :student_entry_period_before_start_time
+      %td=t('lesson_settings.from_x_minutes_ago', x: @lesson_settings.student_entry_period_before_start_time)
+    %tr
+      %th=LessonSettings.human_attribute_name :student_entry_period_after_end_time
+      %td=t('lesson_settings.to_x_minutes_later_since_end_time', x: @lesson_settings.student_entry_period_after_end_time)
+    %tr
+      %th=LessonSettings.human_attribute_name :message_to_tutor
+      %td=@lesson_settings.message_to_tutor
+    %tr
+      %th=LessonSettings.human_attribute_name :max_units
+      %td=@lesson_settings.max_units
+    %tr
+      %th=LessonSettings.human_attribute_name :max_units_of_basic_lesson
+      %td=@lesson_settings.max_units_of_basic_lesson
+    %tr
+      %th=LessonSettings.human_attribute_name :request_time_limit
+      %td
+        =@lesson_settings.request_time_limit
+        =t('system_settings.minutes_ago')
+    %tr
+      %th=LessonSettings.human_attribute_name :dropout_limit
+      %td=t('lesson_settings.x_minutes_later_since_actual_start_time', x: @lesson_settings.dropout_limit)
+    %tr
+      %th=LessonSettings.human_attribute_name :period_to_close_room_after_end_time
+      %td=t('lesson_settings.x_minutes_later_since_actual_end_time', x: @lesson_settings.period_to_close_room_after_end_time)
+    %tr
+      %th=LessonSettings.human_attribute_name :beginner_tutor_lessons_limit
+      %td=t('lesson_settings.limit_to_n_lessons', n: @lesson_settings.beginner_tutor_lessons_limit)
+
+.buttons
+  =link_to t('common.edit'), {action: :edit}, class: 'btn'

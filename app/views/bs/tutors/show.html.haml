@@ -1,0 +1,19 @@
+=content_for :subheader do
+  =render "breadcrumbs"
+
+%h1=title t("titles.tutor_profile")
+
+=render 'tutors/tutor_for_bs_user', tutor:@tutor
+
+%section
+  %h2=t("titles.teaching_subjects")
+  -if @tutor.teaching_subjects.empty?
+    =t('common.not_found')
+  -else
+    =render 'teaching_subjects/subject_levels'
+
+.buttons
+  =img_link_to 'common.back', bs_tutors_path
+  =link_to new_bs_my_message_path(recipients: @tutor.id), class: 'btn' do
+    %i.icon-envelope-alt
+    =t('common.send_message')

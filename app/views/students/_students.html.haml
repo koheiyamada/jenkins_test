@@ -1,0 +1,25 @@
+%table.table.students
+  %thead
+    %tr
+      %th#user_full_name=t("common.full_name")
+      %th#grade_index=t("common.grade")
+      %th#customer_type=Parent.human_attribute_name :customer_type
+      %th#registered=Parent.human_attribute_name :registered
+      %th#logined=Parent.human_attribute_name :logined
+      %th#detail_button
+  %tbody
+    -students.each do |student|
+      -#next unless student.customer_type == "premium"
+      %tr
+        %td=student.full_name
+        %td=grade(student)
+        %td=t("customer_type.#{student.customer_type}")
+        -if student.enrolled_at.present?
+          %td=l(student.enrolled_at.to_date, :format => :year_month_day)
+        -else
+          %td
+        -if student.current_sign_in_at.present?
+          %td=l student.current_sign_in_at, format: :promise
+        -else
+          %td
+        %td.student_yield=yield student

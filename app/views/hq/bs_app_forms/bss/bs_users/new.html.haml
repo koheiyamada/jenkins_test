@@ -1,0 +1,6 @@
+=content_for :subheader do
+  =render "breadcrumbs"
+
+%h1=title t('titles.new_bs_user')
+
+=render 'bs_users/form', bs_user: @bs_user, path: {action: 'create'}

@@ -1,0 +1,5 @@
+<% if @ledger.errors.any? %>
+alert("<%= @ledger.errors.full_messages.join("\n") %>");
+<% else %>
+location.reload();
+<% end %>

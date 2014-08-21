@@ -1,0 +1,11 @@
+=content_for :subheader do
+  =render 'breadcrumbs'
+
+%h1=title t('titles.meeting_schedules')
+
+%table.table
+  %tbody
+    -@meeting_schedules.each do |meeting_schedule|
+      %tr
+        %td=l meeting_schedule.datetime, format: :promise
+        %td=link_to t('common.edit'), {action: 'edit', id: meeting_schedule}, class: 'btn btn-small'

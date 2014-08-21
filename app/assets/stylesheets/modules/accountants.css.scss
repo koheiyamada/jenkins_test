@@ -1,0 +1,9 @@
+@import "accounts";
+
+.accountants {
+  @include accounts;
+}
+
+.accountant {
+  @include account;
+}

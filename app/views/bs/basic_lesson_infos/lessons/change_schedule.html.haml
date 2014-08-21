@@ -1,0 +1,21 @@
+=content_for :subheader do
+  =render "breadcrumbs"
+  
+%h1=title t("titles.change_lesson_schedule")
+
+=render "application/validation_errors", model:@lesson
+=form_for @lesson, url:{} do |f|
+  %table.table
+    %tr
+      %th=t("common.date")
+      %td
+        =hidden_field_tag :date, @lesson.start_time.to_date.to_s
+        .date_picker
+    %tr
+      %th=t("common.time")
+      %td=select_time @lesson.start_time, {prefix:"time", minute_step:15}, class:"span2"
+    %tr
+      %th=BasicLesson.human_attribute_name :units
+      %td=@lesson.units
+  .form-actions.buttons
+    =img_submit "common.update"

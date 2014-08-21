@@ -1,0 +1,15 @@
+%h1 BS一覧
+
+-if @bs_users.blank?
+  =t('common.not_found')
+-else
+  %table.table.bs_users
+    %thead
+      %tr
+        %th ID
+        %th=t("common.name")
+        %th=t("common.email")
+        %th
+    %tbody
+      -@bs_users.each do |bs_user|
+        =render "bs_user_row", bs_user:bs_user

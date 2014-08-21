@@ -1,0 +1,9 @@
+%ul.breadcrumb
+  %li
+    =link_to_unless_current t("titles.bs_list"), hq_bss_path
+  -if @bs
+    =breadcrumb_item bs_name(@bs), hq_bs_path(@bs)
+    -if params[:action] == 'edit'
+      =breadcrumb_item t('common.edit'), edit_hq_bs_path(@bs)
+    -if params[:action] == 'leave'
+      =breadcrumb_item t('common.leave_from_aid'), leave_hq_bs_path(@bs)

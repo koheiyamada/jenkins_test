@@ -1,0 +1,14 @@
+%article.registration-form.confirmation2
+  -unless current_user.free?
+    %h1 お支払い方法のご登録受付
+    %p
+      お支払い方法として、ゆうちょ自動払込みをお受けいたしました。
+      %br
+      引き続き、ご登録いただきましたゆうちょ自動払込書のお客様控えを
+      %br
+      エイドネット事業本部までご送付ください。
+      %br
+      ゆうちょ自動払込書のお客様控えが確認でき次第、変更手続きが完了となります。
+
+.buttons
+  =link_to t('common.go_to_top'), root_path, method: :get, class: 'btn btn-large btn-primary'

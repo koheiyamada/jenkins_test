@@ -1,0 +1,12 @@
+h1=title t('bank.titles.list')
+
+.menu-buttons
+  =link_to new_bank_path, class: 'btn btn-small' do
+    i.icon-plus
+    =t('common.new')
+
+-if @banks.empty?
+  =t('common.not_found')
+-else
+  =render 'banks'
+  =paginate @banks

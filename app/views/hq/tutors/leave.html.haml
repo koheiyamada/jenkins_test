@@ -1,0 +1,16 @@
+=content_for :subheader do
+  =render 'breadcrumbs'
+
+%h1=title t("titles.resign")
+
+=render 'application/validation_errors', model:@tutor
+
+%section
+  =render 'resign_explanation', tutor:@tutor
+
+%section
+  %h2=t('common.user')
+  =render 'users/user', user:@tutor
+
+.buttons
+  =img_link_to 'common.leave_from_aid', leave_hq_tutor_path(@tutor), method:"post", data:{confirm:t("messages.confirm_to_leave")}

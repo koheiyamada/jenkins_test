@@ -1,0 +1,10 @@
+%table.table.lesson
+  %tr
+    %th=t("common.time")
+    %td=lesson_time_range(lesson)
+  %tr
+    %th=t("common.student")
+    %td
+      .student{"data-id" => student.id}
+        .name
+          =student.full_name

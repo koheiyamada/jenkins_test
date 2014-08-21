@@ -1,0 +1,39 @@
+%table.table.lesson
+  %tr
+    %th=t('common.lesson_style')
+    %td=lesson_style(lesson)
+  -if lesson.tutor
+    %tr
+      %th=student? ? t('common.tutor_nickname') : t('common.tutor')
+      %td=user_display_name lesson.tutor
+  -if lesson.start_time.present? && lesson.end_time.present?
+    %tr
+      %th=t('common.time')
+      %td
+        .time_range
+          =render 'lessons/time_range', lesson:lesson
+        -#-if lesson.tutor.present?
+        -#  -if !lesson.match_with_tutor_weekday_schedule?
+        -#    .alert=t('messages.out_of_tutor_weekday_schedule')
+        -#  -if lesson.tutor_unavailable_day?
+        -#    .alert.alert-error=t('messages.tutor_unavailable_day')
+  %tr
+    %th=t('common.students')
+    %td
+      -lesson.students.each do |student|
+        .student{'data-id' => student.id}
+          %span.name
+            =user_display_name student
+  -unless lesson.is_group_lesson.nil?
+    %tr
+      %th=Lesson.human_attribute_name :is_group_lesson
+      %td=yes_no(lesson.is_group_lesson)
+  -if lesson.friends_lesson?
+    %tr
+      %th=Lesson.human_attribute_name :friend
+      %td
+        -if lesson.is_a?(InvitableLesson) && lesson.lesson_invitation.present?
+          =user_display_name lesson.lesson_invitation.student
+        -else
+          =t('common.undefined')
+

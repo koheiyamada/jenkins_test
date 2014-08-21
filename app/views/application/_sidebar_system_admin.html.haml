@@ -1,0 +1,19 @@
+%ul.sidebar
+  %li=sidebar_link t('titles.jobs'), admin_jobs_path
+  %li=sidebar_link t('titles.job_stat'), stat_admin_jobs_path
+  %li=sidebar_link t('titles.widgets'), admin_widget_test_path
+  %li=sidebar_link t('monthly_charging_user.titles.stat'), license_monthly_charging_users_path
+
+  %li.section=render 'sidebar_section', text:t('titles.operation_check')
+  %li=sidebar_link t('titles.document_camera_widgets'), document_camera_widgets_path
+  %li=sidebar_link t('titles.person_camera'), video_widgets_path
+
+  %li.section=render 'sidebar_section', text:t('titles.master_tables')
+  %li=sidebar_link t('operating_system.titles.index'), admin_operating_systems_path
+
+  %li.section=render 'sidebar_section', text: t('common.settings')
+  %li=sidebar_link t('lesson_settings.title.show'), admin_lesson_settings_path
+
+  %li.section=render 'sidebar_section', text:t('titles.manuals')
+  %li=link_to t('titles.user_manual'), 'https://aidnet.jp/user-manual/', target: '_blank'
+  %li=link_to t('titles.trouble_manual'), 'https://aidnet.jp/trouble-manual/', target: '_blank'

@@ -1,0 +1,16 @@
+%table.table.meetings
+  %thead
+    %tr
+      %th=Meeting.human_attribute_name :id
+      %th=Meeting.human_attribute_name :members
+      %th=Meeting.human_attribute_name :status
+      %th=Meeting.human_attribute_name :datetime
+      %th
+  %tbody
+    -meetings.each do |meeting|
+      %tr
+        %td=meeting.id
+        %td=render 'meeting_member_list', meeting: meeting
+        %td=meeting_status meeting
+        %td=l meeting.datetime, format: :promise if meeting.datetime
+        %td=yield meeting

@@ -1,0 +1,48 @@
+log4r_config:
+
+  pre_config:
+    global: "DEBUG"
+
+  loggers:
+    - name: "Log4r"
+      type: "Logger"
+      level: "INFO"
+      trace: "true"
+      outputters:
+        - "E1"
+        # - "F1"
+    - name: "Veritrans"
+      type: "Logger"
+      level: "DEBUG"
+      trace: "true"
+      outputters:
+        - "E1"
+        # - "F1"
+    - name: "A"
+      type: "Logger"
+      level: "DEBUG"
+      trace: "true"
+      outputters:
+        - "E1"
+        # - "F1"
+
+  outputters:
+    - name: "E1"
+      type: "StdoutOutputter"
+      formatter:
+        name: "P1"
+        type: "PatternFormatter"
+        pattern: "%d [%l] %c - %m"
+        pattern2: "%d [%l] %c(%t) - %m"
+        date_pattern: "%H:%M:%S"
+
+    # - name: "F1"
+      # type: "FileOutputter"
+      # filename: "/logfile_dir_change_here/tg_mdk_ruby.log"
+      # trunc: "false"
+      # formatter:
+        # name: "P2"
+        # type: "PatternFormatter"
+        # pattern: "%d [%l] %C(%c) - %M"
+        # pattern2: "%d [%l] %C(%t) - %M"
+        # date_pattern: "%Y/%m/%d %H:%M:%S"

@@ -1,0 +1,21 @@
+%tr
+  %th=f.label :adsl
+  %td=f.check_box :adsl
+%tr
+  %th=f.label :os_id, class: 'required'
+  %td
+    .os
+      =f.select :os_id, OperatingSystem.list.map{|os| [os.name, os.id, 'data-windows_experience_index_score_available' => os.windows_experience_index_score_available?, 'data-custom_os_name_required' => os.unknown?]}
+    .custom-operating-system
+      =f.text_field :custom_os_name
+%tr
+  %th=t('common.line_speed')
+  %td.line-speed
+    .line-speed-field
+      =f.label :upload_speed, class: 'inline'
+      =f.number_field :upload_speed, :step => 0.001, :min => 0, class:'input-mini'
+      Mbps
+    .line-speed-field
+      =f.label :download_speed
+      =f.number_field :download_speed, :step => 0.001, :min => 0, class:'input-mini'
+      Mbps

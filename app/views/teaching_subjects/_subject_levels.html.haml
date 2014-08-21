@@ -1,0 +1,14 @@
+- subjects = @subject_levels.group_by{|level| level.subject}
+%table.table.teaching_subjects
+  %thead
+    %tr
+      %th=GradeGroup.model_name.human
+      %th=Subject.model_name.human
+      %th=TeachingSubject.human_attribute_name :level
+      /%th
+  %tbody
+    -subjects.each do |subject, subject_levels|
+      %tr
+        %td=subject.grade_group.name
+        %td=subject.name
+        %td=subject_levels.map{|level| subject_level_name level}.join(', ')

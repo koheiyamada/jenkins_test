@@ -1,0 +1,6 @@
+.recipients-select
+  %h4
+    %i.icon-user
+    =t('common.student')
+  .individuals
+    =select_tag "recipients[student]", options_for_select(current_user.students.only_active.map{|s| [user_display_name(s), s.id]}), multiple:true

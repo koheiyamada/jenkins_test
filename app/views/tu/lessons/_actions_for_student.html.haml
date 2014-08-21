@@ -1,0 +1,6 @@
+%span.report
+  =link_button_to 'zoom-in', t('common.detail'), tu_lesson_student_path(@lesson, student), class: 'btn-small'
+  -if lesson.report_of(student).present?
+    =link_button_to 'file-alt', t('common.read_report'), tu_lesson_lesson_report_path(lesson, lesson.report_of(student)), class:'btn-small read-report-button'
+  -elsif current_user.should_write_lesson_report? lesson, student
+    =link_button_to 'file-alt', t('common.write_report'), new_tu_lesson_lesson_report_path(@lesson, student_id: student.id), class:'btn-small btn-aid-primary'

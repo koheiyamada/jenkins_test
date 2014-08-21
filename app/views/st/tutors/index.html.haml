@@ -1,0 +1,15 @@
+=content_for :tabmenu do
+  =render "nav_tab"
+
+%h1=title t("titles.tutor_search")
+
+.pagination-centered
+  =render 'tutors/search_for_optional_lesson'
+
+-if @tutors.nil?
+-elsif @tutors.blank?
+  =t('common.not_found')
+-else
+  =render layout: 'tutors/tutors_for_student', locals: {tutors: @tutors, student: current_user} do |tutor|
+    =img_link_to "common.detail", st_tutor_path(tutor), class:"small"
+  =paginate @tutors

@@ -1,0 +1,25 @@
+.row
+  .offset2.span8
+    %h1=t('titles.registration')
+
+    %section
+      %h2=t('titles.parent_registration')
+      =render 'about_parent_registration'
+      .pagination-centered
+        =img_link_to "common.apply_entry", 'confirmation1', class:"large"
+
+    %section
+      %h2=t('titles.student_registration')
+      .pagination-centered
+        =img_link_to "common.apply_entry", 'confirmation1', class:"large"
+
+    -if Rails.env.development?
+      %section
+        %h2=t(".tutor_application")
+        .pagination-centered
+          =img_link_to "common.apply_entry", first_tutor_app_forms_path, class:"large"
+
+      %section
+        %h2=t(".bs_application")
+        .pagination-centered
+          =img_link_to "common.apply_entry", first_bs_app_forms_path, class:"large"

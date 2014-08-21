@@ -1,0 +1,18 @@
+%tr
+  %th
+    %span.required=User.human_attribute_name :full_name
+  %td
+    .full_name
+      =f.label :last_name
+      =f.text_field :last_name, class:"input-small"
+      =f.label :first_name
+      =f.text_field :first_name, class:"input-small"
+%tr
+  %th
+    %span.required=User.human_attribute_name :full_name_kana
+  %td
+    .full_name_kana
+      =f.label :last_name_kana
+      =f.text_field :last_name_kana, class:"input-small"
+      =f.label :first_name_kana
+      =f.text_field :first_name_kana, class:"input-small"

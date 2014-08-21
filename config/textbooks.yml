@@ -1,0 +1,20 @@
+development:
+  image_root_url: /Users/shimokawa/Documents/aid/data/tmp
+  textbooks_image_format: /%{textbook_id}/text/%{image_no}.png
+  answer_book_dir_format: /Users/shimokawa/Documents/aid/data/tmp/%{textbook_id}/answer
+test:
+  image_root_url: /Users/shimokawa/Documents/aid/data/tmp
+  textbooks_image_format: /%{textbook_id}/text/%{image_no}.png
+  answer_book_dir_format: /Users/shimokawa/Documents/aid/data/tmp/%{textbook_id}/answer
+demo:
+  image_root_url: /home/sobalive/apps/aid/shared/textbooks
+  textbooks_image_format: /%{textbook_id}/text/%{image_no}.png
+  answer_book_dir_format: /home/sobalive/apps/aid/shared/textbooks/%{textbook_id}/answer
+staging:
+  image_root_url: /home/aid/apps/aid/shared/textbooks
+  textbooks_image_format: /%{textbook_id}/text/%{image_no}.png
+  answer_book_dir_format: /home/aid/apps/aid/shared/textbooks/%{textbook_id}/answer
+production:
+  image_root_url: /home/aid/apps/aid/shared/textbooks
+  textbooks_image_format: /%{textbook_id}/text/%{image_no}.png
+  answer_book_dir_format: /home/aid/apps/aid/shared/textbooks/%{textbook_id}/answer

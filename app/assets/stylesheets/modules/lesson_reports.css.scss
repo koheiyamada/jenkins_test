@@ -1,0 +1,36 @@
+@import "base";
+
+form.new_lesson_report, form.edit_lesson_report {
+  textarea {
+    height: 10em;
+    width: 98%;
+  }
+}
+
+table.lesson_report {
+  th {
+    min-width: 8em;
+    background-color: $aid-gray3;
+    font-weight: normal;
+  }
+
+  p {
+    word-break: break-all;
+  }
+} 
+
+.lesson_report-detail {
+  border-left: $table-border;
+  border-right: $table-border;
+  border-bottom: $table-border;
+  table {
+    margin: 0;
+  }
+  th {
+    background-color: $orange1;
+  }
+  &>.content {
+    border-top: $table-border;
+    padding: 10px;
+  }
+}

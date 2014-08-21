@@ -1,0 +1,6 @@
+%ul.breadcrumb
+  %li=link_to_unless_current t('titles.coaches'), bs_coaches_path
+  =render 'shared/breadcrumb_item', text: t('titles.coach'), url: bs_coach_path(@coach)
+  =render 'shared/breadcrumb_item', text: t('student_messages.titles.index'), url: bs_coach_messages_path(@coach)
+  -if @message
+    =render 'shared/breadcrumb_item', text: t('titles.message'), url: bs_coach_message_path(@coach, @message)

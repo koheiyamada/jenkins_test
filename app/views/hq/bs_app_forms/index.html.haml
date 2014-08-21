@@ -1,0 +1,11 @@
+=content_for :tabmenu do
+  =render "nav_tab"
+
+%h1=title t("titles.bs_app_forms")
+
+=render 'shared/centered_search_box'
+
+-if @bs_app_forms.blank?
+  =t('common.not_found')
+-else
+  =render "bs_app_forms", bs_app_forms:@bs_app_forms

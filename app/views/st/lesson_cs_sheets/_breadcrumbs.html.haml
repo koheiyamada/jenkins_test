@@ -1,0 +1,6 @@
+%ul.breadcrumb
+  %li
+    =link_to_unless_current t("titles.lessons"), st_lessons_path
+  -if @lesson
+    =breadcrumb_item t("titles.lesson"), st_lesson_path(@lesson)
+    =breadcrumb_item t("titles.cs_sheet"), st_lesson_cs_sheet_path(@lesson)

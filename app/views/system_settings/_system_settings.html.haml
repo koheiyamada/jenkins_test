@@ -1,0 +1,124 @@
+%table.table
+  %tr
+    %th=SystemSettings.human_attribute_name :default_max_charge
+    %td=number_to_currency system_settings.default_max_charge
+  %tr
+    %th=SystemSettings.human_attribute_name :message_storage_period
+    %td
+      -if system_settings.message_storage_period
+        =t("formats.days", days:system_settings.message_storage_period)
+      -else
+        =t("common.not_set")
+  %tr
+    %th=SystemSettings.human_attribute_name :cutoff_date
+    %td=system_settings.cutoff_date
+
+  %tr
+    %th=SystemSettings.human_attribute_name :bs_share_of_lesson_sales
+    %td=system_settings.bs_share_of_lesson_sales
+  %tr
+    %th=SystemSettings.human_attribute_name :tutor_share_of_lesson_fee
+    %td=system_settings.tutor_share_of_lesson_fee
+  %tr
+    %th=SystemSettings.human_attribute_name :tax_rate
+    %td=system_settings.tax_rate
+
+  %tr
+    %th=SystemSettings.human_attribute_name :video_fps
+    %td
+      =system_settings.video_fps
+      fps
+  %tr
+    %th=SystemSettings.human_attribute_name :video_bandwidth
+    %td
+      =system_settings.video_bandwidth
+      ="(#{t('common.bytes_per_second')})"
+  %tr
+    %th=SystemSettings.human_attribute_name :video_quality
+    %td
+      =system_settings.video_quality
+      (0 - 100)
+
+  %tr
+    %th=SystemSettings.human_attribute_name :camera_width
+    %td
+      =system_settings.camera_width
+      px
+  %tr
+    %th=SystemSettings.human_attribute_name :camera_height
+    %td
+      =system_settings.camera_height
+      px
+
+  %tr
+    %th=SystemSettings.human_attribute_name :document_camera_fps
+    %td
+      =system_settings.document_camera_fps
+      fps
+  %tr
+    %th=SystemSettings.human_attribute_name :document_camera_bandwidth
+    %td
+      =system_settings.document_camera_bandwidth
+      ="(#{t('common.bytes_per_second')})"
+  %tr
+    %th=SystemSettings.human_attribute_name :document_camera_quality
+    %td
+      =system_settings.document_camera_quality
+      (0 - 100)
+
+  %tr
+    %th=SystemSettings.human_attribute_name :document_camera_width
+    %td
+      =system_settings.document_camera_width
+      px
+  %tr
+    %th=SystemSettings.human_attribute_name :document_camera_height
+    %td
+      =system_settings.document_camera_height
+      px
+
+  %tr
+    %th=SystemSettings.human_attribute_name :meeting_video_fps
+    %td
+      =system_settings.meeting_video_fps
+      fps
+  %tr
+    %th=SystemSettings.human_attribute_name :meeting_video_bandwidth
+    %td
+      =system_settings.meeting_video_bandwidth
+      ="(#{t('common.bytes_per_second')})"
+  %tr
+    %th=SystemSettings.human_attribute_name :meeting_video_quality
+    %td
+      =system_settings.meeting_video_quality
+      (0 - 100)
+
+  %tr
+    %th=SystemSettings.human_attribute_name :meeting_camera_width
+    %td
+      =system_settings.meeting_camera_width
+      px
+  %tr
+    %th=SystemSettings.human_attribute_name :meeting_camera_height
+    %td
+      =system_settings.meeting_camera_height
+      px
+
+  %tr
+    %th=SystemSettings.human_attribute_name :max_coach_count_for_area
+    %td=system_settings.max_coach_count_for_area
+
+  %tr
+    %th=SystemSettings.human_attribute_name :cs_point_display_condition
+    -if system_settings.cs_point_visible == true
+      %td="有効"
+    -else
+      %td="無効"
+
+  %tr
+    %th=SystemSettings.human_attribute_name :monitoring_email_address
+    %td=system_settings.monitoring_email_address
+
+  %tr
+    %th=SystemSettings.human_attribute_name :email_for_error_nortification
+    %td=system_settings.email_for_error_nortification

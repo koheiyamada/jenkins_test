@@ -1,0 +1,10 @@
+%h1=title t('titles.new_bank_account')
+
+-if @bank_account.present?
+  .alert=t('bank_account.message.current_bank_account_is_removed')
+
+%ul.bank-select
+  -@banks.each do |bank|
+    %li.bank
+      %i.icon-angle-right
+      =link_to bank.name, {bank: bank.code}

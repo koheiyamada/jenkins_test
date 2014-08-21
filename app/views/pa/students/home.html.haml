@@ -1,0 +1,13 @@
+=render "pa/student_header", student:@student
+
+%section.clearfix
+  %h2=t("common.messages")
+  -if @messages.blank?
+    =t('common.not_found')
+  -else
+    =render layout: 'messages/messages', locals: {messages: @messages} do |message|
+      =render 'messages/buttons', path: pa_student_message_path(@student, message)
+
+%section.clearfix
+  %h2=t("common.lesson_schedule")
+  .lesson-calendar-holder{data: {path: pa_student_calendar_path(@student)}}

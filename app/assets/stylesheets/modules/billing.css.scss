@@ -1,0 +1,116 @@
+
+
+.billing, .payment-details {
+  padding: 10px 4px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+
+  .title {
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+    text-decoration: underline;
+  }
+
+  .monthly_statement-pane {
+    font-size: small;
+
+    td, th {
+      padding: 2px;
+      border: 1px solid #888;
+    }
+  }
+
+  .demandee {
+    width: 80%;
+    padding: 0 0 6px 0;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #333;
+    text-align: center;
+  }
+
+  .message {
+    padding-left: 4em;
+    font-size: x-small;
+    color: #333;
+  }
+
+  .demander-pane {
+    text-align: right;
+  }
+
+  .lessons-pane {
+    font-size: x-small;
+
+    td, th {
+      padding: 2px;
+      border: 1px solid #888;
+    }
+
+    thead {
+      tr:first-child {
+        th {
+          border-top: 1px solid #888;
+        }
+      }
+    }
+  }
+
+  .demander {
+    display: inline-block;
+    padding: 4px 20px 4px 0;
+    text-align: left;
+    font-size: 100%;
+
+    .company-name {
+
+    }
+
+    .department-name {
+      text-align: right;
+    }
+
+    .address {
+      margin-top: 6px;
+      .line1 {
+
+      }
+
+      .line2, .building {
+        text-indent: 5em;
+      }
+    }
+
+    .telephone {
+      margin-top: 6px;
+    }
+  }
+}
+
+.payment-details {
+  .payee-pane {
+    .area {
+      position: relative;
+      width: 80%;
+      padding: 0 0 6px 0;
+      margin-bottom: 10px;
+      border-bottom: 1px solid #333;
+      text-align: center;
+
+    }
+  }
+
+  .guide-text {
+    position: absolute;
+    left: 0;
+    top: -10px;
+    font-size: x-small;
+  }
+
+  .payment-account {
+    .branch, .account-type, .account-number {
+      margin-left: 5em;
+    }
+  }
+}

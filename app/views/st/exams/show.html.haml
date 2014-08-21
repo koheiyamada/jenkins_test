@@ -1,0 +1,16 @@
+%h1=title exam_name(@exam)
+
+%section
+  %h2=t("sections.exam_info")
+
+  %table.table.exam-info
+    %tr
+      %th=Exam.human_attribute_name :term
+      %td=exam_term(@exam)
+
+  -if current_user.can_start_exam?(@exam)
+    .buttons
+      -if @student_exam.not_started?
+        =link_to t("common.start_exam"), exam_room_path(@exam), class:"btn btn-primary"
+      -else
+        =link_to t("common.resume_exam"), exam_room_path(@exam), class:"btn btn-primary"

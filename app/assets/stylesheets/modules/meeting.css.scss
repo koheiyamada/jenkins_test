@@ -1,0 +1,85 @@
+@import 'base';
+
+.meeting-scheduling {
+  .meeting-schedule {
+    margin-bottom: 6px;
+
+    .schedule {
+      .icon-ok {
+        color: $aid-green;
+      }
+    }
+
+    .preferences {
+      font-size: small;
+
+      i {
+        color: $aid-green;
+      }
+    }
+  }
+}
+
+.meeting-room {
+  height: 500px;
+  width: 890px;
+  margin: 0 auto;
+  padding: 10px;
+  @include border-radius(4px);
+
+  background-color: $aid-gray;
+
+  .left-column {
+    height: 100%;
+    width: 240px;
+    float: left;
+    position: relative;
+
+    .video {
+      position: absolute;
+      bottom: 0;
+    }
+  }
+
+  .right-column {
+    height: 100%;
+    width: 640px;
+    margin-left: 250px;
+  }
+
+  .soba-widget-video {
+    display: inline-block;
+  }
+
+  &.meeting-room-for-three {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    width: 980px;
+    height: 320px;
+
+    .left-column {
+      width: 220px;
+
+      .video {
+        bottom: 24px;
+      }
+    }
+
+    .right-column {
+      margin-left: 230px;
+      width: 750px;
+
+      .video {
+        display: inline-block;
+      }
+    }
+  }
+}
+
+.meeting-member-list {
+  .student-list {
+    font-size: x-small;
+    color: $soba-gray;
+    cursor: pointer;
+  }
+}

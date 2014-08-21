@@ -1,0 +1,19 @@
+%table.table.forms
+  %thead
+    %tr
+      %th=BsAppForm.human_attribute_name :corporate_name
+      %th=BsAppForm.human_attribute_name :representative_name
+      %th=t("common.status")
+      %th=BsAppForm.human_attribute_name :confirmed_at
+      %th
+  %tbody
+    -bs_app_forms.each do |form|
+      %tr{class:"bs_app_form bs_app_form-row is-#{form.status}"}
+        %td.corporate_name=form.corporate_name
+        %td.name=full_name(form)
+        %td.status
+          =t("common.bs_app_form_status.#{form.status}")
+        %td.confirmed_at
+          =l(form.confirmed_at, :format => :promise) if form.confirmed_at
+        %td.actions
+          =img_link_to "common.detail", hq_bs_app_form_path(form), class:"small"

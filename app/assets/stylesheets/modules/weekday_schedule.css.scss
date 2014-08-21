@@ -1,0 +1,51 @@
+.weekday_schedules {
+  .time_ranges {
+    .time_range {
+      position: relative;
+      margin-bottom: 2px;
+      margin-right: 8px;
+
+      .wday {
+        //width: 25%;
+      }
+
+      .btn {
+        position: absolute;
+        left: 20px;
+        top: -2px;
+        display: none;
+        white-space: nowrap;
+        z-index: 2;
+      }
+
+      .delete-button {
+        a {
+          padding: 0;
+          color: #ccc;
+        }
+      }
+
+      &:hover {
+        .delete-button {
+          a {
+            color: #888;
+            text-decoration: none;
+
+            &:hover {
+              color: #666;
+              font-weight: bold;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+ul.weekday_schedules {
+  .wday {
+    &:after {
+      content: ':';
+    }
+  }
+}

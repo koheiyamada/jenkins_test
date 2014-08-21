@@ -1,0 +1,28 @@
+%h1=title t('title.new_credit_card')
+
+%p
+  引き続き、決済用クレジットカード情報のご登録を行って頂きます。
+  %br/
+  ご登録の手続きに関しまして、オンライン決済代行業者（SBIベリトランス）に委託しております。
+  %br/
+  【ベリトランス】
+  =link_to 'http://www.veritrans.co.jp/', 'http://www.veritrans.co.jp/', :target => '_blank'
+%p
+  それではこれより、ご使用されますクレジットカードの与信チェックをさせて頂きます。
+  %br/
+  ご登録時に決済される金額はございませんが、 ご登録以降にレッスンを受講された場合は、その日付けでレッスン料が課金されます。
+
+%p
+  【入会金30日支払猶予制度】
+  %br/
+  入会手続きから30以内に退会手続きを完了されますと、入会金は一切かかりませんので、ご安心してお試し頂けます。
+  %br/
+  詳細は
+  =link_to 'こちら', 'http://www.aidnet.jp/application-30days/', :target => '_blank'
+  からご確認ください。
+
+%p
+  以下のクレジットカード登録ボタンをクリックすると、クレジットカード情報の登録サイトに移動します。
+
+.buttons
+  =img_link_to "common.register_credit_card", register_st_credit_card_path

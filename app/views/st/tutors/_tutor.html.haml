@@ -1,0 +1,48 @@
+/生徒が見てもよい情報だけを掲載する
+%table.table.tutor
+  %tr
+    %th=User.human_attribute_name :nickname
+    %td
+      %span=tutor.nickname
+      =render 'tutors/tutor_type', tutor: tutor
+  %tr.photo
+    %th=User.human_attribute_name :photo
+    %td=image_tag tutor.photo_url if tutor.photo?
+  %tr
+    %th=User.human_attribute_name :age
+    %td=user_age tutor
+  %tr
+    %th=Tutor.human_attribute_name :registered_day
+    %td=l tutor.registered_day, format: :year_month_day2
+  %tr
+    %th=TutorInfo.human_attribute_name(:college)
+    %td=render 'college', tutor:tutor
+  %tr
+    %th=TutorInfo.human_attribute_name(:high_school)
+    %td=tutor.info.high_school
+  %tr
+    %th=TutorInfo.human_attribute_name(:birth_place)
+    %td=tutor.info.birth_place
+  %tr
+    %th=TutorInfo.human_attribute_name(:hobby)
+    %td=simple_format tutor.info.hobby
+  %tr
+    %th=render 'tutors/fragments/activities'
+    %td=simple_format tutor.info.activities
+  %tr
+    %th=TutorInfo.human_attribute_name(:free_description)
+    %td=simple_format tutor.info.free_description
+  %tr
+    %th=Tutor.human_attribute_name :lesson_fee_for_student
+    %td=number_to_currency tutor.lesson_fee_for_student(current_user)
+  -if SystemSettings.cs_point_visible?
+    %tr
+      %th=TutorInfo.human_attribute_name :cs_points
+      %td=tutor.info.cs_points
+  -if tutor.beginner?
+    %tr
+      %th=Tutor.human_attribute_name :beginner_lesson_requests_limit
+      %td=tutor.beginner_lesson_requests_limit
+  %tr
+    %th=Tutor.human_attribute_name :timezone
+    %td=tutor.timezone

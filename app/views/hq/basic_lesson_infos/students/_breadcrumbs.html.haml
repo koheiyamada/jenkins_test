@@ -1,0 +1,5 @@
+%ul.breadcrumb
+  %li=link_to_unless_current t("titles.basic_lesson_infos"), hq_basic_lesson_infos_path
+  =breadcrumb_item t('titles.basic_lesson_info'), hq_basic_lesson_info_path(@basic_lesson_info)
+  -if params[:action] == 'new'
+    =breadcrumb_item t('titles.add_basic_lesson_info_student'), new_hq_basic_lesson_info_student_path(@basic_lesson_info)

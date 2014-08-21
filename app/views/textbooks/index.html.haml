@@ -1,0 +1,10 @@
+%h1=title t("titles.textbooks")
+
+.pagination-centered
+  =render 'shared/search_box'
+
+-if @textbooks.empty?
+  =t('common.not_found')
+-else
+  =render "textbooks/textbooks", textbooks:@textbooks
+  =paginate(@textbooks)

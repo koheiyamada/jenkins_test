@@ -1,0 +1,17 @@
+=form_for lesson, url:url, as:'optional_lesson' do |f|
+  =render "application/validation_errors", model:lesson
+  %table.table
+    %tr
+      %th=t("common.date")
+      %td
+        =hidden_field_tag :date, lesson.start_time ? lesson.start_time.to_date.to_s : nil
+        .date_picker
+    %tr
+      %th=t("common.time")
+      %td=select_time lesson.start_time, {prefix:"time", minute_step:15}, class:'input-small'
+    %tr
+      %th=f.label :units
+      %td=f.select :units, lesson.units_select_options, {}, class:'input-small'
+  .form-actions.buttons
+    =img_link_to "common.cancel", {action:"cancel"}, method:"post", data:{confirm:t("messages.confirm_cancellation")}
+    =img_submit "common.go_next"

@@ -1,0 +1,8 @@
+%ul.sidebar
+  %li.section=render 'sidebar_section', text:t("common.lesson")
+  %li=sidebar_link t("menu.lessons"), ts_lessons_path
+  %li.section=render 'sidebar_section', text:t('titles.manuals')
+  %li=link_to t('titles.user_manual'), 'https://aidnet.jp/user-manual/', target: '_blank'
+  %li=link_to t('titles.trouble_manual'), 'https://aidnet.jp/trouble-manual/', target: '_blank'
+  %li.section=render 'sidebar_section', text:t('titles.operation_check')
+  %li=sidebar_link t('titles.person_and_document_camera'), videos_widgets_path

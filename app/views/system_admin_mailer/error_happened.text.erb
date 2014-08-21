@@ -1,0 +1,16 @@
+TIME: <%= Time.current %>
+
+HOST: <%= @request.host %>
+
+PATH: <%= @request.fullpath %>
+
+METHOD: <%= @request.method %>
+
+USER: <%= @current_user && (@current_user.user_name + ' ' + @current_user.class.name) %>
+
+CLASS: <%= @error.class %>
+
+MESSAGE: <%= @error.message %>
+
+BACKTRACE:
+<%= @error.backtrace.join("\n") %>

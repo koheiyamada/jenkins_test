@@ -1,0 +1,11 @@
+-if @lesson
+  .menu.imgbtnwrap
+    -if @lesson.can_change_schedule?
+      =render 'menu_item',
+        enabled: (@lesson.can_change_schedule?),
+        key: 'common.schedule_change',
+        url: change_schedule_st_lesson_path(@lesson)
+    =render 'menu_item',
+      enabled: (@lesson.active? && @lesson.before_entry_start_time_for?(current_user) && current_user.can_cancel?(@lesson)),
+      key: 'common.schedule_cancel',
+      url: new_st_lesson_cancellation_path(@lesson)

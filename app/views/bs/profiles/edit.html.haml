@@ -1,0 +1,6 @@
+%h1=title t("titles.edit_profile")
+
+-if coach?
+  =render 'coaches/form', coach: @bs_user, path: bs_profile_path
+-else
+  =render 'bs_users/form', bs_user:@bs_user, path: bs_profile_path

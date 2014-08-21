@@ -1,0 +1,18 @@
+=content_for :tabmenu do
+  =render "nav_tab"
+
+%h1=title t("titles.students")
+
+=render "menu"
+
+=render "shared/centered_search_box"
+
+-if @students.blank?
+  =t('common.not_found')
+-else
+  =render layout:"students/students", locals:{students:@students} do |student|
+    =img_link_to "common.detail", hq_student_path(student), class:"small"
+    -#=link_to new_hq_my_message_path(recipients:student.id), class: 'btn btn-small' do
+      -#%i.icon-envelope-alt
+      -#=t('common.send_message')
+  =paginate(@students)

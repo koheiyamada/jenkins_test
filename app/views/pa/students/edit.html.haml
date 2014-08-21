@@ -1,0 +1,5 @@
+=render "pa/student_header", student:@student
+
+%h3=t("titles.edit_student")
+
+=render 'students/form', student:@student, url:pa_student_path(@student)

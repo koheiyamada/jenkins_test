@@ -1,0 +1,20 @@
+production:
+  dummy_request: 0
+  merchant_cc_id: A100000000000001016442cc
+  merchant_secret_key: f6c35cf0a757a923f22e730d632b369dd6fdf3d5c1548b78002145cdacf7ddb6
+staging:
+  dummy_request: 1
+  merchant_cc_id: A100000000000001069951cc
+  merchant_secret_key: ca7174bea6c9a07102fa990cfba330d0dad579a7c13a974fa7c3ec0ff66c1d6f
+demo:
+  dummy_request: 1
+  merchant_cc_id: A100000000000001069951cc
+  merchant_secret_key: ca7174bea6c9a07102fa990cfba330d0dad579a7c13a974fa7c3ec0ff66c1d6f
+development:
+  dummy_request: 1
+  merchant_cc_id: A100000000000001069951cc
+  merchant_secret_key: ca7174bea6c9a07102fa990cfba330d0dad579a7c13a974fa7c3ec0ff66c1d6f
+test:
+  dummy_request: 1
+  merchant_cc_id: A100000000000001069951cc
+  merchant_secret_key: ca7174bea6c9a07102fa990cfba330d0dad579a7c13a974fa7c3ec0ff66c1d6f

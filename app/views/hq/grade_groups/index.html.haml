@@ -1,0 +1,17 @@
+%h1=title t("titles.grade_groups")
+
+=render "menu"
+
+-if @grade_groups.empty?
+  =t('common.not_found')
+-else
+  %table.table.grade_groups
+    %thead
+      %tr
+        %th=GradeGroup.human_attribute_name :name
+        %th
+    %tbody
+      -@grade_groups.each do |grade_group|
+        %tr
+          %td=grade_group.name
+          %td=img_link_to "common.detail", hq_grade_group_path(grade_group), class:"small"

@@ -1,0 +1,8 @@
+=content_for :subheader do
+  =render 'breadcrumbs'
+
+%h1=title @textbook.title
+
+=render 'menu'
+
+=render 'viewer', textbook:@textbook

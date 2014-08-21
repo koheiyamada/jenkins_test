@@ -1,0 +1,7 @@
+%h1=title t('titles.membership_cancellation')
+
+=render 'membership_cancellation', membership_cancellation: @membership_cancellation
+
+.pagination-centered
+  =link_to t('common.detail'), user_page_path(@membership_cancellation.user), class: 'btn'
+  -#=link_to t('common.back_to_aid'), {action: 'destroy', id: @membership_cancellation}, method: :delete, data: {confirm: t('membership_cancellation.confirm_to_delete')}, class: 'btn'

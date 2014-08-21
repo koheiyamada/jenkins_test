@@ -1,0 +1,29 @@
+%table.table.lesson.lesson_request
+  %tr
+    %th=t("common.tutor")
+    %td=user_display_name(lesson.tutor)
+  %tr
+    %th=t("common.datetime")
+    %td=render "lessons/time_range", lesson:lesson
+  %tr
+    %th=t("common.students")
+    %td
+      -lesson.students.each do |student|
+        .student{"data-id" => student.id}
+          %span.name
+            =student.full_name
+          =render "actions_for_student", student:student, lesson:lesson
+      -if lesson.is_a?(InvitableLesson)
+        -lesson.no_reply_invitees.each do |invitee|
+          .invitee
+            =user_display_name(invitee)
+            %span.label=t("common.inviting")
+  -#%tr
+  -#  %th=Lesson.human_attribute_name :is_group_lesson
+  -#  %td=yes_no(lesson.is_group_lesson)
+  %tr
+    %th=t('common.lesson_style')
+    %td=lesson_style(lesson)
+  %tr
+    %th=Lesson.human_attribute_name :type
+    %td=lesson_type(lesson)

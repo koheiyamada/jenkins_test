@@ -1,0 +1,7 @@
+%h1=title t('titles.switching_payment_method_users')
+
+-if @yucho_account_applications.empty?
+  =t('common.not_found')
+-else
+  =render layout: 'yucho_account_applications', locals: {yucho_account_applications: @yucho_account_applications} do |yucho_account_application|
+    =link_button_to 'zoom-in', t('common.detail'), hq_yucho_account_application_path(yucho_account_application), class: 'btn-small'

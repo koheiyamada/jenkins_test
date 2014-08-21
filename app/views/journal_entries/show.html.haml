@@ -1,0 +1,7 @@
+=content_for :subheader do
+  =render "breadcrumbs"
+
+%h1=title @journal_entry.name
+
+=render "journal_entry", journal_entry:@journal_entry
+

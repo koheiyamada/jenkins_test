@@ -1,0 +1,14 @@
+=content_for :subheader do
+  =render 'breadcrumbs'
+
+%h1=title t('titles.special_tutor_settings')
+
+=render 'application/validation_errors', model: @tutor
+
+=render 'tutors/tutor_small', tutor: @tutor
+
+.buttons
+  -if @tutor.special?
+    =button_to t('tutor.become_normal_tutor'), {action: :update, special: 0}, method: :put, class: 'btn', data: {confirm: t('tutors.confirm_to_become_normal_tutor')}
+  -else
+    =button_to t('tutor.become_special_tutor'), {action: :update, special: 1}, method: :put, class: 'btn', data: {confirm: t('tutors.confirm_to_become_special_tutor')}

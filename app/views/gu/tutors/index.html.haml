@@ -1,0 +1,14 @@
+%h1=title t("titles.tutor_search")
+
+.pagination-centered
+  =form_tag nil, method: :get, class: 'form-search' do
+    =text_field_tag :college, params[:college], class: 'search-query', :placeholder => t('common.college_name')
+    =img_submit 'common.search'
+
+-if @tutors.nil?
+-elsif @tutors.blank?
+  =t('common.not_found')
+-else
+  =render layout: 'tutors/tutors_for_guest', locals: {tutors: @tutors} do |tutor|
+    =img_link_to 'common.detail', gu_tutor_path(tutor), class: 'small'
+  =paginate @tutors

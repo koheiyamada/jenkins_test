@@ -1,0 +1,84 @@
+@import "base";
+
+.sidebar {
+  min-height: 400px;
+  background-color: $aid-gray;
+  border: 1px solid #d4d4d4;
+  @include border-radius(4px);
+  //padding: 10px;
+
+  .sub-list {
+    margin-left: 1em;
+  }
+
+
+  li {
+    padding-left: 10px;
+    margin-right: 10px;
+    line-height: 20px;
+
+    a {
+      display: block;
+      padding: 2px 0;
+      color: #333333;
+      text-decoration: none;
+      font-size: 13px;
+
+      &:hover {
+        color: $aid-green;
+      }
+    }
+
+    .is-current-page {
+      padding: 2px 0;
+      color: $aid-orange3;
+      >a {
+        color: $aid-orange3;
+      }
+    }
+
+    &.section {
+      padding: 2px 0px;
+      margin: 10px 10px 0px;
+      font-size: 12px;
+      //border-top: 1px dashed #d4d4d4;
+      background-color: $aid-gray;
+      //background: url("/assets/sidebar-header-bg.png") repeat;
+      color: #333;
+      font-weight: bold;
+      border-bottom: 1px dotted $aid-gray2;
+
+      img {
+        position: relative;
+        top: -1px;
+      }
+
+      &:first-child {
+        margin-top: 0px;
+        border-top: 0px;
+      }
+    }
+
+    &.section2 {
+      padding: 2px 0px;
+      margin: 0px 10px 0px;
+      font-size: 12px;
+      //border-top: 1px dashed #d4d4d4;
+      background-color: $aid-gray;
+      //background: url("/assets/sidebar-header-bg.png") repeat;
+      color: #333;
+      font-weight: bold;
+      border-bottom: 1px dotted $aid-gray2;
+
+      img {
+        position: relative;
+        top: -1px;
+      }
+
+      &:first-child {
+        margin-top: 0px;
+        border-top: 0px;
+      }
+    }
+  }
+}

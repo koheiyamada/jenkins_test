@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="login_form offset3 span6">
+    <%= bootstrap_flash %>
+    <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+      <table>
+        <tr>
+          <td>
+            <%= f.label :user_name %>
+          </td>
+          <td>
+            <%= f.text_field :user_name, tabindex: 1 %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <%= f.label :password %>
+          </td>
+          <td>
+            <%= f.password_field :password, tabindex: 2 %>
+          </td>
+        </tr>
+        <% if devise_mapping.rememberable? -%>
+        <tr>
+          <td>
+          </td>
+          <td>
+            <%= f.check_box :remember_me, tabindex: 3 %>
+            <%= f.label :remember_me %>
+          </td>
+        </tr>
+        <% end -%>
+      </table>
+      <div class="actions"><%= img_submit('common.login', tabindex: 4) %></div>
+      <div class="links">
+        <%= img_link_to(".new_account", "/registration") if Rails.env.development? %>
+      </div>
+      <!--<%= render "devise/shared/links" %>--> 
+    <% end %>
+  </div>
+</div>

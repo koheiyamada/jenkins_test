@@ -1,0 +1,241 @@
+=form_for tutor, url: url, as: :tutor do |f|
+  -if @tutor_form
+    =render 'application/validation_errors2', model: @tutor_form
+  -else
+    =render 'application/validation_errors', model: tutor
+  %table.table
+    %tbody
+      %tr
+        %th
+          %span.required=Tutor.human_attribute_name :user_name
+        -if current_user.admin? || current_user == tutor
+          %td=f.text_field :user_name, :required => true
+        -else
+          %td=f.text_field :user_name, :required => true, :readonly => true
+      -if tutor.new_record?
+        %tr
+          %th
+            %span.required=Tutor.human_attribute_name :password
+          %td
+            =f.label :password do
+              =f.text_field :password
+            =f.label :password_confirmation do
+              =f.text_field :password_confirmation
+              %span.help-inline=t('common.confirmation')
+      %tr
+        %th=f.label :photo
+        %td=render 'profiles/photo_form', user: tutor, form: f
+      %tr
+        %th
+          %span.required=Tutor.human_attribute_name :full_name
+        %td
+          %table.fullname-form
+            %tr
+              %td=f.label :last_name
+              %td=f.text_field :last_name, class:"input-small"
+              %td=f.label :first_name
+              %td=f.text_field :first_name, class:"input-small"
+            %tr
+              %td=f.label :last_name_kana
+              %td=f.text_field :last_name_kana, class:"input-small"
+              %td=f.label :first_name_kana
+              %td=f.text_field :first_name_kana, class:"input-small"
+      %tr
+        %th=f.label :nickname, class: 'required'
+        %td
+          =f.text_field :nickname
+          .help=t('tutor.about_nickname')
+      %tr
+        %th=f.label :birthday, class: 'required'
+        %td=f.date_select :birthday, {start_year: 100.years.ago.year, end_year: 16.years.ago.year}, class:"input-small"
+      %tr
+        %th
+          %span.required=t('common.sex')
+        %td
+          =f.label :sex_male, class:'radio inline' do
+            =f.radio_button :sex, 'male'
+            =t('common.male')
+          =f.label :sex_female, class:'radio inline' do
+            =f.radio_button :sex, 'female'
+            =t('common.female')
+      =fields_for tutor.info do |f|
+        %tr
+          %th=f.label :graduated, class: 'required'
+          %td
+            =f.label :graduated_false, class:'radio inline' do
+              =f.radio_button :graduated, false
+              =TutorAppForm.human_attribute_name :graduated_false
+            =f.label :graduated_true, class:'radio inline' do
+              =f.radio_button :graduated, true
+              =TutorAppForm.human_attribute_name :graduated_true
+        %tr
+          %th=f.label :college
+          %td
+            .college_name
+              =f.text_field :college, class:'input-medium'
+              =TutorInfo.human_attribute_name :college
+              %span.help=t('tutor.about_college')
+            .college_grade
+              =f.number_field :grade, class:"input-mini", :in => 1..99
+              %span.help-inline
+                =t('common.collage_grade')
+                =t('common.only_if_not_graduated')
+        %tr
+          %th=f.label :department
+          %td
+            .department
+              =f.text_field :department, class:'input-medium'
+              =TutorInfo.human_attribute_name :department
+        %tr
+          %th=f.label :faculty
+          %td
+            .faculty
+              =f.text_field :faculty, class:'input-medium'
+              =TutorInfo.human_attribute_name :faculty
+
+        %tr
+          %th=f.label :graduate_college
+          %td
+            .graduate_college
+              =f.text_field :graduate_college, class:'input-medium'
+              =t('tutor_app_form.graduate_college')
+        %tr
+          %th=f.label :graduate_college_department
+          %td
+            .graduate_college_department
+              =f.text_field :graduate_college_department, class:'input-medium'
+              =t('tutor_app_form.graduate_college_department')
+        %tr
+          %th=f.label :major
+          %td
+            .major
+              =f.text_field :major, class:'input-medium'
+              =t('tutor_app_form.major')
+
+        %tr
+          %th=f.label :student_number
+          %td
+            =f.text_field :student_number, class:'input-medium'
+
+        %tr
+          %th=f.label :undertake_group_lesson
+          %td=f.check_box :undertake_group_lesson
+        %tr
+          %th
+            =t('tutor.form.hobby')
+            %span.help-inline="(#{t('form.within_n_characters', n: 200)})"
+          %td
+            =f.text_area :hobby, class:'span4', maxlength: 200
+            .help=t('tutor.enter_content_with_high_retrievability')
+        %tr
+          %th
+            =f.label :activities
+            %span.help-inline="(#{t('form.within_n_characters', n: 200)})"
+          %td
+            =f.text_area :activities, class:'span4', maxlength: 200
+            .help=t('tutor.enter_content_with_high_retrievability')
+        %tr
+          %th
+            =f.label :teaching_experience
+            %span.help-inline="(#{t('form.within_n_characters', n: 200)})"
+          %td
+            =f.text_area :teaching_experience, class:'span4', placeholder:t('placeholders.tutor.teaching_experience'), maxlength: 200
+            .help=t('tutor.enter_content_with_high_retrievability')
+        %tr
+          %th
+            =f.label :teaching_results
+            %span.help-inline="(#{t('form.within_n_characters', n: 200)})"
+          %td=f.text_area :teaching_results, class:'span4', maxlength: 200
+        %tr
+          %th
+            =f.label :free_description
+            %span.help-inline="(#{t('form.within_n_characters', n: 200)})"
+          %td
+            =f.text_area :free_description, class:'span4', maxlength: 200
+            .help=t('tutor.enter_content_with_high_retrievability')
+        =render 'shared/jyuku_history_field', f: f
+
+        %tr
+          %th=f.label :favorite_books
+          %td
+            =f.text_field :favorite_books, class:'input-medium'
+
+      %tr.section
+        %td(colspan="2")
+
+      %tr
+        %th=f.label :phone_number
+        %td
+          =f.telephone_field :phone_number
+          .help=t('messages.hankaku_only')
+      %tr
+        %th=t('common.current_address')
+        %td=render 'addresses/form', address:tutor.current_address || CurrentAddress.new
+      %tr
+        %th=t('common.hometown_address')
+        %td=render 'addresses/form', {not_required: true, address:tutor.hometown_address || HometownAddress.new}
+      %tr
+        %th=f.label :skype_id, class: 'required'
+        %td
+          =f.text_field :skype_id
+          .help=render 'shared/about_skype_id'
+
+      =render 'specs/fields2', f: f, user_operating_system: tutor.user_operating_system
+
+      %tr
+        %th=f.label :email, class: 'required'
+        %td
+          -if current_user.hq_user?
+            =f.email_field :email
+          -else
+            =f.email_field :email, readonly: true
+            =img_link_to "common.change", change_email_tu_profile_path
+
+      =render 'shared/driver_license_number_or_passport_number_field', f: f
+      =render 'shared/pc_model_number_field', f: f
+      =render 'shared/has_web_camera_field', f: f
+
+      %tr
+        %th=f.label :birth_place
+        %td=f.text_field :birth_place
+
+      =fields_for tutor.info do |f|
+        %tr
+          %th=f.label :high_school
+          %td=f.text_field :high_school
+
+      =fields_for tutor.info do |f|
+        %tr
+          %th=f.label :do_volunteer_work
+          %td=f.check_box :do_volunteer_work
+      -if current_user.hq_user?
+        -if tutor.new_record?
+          %tr
+            %th=label_tag :special_tutor, t('common.special_tutor')
+            %td=check_box_tag :special_tutor, '1', tutor.special?
+        =fields_for tutor.price do |f|
+          %tr
+            %th=f.label :hourly_wage
+            %td
+              =f.number_field :hourly_wage, class:"input-small", step:50, min:0
+              %span.help-inline=t("common.yen")
+        -if tutor.new_record?
+          %tr
+            %th=t('tutor.regular_from_beginning')
+            %td
+              =check_box_tag :regular, params[:regular]
+              .help=t('tutor.become_regular_when_special_tutor')
+
+      -if @tutor_form
+        =render 'questions/form_for_how_to_find', answer: @tutor_form.how_to_find
+
+      -if current_user.hq_user?
+        %tr
+          %th=f.label :reference_user_name
+          %td
+            =f.text_field :reference_user_name, placeholder: Tutor.human_attribute_name(:user_name)
+            -if hq_user?
+              .help=t('tutor.about_reference_for_hq_user')
+
+  .form-actions.buttons
+    =img_submit "common.send"

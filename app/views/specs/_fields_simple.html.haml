@@ -1,0 +1,4 @@
+%tr
+  %th=f.label :os_id, class: 'required'
+  %td
+    =f.select :os_id, OperatingSystem.list.map{|os| [os.name, os.id]}

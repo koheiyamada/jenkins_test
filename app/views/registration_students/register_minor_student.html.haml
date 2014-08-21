@@ -1,0 +1,13 @@
+- registration_flg = true
+%h1=title t("titles.new_student")
+
+-if @already_registered
+  .alert.alert-error
+    %button.close(type="button" data-dismiss="alert") &times;
+    %ul
+      %li
+        ご入力頂きました受講者情報は既に登録されています。
+        %br
+        お手数をお掛け致しますが、再度、ご入力内容をご確認をお願いします。
+
+=render 'students/form', student:@student, registration_flg:registration_flg, url: "complete_registering_minor_student"

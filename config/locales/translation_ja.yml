@@ -1,0 +1,985 @@
+ja:
+  activerecord: &model_i18n
+    models:
+      access_authority: アクセス権限
+      address: 住所
+      answer: 回答
+      answer_book: 解答
+      bank: 銀行
+      coach: 教育コーチ
+      current_address: 現住所
+      dummy_payment_method: "-"
+      hometown_address: 帰省先住所
+      bank_payment: 銀行振り込み
+      bs: BS
+      bs_app_form: BS新規登録フォーム
+      bs_user: 教育コーチ
+      credit_card_payment: クレジットカード
+      dependent: dependent
+      grade: 学年
+      grade_group: 学年グループ
+      headquarter: 本部
+      how_to_know_question_form: エイドネットを知ったきっかけ
+      hq_accountant: 本部経理
+      hq_admin: 本部管理者
+      hq_support: 本部サポート
+      hq_user: 本部スタッフ
+      lesson: レッスン
+      lesson_charge: 受講者の支払額
+      lesson_extension_application: レッスン延長申込
+      lesson_invitation: レッスン招待
+      lesson_materials: レッスン資料
+      lesson_report: レッスンレポート
+      lesson_tutor_wage: チューターの報酬
+      meeting: 面談
+      membership_cancellation: 退会
+      message: メッセージ
+      monthly_statement: 月次計算書
+      monthly_statement_calculation: 月次計算書作成
+      monthly_statement_item: 月次計算書項目
+      monthly_charging_user: ライセンス対象アカウント
+      operating_system: OS
+      optional_lesson: オプションレッスン
+      basic_lesson: ベーシックレッスン
+      basic_lesson_weekday_schedule: 週予定
+      organization: 所属
+      parent: 保護者
+      payment_method: 支払い方法
+      student: 受講者
+      student_entry_form: 受講者入会申込フォーム
+      student_info: student_info
+      student_settings: student_settings  #g
+      subject: 教科
+      system_settings: システム設定
+      free_mode_settings: 無料体験設定
+      tutor: チューター  #g
+      tutor_app_form: tutor_app_form  #g
+      tutor_daily_available_time: 指導可能時間
+      user: user  #g
+      user_info: user_info  #g
+      user_registration_form: ユーザ登録フォーム
+      user_monthly_stat: 月別統計
+      yucho_payment: ゆうちょ銀行
+      current_address: 現住所
+      hometown_address: 帰省先住所
+      ledger: 帳簿
+      exam: 模試
+      textbook: テキスト
+      account/journal_entry: 仕訳
+      account/entry_fee: 入会金
+      account/bs_id_management_fee: ID管理費（BS）
+      account/student_id_management_fee: ID管理費（受講者）
+      account/textbook_usage_fee: テキスト使用料
+      account/basic_lesson_tutor_fee: ベーシックレッスン講師料
+      account/optional_lesson_tutor_fee: オプションレッスン講師料
+      account/tutor_referral_fee: チューター紹介料
+      account/student_referral_fee: 受講者紹介料
+      account/basic_lesson_fee: ベーシックレッスン受講料
+      account/optional_lesson_fee: オプションレッスン受講料
+      account/exam2_fee: 模試代（２科目型）
+      account/exam3_fee: 模試代（３科目型）
+      account/exam4_fee: 模試代（４科目型）
+      account/exam5_fee: 模試代（５科目型）
+      account/lesson_sale_amount: レッスン料売上
+      account/scoring_fee: 模試採点費
+      account/textbook_rental_fee: テキストライブラリ
+      account/bs_textbook_rental_fee: テキストライブラリ（BS）
+      account/soba_id_management_fee: ID管理費
+      account/beginner_tutor_discount: 新規登録チューター割引
+      account/group_lesson_discount: お友達受講割引
+      account/group_lesson_premium: お友達受講賃金割増
+      account/lesson_delay_reduction: チューター遅刻減額
+      account/lesson_cancellation_penalty: チューター遅刻中止ペナルティ
+      account/lesson_extension_fee: レッスン延長受講料
+      account/lesson_extension_tutor_fee: レッスン延長講師料
+      account/special_tutor_fee: スペシャルチューターID管理費
+      account/hq_user_reference_discount: 本部紹介割引料
+      account/adjusting_entry: 訂正
+
+    attributes:
+      access_authority:
+        accounting: 経理
+        bs: BS
+        bs_user: 教育コーチ
+        cs_sheet: CSシート
+        custom_operating_system: その他のOS
+        lesson_report: レッスンレポート
+        parent: 保護者
+        tutor: チューター
+        tutor_info: チューター情報
+        student: 受講者
+        hq_user: 本部ユーザ
+        lesson: レッスン
+        exam: 模試
+        message: メッセージ
+        document_camera: ノートカメラ
+        textbook: テキスト
+        system_settings: システム設定
+        bs_app_form: BS新規登録フォーム
+        tutor_app_form: チューター新規登録フォーム
+        meeting: 面談
+        bank: 銀行
+
+
+      account/journal_entry:
+        amount: 金額
+        created_at: 作成日時
+        settlement_date: 決済日
+        payer: 支払人
+        payee: 受取人
+        year: 年
+        month: 月
+        year_month: 月
+        amount_of_payment: 支払額
+        amount_of_money_received: 受取額
+        client: 相手
+        owner: ユーザー
+
+      address:
+        address: 住所
+        postal_code: 郵便番号
+        line1: 住所
+        line2: 建物等
+        state: 都道府県
+        city: 市区
+
+      answer:
+        answer_option_id: 選択肢
+
+      answer_book:
+        dir: ディレクトリ
+        textbook_id: テキスト
+
+      bank:
+        name: 名前
+        code: コード
+
+      coach:
+        students: 指導中の受講者
+        organization_id: エリア
+
+      current_address:
+        address: 住所
+        postal_code: 郵便番号
+        line1: 住所
+        line2: 建物等
+        state: 都道府県
+        city: 市区
+
+      hometown_address:
+        address: 住所
+        postal_code: 郵便番号
+        line1: 住所
+        line2: 建物等
+        state: 都道府県
+        city: 市区
+
+      basic_lesson_info:
+        schedules: 時間帯
+        final_day: 最終日
+        final_month: 終了月
+        auto_extension: 自動延長
+        status: 状態
+        students: 受講者メンバー
+        student: 受講者
+        interview_datetimes: 面接希望日時
+
+      basic_lesson_student:
+        student: 受講者
+
+      basic_lesson_weekday_schedule:
+        wday: 曜日
+        from: 開始時刻
+        units: 単位数
+        start_time: 開始時刻
+        end_time: 終了時刻
+
+      bs:
+        name: エリア名
+        area_code: エリアコード
+
+      bs_app_form:
+        address: :activerecord.models.address  #g
+        bs_user: :activerecord.models.bs_user  #g
+        confirmed: 確認
+        corporate_name: エリア名
+        email: メールアドレス
+        line_speed: 回線速度
+        name: 名前
+        representative_name: 代表者氏名
+        representative_birthday: 代表者生年月日
+        representative_sex: 代表者性別
+        pc_spec: PCスペック
+        phone_number: 電話番号
+        reason_for_applying: エントリー目的
+        skype_id: スカイプID
+        first_name: 名
+        last_name: 姓
+        first_name_kana: めい
+        last_name_kana: せい
+        photo: 写真
+        high_school: 高校
+        college: 大学
+        department: 学部
+        graduated_false: 現役
+        graduated_true: 既卒
+        graduate_college: 大学院
+        graduate_college_department: 研究科
+        major: 専攻
+        pc_spec: PCスペック
+        line_speed: 回線速度
+        use_document_camera: カメラが必要かどうか
+        reference: 紹介者ID
+        interview_datetimes: 面接希望日時
+        interview_datetime_1: 第一希望日
+        interview_datetime_2: 第二希望日
+        interview_datetime_3: 第三希望日
+        birthday: 生年月日
+        confirmed_at: エントリー日時
+        job_history: 職業履歴
+        adsl: ADSL回線
+        os: OS
+        os_id: OS
+        upload_speed: 上り回線速度
+        download_speed: 下り回線速度
+        windows_experience_index_score: 'Windowsエクスペリエンス インデックス'
+        birth_place: 出身地
+        has_web_camera: Ｗｅｂカメラの有無
+        pc_model_number: 使用する予定のパソコンメーカーと型番
+        how_to_find: エイドネットを知ったきっかけ
+        reason_to_enroll: 入会理由
+        driver_license_number: 免許証番号
+        passport_number: パスポート番号
+        preferred_areas: 購入希望エリア
+
+      bs_user:
+        reset_password_sent_at: reset_password_sent_at  #g
+        reset_password_token: reset_password_token  #g
+
+      cs_sheet:
+        author: 作成者
+        created_at: 作成日
+        score: 評価
+        content: 内容
+        tutor_user_name: チューターID
+        tutor_nickname: チューター(呼称)
+        student_user_name: 生徒ID
+        student_nickname: 受講者(呼称)
+        datetime: 実施日・時間
+        reason_for_low_score: 低評価の理由
+        handout: 宿題などのプリントを用意してもらえた
+        quiz: 小テストを用意してもらえた
+        lesson: このレッスン
+        lesson_id: このレッスン
+
+      dependent:
+        parent: :activerecord.models.parent  #g
+        student: :activerecord.models.student  #g
+
+      document_camera:
+        created_at: 作成日
+
+      email_confirmation_form:
+        email: メールアドレス
+        email_confirmation: メールアドレス（確認）
+        agree_pledge: 利用契約約款
+
+      exam:
+        file: 問題用紙ファイル
+        term: 期間
+
+      general_bank_account:
+        bank_name: 銀行名
+        bank_code: 金融機関コード
+        branch_code: 店番
+        branch_name: 支店名
+        account_type: 種別
+        account_number: 口座番号
+        account_holder_name: 口座名義人
+        account_holder_name_kana: 口座名義人（カナ）
+
+
+      grade_group:
+        name: 名前
+        grades: 学年
+        subjects: 教科
+
+      headquarter:
+        name: name  #g
+        users: users  #g
+
+      how_to_find_question_form:
+        code: エイドネットを知ったきっかけ
+        attrs: 回答
+        answer: 回答
+
+      hq_accountant:
+
+      hq_admin:
+
+      hq_support:
+
+      hq_user:
+
+      ledger:
+        entry_fee: 入学費
+        bs_id_management_fee: BS・ID管理費
+        student_id_management_fee: 受講者ID管理費
+        textbook_usage_fee: テキスト利用費
+        basic_lesson_tutor_fee: ベーシックレッスン講師料
+        optional_lesson_tutor_fee: オプションレッスン講師料
+        tutor_referral_fee: チューター紹介料
+        student_referral_fee: 受講者紹介料
+        basic_lesson_fee: ベーシックレッスン費
+        optional_lesson_fee: オプションレッスン費
+        exam2_fee: 模試代（２科型）
+        exam3_fee: 模試代（３科型）
+        exam4_fee: 模試代（４科型）
+        exam5_fee: 模試代（５科型）
+        lesson_sale_amount: 授業売上高
+        scoring_fee: 採点料
+        textbook_rental_fee: テキストレンタル料
+        bs_textbook_rental_fee: BSテキストレンタル料
+        soba_id_management_fee: SOBA ID管理費
+        beginner_tutor_discount: 仮登録チューター割引
+        group_lesson_discount: お友達受講割引
+        group_lesson_premium: 同時レッスン割増
+        lesson_delay_reduction: レッスン遅刻減額
+        lesson_cancellation_penalty: レッスン中止ペナルティ
+
+      lesson:
+        id: レッスンID
+        status: 状態
+        type: 種別
+        start_time: 開始時刻
+        end_time: 終了時刻
+        units: 単位数
+        subject_id: 授業
+        tutor_id: チューター
+        group_lesson: 同時レッスン
+        is_group_lesson: 同時レッスン
+        friend: 友人ID
+        subject: 科目
+        tutor: チューター
+        cs_point: CSポイント
+        time_to_check_lesson_extension: 延長確認時刻
+        extendable: 延長可能
+        started_at: 実際の開始時刻
+        time_lesson_end: 終了予定時刻
+        time_to_check_lesson_extension: 延長確認時刻
+        time_door_close: 入室制限時刻
+        time_room_close: 最終退出時刻
+        fee: 料金
+        group_lesson_discount: 同時レッスン割引
+        students: 受講者
+        established: 支払確定
+        journalized: 集計済
+        lesson_invitation: 招待した友達
+        extended?: 延長
+        time_range: 時間帯
+        time_limit_to_dropout: 途中キャンセル締切時刻
+        dropout_closing_time: 途中キャンセル締切時刻
+        tutor_base_hourly_wage: チューターの時間（60分）単位基本報酬
+
+      lesson_cancellation:
+        lesson: レッスン
+        student: 受講者
+        reason: 理由
+
+      lesson_charge:
+        student: 受講者
+        fee: 金額
+        lesson_student_id: 受講者
+        created_at: 作成日時
+        updated_at: 更新日時
+        organization_id: 教育コーチ
+        contains_bs_share: BSへの支払を含む
+        journalized: 仕訳済
+
+      lesson_dropout:
+        lesson: レッスン
+        lesson_student: 受講者
+
+      lesson_extendability:
+        lesson_id: レッスン
+        lesson: レッスン
+
+      lesson_extension:
+        lesson: レッスン
+
+      lesson_extension_application:
+        student: 受講者
+        lesson: レッスン
+        student_id: 受講者
+        lesson_id: レッスン
+
+      lesson_extension_request:
+        student: 受講者
+        lesson: レッスン
+        student_id: 受講者
+        lesson_id: レッスン
+
+      lesson_invitation:
+        student: 受講者
+        lesson: レッスン
+        status: 状態
+        acceptance_time_limit: 招待を受けられる期限
+
+      lesson_material:
+        material: 資料
+
+      lesson_report:
+        tutor_user_name: チューターID
+        tutor_full_name: 登録チューター氏名
+        tutor_nickname: チューター(呼称)
+        student_user_name: 生徒ID
+        student_full_name: 登録生徒氏名
+        student_nickname: 登録生徒(呼称)
+        datetime: 実施日・時間
+        lesson_type: 種別
+        grade: 学年
+        lesson_content: レッスン内容
+        homework_result: 前回の宿題の状況
+        homework_result_good: 概ね良好
+        homework_result_not_good: 努力の必要あり
+        homework_result_no_homework: 前回宿題なし
+        textbook_usage: テキストライブラリー使用ページ
+        has_attached_files: アップロードしたデータの有無
+        homework: 宿題
+        understanding: 理解
+        word_to_student: 生徒さんへ一言
+        note: 特記事項
+        subject_id: 教科
+        subject: 教科
+        lesson_id: このレッスン
+        author: 作成者（チューター名）
+
+      lesson_request_rejection:
+        reason: 理由
+
+      lesson_settings:
+        tutor_entry_period_before_start_time: 入室可能開始時間（チューター）
+        tutor_entry_period_after_start_time: 入室可能締切時間（チューター）
+        student_entry_period_before_start_time: 入室可能開始時間（受講者）
+        student_entry_period_after_start_time: 入室可能締切時間（受講者）
+        student_entry_period_after_end_time: 入室可能締切時間（受講者）
+        dropout_limit: 途中キャンセル期限
+        message_to_tutor: チューターへの一言
+        max_units: レッスンの最大単位数
+        max_units_of_basic_lesson: ベーシックレッスンの最大単位数
+        request_time_limit: レッスン予約のタイムリミット
+        period_to_close_room_after_end_time: 予備時間
+        beginner_tutor_lessons_limit: 仮登録チューターのレッスン数
+
+      lesson_student:
+        attended_at: 参加時刻
+
+      lesson_tutor_wage:
+        lesson: レッスン
+        wage: 金額
+        journalized: 仕訳済
+        includes_group_lesson_premium: 同時レッスン割増込
+        includes_extension_wage: 延長料金込
+        created_at: 作成日時
+        updated_at: 更新日時
+
+      meeting:
+        id: ID
+        datetime: 日時
+        schedules: 候補日時
+        members: 参加者
+        creator: 作成者
+        created_at: 登録日時
+        schedule: 開催日時
+        datetime: 開催日時
+        room: 面談室
+        status: 状態
+
+      meeting_report:
+        author_id: 作成者
+        text: 本文
+        meeting_id: 面談
+        subjects: 教科
+        lesson_type: 種別
+
+      meeting_schedule:
+        datetime: 日時
+
+      membership_application:
+        user: ユーザー
+        status: 状態
+        created_at: 申込日時
+
+      membership_cancellation:
+        reason: 理由
+        user: ユーザー
+        created_at: 作成日時
+        status: 状態
+
+      message:
+        title: 件名
+        text: 本文
+        sender: 送信者
+        recipients: 受信者
+        created_at: 作成日時
+        message_files: ファイル
+
+      bs_monthly_result:
+        year: 年
+        month: 月
+        lesson_sales_amount: レッスン売上
+
+      mitsubishi_tokyo_ufj_account:
+        branch_code: 店番
+        branch_name: 支店名
+        account_type: 種別
+        account_number: 口座番号
+        account_holder_name: 口座名義人
+        account_holder_name_kana: 口座名義人（カナ）
+
+      monthly_charging_user:
+        year: 年
+        month: 月
+        user_id: ID
+        user_name: ユーザーID
+        user_type: 種別
+        full_name: 氏名
+
+      monthly_statement:
+        year: 年
+        month: 月
+        amount_of_payment: 支払額
+        amount_of_money_received: 受取額
+
+      monthly_statement_calculation:
+        year: 年
+        month: 月
+        status: 状態
+        created_at: 作成日時
+        updated_at: 更新日時
+
+      monthly_statement_item:
+        amount_of_payment: 支払額
+        amount_of_money_received: 受取額
+        account_item: 科目
+        billing: 請求額
+        payment: 支払
+
+      no_charging_user:
+        user_id: ID
+
+      operating_system:
+        id: ID
+        name: 名前
+        windows_experience_index_score_available: WEIスコア利用可
+        display_order: 表示順
+        active: 表示する
+
+      organization:
+        name: 名前
+        email: メールアドレス
+        representative: 代表者
+        representative_id: 代表者
+        phone_number: 電話番号
+        address: 住所
+        users: 所属ユーザ
+        students_count: 受講者数
+        created_at: 登録日
+
+      parent:
+        email: メールアドレス
+        dependents: dependents
+        encrypted_password: encrypted_password
+        nickname: 呼称（ニックネーム）
+        organization: :activerecord.models.organization  #g
+        remember_created_at: remember_created_at  #g
+        reset_password_sent_at: reset_password_sent_at  #g
+        reset_password_token: reset_password_token  #g
+        students: 受講者
+        organization_id: 所属
+        customer_type: 会員種別
+        registered: 登録日
+        logined: 最終ログイン日時
+
+      reason_to_enroll_question_form:
+        fields: 入会理由
+
+      student:
+        encrypted_password: encrypted_password  #g
+        nickname: 呼称（ニックネーム）
+        organization: :activerecord.models.organization  #g
+        remember_created_at: remember_created_at  #g
+        reset_password_sent_at: reset_password_sent_at  #g
+        reset_password_token: reset_password_token  #g
+        settings: :activerecord.models.settings  #g
+        user_name: ユーザーID
+        info:
+          phone_number: 電話番号
+          address: 住所
+        parent_id: 保護者
+        email: メールアドレス
+        phone_email: メールアドレス2
+
+      student_entry_form:
+        how_to_find_question: エイドネットを知ったきっかけ
+        reason_to_enroll_question: 入会理由
+        has_web_camera: Ｗｅｂカメラの有無
+
+      student_info:
+        grade: :activerecord.models.grade
+        grade_id: :activerecord.models.grade
+        use_textbooks: テキストライブラリを利用する
+        teach_by_using_textbooks: 教科書を使った指導をする
+        academic_results: 成績
+        lesson_reports_public: 授業進行を公開する
+        note: 備考
+        school: 在籍学校名
+
+      student_settings:
+        max_charge: 課金上限値
+        student: :activerecord.models.student  #g
+
+      subject:
+        name: 教科名
+
+      subject_level:
+        level: 難易度
+        code: 難易度コード
+
+      system_settings:
+        entry_fee: 入会金
+        default_max_charge: 課金上限金額の初期値
+        message_storage_period: メッセージ保存期間
+        cutoff_date: 締め日
+        lesson_delay_limit: レッスンへの遅刻許容時間（分）
+        time_door_open_before_lesson_start: 入場開始時間（分）
+        bs_share_of_lesson_sales: レッスン売上のBSの割合
+        tutor_share_of_lesson_fee: レッスン売上のチューターの割合
+        tax_rate: 消費税率
+        document_camera_fps: ノートカメラのフレームレート
+        document_camera_bandwidth: ノートカメラの帯域幅
+        document_camera_quality: ノートカメラの画質
+        video_fps: Webカメラのフレームレート
+        video_bandwidth: Webカメラの帯域幅
+        video_quality: Webカメラの画質
+        camera_width: Webカメラの解像度（幅）
+        camera_height: Webカメラの解像度（高さ）
+        document_camera_width: ノートカメラの解像度（幅）
+        document_camera_height: ノートカメラの解像度（高さ）
+        meeting_video_bandwidth: 面談映像の帯域幅
+        meeting_video_fps: 面談映像のフレームレート
+        meeting_video_quality: 面談映像の画質
+        meeting_camera_width: 面談映像の解像度（幅）
+        meeting_camera_height: 面談映像の解像度（高さ）
+        max_coach_count_for_area: エリアごとの教育コーチの最大人数
+        cs_point_display_condition: CSポイントの表示
+        monitoring_email_address: 監視用メールアドレス
+        free_mode: 無料体験設定
+        free_lesson_limit_number: 無料レッスン予約可能回数（無料会員登録時適用回数）
+        free_lesson_expiration_date: 無料レッスン予約可能日数（無料会員登録時適用日数）
+        email_for_error_nortification: システムエラー配信メールアドレス
+      teaching_subject:
+        level: レベル
+
+      textbook:
+        textbook_id: ID
+        title: 名前
+
+      trial_student:
+        user_name: アカウント
+
+      tutor:
+        available_times: 指導可能時間
+        lesson_fee: １単位（４５分）あたりのレッスン料金
+        base_lesson_fee: １単位（４５分）あたりのレッスン基本料
+        lesson_fee_for_student: １単位（４５分）あたりのレッスン料金
+        hourly_wage: 時間（60分）単位基本報酬
+        beginner_tutor_remaining_lesson_count: 予約可能なレッスン数
+        beginner_lesson_requests_limit: 予約可能なレッスン数
+        unfinished_lessons: 終了していないレッスン
+        registered_day: 登録日
+        student_favorite_tutors_count: お気に入り登録者数
+        weekday_schedules: ベーシックレッスン指導時間
+        daily_available_times: オプションレッスン指導時間
+        email: メールアドレス1
+
+      tutor_app_form:
+        first_name: 名
+        last_name: 姓
+        full_name: 姓名
+        first_name_kana: めい
+        last_name_kana: し
+        full_name_kana: ふりがな
+        sex: 性別
+        nickname: 呼称（ニックネーム）
+        phone_number: 電話番号
+        skype_id: スカイプID
+        photo: 写真
+        current_address: 現住所
+        hometown_address: 帰省先住所
+        college: 大学
+        department: 学部
+        faculty: 学科
+        grade: 学年
+        year_of_admission: 入学年
+        year_of_graduation: 卒業年
+        high_school: 高校
+        activities: 趣味・活動
+        teaching_experience: 家庭教師経験
+        teaching_results: 指導合格実績
+        free_description: 自己アピール
+        birth_place: 出身地
+        pc_mail: メールアドレス（PC）
+        phone_mail: メールアドレス（携帯）
+        do_volunteer_work: 社会貢献無償レッスンの実施は可能ですか？
+        undertake_group_lesson: 同時レッスンを引き受ける
+        job_history: 職業履歴
+        current_address: 現住所
+        hometown_address: 帰省先住所
+        graduated: 現役・既卒
+        graduated_false: 現役
+        graduated_true: 既卒
+        graduate_college: 大学院
+        graduate_college_department: 研究科
+        major: 専攻
+        grades_and_subjects: 指導可能学年・教科
+        student_number: 学生番号
+        driver_license_number: 免許証番号
+        passport_number: パスポート番号
+        gmail_or_yahoo_mail: ※GmailまたはYahooメール
+        pc_spec: PCスペック
+        line_speed: 回線速度
+        use_document_camera: カメラが必要かどうか
+        reference: 紹介者ID
+        special_tutor: スペシャルチューターを希望されますか?
+        special_tutor_wage: 時間（60分）単位基本報酬
+        interview_datetimes: 面接希望日時
+        interview_datetime_1: 第一希望日
+        interview_datetime_2: 第二希望日
+        interview_datetime_3: 第三希望日
+        birthday: 生年月日
+        confirmed_at: エントリー日時
+        adsl: ADSL回線
+        os: OS
+        os_id: OS
+        upload_speed: 上り回線速度
+        download_speed: 下り回線速度
+        windows_experience_index_score: 'Windowsエクスペリエンス インデックス'
+        has_web_camera: ご使用予定のパソコンに内蔵Webカメラは搭載されていますか？
+        jyuku_history: 通っていた塾
+        favorite_books: お勧めの参考書
+        pc_model_number: 使用する予定のパソコンメーカーと型番
+        how_to_find: エイドネットを知ったきっかけ
+        reason_to_enroll: 入会理由
+        status: 状態
+        custom_os_name: OSの名前
+
+      tutor_daily_available_time:
+        start_time: 開始時間
+        end_time: 終了時間
+        tutor: チューター
+        time_range: 時間帯
+
+      tutor_info: &tutor_info
+        first_name: 名
+        last_name: 氏
+        full_name: 氏名
+        first_name_kana: めい
+        last_name_kana: し
+        full_name_kana: ふりがな
+        nickname: 呼称（ニックネーム）
+        phone_number: 電話番号
+        skype_id: スカイプID
+        photo: 写真
+        current_address: 現住所
+        hometown_address: 帰省先住所
+        college: 大学
+        department: 学部
+        faculty: 学科
+        graduated: 現役・既卒
+        graduated_false: 現役
+        graduated_true: 既卒
+        graduate_college: 大学院
+        graduate_college_department: 研究科
+        major: 専攻
+        year_of_admission: 入学年
+        year_of_graduation: 卒業年
+        high_school: 高校
+        hobby: 趣味
+        activities: クラブ活動等力を注いでいること、または注いでいたこと
+        teaching_experience: 家庭教師経験
+        teaching_results: 指導合格実績
+        free_description: 自己アピール
+        birth_place: 出身地
+        pc_mail: メールアドレス（PC）
+        phone_mail: メールアドレス（携帯）
+        do_volunteer_work: 社会貢献が可能か
+        undertake_group_lesson: 同時レッスンを引き受ける
+        cs_points: 累計CSポイント
+        average_cs_points: 平均CSポイント
+        cs_points_of_recent_lessons: CSポイント(最近のレッスンのみ)
+        job_history: 職業履歴
+        upgrade_points: 時間単位基本報酬改定ポイント（50円／ポイント）
+        special_tutor: スペシャルチューター
+        use_document_camera: カメラが必要かどうか
+        student_number: 学生番号
+        driver_license_number: 免許証番号
+        passport_number: パスポート番号
+        has_web_camera: ご使用予定のパソコンに内蔵Webカメラは搭載されていますか？
+        jyuku_history: 通っていた塾
+        favorite_books: お勧めの参考書
+        pc_model_number: 使用する予定のパソコンメーカーと型番
+        how_to_find: エイドネットを知ったきっかけ
+        reason_to_enroll: 入会理由
+
+      tutor/info:
+        <<: *tutor_info
+
+      tutor_lesson_cancellation:
+        lesson: レッスン
+        tutor: チューター
+        reason: 理由
+
+      tutor_monthly_income:
+        current_amount: 現時点での確定金額
+        expected_amount: 今月の見込み金額
+
+      tutor_price:
+        hourly_wage: 時間（60分）単位基本報酬
+        lesson_fee: レッスン料
+
+      user:
+        type: タイプ
+        current_sign_in_at: 最終ログイン日時
+        current_sign_in_ip: 最終ログインIP
+        encrypted_password: encrypted_password
+        last_sign_in_at: 最終ログイン日時
+        last_sign_in_ip: 最終ログインIP
+        nickname: 呼称（ニックネーム）
+        name: 名前
+        last_name: 姓
+        first_name: 名
+        full_name: 姓名
+        last_name_kana: せい
+        first_name_kana: めい
+        full_name_kana: ふりがな
+        email: メールアドレス
+        phone_email: メールアドレス2
+        pc_email: メールアドレス（PC）
+        organization: :activerecord.models.organization  #g
+        remember_created_at: remember_created_at  #g
+        reset_password_sent_at: reset_password_sent_at  #g
+        reset_password_token: reset_password_token  #g
+        user_name: ユーザーID
+        password: パスワード
+        password_confirmation: パスワード確認
+        birthday: 生年月日
+        age: 年齢
+        sex: 性別
+        phone_number: 電話番号
+        address: 住所
+        skype_id: スカイプID
+        pc_spec: PCスペック
+        line_speed: 回線速度
+        reference_user_name: 紹介者ID
+        photo: 写真
+        remove_photo: 削除
+        organization_id: 所属
+        left_at: 退会日時
+        reason_to_leave: 退会理由
+        reference: 紹介者ID
+        adsl: ADSL回線
+        os: OS
+        os_id: OS
+        upload_speed: 上り回線速度
+        download_speed: 下り回線速度
+        windows_experience_index_score: 'Windowsエクスペリエンス インデックス'
+        enrolled_at: 入会日時
+        registered_date: 登録日
+        registered_day: 登録日
+        birth_place: 出身地
+        has_web_camera: Ｗｅｂカメラの有無
+        pc_model_number: 使用する予定のパソコンメーカーと型番
+        how_to_find: エイドネットを知ったきっかけ
+        reason_to_enroll: 入会理由
+        driver_license_number: 免許証番号
+        passport_number: パスポート番号
+        payment_method: 支払方法
+        last_request_at: 最終アクセス日時
+        user_operating_system: 使用しているOS
+        timezone: タイムゾーン
+        free_lesson_reservation: 無料レッスン予約回数
+        free_lesson_taken: 無料レッスン受講回数
+        free_lesson_limit_number: 無料レッスン予約可能回数
+
+      user_info:
+        address: :activerecord.models.address  #g
+        confirmation_token: 確認トークン
+        first_name: 名
+        last_name: 氏
+        pc_mail: メールアドレス（PC）
+        phone_mail: メールアドレス（携帯）
+        phone_number: 電話番号
+        reference_user_name: 紹介者ID
+        user: :activerecord.models.use
+        pc_spec: パソコンのスペック
+        line_speed: 回線速度
+
+      user_monthly_stat:
+        lesson_charge: レッスン料
+        lesson_extension_charge: レッスン延長料
+
+      user_operating_system:
+        custom_operating_system: その他のOS
+        custom_os_name: その他のOS名
+
+      user_registration_form:
+        email: メールアドレス（PC）
+        adsl: ADSL回線
+        os: OS
+        os_id: OS
+        upload_speed: 上り回線速度
+        download_speed: 下り回線速度
+        windows_experience_index_score: 'Windowsエクスペリエンス インデックス'
+
+      credit_card:
+        number: クレジットカード番号
+        expire: クレジットカード有効期限
+        security_code: セキュリティコード
+
+      weekday_schedule:
+        time_range: 時間帯
+
+      yucho_account:
+        kigo1: 記号
+        kigo2: 記号2
+        bango: 番号
+        account_holder_name: 口座名義人
+        account_holder_name_kana: 口座名義人（カナ）
+
+      temp_yucho_account:
+        kigo1: 記号
+        kigo2: 記号2
+        bango: 番号
+        account_holder_name: 口座名義人
+        account_holder_name_kana: 口座名義人（カナ）
+
+  activemodel: *model_i18n
+
+  titles:
+    bs_application_form: "BS新規登録フォーム"
+    processed: "処理済み"
+    processed_bs_app_forms: "BSエントリー一覧（処理済）"
+    new_bs: "BS登録"
+    lesson_abortion: "キャンセル"
+  lesson:
+    confirm_to_leave_lesson: "本当にレッスンをやめますか？"
+    cancel_requested: "キャンセルのリクエスト"
+    message:
+      cancel_requested_by: "%{student}がレッスンのキャンセルを求めています。"
+    accept_cancel: "承認する"
+    reject_cancel: "却下する"
+  messages:
+    you_left_this_lesson: "途中退席したレッスンです。"
+    confirm_turn_off_auto_extension: "自動延長を停止しますか？"
+    confirm_turn_on_auto_extension: "自動延長を有効にしますか？"

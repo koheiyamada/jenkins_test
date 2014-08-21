@@ -1,0 +1,6 @@
+%table.table.ledger
+  -Account::Item.items_for(:student).each do |account_item|
+    %tr
+      %th= Ledger.human_attribute_name account_item
+      %td= number_to_currency(ledger.send(account_item))
+

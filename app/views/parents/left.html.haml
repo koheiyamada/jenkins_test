@@ -1,0 +1,13 @@
+=content_for :tabmenu do
+  =render "nav_tab"
+
+%h1=title t("titles.left_parents")
+
+=render "menu"
+
+-if @parents.blank?
+  =t('common.not_found')
+-else
+  =render layout:'parents/left_parents', locals:{parents:@parents} do |parent|
+    =img_link_to "common.detail", {action:"show", id:parent}, class:"small"
+  =paginate @parents

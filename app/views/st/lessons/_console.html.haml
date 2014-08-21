@@ -1,0 +1,31 @@
+.lesson-console
+  .lesson-info
+    .tutor
+      =@lesson.tutor_nickname
+    .datetime
+      %span.date
+        =l(@lesson.start_time.to_date, :format => :month_day2)
+      %span.time
+        =l(@lesson.start_time, :format => :only_time2)
+      \-
+      %span.time
+        =l(@lesson.end_time, :format => :only_time2)
+  /.divider-vertical
+  .current-time
+    .hoge=t('common.current_time')
+    .lesson-clock 00:00
+  .elapsed-time
+    .hoge=t('common.elapsed_time')
+    .lesson-elapsed-time --:--
+  .lesson-actions.student-actions
+    =link_to({action:'show'}, class:'btn') do
+      %i.icon-signout
+      =t('lesson.leave_temoporarily')
+    %a.btn{onclick: 'location.reload();', href: '#'}
+      %i.icon-refresh
+      =t('lesson.reload_room')
+    =render 'lessons/manuals_button'
+    -if @lesson.group_lesson?
+      %button.btn.help
+        %i.icon-bullhorn
+        =t('lesson.help')

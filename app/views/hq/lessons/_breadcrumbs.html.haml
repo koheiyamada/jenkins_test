@@ -1,0 +1,9 @@
+%ul.breadcrumb
+  %li
+    =link_to_unless_current t("titles.lessons"), hq_lessons_path
+  -if @lesson
+    =breadcrumb_item t("titles.lesson"), hq_lesson_path(@lesson)
+    -if params[:action] == 'accounting'
+      =breadcrumb_item t('common.accountings'), accounting_hq_lesson_path(@lesson)
+    -if params[:action] == 'change_schedule'
+      =breadcrumb_item t('lesson.schedule_change'), change_schedule_hq_lesson_path(@lesson)

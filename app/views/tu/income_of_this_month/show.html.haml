@@ -1,0 +1,14 @@
+%h1=title t('titles.income_of_this_month')
+
+=render 'explanation'
+
+-if @tutor_monthly_income.new?
+  .table.tutor-monthly-income
+    =t('tutor_monthly_income.not_calculated_yet')
+-else
+  =render 'tutor_monthly_income', tutor_monthly_income: @tutor_monthly_income
+
+.buttons
+  =link_to t('common.refresh'), '#', class: 'btn refresh-button'
+
+=render 'shared/wait_screen'

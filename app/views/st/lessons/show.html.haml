@@ -1,0 +1,18 @@
+=content_for :subheader do
+  =render 'breadcrumbs'
+
+%h1=title "#{t('titles.lesson')}: #{@lesson.name}"
+
+=render 'menu'
+
+-if @lesson_cancellation
+  =render 'application/validation_errors', model: @lesson_cancellation
+
+=render 'lesson', lesson:@lesson
+
+-if @lesson.show_entrance?
+  =render 'lesson_room_entrance'
+
+-if current_user.should_write_cs_sheet?(@lesson)
+  .buttons
+    =img_link_to '.write_cs_sheet', new_st_lesson_cs_sheet_path(@lesson)

@@ -1,0 +1,52 @@
+- tutor = lesson.tutor
+
+=form_for lesson, url: url, as: 'optional_lesson' do |f|
+  =render 'application/validation_errors', model:lesson
+
+  .optional-lesson-schedule-form{data: {tutor_id: lesson.tutor.id}}
+    %h2=t('titles.tutor_daily_available_times')
+
+    -if tutor && tutor.daily_available_times.from_today.present?
+      =render 'tutor_daily_available_times/available_days', tutor_daily_available_times: tutor.daily_available_times.from_today
+    -else
+      =t('daily_available_times.messages.empty')
+
+
+    %h2=t('lesson.titles.date_select')
+
+    .date-select
+      =hidden_field_tag :date, lesson.start_time ? lesson.start_time.to_date.to_s : nil
+      .date_picker
+
+    %h2=t('lesson.titles.tutor_daily_available_times')
+
+    #available_time_of_day-region
+
+    %h2=t('lesson.titles.time_select')
+
+    %table.table
+      %tr
+        %th=t('common.time')
+        %td=select_time lesson.start_time, {prefix: 'time', minute_step: 15}, class:'input-small'
+      %tr
+        %th=f.label :units
+
+        -freelesson_flag = false
+        -sts = lesson.students
+        -sts.each do |st|
+          -freelesson_flag = true if st.free?
+
+        -if freelesson_flag
+          %td=f.select :units, lesson.units_select_options, {}, class:'input-small', disabled: true
+          %td=f.hidden_field :units, value: 1
+        -else
+          %td=f.select :units, lesson.units_select_options, {}, class:'input-small'
+
+  .form-actions.buttons
+    =img_link_to 'common.cancel', {action: :cancel}, method: :post, data:{confirm: t('optional_lesson.confirm_to_cancel_request')}
+    =img_submit 'common.go_next'
+    -if lesson.time_range.present? && lesson.errors.empty?
+      =link_button_to 'forward', t('common.skip'), next_wizard_path
+
+=render 'tutor_daily_available_times/empty_available_times_template'
+=render 'tutor_daily_available_times/available_time_template'

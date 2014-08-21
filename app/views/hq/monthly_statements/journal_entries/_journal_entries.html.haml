@@ -1,0 +1,36 @@
+/ 支払と受取のカラムを入れ替えている
+%table.table.journal_entries
+  %thead
+    %tr
+      %th
+      %th=t("common.name")
+      %th=Account::JournalEntry.human_attribute_name :year_month
+      %th=t('lesson.datetime')
+      %th=Account::JournalEntry.human_attribute_name :amount_of_payment
+      %th=Account::JournalEntry.human_attribute_name :amount_of_money_received
+      %th=t('common.note')
+      %th
+  %tbody
+    -journal_entries.each do |journal_entry|
+      %tr.journal_entry
+        %td
+          -if journal_entry.owner
+            =journal_entry.owner.name
+          -else
+            =t('common.unknown')
+        %td=journal_entry.name
+        %td=l(journal_entry.year_month, :format => :month_year)
+        %td
+          -if journal_entry.lesson.present?
+            =l journal_entry.lesson.date, format: :month_day2
+            =l journal_entry.lesson.start_time, format: :only_time2
+        %td
+          -if journal_entry.amount_of_money_received > 0
+            =number_to_currency journal_entry.amount_of_money_received
+        %td
+          -if journal_entry.amount_of_payment > 0
+            =number_to_currency(journal_entry.amount_of_payment)
+        %td
+          -if journal_entry.note.present?
+            =journal_entry.note
+        %td=yield journal_entry

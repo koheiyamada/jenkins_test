@@ -1,0 +1,12 @@
+=content_for :subheader do
+  =render 'breadcrumbs'
+
+%h1=title t("titles.lesson")
+
+=render "lessons/lesson", lesson:@lesson
+
+-if @lesson.finished?
+  .lesson-room-entrance
+    .message=t('messages.lesson_is_over')
+
+=render 'show_actions'

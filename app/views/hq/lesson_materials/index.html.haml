@@ -1,0 +1,20 @@
+%h1=title t('titles.lesson_materials')
+
+-if @lesson_materials.empty?
+  =t('common.not_found')
+-else
+  %table.table.lesson-materials
+    %thead
+      %tr
+        %th=LessonMaterial.human_attribute_name :owner
+        %th=LessonMaterial.human_attribute_name :material
+        %th
+    %tbody
+      -@lesson_materials.each do |m|
+        %tr
+          %td=m.owner.user_name if m.owner.present?
+          %td=image_tag m.url, class: 'thumbnail' if m.url
+          %td
+            =link_to t('title.lesson'), hq_lesson_path(m.lesson_id), class: 'btn btn-small'
+            =link_to t('common.preview'), hq_lesson_materials_path(m.lesson_id), class: 'btn btn-small'
+  =paginate @lesson_materials

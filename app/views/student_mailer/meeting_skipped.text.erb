@@ -1,0 +1,6 @@
+<%= @student.full_name %> 様
+
+<%= l @meeting.datetime.to_date, format: :month_day2 %>に<%= @meeting.host_name %>教育コーチとの面談が行われませんでした。
+再度、面談日を調整したいと思いますので、教育コーチまでご連絡して頂きますよう宜しくお願いいたします。
+
+<%= st_meeting_url @meeting %>

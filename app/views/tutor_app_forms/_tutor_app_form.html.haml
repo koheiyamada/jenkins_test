@@ -1,0 +1,131 @@
+%table.table.tutor_app_form
+  %tr
+    %th=TutorAppForm.human_attribute_name :full_name
+    %td=@tutor_app_form.full_name
+  %tr
+    %th=TutorAppForm.human_attribute_name :full_name_kana
+    %td=@tutor_app_form.full_name_kana
+  %tr
+    %th=TutorAppForm.human_attribute_name :nickname
+    %td=@tutor_app_form.nickname
+  %tr
+    %th=TutorAppForm.human_attribute_name :birthday
+    %td=l(@tutor_app_form.birthday, :format => :year_month_day) if @tutor_app_form.birthday
+  %tr
+    %th=TutorAppForm.human_attribute_name :sex
+    %td=sex(@tutor_app_form)
+
+  %tr
+    %th=TutorAppForm.human_attribute_name(:current_address)
+    %td=render "addresses/address", address:@tutor_app_form.current_address if @tutor_app_form.current_address
+
+  %tr
+    %th=TutorAppForm.human_attribute_name :phone_number
+    %td=@tutor_app_form.phone_number
+
+  %tr
+    %th=TutorAppForm.human_attribute_name :pc_mail
+    %td=@tutor_app_form.pc_mail
+
+  %tr
+    %th=TutorAppForm.human_attribute_name :phone_mail
+    %td=@tutor_app_form.phone_mail
+
+  %tr
+    %th=TutorAppForm.human_attribute_name :graduated
+    %td
+      -if @tutor_app_form.college.present?
+        =TutorAppForm.human_attribute_name "graduated_#{@tutor_app_form.graduated}"
+
+  %tr
+    %th=TutorAppForm.human_attribute_name :college
+    %td
+      =@tutor_app_form.college
+      -if @tutor_app_form.grade
+        =@tutor_app_form.grade
+        =t("common.college_grade")
+  %tr
+    %th=TutorAppForm.human_attribute_name :department
+    %td=@tutor_app_form.department
+
+  %tr
+    %th=TutorAppForm.human_attribute_name :faculty
+    %td=@tutor_app_form.faculty
+
+  %tr
+    %th=TutorAppForm.human_attribute_name :graduate_college
+    %td=@tutor_app_form.graduate_college
+
+  %tr
+    %th=TutorAppForm.human_attribute_name :graduate_college_department
+    %td=@tutor_app_form.graduate_college_department
+
+  %tr
+    %th=TutorAppForm.human_attribute_name :major
+    %td=@tutor_app_form.major
+
+  %tr
+    %th=TutorAppForm.human_attribute_name :student_number
+    %td=@tutor_app_form.student_number
+
+  %tr
+    %th=TutorAppForm.human_attribute_name :birth_place
+    %td=@tutor_app_form.birth_place
+
+  %tr
+    %th=TutorAppForm.human_attribute_name :high_school
+    %td=@tutor_app_form.high_school
+
+  =render 'shared/driver_license_number_or_passport_number', form: @tutor_app_form
+
+  =render 'shared/pc_model_number', form: @tutor_app_form
+
+  =render 'questions/how_to_find_row', answer: @tutor_app_form.answers.to_question(:how_to_find).first
+
+  %tr
+    %th=TutorAppForm.human_attribute_name :jyuku_history
+    %td=@tutor_app_form.jyuku_history
+
+  %tr
+    %th=TutorAppForm.human_attribute_name :favorite_books
+    %td=@tutor_app_form.favorite_books
+
+  %tr
+    %th=TutorAppForm.human_attribute_name :grades_and_subjects
+    %td=@tutor_app_form.grades_and_subjects
+  %tr
+    %th=TutorAppForm.human_attribute_name :free_description
+    %td=simple_format @tutor_app_form.free_description
+  %tr
+    %th=TutorAppForm.human_attribute_name :skype_id
+    %td=@tutor_app_form.skype_id
+
+  =render 'specs/rows', spec:@tutor_app_form
+
+  =render 'shared/has_web_camera', user: @tutor_app_form
+
+  %tr
+    %th=TutorAppForm.human_attribute_name :reference
+    %td=@tutor_app_form.reference
+  %tr
+    %th=TutorAppForm.human_attribute_name :do_volunteer_work
+    %td=yes_no @tutor_app_form.do_volunteer_work
+  %tr
+    %th=TutorAppForm.human_attribute_name :special_tutor
+    %td
+      .special_tutor
+        =yes_no @tutor_app_form.special_tutor
+      -if @tutor_app_form.special_tutor
+        .special_tutor_wage
+          =TutorAppForm.human_attribute_name :special_tutor_wage
+          =@tutor_app_form.special_tutor_wage
+          =t("common.yen")
+
+  %tr
+    %th=TutorAppForm.human_attribute_name :interview_datetimes
+    %td
+      -(1..3).each do |i|
+        -d = @tutor_app_form.send "interview_datetime_#{i}"
+        -if d.present?
+          .interview_datetime
+            =l(d, :format => :promise)

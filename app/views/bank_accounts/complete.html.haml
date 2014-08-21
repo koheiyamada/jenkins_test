@@ -1,0 +1,17 @@
+%h1=title t('common.request_complete')
+
+.guidance
+  %p.explanation
+    一般会員への移行手続き、ありがとうございます。
+    %br
+    引き続き、お手数をお掛けいたしますが、
+    %br
+    エイドネットのホームページ（
+    =link_to 'こちら', 'https://aidnet.jp/price#post-payment', :target => :_blank
+    ）をご参照して頂きながら、
+    %br
+    ゆうちょ自動払込お客様控えをエイドネット事業本部までご送付ください。
+    %br
+    ゆうちょ自動払込お客様控えの確認をもって変更手続きが完了となります。
+.buttons
+  =link_to t('common.go_to_top'), root_path, method: :get, class: 'btn btn-large btn-primary'

@@ -1,0 +1,16 @@
+%table.tutor_app_forms.table
+  %thead
+    %tr
+      %th=t("common.name")
+      %th=TutorAppForm.human_attribute_name :pc_mail
+      %th=TutorAppForm.human_attribute_name :status
+      %th=TutorAppForm.human_attribute_name :confirmed_at
+      %th
+  %tbody
+    -tutor_app_forms.each do |tutor_app_form|
+      %tr
+        %td=full_name(tutor_app_form)
+        %td=tutor_app_form.pc_mail
+        %td.status=t("tutor_app_form.statuses.#{tutor_app_form.status}")
+        %td=l(tutor_app_form.confirmed_at) if tutor_app_form.confirmed_at
+        %td=yield tutor_app_form

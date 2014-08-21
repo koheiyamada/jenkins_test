@@ -1,0 +1,13 @@
+<%
+   width = 720 if !defined?(width) || width.nil?
+   height = 540 if !defined?(height) || height.nil?
+%>
+<div id="soba-widget-slide-<%= channel %>"
+     class="soba-widget-slide"
+     data-width="<%= width %>px"
+     data-height="<%= height %>px"
+     data-slide-url="<%= url %>"
+     width="<%= width %>px"
+     height="<%= height %>px"
+     data-slide-linewidth="1"></div>
+<script src="<%= SobaWidget.slide_url(channel) %>" type="text/javascript" id="js-slide_script"></script>

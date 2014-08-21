@@ -1,0 +1,17 @@
+%tr
+  %th
+    =f.label :email, class: 'required'
+  -if @edit_flg
+    %td
+      .email_change
+        -if current_user.parent?
+          .email1=f.email_field :email, readonly: true
+          =img_link_to "common.change", change_email_pa_profile_path
+        -elsif current_user.student?
+          .email1=f.email_field :email, readonly: true
+          =img_link_to "common.change", change_email_st_profile_path
+        -else
+          .email1=f.email_field :email
+  -else
+    %td
+      .email1=f.email_field :email, readonly: true

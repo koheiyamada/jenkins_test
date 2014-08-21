@@ -1,0 +1,43 @@
+%ul.sidebar
+  %li.section=render 'sidebar_section', text:t("common.users")
+  %li=sidebar_link t('titles.students'), pa_students_path
+  %li=sidebar_link t('titles.coaches'), pa_bss_path
+
+  %li.section=render 'sidebar_section', text:t("common.messages")
+  %li=sidebar_link t('titles.messages'), pa_messages_path
+  .badge=link_to "未読 #{number_of_unread_message}件", pa_messages_path('search[is_read]'=> false, q: '')
+
+  %li.section=render 'sidebar_section', text: t('common.meeting')
+  %li=sidebar_link t('titles.meetings'), pa_meetings_path
+  %li=sidebar_link t('titles.scheduling_meetings'), scheduling_pa_meetings_path
+
+  %li.section=render 'sidebar_section', text:t("common.accounts")
+  %li=sidebar_link t('titles.profile'), pa_profile_path
+  /%li=sidebar_link t('titles.credit_card'), pa_credit_card_path
+  /%li=sidebar_link t("titles.interviews"), pa_interviews_path
+  -#%li.section=render 'sidebar_section', text:t("common.contact")
+  -unless current_user.customer_type == "free"
+    %li=sidebar_link t('titles.payment_method'), current_pa_payment_method_path
+
+  -if @student && @student.persisted?
+    %li.section=render 'sidebar_section', text:t("common.student")
+    %li=sidebar_link t('titles.student_home'), home_pa_student_path(@student)
+    %li=sidebar_link t('titles.lessons'), pa_student_lessons_path(@student)
+    %li=sidebar_link t('titles.study_history'), history_pa_student_lessons_path(@student)
+    %li=sidebar_link t('titles.lesson_reports'), pa_student_lesson_reports_path(@student)
+    %li=sidebar_link t('titles.messages'), pa_student_messages_path(@student)
+    %li=sidebar_link t('titles.coach'), pa_student_bs_path(@student)
+    %li=sidebar_link t('titles.profile'), pa_student_path(@student)
+    %li=sidebar_link t('titles.change_password'), change_password_pa_student_path(@student)
+
+    %li.section=render 'sidebar_section', text:t("common.accountings")
+    %li=sidebar_link t('titles.monthly_usages'), pa_student_monthly_usages_path(@student)
+    %li=sidebar_link t('titles.monthly_statements'), pa_student_monthly_statements_path(@student)
+    %li=sidebar_link t('common.charge_settings'), edit_pa_student_charge_path(@student)
+
+  %li.section=render 'sidebar_section', text:t('titles.operation_check')
+  %li=sidebar_link t('titles.person_and_document_camera'), videos_widgets_path
+
+  %li.section=render 'sidebar_section', text:t('titles.manuals')
+  %li=link_to t('titles.user_manual'), 'https://aidnet.jp/user-manual/', target: '_blank'
+  %li=link_to t('titles.trouble_manual'), 'https://aidnet.jp/trouble-manual/', target: '_blank'

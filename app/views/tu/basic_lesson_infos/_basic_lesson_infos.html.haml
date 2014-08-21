@@ -1,0 +1,15 @@
+%table.table.basic_lesson_infos
+  %thead
+    %tr
+      %th=t('common.time_range')
+      %th=t('common.student')
+      %th
+  %tbody
+    -basic_lesson_infos.each do |basic_lesson_info|
+      %tr
+        %td.schedules
+          -basic_lesson_info.schedules.each do |schedule|
+            .schedule=wday_time_range(schedule.start_time, schedule.end_time)
+        %td.tutor=basic_lesson_info.students.map{|s| user_display_name(s)}.join(', ')
+        %td.actions
+          =yield basic_lesson_info

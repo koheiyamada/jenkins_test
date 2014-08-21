@@ -1,0 +1,7 @@
+%ul.breadcrumb
+  %li=link_to_unless_current t('titles.meetings'), bs_meetings_path
+  =breadcrumb_item t('titles.meeting'), bs_meeting_path(@meeting)
+  -if @meeting_report.new_record?
+    =breadcrumb_item t('meeting_report.title.new'), new_bs_meeting_report_path(@meeting)
+  -else
+    =breadcrumb_item t('meeting_report.title.show'), bs_meeting_report_path(@meeting)

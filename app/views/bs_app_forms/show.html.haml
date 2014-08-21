@@ -1,0 +1,6 @@
+.centered
+  %h1=title t(".confirmation")
+  =render "bs_app_form", bs_app_form:@bs_app_form
+  .form-actions.buttons
+    =img_link_to "common.edit", edit_bs_app_form_path(@bs_app_form)
+    =img_link_to "common.send", confirm_bs_app_form_path(@bs_app_form), method:"post"

@@ -1,0 +1,26 @@
+%tr
+  %th=TutorInfo.human_attribute_name :college
+  %td
+    =tutor_college tutor
+    -if tutor.info.grade
+      =tutor.info.grade
+      =t("common.college_grade")
+%tr
+  %th=TutorInfo.human_attribute_name :department
+  %td=tutor_department tutor
+
+%tr
+  %th=TutorInfo.human_attribute_name :faculty
+  %td=tutor_faculty tutor
+
+%tr
+  %th=TutorInfo.human_attribute_name :graduate_college
+  %td=tutor_graduate_college tutor
+
+%tr
+  %th=TutorInfo.human_attribute_name :graduate_college_department
+  %td=tutor_graduate_college_department tutor
+
+%tr
+  %th=TutorInfo.human_attribute_name :major
+  %td=tutor_major tutor

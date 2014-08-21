@@ -1,0 +1,8 @@
+.centered
+  %h1=title t('common.form_confirmation')
+
+  =render 'tutor_app_forms/tutor_app_form'
+
+  .form-actions.buttons
+    =link_to t('common.modify'), edit_tutor_app_form_path(@tutor_app_form), class: 'btn'
+    =img_link_to 'common.send', confirm_tutor_app_form_path(@tutor_app_form), method: :post

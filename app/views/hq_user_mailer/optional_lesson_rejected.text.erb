@@ -1,0 +1,7 @@
+オプションレッスンが成立しませんでした。
+
+<%= render 'lesson', lesson:@lesson %>
+■レッスンページ
+<%= hq_lesson_url(@lesson) %>
+
+<%= render 'lessons/reason', model: @lesson.lesson_request_rejection %>

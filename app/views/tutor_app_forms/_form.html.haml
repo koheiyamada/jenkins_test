@@ -1,0 +1,228 @@
+=form_for tutor_app_form do |f|
+  =render "application/validation_errors", model:tutor_app_form
+  %table.table
+    %tbody
+      %tr.full_name
+        %th
+          %span.required=Tutor.human_attribute_name :full_name
+        %td
+          =f.label :last_name
+          =f.text_field :last_name, class:"input-small"
+          =f.label :first_name
+          =f.text_field :first_name, class:"input-small"
+      %tr.full_name_kana
+        %th
+          %span.required=TutorAppForm.human_attribute_name :full_name_kana
+        %td
+          =f.label :last_name_kana
+          =f.text_field :last_name_kana, class:"input-small"
+          =f.label :first_name_kana
+          =f.text_field :first_name_kana, class:"input-small"
+
+      %tr
+        %th=f.label :nickname, class: 'required'
+        %td
+          =f.text_field :nickname
+          .help=t('tutor_app_form.about_nickname')
+      %tr
+        %th
+          %span.required=TutorAppForm.human_attribute_name :birthday
+        %td=f.date_select :birthday, {start_year: 100.years.ago.year, end_year: 16.years.ago.year}, class:"input-small"
+
+      %tr
+        %th
+          %span.required=t("common.sex")
+        %td
+          =f.label :sex_male, class:"radio inline" do
+            =f.radio_button :sex, "male"
+            =t("common.male")
+          =f.label :sex_female, class:"radio inline" do
+            =f.radio_button :sex, "female"
+            =t("common.female")
+
+      %tr
+        %th
+          %span.required=t('common.address')
+        %td
+          =render 'addresses/form', address: tutor_app_form.current_address
+
+      %tr
+        %th=f.label :phone_number, class: 'required'
+        %td=f.telephone_field :phone_number
+
+      %tr
+        %th
+          =f.label :pc_mail, class: 'required'
+        %td
+          .email1=f.email_field :pc_mail
+      %tr
+        %th
+          =f.label :phone_mail
+        %td
+          .email2
+            =f.email_field :phone_mail
+
+      %tr
+        %th=f.label :skype_id, class: 'required'
+        %td
+          =f.text_field :skype_id
+          .help=render 'shared/about_skype_id'
+
+      %tr
+        %th=f.label :graduated
+        %td
+          =f.label :graduated_false, class:"radio inline" do
+            =f.radio_button :graduated, false
+            =TutorAppForm.human_attribute_name :graduated_false
+          =f.label :graduated_true, class:"radio inline" do
+            =f.radio_button :graduated, true
+            =TutorAppForm.human_attribute_name :graduated_true
+          .help=t('tutor_app_form.about_graduated')
+      %tr
+        %th=f.label :college
+        %td
+          .college_name
+            =f.text_field :college, class:'input-medium'
+            =t('tutor_app_form.college')
+            %span.help=t('tutor_app_form.about_college')
+          .college_grade
+            =f.number_field :grade, :min => 1, :class => 'input-mini'
+            %span.help-inline
+              =t("common.collage_grade")
+              =t("common.only_if_not_graduated")
+      %tr
+        %th=f.label :department
+        %td
+          .department
+            =f.text_field :department, class:'input-small'
+            =t('tutor_app_form.department')
+
+      %tr
+        %th=f.label :faculty
+        %td
+          .faculty
+            =f.text_field :faculty, class:'input-medium'
+            =t('tutor_app_form.faculty')
+
+      %tr
+        %th=f.label :graduate_college
+        %td
+          .graduate_college
+            =f.text_field :graduate_college, class:'input-medium'
+            =t('tutor_app_form.graduate_college')
+      %tr
+        %th=f.label :graduate_college_department
+        %td
+          .graduate_college_department
+            =f.text_field :graduate_college_department, class:'input-medium'
+            =t('tutor_app_form.graduate_college_department')
+      %tr
+        %th=f.label :major
+        %td
+          .major
+            =f.text_field :major, class:'input-medium'
+            =t('tutor_app_form.major')
+      %tr
+        %th=f.label :student_number
+        %td
+          =f.text_field :student_number, class:'input-medium'
+
+      %tr
+        %th=f.label :birth_place, class: 'required'
+        %td=f.text_field :birth_place
+
+      %tr
+        %th=f.label :high_school, class: 'required'
+        %td=f.text_field :high_school
+
+      =render 'shared/driver_license_number_or_passport_number_field', f: f
+
+      %tr
+        %th=f.label :pc_model_number
+        %td
+          =f.text_field :pc_model_number
+          .help=t('tutor_app_form.about_pc_model_number')
+
+      =render 'questions/form_for_how_to_find', answer: tutor_app_form.how_to_find
+
+      %tr
+        %th=f.label :jyuku_history
+        %td
+          =f.text_field :jyuku_history
+          .help=t('tutor_app_form.about_jyuku_history')
+
+      %tr
+        %th
+          =f.label :free_description, class: 'required'
+          %span.help-inline="(#{t('form.within_n_characters', n: 200)})"
+        %td
+          =f.text_area :free_description, class:'span4', maxlength: 200
+          .help=t('tutor_app_form.about_free_description')
+
+      %tr
+        %th=f.label :favorite_books
+        %td
+          =f.text_field :favorite_books
+          .help=t('tutor_app_form.about_favorite_books')
+
+      =render 'specs/fields', f: f
+
+      -#%tr
+      -#  %th=f.label :use_document_camera
+      -#  %td
+      -#    =f.label :use_document_camera, class:"checkbox" do
+      -#      =f.check_box :use_document_camera
+      -#      =t(".use_document_camera")
+
+      =render 'shared/has_web_camera_field', f: f
+
+      %tr
+        %th=f.label :reference
+        %td
+          =f.text_field :reference
+          .help=t('tutor.about_reference_for_hq_user')
+      %tr
+        %th=f.label :do_volunteer_work
+        %td
+          =f.label :do_volunteer_work_true, class: 'radio inline' do
+            =f.radio_button :do_volunteer_work, true
+            =t('common.yes')
+          =f.label :do_volunteer_work_false, class: 'radio inline' do
+            =f.radio_button :do_volunteer_work, false
+            =t('common.no')
+          =render 'about_volunteer_work'
+      %tr
+        %th=f.label :special_tutor
+        %td
+          .special_tutor
+            =f.label :special_tutor_true, class: 'radio inline' do
+              =f.radio_button :special_tutor, true
+              =t('common.yes')
+            =f.label :special_tutor_false, class: 'radio inline' do
+              =f.radio_button :special_tutor, false
+              =t('common.no')
+
+          =f.label :special_tutor_wage do
+            =TutorAppForm.human_attribute_name :special_tutor_wage
+            =f.number_field :special_tutor_wage, class: 'input-small'
+            =t('common.yen')
+          =render 'about_special_tutor'
+      -#%tr
+      -#  %th=f.label :undertake_group_lesson
+      -#  %td=f.check_box :undertake_group_lesson
+      %tr
+        %td(colspan="2")
+          %p.message
+            =render 'about_interview_datetimes'
+          -d = 3.days.from_now
+          =f.label :interview_datetime_1 do
+            =TutorAppForm.human_attribute_name :interview_datetime_1
+            =f.datetime_select :interview_datetime_1, {start_year: d.year, end_year:d.next_year.year, minute_step:5}, class:"input-small"
+          =f.label :interview_datetime_2 do
+            =TutorAppForm.human_attribute_name :interview_datetime_2
+            =f.datetime_select :interview_datetime_2, {start_year: d.year, end_year:d.next_year.year, minute_step:5}, class:"input-small"
+          =f.label :interview_datetime_3 do
+            =TutorAppForm.human_attribute_name :interview_datetime_3
+            =f.datetime_select :interview_datetime_3, {start_year: d.year, end_year:d.next_year.year, minute_step:5}, class:"input-small"
+  .form-actions.buttons
+    =img_submit "common.send"

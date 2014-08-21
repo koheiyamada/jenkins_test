@@ -1,0 +1,30 @@
+@import 'base';
+
+.shared_basic_lesson_search {
+  .row {
+    margin-bottom: 4px;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.basic_lesson_infos {
+  .is-closing {
+    color: $soba-gray;
+  }
+
+  .is-closed {
+    color: #333;
+  }
+}
+
+.basic_lesson_info {
+  .status {
+    .status-closed {
+      font-size: large;
+      font-weight: bold;
+    }
+  }
+}

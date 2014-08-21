@@ -1,0 +1,10 @@
+%table.table
+  %tr
+    %th=User.human_attribute_name :user_name
+    %td=user.user_name
+  %tr
+    %th=t("common.full_name")
+    %td=user.full_name
+  %tr
+    %th=User.human_attribute_name :email
+    %td=user.email

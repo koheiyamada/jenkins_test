@@ -1,0 +1,25 @@
+- time = Time.current unless defined?(time)
+- tutor_daily_available_times = tutor && tutor.daily_available_times.for_calendar
+
+.tutor-daily-available-times.tutor-daily-available-times-widget{data: {tutor_id: tutor.id}}
+  %h2=t('titles.tutor_daily_available_times')
+
+  -if tutor_daily_available_times.present?
+    =render 'tutor_daily_available_times/available_days', tutor_daily_available_times: tutor_daily_available_times
+  -else
+    =t('daily_available_times.messages.empty')
+
+
+  %h2=t('daily_available_times.titles.date_select2')
+
+  .date-select
+    =hidden_field_tag :date, time.present? ? time.to_date.to_s : nil
+    .date_picker
+
+  %h2=t('daily_available_times.titles.time_ranges')
+
+  #available_time_of_day-region
+
+.templates
+  =render 'tutor_daily_available_times/empty_available_times_template'
+  =render 'tutor_daily_available_times/available_time_template'

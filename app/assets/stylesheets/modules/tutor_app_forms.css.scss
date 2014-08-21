@@ -1,0 +1,19 @@
+.new_tutor_app_form,.edit_tutor_app_form {
+  .full_name_kana, .full_name {
+    label {
+      display:inline-block;
+      width: 2em;
+      text-align: right;
+    }
+  }
+
+  label {
+    //white-space: nowrap;
+  }
+}
+
+.tutor_app_form {
+  tbody > tr > th {
+    width: 40%;
+  }
+}

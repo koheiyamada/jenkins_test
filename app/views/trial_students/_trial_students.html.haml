@@ -1,0 +1,14 @@
+%table.table.students
+  %thead
+    %tr
+      %th=t("common.full_name")
+      %th=TrialStudent.human_attribute_name :user_name
+      %th=TrialStudent.human_attribute_name :nickname
+      %th
+  %tbody
+    -students.each do |student|
+      %tr
+        %td=student.full_name
+        %td=student.user_name
+        %td=student.nickname
+        %td=yield student

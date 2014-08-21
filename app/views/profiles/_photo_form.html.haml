@@ -1,0 +1,8 @@
+-if user.photo?
+  .photo
+    =user_image(user, width:128)
+    =form.label :remove_photo, nil, class: 'checkbox inline' do
+      =form.check_box :remove_photo
+      =User.human_attribute_name :remove_photo
+=form.file_field :photo, accept: 'image/jpeg,image/gif,image/png'
+%span.help-inline=t('form.message.image_formats')

@@ -1,0 +1,8 @@
+=content_for :subheader do
+  =render "breadcrumbs"
+
+%h1=title t("titles.lesson_report")
+
+=render 'navigation', lesson_report:@lesson_report
+
+=render "lesson_report", lesson_report:@lesson_report

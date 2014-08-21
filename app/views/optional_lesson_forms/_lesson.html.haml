@@ -1,0 +1,39 @@
+%table.table.lesson.lesson-form
+  %tr
+    %th=t('common.lesson_style')
+    %td=lesson_style(lesson)
+  -if lesson.tutor
+    %tr
+      %th=student? ? t('common.tutor_nickname') : t('common.tutor')
+      %td
+        .tutor
+          =user_display_name lesson.tutor
+        .reset
+          =link_to t('lesson.form.reset'), wizard_path(:tutor, reset: true), data: {confirm: t('optional_lesson.confirm_to_reset_tutor')}, class: 'btn btn-primary btn-mini'
+  -if lesson.students.any?
+    %tr
+      %th=t('common.students')
+      %td
+        -lesson.students.each do |student|
+          .student{'data-id' => student.id}
+            %span.name
+              =user_display_name student
+        %span.reset
+          =link_to t('lesson.form.reset'), wizard_path(:student, reset: true), data: {confirm: t('optional_lesson.confirm_to_reset_students')}, class: 'btn btn-primary btn-mini'
+  -if lesson.time_range.present? && lesson.errors[:time_range].blank?
+    %tr
+      %th=t('common.datetime')
+      %td
+        .time_range
+          =render 'lessons/time_range', lesson:lesson
+        .reset
+          =link_to t('lesson.form.reset'), wizard_path(:schedule, reset: true), data: {confirm: t('optional_lesson.confirm_to_reset_schedule')}, class: 'btn btn-primary btn-mini'
+  -if lesson.friends_lesson? && !lesson.full?
+    %tr
+      %th=Lesson.human_attribute_name :friend
+      %td
+        -if lesson.is_a?(InvitableLesson) && lesson.lesson_invitation.present?
+          =user_display_name lesson.lesson_invitation.student
+        -else
+          =t('common.undefined')
+

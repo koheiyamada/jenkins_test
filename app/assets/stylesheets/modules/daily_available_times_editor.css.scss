@@ -1,0 +1,137 @@
+@import 'base';
+
+@mixin date-list {
+  display: inline-block;
+  padding: 4px;
+  margin: 2px;
+  background-color: #eee;
+  @include border-radius(4px);
+
+  .delete-button {
+    padding: 0px 5px;
+    @include border-radius(4px);
+    cursor: pointer;
+    background-color: #e0e0e0;
+    color: #666;
+
+    &:hover {
+      background-color: #d0d0d0;
+      color: #333;
+    }
+  }
+
+  &.new {
+    background: #eed;
+
+    .delete-button {
+      background-color: #ddc;
+
+      &:hover {
+        background-color: #d0d0c0;
+      }
+    }
+  }
+}
+
+.tutor-available-day {
+  @include date-list;
+}
+
+.tutor-daily-available-time {
+  @include date-list;
+}
+
+.available_times-of-selected-day {
+  .available-time {
+    @include date-list;
+    background-color: transparent;
+  }
+}
+
+.ui-datepicker-calendar {
+  tbody {
+    td {
+      position: relative;
+    }
+  }
+}
+
+.tutor-available-date-mark {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 8px;
+  height: 8px;
+  //@include border-radius(4px);
+  background-color: #6d6;
+}
+
+.date-select {
+  .tutor-available-date-active {
+    a {
+      background-image: none;
+      background-color: #6d6;
+
+      &.ui-state-active {
+        background-color: #7aff7a;
+        border-color: #6d6;
+      }
+    }
+  }
+}
+
+.daily-available-times-editor {
+  .available-time {
+    @include date-list;
+    position: relative;
+
+    .time-range {
+      display: inline-block;
+
+      .date {
+        font-size: x-small;
+      }
+    }
+
+    .time-range2 {
+      display: inline-block;
+
+      .datetime {
+        display: inline-block;
+
+        .day {
+          font-size: x-small;
+        }
+      }
+
+      .datetime-from {
+        .time {
+          text-align: right;
+        }
+      }
+
+      .time {
+//        font-size: large;
+      }
+
+      &+ .action {
+        display: inline-block;
+      }
+    }
+  }
+
+  .error-messages {
+    margin-top: 6px;
+  }
+
+  h3 {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    line-height: 20px;
+
+    &:after {
+      content: ':'
+    }
+  }
+}

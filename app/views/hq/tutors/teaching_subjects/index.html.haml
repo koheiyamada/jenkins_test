@@ -1,0 +1,13 @@
+=content_for :subheader do
+  =render 'breadcrumbs'
+
+%h1=title t("titles.teaching_subjects")
+
+-if @subject_levels.empty?
+  =t('common.not_found')
+-else
+  =render 'teaching_subjects/subject_levels'
+
+-if current_user.can_access? :tutor, :write
+  .buttons
+    =img_link_to "common.edit", edit_hq_tutor_teaching_subjects_path(@tutor)

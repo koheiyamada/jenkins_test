@@ -1,0 +1,8 @@
+%h1=title t("titles.cs_sheets")
+
+-if @cs_sheets.blank?
+  =t('common.not_found')
+-else
+  =render layout: 'cs_sheets', locals:{cs_sheets:@cs_sheets} do |cs_sheet|
+    =img_link_to "common.detail", st_cs_sheet_path(cs_sheet)
+  =paginate @cs_sheets

@@ -1,0 +1,23 @@
+=content_for :js do
+  :javascript
+    $(function(){
+      $("#date").datepicker();
+    });
+
+%h1=title t("titles.group_lesson_search")
+
+=form_tag nil, method:'get', class:'form-search group_lesson-search' do
+  .input-prepend
+    %span.add-on
+      %i.icon-calendar
+    =text_field_tag :date, params[:date], class:'input-small'
+  =text_field_tag :q, params[:q], class:'search-query', placeholder:t("common.search")
+  =img_submit 'common.search'
+
+-if @lessons.nil?
+
+-elsif @lessons.blank?
+  =t('common.not_found')
+-else
+  =render layout:'lessons/lessons', locals:{lessons:@lessons} do |lesson|
+    =img_link_to 'common.detail', {action:'show', id:lesson}, class:'small'

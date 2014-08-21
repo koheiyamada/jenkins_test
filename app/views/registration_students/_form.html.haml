@@ -1,0 +1,105 @@
+=form_for @student, url: url do |f|
+  -if @student_entry_form
+    =render 'validation_errors2', model: @student_entry_form
+  %table.table
+    %tr
+      %th=f.label :user_name, class:'required'
+      %td.field
+        =f.text_field :user_name, :required => true
+        .help-id=t('messages.user_name_format_for_login_id')
+        .help-id=t('messages.user_name_format_for_emails')
+    %tr
+      %th
+        %span.required=User.human_attribute_name :full_name
+      %td
+        .full_name
+          =f.label :last_name
+          =f.text_field :last_name, class:"input-small"
+          =f.label :first_name
+          =f.text_field :first_name, class:"input-small"
+          .help=t('student.about_full_name')
+    %tr
+      %th
+        %span.required=User.human_attribute_name :full_name_kana
+      %td
+        .full_name_kana
+          =f.label :last_name_kana
+          =f.text_field :last_name_kana, class:"input-small"
+          =f.label :first_name_kana
+          =f.text_field :first_name_kana, class:"input-small"
+          .help=t('student.about_full_name')
+
+    %tr
+      %th=f.label :nickname, class: 'required'
+      %td
+        =f.text_field :nickname
+        .help=t('student.about_nickname')
+
+    =render 'shared/email_field', f: f
+
+    %tr
+      %th=f.label :phone_number, class: 'required'
+      %td
+        =f.telephone_field :phone_number
+        .help=t('messages.hankaku_only')
+    %tr
+      %th
+        %span.required=t('common.address')
+      %td=render 'addresses/form', address:@student.address
+    %tr
+      %th=f.label :birthday, class: 'required'
+      %td=f.date_select :birthday, {start_year: 100.years.ago.year, end_year: Date.today.year}, class: 'input-small'
+    %tr
+      %th=f.label :sex, class: 'required'
+      %td
+        =f.label :sex_male, id: 'sex_male', class: 'radio' do
+          =f.radio_button :sex, 'male'
+          =t('common.male')
+        =f.label :sex_female, id: 'sex_famale', class: 'radio' do
+          =f.radio_button :sex, 'female'
+          =t('common.female')
+    =fields_for(@student.student_info) do |sf|
+      %tr
+        %th=sf.label :grade_id, class: 'required'
+        %td=sf.collection_select :grade_id, Grade.order_by_grade, :id, :display_name, {prompt: '---'}, class:'input-medium'
+
+    =render 'specs/os_field', f: f, user_operating_system: @student.user_operating_system
+
+    -unless SystemSettings.free_mode?
+      =fields_for :payment_method, @student.payment_method do |form|
+        %tr
+          %th
+            %span.required=PaymentMethod.model_name.human
+          %td
+            .credit-card-payment
+              =form.label :type_creditcardpayment, class:'radio inline' do
+                =form.radio_button :type, CreditCardPayment.name
+                =CreditCardPayment.model_name.human
+            .yucho-payment
+              =form.label :type_yuchopayment, class:'radio inline' do
+                =form.radio_button :type, YuchoPayment.name
+                =YuchoPayment.model_name.human
+    -else
+      =fields_for :payment_method, @student.payment_method do |form|
+        =form.hidden_field :type, :value => DummyPaymentMethod.name
+
+    %tr
+      %th=f.label :reference_user_name
+      %td=f.text_field :reference_user_name, placeholder:User.human_attribute_name(:user_name)
+
+    =render 'shared/has_web_camera_field', f: f
+
+    =render 'questions/form_for_how_to_find', answer: @student_entry_form.how_to_find
+
+    =render 'questions/form_for_reason_to_enroll', answer: @student_entry_form.reason_to_enroll
+
+    =fields_for(@student.student_info) do |sf|
+      %tr
+        %th=sf.label :note
+        %td
+          =sf.text_area :note, maxlength: 300, class: 'input', rows: 10, placeholder: t('student_info.messages.about_note')
+
+  .form-actions.buttons
+    =button_tag class: 'btn btn-primary' do
+      %i.icon-ok
+      =t('common.confirmation')

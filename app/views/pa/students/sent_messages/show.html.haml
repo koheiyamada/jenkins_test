@@ -1,0 +1,10 @@
+=render "pa/student_header", student:@student
+
+%h3=title t("titles.message")
+
+=render "menu"
+
+=render "my_messages/my_message", message:@message
+.actions
+  .buttons
+    =img_link_to "common.back", {action:'index'}

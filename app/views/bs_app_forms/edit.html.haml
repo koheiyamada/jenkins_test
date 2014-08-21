@@ -1,0 +1,6 @@
+=content_for :js do
+  =render 'shared/prevent_going_back'
+
+.centered
+  %h1=title t('titles.bs_application_form')
+  =render 'form', bs_app_form:@bs_app_form

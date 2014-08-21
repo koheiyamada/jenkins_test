@@ -1,0 +1,51 @@
+=form_for @meeting_report, url: {action: @meeting_report.persisted? ? :update : :create} do |f|
+  =render 'application/validation_errors', model: @meeting_report
+
+  %table.table.meeting-report-form
+    %tbody
+      -@meeting.members.each do |member|
+        %tr
+          %th
+            =user_type(member)
+            ID
+          %td=user_name(member)
+          %th
+            =user_type(member)
+            =User.human_attribute_name :full_name
+          %td=user_display_name(member)
+
+      -if @student
+        -@student.basic_lesson_tutors.each do |basic_lesson_tutor|
+          %tr
+            %th=t('common.basic_lesson_tutor_id')
+            %td=user_name basic_lesson_tutor
+            %th=t('common.registered_tutor_full_name')
+            %td=user_display_name basic_lesson_tutor
+
+      %tr
+        %th=Meeting.human_attribute_name :datetime
+        %td(colspan="3")
+          =l @meeting.datetime, format: :promise
+
+      %tr
+        %th=MeetingReport.human_attribute_name :lesson_type
+        %td(colspan="3")
+          =f.label :lesson_type_basic_lesson, class: 'radio inline' do
+            =f.radio_button :lesson_type, 'basic_lesson'
+            =t('common.basic_lesson')
+          =f.label :lesson_type_optional_lesson, class: 'radio inline' do
+            =f.radio_button :lesson_type, 'optional_lesson'
+            =t('common.optional_lesson')
+
+      -if @student
+        %tr
+          %th=Grade.model_name.human
+          %td=grade_name(@student.grade)
+          %th=MeetingReport.human_attribute_name :subjects
+          %td=f.text_field :subjects
+
+      %tr
+        %td(colspan="4")
+          =f.text_area :text
+  .buttons.form-actions
+    =f.submit class: 'btn'

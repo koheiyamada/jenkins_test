@@ -1,0 +1,16 @@
+=content_for :subheader do
+  =render "breadcrumbs"
+
+%h1=title t("titles.tutor_account_created")
+
+%section
+  %h3=t("common.tutor")
+  %table.table
+    %tr
+      %th=User.human_attribute_name :user_name
+      %td=@tutor.user_name
+    %tr
+      %th=User.human_attribute_name :password
+      %td=@tutor.password
+  .buttons
+    =link_to t(".to_this_account_page"), hq_tutor_path(@tutor), class:"btn"

@@ -1,0 +1,45 @@
+@import "base";
+
+.menu {
+  margin-bottom: 6px;
+  padding: 2px 4px;
+  a {
+    padding: 2px 2px;
+    color: #333;
+  }
+  .menu-item {
+    display: inline;
+    padding: 4px 4px;
+    margin-right: 4px;
+    background-color: #eee;
+    color: #333;
+    @include border-radius(4px);
+    &:hover {
+      color: #888;
+      a {
+        color: #888;
+      }
+    }
+
+    &[data-disabled] {
+      color: #888;
+    }
+  }
+  a.imgbtnlink {
+    margin: 2px 2px;
+    padding: 0px;
+  }
+}
+
+.year-navigation {
+  text-align: center;
+  .current-year {
+    padding: 4px;
+    font-size: 150%;
+  }
+}
+
+.button-menu {
+  padding: 4px 0;
+  margin-bottom: 4px;
+}

@@ -1,0 +1,21 @@
+.lesson-extension-request.is-default
+  .view.default
+    %table.table
+      %tr
+        %td(colspan="2")
+          =t('lesson.message.lesson_extension_request_not_acceptable_yet')
+  .view.extendable
+    %table.table
+      %tr
+        %td(colspan="2")
+          %button.create-extension-request.btn(href="#")=t('lesson.request_extension')
+  .view.not-extendable
+    %table.table
+      %tr
+        %td(colspan="2")
+          =t('lesson.message.lesson_extension_request_not_acceptable')
+          .reasons.alert
+  .view.waiting-for-extension
+    =t('lesson.message.waiting_for_extension')
+  .view.extended
+    =t('messages.lesson_extended')

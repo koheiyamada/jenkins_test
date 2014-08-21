@@ -1,0 +1,5 @@
+%ul.breadcrumb
+  %li
+    =link_to_unless_current t('titles.group_lesson_search'), st_group_lessons_path
+  -if @lesson
+    =breadcrumb_item t('titles.group_lesson'), st_group_lesson_path(@lesson)

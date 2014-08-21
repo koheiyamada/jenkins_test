@@ -1,0 +1,6 @@
+=link_to path, class: 'btn btn-small btn-primary' do
+  %i.icon-signin
+  =t('common.detail')
+=link_to path, class: 'btn btn-small', method: :delete,  data: {confirm: t('common.do_you_really_delete_this')} do
+  %i.icon-remove
+  =t('common.delete')

@@ -1,0 +1,7 @@
+%table.table.meeting.meeting-registering
+  %tr
+    %th=Meeting.human_attribute_name :members
+    %td=render 'meeting_member_list', meeting: meeting
+  %tr
+    %th=Meeting.human_attribute_name :datetime
+    %td=l meeting.datetime, format: :promise

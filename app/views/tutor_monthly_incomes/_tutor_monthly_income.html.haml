@@ -1,0 +1,7 @@
+%table.table.tutor-monthly-income
+  %tr
+    %th=TutorMonthlyIncome.human_attribute_name :current_amount
+    %td=number_to_currency tutor_monthly_income.current_amount
+  %tr
+    %th=TutorMonthlyIncome.human_attribute_name :expected_amount
+    %td=number_to_currency tutor_monthly_income.expected_amount

@@ -1,0 +1,13 @@
+@mixin accounts {
+  list-style:none;
+  margin-left:0;
+}
+
+@mixin account {
+  > div {
+    display:inline-block;
+  }
+  > .user_name {
+    width: 120px;    
+  }
+}

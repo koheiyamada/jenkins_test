@@ -1,0 +1,6 @@
+%tr.student
+  %td=student.full_name
+  %td=grade(student)
+  %td.actions
+    .action
+      =img_link_to "common.select", new_bs_student_basic_lesson_path(student), class:"small"

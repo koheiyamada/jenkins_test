@@ -1,0 +1,10 @@
+-if @yucho_account_application.new?
+  .buttons
+    =link_to t('yucho_account_application.reject'),
+             reject_hq_yucho_account_application_path(@yucho_account_application),
+             method: :post, class: 'btn',
+             data: {confirm: t('membership_application.confirm_to_reject')}
+    =link_to t('yucho_account_application.accept'),
+             accept_hq_yucho_account_application_path(@yucho_account_application),
+             method: :post, class: 'btn btn-primary',
+             data: {confirm: t('membership_application.confirm_to_accept')}

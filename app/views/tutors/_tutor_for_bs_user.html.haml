@@ -1,0 +1,89 @@
+%table.table.tutor
+  %tr
+    %th=User.human_attribute_name :nickname
+    %td
+      %span=tutor.nickname
+      =render 'tutors/tutor_type', tutor: tutor
+  %tr.photo
+    %th=User.human_attribute_name :photo
+    %td=image_tag tutor.photo_url if tutor.photo?
+  %tr
+    %th=Tutor.human_attribute_name :age
+    %td=user_age tutor
+  %tr
+    %th=Tutor.human_attribute_name :sex
+    %td=sex(tutor)
+  %tr
+    %th=Tutor.human_attribute_name :registered_day
+    %td=l tutor.registered_day, format: :year_month_day2
+  %tr
+    %th=TutorInfo.human_attribute_name(:birth_place)
+    %td=tutor.info.birth_place
+  %tr
+    %th=TutorInfo.human_attribute_name(:high_school)
+    %td=tutor.info.high_school
+  %tr
+    %th=TutorInfo.human_attribute_name(:college)
+    %td=render 'tutors/college', tutor:tutor
+  %tr
+    %th=Tutor.human_attribute_name(:weekday_schedules)
+    %td
+      =render 'tutors/weekday_schedules2', tutor: tutor
+  %tr
+    %td(colspan="2")
+      .item-label=Tutor.human_attribute_name :daily_available_times
+      =render 'tutor_daily_available_times/tutor_daily_available_times2', tutor: tutor
+  %tr
+    %th=TutorInfo.human_attribute_name(:undertake_group_lesson)
+    %td=yes_no tutor.info.undertake_group_lesson
+  %tr
+    %th=TutorInfo.human_attribute_name(:special_tutor)
+    %td=yes_no tutor.special?
+  %tr
+    %th=TutorInfo.human_attribute_name(:hobby)
+    %td=simple_format tutor.info.hobby
+  %tr
+    %th=TutorInfo.human_attribute_name(:activities)
+    %td=simple_format tutor.info.activities
+  %tr
+    %th=TutorInfo.human_attribute_name(:teaching_experience)
+    %td=simple_format tutor.info.teaching_experience
+  %tr
+    %th=TutorInfo.human_attribute_name(:teaching_results)
+    %td=simple_format tutor.info.teaching_results
+  %tr
+    %th=TutorInfo.human_attribute_name(:free_description)
+    %td=simple_format tutor.info.free_description
+
+  %tr
+    %th=Tutor.human_attribute_name :current_sign_in_at
+    %td=l tutor.current_sign_in_at, format: :promise if tutor.current_sign_in_at
+
+  %tr.section
+    %td(colspan="2")
+
+  =render 'specs/rows', spec:tutor
+  %tr
+    %th=TutorInfo.human_attribute_name :use_document_camera
+    %td=yes_no tutor.info.use_document_camera
+  %tr
+    %th=Tutor.human_attribute_name :reference
+    %td=tutor.reference.user_name if tutor.reference
+  %tr
+    %th=TutorInfo.human_attribute_name :do_volunteer_work
+    %td=yes_no tutor.info.do_volunteer_work
+
+  %tr.section
+    %td(colspan="2")
+
+  %tr
+    %th=Tutor.human_attribute_name :lesson_fee
+    %td=render 'tutor_prices/lesson_fees', tutor: tutor
+
+  -if SystemSettings.cs_point_visible?
+    %tr
+      %th=TutorInfo.human_attribute_name :cs_points
+      %td=tutor.info.cs_points
+  %tr
+    %th=TutorInfo.human_attribute_name(:upgrade_points)
+    %td=tutor.info.upgrade_points

@@ -1,0 +1,1 @@
+<%= '%{wday} %{from} - %{to} %{time_zone}' % {wday: l(schedule.start_time, format: :wday), from: l(schedule.start_time, format: :only_time), to: l(schedule.end_time, format: :only_time), time_zone: l(schedule.start_time, format: :time_zone)} -%>

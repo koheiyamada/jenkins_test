@@ -1,0 +1,6 @@
+- user_operating_system = UserOperatingSystem.new unless defined?(user_operating_system) && user_operating_system.present?
+%tr
+  %th=f.label :user_operating_system, class: 'required'
+  %td
+    =render 'user_operating_systems/fields', user_operating_system: user_operating_system
+

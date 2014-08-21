@@ -1,0 +1,10 @@
+-if tutor.info.college.present?
+  .college
+    %span.college=tutor_college tutor
+    %span.department=tutor_department tutor
+    %span.faculty=tutor_faculty tutor
+-if tutor.info.graduate_college.present?
+  .graduate_college
+    %span.graduate_college=tutor_graduate_college tutor
+    %span.graduate_college_department=tutor_graduate_college_department tutor
+    %span.major=tutor_major tutor

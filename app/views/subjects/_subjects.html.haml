@@ -1,0 +1,10 @@
+%table.table.subjects
+  %thead
+    %tr
+      %th=Subject.human_attribute_name :name
+      %th
+  %tbody
+    -subjects.each do |subject|
+      %tr.subject{class:subject.selected? ? "is-selected" : ""}
+        %td=subject.name
+        %td=yield subject

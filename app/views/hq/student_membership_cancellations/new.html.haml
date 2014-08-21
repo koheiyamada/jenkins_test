@@ -1,0 +1,16 @@
+%h1=title t('common.resign')
+=render 'menu'
+=render 'explanation'
+
+.error-messages-holder
+
+%section
+  %h3=t('titles.student')
+  =render 'users/user', user:@student
+.buttons
+  =button_to t('common.resign'), {action: :create}, form_class: 'new_membership_cancellation', form: {data: {path_on_created: hq_student_path(@student)}}, class: 'btn', data:{confirm:t('messages.confirm_to_leave')}
+
+#templates
+  =render 'shared/error_messages_template'
+
+=render 'wait_screen'

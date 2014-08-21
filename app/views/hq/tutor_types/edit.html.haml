@@ -1,0 +1,14 @@
+=content_for :subheader do
+  =render 'breadcrumbs'
+
+%h1=title t('tutor.titles.change_type')
+
+.explanation=t('tutor.message.current_type_is_x', x: tutor_type(@tutor))
+
+-if @tutor.special?
+  =render 'form_for_special'
+-elsif @tutor.beginner?
+  =render 'form_for_beginner'
+-else
+  =render 'form_for_regular'
+

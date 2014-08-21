@@ -1,0 +1,20 @@
+=content_for :subheader do
+  =render 'breadcrumbs'
+
+%h1=title t('titles.edit_meeting_schedule')
+
+=render 'meeting'
+
+=form_for @meeting_schedule, url: {action: 'update'}, method:'put' do |f|
+  =render 'application/validation_errors', model:@meeting_schedule
+  %table.table
+    %tr
+      %th=t('common.date')
+      %td
+        =hidden_field_tag :date, @meeting_schedule.datetime.to_date.iso8601
+        .date_picker
+    %tr
+      %th=t('common.time')
+      %td=select_time @meeting_schedule.datetime, {prefix:'time', minute_step:5}, class:'input-small'
+  .form-actions.buttons
+    =f.submit class: 'btn'

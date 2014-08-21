@@ -1,0 +1,9 @@
+%ul.breadcrumb
+  %li
+    =link_to_unless_current t("titles.bss"), hq_bss_path
+  =breadcrumb_item bs_name(@bs), hq_bs_path(@bs)
+  =breadcrumb_item t("titles.monthly_statements"), hq_bs_monthly_statements_path(@bs)
+  =breadcrumb_item t("titles.monthly_statement", month:l(@monthly_statement.date, :format => :month_year)), hq_bs_monthly_statement_path(@bs, @monthly_statement)
+  =breadcrumb_item t('titles.journal_entries'), hq_bs_monthly_statement_journal_entries_path(@bs, @monthly_statement)
+  -if @journal_entry
+    =breadcrumb_item @journal_entry.name, hq_bs_monthly_statement_journal_entry_path(@bs, @monthly_statement, @journal_entry)

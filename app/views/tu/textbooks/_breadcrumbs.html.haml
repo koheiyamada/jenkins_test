@@ -1,0 +1,6 @@
+%ul.breadcrumb
+  %li
+    =link_to_unless_current t("titles.textbooks"), tu_textbooks_path
+  -if @textbook
+    =breadcrumb_item @textbook.title, tu_textbook_path(@textbook)
+

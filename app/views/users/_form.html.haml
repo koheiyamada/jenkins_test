@@ -1,0 +1,11 @@
+=form_for user, url:path do |f|
+  =render "validation_errors", model:user
+  %table.table
+    %tr
+      %th=f.label :user_name
+      %td=f.text_field :user_name
+    %tr
+      %th=f.label :email
+      %td=f.text_field :email
+  .buttons
+    =f.submit

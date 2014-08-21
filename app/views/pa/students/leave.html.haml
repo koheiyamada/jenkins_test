@@ -1,0 +1,13 @@
+=render 'pa/student_header', student:@student
+
+%h2=title t("titles.leave_from_aid")
+
+=render 'explanation_about_leaving'
+
+=form_tag nil, class: 'leave-form' do
+  %table.table
+    %tr
+      %th=label_tag :reason, User.human_attribute_name(:reason_to_leave)
+      %td=text_area_tag :reason, nil
+  .form-actions.buttons
+    =img_submit 'common.send', confirm:t("messages.confirm_to_leave")

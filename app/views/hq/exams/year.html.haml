@@ -1,0 +1,25 @@
+=content_for :subheader do
+  =render 'breadcrumbs'
+
+%h1=title t("titles.exams_for_grade_subject", grade:grade_name(@exam.grade), subject:@exam.subject.name)
+
+.year-control
+  .prev.pull-left
+    =link_to @exam.year - 1, {year:@exam.year - 1}, class:"navi_left"
+  .next.pull-right
+    =link_to @exam.year + 1, {year:@exam.year + 1}, class:"navi_right"
+  .current-year
+    =@exam.month.year
+
+%table.table.months
+  %thead
+    %tr
+      %th=t("common.month")
+      %th=t("common.status")
+      %th
+  %tbody
+    -@months.each do |month|
+      %tr
+        %td=link_to l(month, :format => :month), {action:"show", month:month.month}
+        %td -
+        %td

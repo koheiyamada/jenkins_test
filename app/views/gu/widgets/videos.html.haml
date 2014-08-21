@@ -1,0 +1,15 @@
+%h1=title t('titles.person_and_document_camera')
+
+%h2=t('titles.person_camera')
+
+.video.publisher
+  =render 'soba_widgets/video_publisher', channel: @video_channel, width:216, height:162
+  .video.subscriber
+    .widget{data: {delayed_load: "#{video_subscriber_gu_widgets_path}"} }
+
+%h2=t('titles.document_camera_widgets')
+
+=render 'soba_widgets/document_camera_publisher', channel: @document_camera_channel, width: 240, height: 180
+
+.widget{data: {delayed_load: "#{document_camera_subscriber_gu_widgets_path}"}}
+

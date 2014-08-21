@@ -1,0 +1,9 @@
+=content_for :subheader do
+  =render 'breadcrumbs'
+
+%h1=title t('student.assign_coach')
+
+-if current_user.organization.coaches.empty?
+  %p.explanation=t('student_coach.no_coaches')
+-else
+  =render 'form', bs: current_user.organization

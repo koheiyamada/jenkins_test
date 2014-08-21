@@ -1,0 +1,9 @@
+%tr
+  %th=Message.human_attribute_name :message_files
+  %td
+    -message.user_files.each do |user_file|
+      .user_file
+        =link_to message_file_path(user_file) do
+          %i.icon-file-alt
+          =user_file.file_identifier
+          ="(#{number_to_human_size user_file.size})"

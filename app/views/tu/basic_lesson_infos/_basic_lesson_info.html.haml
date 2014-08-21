@@ -1,0 +1,24 @@
+%table.table.basic_lesson_info
+  %tr
+    %th=t("common.tutor")
+    %td=basic_lesson_info.tutor.full_name
+  %tr
+    %th=t("common.students")
+    %td
+      -basic_lesson_info.students.each do |student|
+        .student=link_to user_display_name(student), tu_basic_lesson_info_student_path(basic_lesson_info, student)
+  %tr
+    %th=t('common.lesson_style')
+    %td=lesson_style(basic_lesson_info)
+  %tr
+    %th=t("common.wday_time_range")
+    %td
+      -basic_lesson_info.schedules.each do |schedule|
+        .schedule
+          =wday_time_range schedule.start_time, schedule.end_time
+  %tr
+    %th=BasicLessonInfo.human_attribute_name :auto_extension
+    %td=yes_no(basic_lesson_info.auto_extension)
+  %tr
+    %th=BasicLessonInfo.human_attribute_name :status
+    %td=t("basic_lesson_info_status.#{basic_lesson_info.status}")

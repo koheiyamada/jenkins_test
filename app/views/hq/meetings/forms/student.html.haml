@@ -1,0 +1,17 @@
+- @search_flg ||= false
+%h1=title t('titles.new_meeting')
+
+=render 'meetings/meeting_registering', meeting:@meeting
+
+%h2=t('meeting.title.select_student')
+
+.pagination-centered
+  =render 'shared/search_box'
+
+-if @students.blank?
+  =t('common.not_found')
+-else
+  =render layout:'students/students', locals:{students:@students} do |student|
+    =link_to t('common.select'), wizard_path(nil, student_id: student.id), method: 'put', class: 'btn btn-small'
+  -unless @search_flg == true
+    =paginate @students

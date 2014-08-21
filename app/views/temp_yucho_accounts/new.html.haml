@@ -1,0 +1,23 @@
+%h1=title t('titles.new_yucho_account')
+
+=form_for @temp_yucho_account, url:{action: 'create'}, as: :temp_yucho_account do |f|
+  =render 'application/validation_errors', model: @temp_yucho_account
+  %table.table
+    %tr
+      %th=t('common.account_number')
+      %td.account-number
+        =f.text_field :kigo1, maxlength: 5, class: 'input-small', placeholder: t('common.kigo')
+        =f.text_field :kigo2, maxlength: 1, class: 'input-mini'
+        =f.text_field :bango, maxlength: 8, class: 'input-medium', placeholder: YuchoAccount.human_attribute_name(:bango)
+        %p.help=t('yucho_account.message.second_text_field_can_be_blank')
+    %tr
+      %th=t('common.account_holder_name')
+      %td
+        =f.label :account_holder_name do
+          =t('common.kanji')
+          =f.text_field :account_holder_name
+        =f.label :account_holder_name_kana do
+          =t('common.kana2')
+          =f.text_field :account_holder_name_kana
+  .buttons.form-actions
+    =f.submit "ご登録内容の確認", class: 'btn'

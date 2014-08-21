@@ -1,0 +1,44 @@
+%table.table.bs_user.bs_user-detail
+  %tr
+    %th=BsUser.human_attribute_name :user_name
+    %td=bs_user.user_name
+  %tr
+    %th=BsUser.human_attribute_name :full_name
+    %td=bs_user.full_name
+  %tr
+    %th=BsUser.human_attribute_name :full_name_kana
+    %td=bs_user.full_name_kana
+  %tr.photo
+    %th=BsUser.human_attribute_name :photo
+    %td=image_tag bs_user.photo_url if bs_user.photo?
+  %tr
+    %th=Bs.human_attribute_name :name
+    %td=bs_user.organization.name
+  %tr
+    %th=BsUser.human_attribute_name(:address)
+    %td=render "addresses/address", address:bs_user.address if bs_user.address.present?
+  %tr
+    %th=BsUser.human_attribute_name :sex
+    %td=sex(bs_user)
+  %tr
+    %th=BsUser.human_attribute_name :phone_number
+    %td=bs_user.phone_number
+  %tr
+    %th=BsUser.human_attribute_name :email
+    %td=bs_user.email
+
+  %tr
+    %th=BsUser.human_attribute_name :birth_place
+    %td=bs_user.birth_place
+
+  =render 'shared/driver_license_number_or_passport_number', form: bs_user
+  =render 'shared/pc_model_number', form: bs_user
+  =render 'shared/has_web_camera', user: bs_user
+
+  =render 'specs/rows', spec:bs_user
+
+  =render 'questions/how_to_find_row', answer: bs_user.answer_to_how_to_find
+
+  %tr
+    %th=BsUser.human_attribute_name :timezone
+    %td=bs_user.timezone

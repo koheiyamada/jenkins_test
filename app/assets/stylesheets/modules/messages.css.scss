@@ -1,0 +1,193 @@
+@import "base";
+
+.message {
+
+}
+
+.message-list-item {
+  background-color: #ddd;
+  padding: 10px;
+  @include border-radius(4px);
+
+  .header {
+    border-bottom: 1px solid #aaa;
+    >div {
+      display:inline-block;
+    }
+  }
+  .sender {
+    &:after {
+      content:":";
+    }
+  }
+  .title {
+    font-size: large;
+  }
+  .text {
+    padding-top: 4px;
+  }
+}
+
+.menu{
+  .badge{
+    position: absolute;
+    background-color: chocolate;
+    left: 80px;
+  }
+}
+
+.messages {
+  >li {
+    margin-bottom: 10px;
+  }
+
+  .actions {
+    white-space: nowrap;
+    i {
+      font-size: 120%;
+    }
+
+    .icon-remove {
+      color: $aid-red;
+    }
+
+    .btn {
+      margin-left: 2px;
+    }
+  }
+
+  td, li {
+    &.read, &.unread {
+      color: white;
+      text-align: center;
+      div {
+        margin: 0.1em;
+        border-radius: 0.5em/0.25em;
+      }
+    }
+
+    &.read > div {
+      background-color: gray;
+    }
+
+    &.unread > div {
+      background-color: chocolate;
+    }
+  }
+}
+
+.message-detail {
+  border-left: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  .message-header {
+    margin: 0;
+    th {
+      width: 6em;
+      background-color: $aid-green;
+      font-weight: normal;
+    }
+  }
+  .message-body {
+    border-top: 1px solid #ddd;
+    padding: 10px;
+    word-break: break-all;
+  }
+
+  .message-icon {
+    width: 48px;
+  }
+
+  .user_file {
+    a {
+      color: #333;
+
+      &:hover {
+        color: $aid-green;
+      }
+    }
+  }
+}
+
+.new_message {
+  .recipients {
+    .groups {
+      display: inline-block;
+      margin-left: 30px;
+    }
+    .group {
+      margin-bottom: 10px;
+      input {
+        margin: 0;
+        vertical-align: middle;
+      }
+      label {
+        display: inline;
+        vertical-align: middle;
+      }
+    }
+  }
+  #message_text {
+    height: 20em;
+  }
+
+  th {
+    width: 10%;
+  }
+
+  .title {
+    input {
+      width: 98%;
+    }
+  }
+
+  .text {
+    textarea {
+      width: 98%;
+    }
+  }
+
+  select {
+    width: 100%;
+  }
+}
+
+.recipient_list {
+
+}
+
+.recipients-select {
+  padding: 6px 0;
+  //border-top: 1px solid #ddd;
+
+  &:first-child {
+    border-top: 0px;
+  }
+
+  >h4 {
+    margin-bottom: 4px;
+    margin-top: 8px;
+    @include border-radius(4px);
+    padding: 4px 6px;
+    background-color: $aid-gray;
+    color: #333333;
+    font-size: small;
+    font-weight: bold;
+
+    i {
+      color: $aid-orange3;
+    }
+  }
+
+  select {
+    height: 13em;
+  }
+}
+
+.message-files {
+  .selected-files {
+    .selected-message-file {
+      @include inline-list-item;
+    }
+  }
+}

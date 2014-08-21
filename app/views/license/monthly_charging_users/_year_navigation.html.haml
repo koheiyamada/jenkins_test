@@ -1,0 +1,7 @@
+.menu.clearfix
+  -if @year
+    .pull-left
+      =link_to @year - 1, {year: @year - 1}, class: 'navi_left'
+    -if @year < Date.today.year
+      .pull-right
+        =link_to @year + 1, {year: @year + 1}, class: 'navi_right'

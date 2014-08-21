@@ -1,0 +1,144 @@
+小学生: &group1
+  国語: &type1
+    :levels:
+      :normal:
+        :level: 1
+      :exam:
+        :level: 2
+  算数:
+    <<: *type1
+  理科:
+    <<: *type1
+  社会:
+    <<: *type1
+  英会話: &english_levels
+    :levels:
+      :introduction:
+        :level: 1
+      :basic:
+        :level: 2
+      :intermediate:
+        :level: 3
+      :advanced:
+        :level: 4
+小学生（中学受験）:
+  <<: *group1
+中学生:
+  国語:
+    <<: *type1
+  数学:
+    <<: *type1
+  理科:
+    <<: *type1
+  社会:
+    <<: *type1
+  英語:
+    <<: *type1
+  英会話:
+    <<: *english_levels
+高校１〜２年生:
+  数Ⅰ+A: &type2
+    :levels:
+      :normal:
+        :level: 1
+      :high:
+        :level: 2
+  数Ⅱ+B:
+    <<: *type2
+  数Ⅲ:
+    <<: *type2
+  英語長文:
+    <<: *type2
+  英語文法:
+    <<: *type2
+  英作文:
+    <<: *type2
+  オーラル:
+    <<: *type2
+  現代文:
+    <<: *type2
+  古文:
+    <<: *type2
+  漢文:
+    <<: *type2
+  小論文:
+    <<: *type2
+  世界史:
+    <<: *type2
+  日本史:
+    <<: *type2
+  地理:
+    <<: *type2
+  公民:
+    <<: *type2
+  現社:
+    <<: *type2
+  倫理:
+    <<: *type2
+  政経:
+    <<: *type2
+  物理:
+    <<: *type2
+  化学:
+    <<: *type2
+  生物:
+    <<: *type2
+  地学:
+    <<: *type2
+  英会話:
+    <<: *english_levels
+高校３年生: &group4
+  数Ⅰ+A: &type3
+    :levels:
+      :normal:
+        :level: 1
+      :center:
+        :level: 2
+      :high:
+        :level: 3
+  数Ⅱ+B:
+    <<: *type3
+  数Ⅲ:
+    <<: *type3
+  英語長文:
+    <<: *type3
+  英語文法:
+    <<: *type3
+  英作文:
+    <<: *type3
+  オーラル:
+    <<: *type3
+  現代文:
+    <<: *type3
+  古文:
+    <<: *type3
+  漢文:
+    <<: *type3
+  小論文:
+    <<: *type3
+  世界史:
+    <<: *type3
+  日本史:
+    <<: *type3
+  地理:
+    <<: *type3
+  公民:
+    <<: *type3
+  現社:
+    <<: *type3
+  倫理:
+    <<: *type3
+  政経:
+    <<: *type3
+  物理:
+    <<: *type3
+  化学:
+    <<: *type3
+  生物:
+    <<: *type3
+  地学:
+    <<: *type3
+  英会話:
+    <<: *english_levels
+大学受験者・社会人:
+  <<: *group4

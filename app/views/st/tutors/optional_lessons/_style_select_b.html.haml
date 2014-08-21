@@ -1,0 +1,39 @@
+%table.table.lesson-type-select
+  %tbody
+    %tr
+      %td
+        %i.icon-user
+      %td
+        =link_to t('lesson.new_single_lesson'), {action:'create', type: :single}, method:'post', class:'btn'
+    -if @tutor.undertake_group_lesson?
+      %tr
+        %td
+          %i.icon-user
+          %i.icon-user
+        %td
+          =link_to t('lesson.new_friends_lesson'), {action:'create', type: :friends}, method:'post', class:'btn'
+      %tr
+        %td
+          %i.icon-user
+          %span.divider
+            |
+          %i.icon-user
+        %td
+          =link_to t('lesson.new_shared_lesson'), {action:'create', type: :shared}, method:'post', class:'btn'
+    -else
+      %tr
+        %td
+          %i.icon-user
+          %i.icon-user
+        %td
+          =button_tag t('lesson.new_friends_lesson'), class:'btn', disabled:true
+          =t('messages.tutor_only_undertake_single_lesson')
+      %tr
+        %td
+          %i.icon-user
+          %span.divider
+            |
+          %i.icon-user
+        %td
+          =button_tag t('lesson.new_shared_lesson'), class:'btn', disabled:true
+          =t('messages.tutor_only_undertake_single_lesson')

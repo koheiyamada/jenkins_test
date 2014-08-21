@@ -1,0 +1,39 @@
+%table.table.lesson-time-schedule
+  %tr
+    %th=t('lesson.start_time')
+    %td=l(lesson.start_time, :format => :lesson_time)
+  %tr
+    %th=Lesson.human_attribute_name :started_at
+    %td
+      -if lesson.started_at
+        =l(lesson.started_at, :format => :lesson_time)
+      -else
+        =t("messages.lesson_not_started_yet")
+  %tr
+    %th=Lesson.human_attribute_name :time_door_close
+    %td
+      -if lesson.entry_end_time_for(current_user)
+        =l(lesson.entry_end_time_for(current_user), :format => :lesson_time)
+      -else
+        =t("messages.lesson_not_started_yet")
+  %tr
+    %th=Lesson.human_attribute_name :time_to_check_lesson_extension
+    %td
+      -if lesson.time_to_check_lesson_extension
+        =l(lesson.time_to_check_lesson_extension, :format => :lesson_time)
+      -else
+        =t("messages.lesson_not_started_yet")
+  %tr
+    %th=Lesson.human_attribute_name :time_lesson_end
+    %td
+      -if lesson.started?
+        =l(lesson.time_lesson_end, :format => :lesson_time)
+      -else
+        =t("messages.lesson_not_started_yet")
+  %tr
+    %th=Lesson.human_attribute_name :time_room_close
+    %td
+      -if lesson.time_room_close
+        =l(lesson.time_room_close, :format => :lesson_time)
+      -else
+        =t("messages.lesson_not_started_yet")

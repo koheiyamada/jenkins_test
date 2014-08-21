@@ -1,0 +1,11 @@
+.nested-fields.schedule_fields
+  =f.label :wday
+  =f.select :wday, t('date.abbr_day_names').zip(0..6), {}, class: 'span1'
+  =f.label :start_time
+  =f.time_select :start_time, {minute_step:15}, class: 'span1'
+  =f.label :units
+  =f.select :units, (@basic_lesson_info.students.map(&:min_lesson_units).max .. LessonSettings.max_units_of_basic_lesson), {}, class: 'span1'
+  %span.remove
+    =link_to_remove_association f do
+      %i.icon-remove
+      =t('basic_lesson_info.remove_schedule')

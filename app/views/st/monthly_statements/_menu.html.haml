@@ -1,0 +1,4 @@
+.menu
+  -if @monthly_statement
+    =link_to t('titles.journal_entries'), st_monthly_statement_journal_entries_path(@monthly_statement), class: 'btn btn-small'
+    =link_to t('monthly_statement.bill'), bill_st_monthly_statement_path(@monthly_statement), class: 'btn btn-small', target: '_blank'

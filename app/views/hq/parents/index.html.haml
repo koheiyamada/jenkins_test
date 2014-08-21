@@ -1,0 +1,15 @@
+=content_for :tabmenu do
+  =render 'nav_tab'
+
+%h1=title t("titles.parents")
+
+=render 'menu'
+
+=render 'shared/centered_search_box'
+
+-if @parents.blank?
+  =t('common.not_found')
+-else
+  =render layout:'parents/parents', locals:{parents:@parents} do |parent|
+    =img_link_to 'common.detail', {action:'show', id:parent}, class:'small'
+  =paginate @parents

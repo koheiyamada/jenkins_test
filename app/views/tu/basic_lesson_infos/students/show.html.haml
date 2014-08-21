@@ -1,0 +1,11 @@
+=content_for :subheader do
+  =render 'breadcrumbs'
+
+%h1=title t("titles.student")
+
+=render 'menu'
+
+=render 'student_for_tutor', student:@student
+
+.buttons
+  =link_button_to 'file', t('titles.lesson_reports'), tu_basic_lesson_info_student_lesson_reports_path(@basic_lesson_info, @student)

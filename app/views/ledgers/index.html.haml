@@ -1,0 +1,7 @@
+%h1=title t("titles.accountings")
+
+-if @ledgers.blank?
+  =t('common.not_found')
+-else
+  =render layout:"ledgers/ledgers", locals:{ledgers:@ledgers} do |ledger|
+    =img_link_to "common.breakdown", {action:"month", student_id:@student, year:ledger.month.year, month:ledger.month.month}, class:"small"

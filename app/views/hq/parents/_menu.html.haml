@@ -1,0 +1,8 @@
+.button-menu
+  -if @parent && @parent.premium? && current_user.can_access?(:accounting, :read)
+    =link_to t('titles.changing_payment'), current_pa_payment_method_path(uid: @parent.id), class: 'btn btn-small'
+
+-#.menu.clearfix
+-#  -if @parent
+-#    -if @parent.active?
+-#      .menu-item=link_to_unless_current t("common.leave_from_aid"), leave_hq_parent_path(@parent)

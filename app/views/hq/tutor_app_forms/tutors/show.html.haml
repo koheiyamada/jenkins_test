@@ -1,0 +1,12 @@
+=content_for :subheader do
+  =render 'breadcrumbs'
+
+%h1=title t('titles.tutor')
+
+=render 'menu'
+
+=render 'tutor', tutor:@tutor
+
+.buttons
+  /=img_link_to "common.edit", {action:"edit"}, class:"small"
+

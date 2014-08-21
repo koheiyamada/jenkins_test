@@ -1,0 +1,7 @@
+.button-menu
+  -if @bs
+    -if current_user.can_access?(:accounting, :read)
+      =link_to t('titles.monthly_statements'), hq_bs_monthly_statements_path(@bs), class: 'btn btn-small'
+      =link_to t('titles.bank_account'), hq_bs_bank_account_path(@bs), class: 'btn btn-small'
+    -if current_user.can_access?(:bs_user, :write)
+      =link_to_unless_current t('titles.leave_from_aid'), leave_hq_bs_path(@bs), class: 'btn btn-small'

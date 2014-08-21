@@ -1,0 +1,5 @@
+%ul.help
+  -if @tutor.special?
+    %li=t('tutor.about_being_regular_tutor')
+  -if @tutor.regular?
+    %li=t('tutor.about_being_regular_tutor2')

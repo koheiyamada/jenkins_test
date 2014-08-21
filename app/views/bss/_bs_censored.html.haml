@@ -1,0 +1,15 @@
+%table.table.bs.bs-detail{class:bs.active? ? "" : "is-inactive"}
+  %tr.name
+    %th=Bs.human_attribute_name :name
+    %td=bs.name
+  %tr.address
+    %th=Bs.human_attribute_name :address
+    %td=render 'addresses/address_censored', address: bs.address if bs.address
+  %tr.representative
+    %th=t('common.coach')
+    %td
+      -if bs.representative
+        .name
+          =bs.representative.full_name
+        .photo
+          =user_image bs.representative

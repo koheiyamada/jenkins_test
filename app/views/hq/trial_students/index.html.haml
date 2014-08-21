@@ -1,0 +1,18 @@
+%h1=title t('titles.trial_students')
+
+=render 'shared/centered_search_box'
+
+=render 'menu'
+
+-if @students.blank?
+  =t('common.not_found')
+-else
+  =render layout: 'trial_students', locals:{students: @students} do |student|
+    =link_to hq_trial_student_path(student), class: 'btn btn-small' do
+      %i.icon-signin
+      =t('common.detail')
+    =link_to hq_trial_student_lessons_path(student), class: 'btn btn-small' do
+      =t('common.lessons')
+    =link_to change_password_hq_trial_student_path(student), class: 'btn btn-small' do
+      =t('common.change_password')
+  =paginate(@students)

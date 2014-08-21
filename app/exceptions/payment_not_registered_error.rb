@@ -1,0 +1,2 @@
+class PaymentNotRegisteredError < StandardError
+end

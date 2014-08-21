@@ -1,0 +1,21 @@
+.address
+  =fields_for address, html:{class: 'address'} do |f|
+    .field
+      - not_required ||= false
+      -if not_required == true
+        =f.text_field :postal_code1, class: 'input-mini postal_code1'
+        \-
+        =f.text_field :postal_code2, class: 'input-mini postal_code2'
+      -else
+        =f.text_field :postal_code1, :required => true, class: 'input-mini postal_code1'
+        \-
+        =f.text_field :postal_code2, :required => true, class: 'input-mini postal_code2'
+      %span.help-inline=t('address.postal_code')
+      %span.help-block
+        =img_button "common.search_by_postal_code"
+    .field
+      =f.text_field :state, :required => true, class:"state input-small",readonly:"readonly",placeholder:Address.human_attribute_name(:state)
+    .field
+      =f.text_field :line1, class:"line1 span4", placeholder:Address.human_attribute_name(:line1)
+    .field
+      =f.text_field :line2, class:"span4 line2", placeholder:Address.human_attribute_name(:line2)

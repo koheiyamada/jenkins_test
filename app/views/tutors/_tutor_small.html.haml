@@ -1,0 +1,21 @@
+%table.table.tutor
+  %tr
+    %th=User.human_attribute_name :user_name
+    %td
+      %span=tutor.user_name
+      =render 'tutors/tutor_type', tutor: tutor
+  %tr
+    %th=t("common.full_name")
+    %td=tutor.full_name
+  %tr
+    %th=Tutor.human_attribute_name :full_name_kana
+    %td=tutor.full_name_kana
+  %tr
+    %th=User.human_attribute_name :nickname
+    %td=tutor.nickname
+  %tr.photo
+    %th=User.human_attribute_name :photo
+    %td=image_tag tutor.photo_url if tutor.photo?
+  %tr
+    %th=TutorInfo.human_attribute_name(:special_tutor)
+    %td=yes_no tutor.special?

@@ -1,0 +1,6 @@
+=content_for :subheader do
+  =render "breadcrumbs"
+
+%h1=title t("titles.change_lesson_schedule")
+
+=render "my_messages/change_lesson_schedule_form", message:@message, url:{}, recipients:@lesson.organizations

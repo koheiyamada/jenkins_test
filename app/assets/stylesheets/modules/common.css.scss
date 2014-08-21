@@ -1,0 +1,89 @@
+@import "base";
+
+//ボタンを中央に配置する
+.buttons {
+  margin-top: 20px;
+  text-align: center;
+}
+
+//コンテンツを中央寄りに配置する
+.centered {
+  >* {
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+  }
+}
+
+.short-message {
+  text-align: center;
+}
+
+.button-list {
+  >li {
+    margin-bottom: 10px;
+  }
+}
+
+.help-message {
+  font-size: 80%;
+  color: #666;
+}
+
+.file-field {
+  position: relative;
+  overflow: hidden;
+
+  .field {
+    position: absolute;
+    top: 0;
+    right: 0;
+    opacity: 0;
+    z-index: 1;
+
+    &:hover {
+      & + .look {
+        color: $aid-green;
+      }
+    }
+
+    input {
+      padding: 0;
+      margin: 0;
+      font-size: 30px;
+    }
+  }
+
+  .look {
+
+  }
+}
+
+.progress-bar {
+  height: 6px;
+  .bar {
+    width: 0%;
+    height: 100%;
+    background-color: $aid-green;
+    @include border-radius(3px);
+  }
+}
+
+ul.link-list {
+  margin-left: 1em;
+  list-style-type: disc;
+  color: #333;
+
+  li {
+    margin-bottom: 6px;
+
+    a {
+      color: #444;
+    }
+  }
+}
+
+ul.alert {
+  list-style-type: disc;
+  list-style-position: inside;
+}

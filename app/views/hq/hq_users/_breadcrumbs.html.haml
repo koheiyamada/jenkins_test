@@ -1,0 +1,10 @@
+%ul.breadcrumb
+  %li
+    =link_to_unless_current t("titles.hq_users"), hq_hq_users_path
+  -if @hq_user
+    -if @hq_user.persisted?
+      =breadcrumb_item t("titles.hq_user"), hq_hq_user_path(@hq_user)
+      -if params[:action] == 'change_password'
+        =breadcrumb_item t('titles.change_password'), change_password_hq_hq_user_path(@hq_user)
+    -else
+      =breadcrumb_item t('titles.new_hq_user'), new_hq_hq_user_path

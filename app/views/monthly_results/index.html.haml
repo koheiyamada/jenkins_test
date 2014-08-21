@@ -1,0 +1,8 @@
+%h1=title t("titles.monthly_results")
+
+=render "year_navigation"
+
+-if @monthly_results.empty?
+  =t('common.not_found')
+-else
+  =render "monthly_results", monthly_results:@monthly_results

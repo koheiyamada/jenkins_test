@@ -1,0 +1,623 @@
+ja:
+  date:
+    abbr_day_names:
+    - 日
+    - 月
+    - 火
+    - 水
+    - 木
+    - 金
+    - 土
+    abbr_month_names:
+    - 
+    - 1月
+    - 2月
+    - 3月
+    - 4月
+    - 5月
+    - 6月
+    - 7月
+    - 8月
+    - 9月
+    - 10月
+    - 11月
+    - 12月
+    day_names:
+    - 日曜日
+    - 月曜日
+    - 火曜日
+    - 水曜日
+    - 木曜日
+    - 金曜日
+    - 土曜日
+    formats:
+      default: ! '%Y/%m/%d'
+      long: ! '%Y年%m月%d日(%a)'
+      short: ! '%m/%d'
+    month_names:
+    - 
+    - 1月
+    - 2月
+    - 3月
+    - 4月
+    - 5月
+    - 6月
+    - 7月
+    - 8月
+    - 9月
+    - 10月
+    - 11月
+    - 12月
+    order:
+    - :year
+    - :month
+    - :day
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: 約1時間
+        other: 約%{count}時間
+      about_x_months:
+        one: 約1ヶ月
+        other: 約%{count}ヶ月
+      about_x_years:
+        one: 約1年
+        other: 約%{count}年
+      almost_x_years:
+        one: 1年弱
+        other: ! '%{count}年弱'
+      half_a_minute: 30秒前後
+      less_than_x_minutes:
+        one: 1分以内
+        other: ! '%{count}分以内'
+      less_than_x_seconds:
+        one: 1秒以内
+        other: ! '%{count}秒以内'
+      over_x_years:
+        one: 1年以上
+        other: ! '%{count}年以上'
+      x_days:
+        one: 1日
+        other: ! '%{count}日'
+      x_minutes:
+        one: 1分
+        other: ! '%{count}分'
+      x_months:
+        one: 1ヶ月
+        other: ! '%{count}ヶ月'
+      x_seconds:
+        one: 1秒
+        other: ! '%{count}秒'
+    prompts:
+      day: 日
+      hour: 時
+      minute: 分
+      month: 月
+      second: 秒
+      year: 年
+  errors: &errors
+    format: ! '%{message}'
+    messages:
+      accepted: "%{attribute}に同意してください。"
+      blank: "%{attribute}を入力してください。"
+      confirmation: "%{attribute}と確認の入力が一致しません。"
+      empty: "%{attribute}を入力してください。"
+      equal_to: "%{attribute}は%{count}にしてください。"
+      even: "%{attribute}は偶数にしてください。"
+      exclusion: "%{attribute}は予約されています。"
+      greater_than: "%{attribute}は%{count}より大きい値にしてください。"
+      greater_than_or_equal_to: "%{attribute}は%{count}以上の値にしてください。"
+      inclusion: "%{attribute}は一覧にありません。"
+      invalid: "%{attribute}は不正な値です。"
+      less_than: "%{attribute}は%{count}より小さい値にしてください。"
+      less_than_or_equal_to: "%{attribute}は%{count}以下の値にしてください。"
+      not_a_number: "%{attribute}は数値で入力してください。"
+      not_an_integer: "%{attribute}は整数で入力してください。"
+      odd: "%{attribute}は奇数にしてください。"
+      record_invalid: バリデーションに失敗しました。 %{errors}
+      taken: "%{attribute}はすでに存在します。"
+      too_long: "%{attribute}は%{count}文字以内で入力してください。"
+      too_short: "%{attribute}は%{count}文字以上で入力してください。"
+      wrong_length: "%{attribute}は%{count}文字で入力してください。"
+    template:
+      body: 次の項目を確認してください。
+      header:
+        one: ! '%{model}にエラーが発生しました。'
+        other: ! '%{model}に%{count}つのエラーが発生しました。'
+    models:
+      account/journal_entry: &journal_entry_errors
+        attributes:
+          payer:
+            invalid_user_type: "%{attribute}が支払人になれないアカウントです。"
+          referral:
+            invalid_user_type: "%{attribute}が被紹介者になれないアカウントです。"
+          lesson:
+            cs_sheets_not_collected: "%{attribute}のCSシートが集まっていません。"
+          owner:
+            does_not_have_to_pay: この費用を支払う必要がありません。
+
+      account/student_id_management_fee:
+        <<: *journal_entry_errors
+
+      address:
+        attributes:
+          postal_code:
+            must_be_filled_or_empty: "%{attribute}は両方記入するか両方空欄にするかのいずれかにしてください。"
+
+      answer:
+        attributes:
+          answer_option_id:
+            not_belong_to_question: "%{attribute}は質問のものではありません。"
+
+      answer_book:
+        attributes:
+          dir:
+            does_not_exist: "%{attribute}が存在しません。"
+            does_not_have_images: "%{attribute}は画像を含んでいません。"
+
+      basic_lesson:
+        attributes:
+          date:
+            duplicate: その日のレッスンはすでに登録されています。
+          time_range:
+            duplicate: 同じ時間帯にすでにレッスンが登録されています。
+
+      basic_lesson_info:
+        attributes:
+          schedules:
+            does_not_match_with_tutor_schedules:             "%{attribute}がチューターの予定と合いません。"
+            conflict_with_optional_lesson_of_tutor:          "%{attribute}がチューターのオプションレッスン（%{lesson}）と重なっています。"
+            conflict_with_optional_lesson_of_student:        "%{attribute}が自身のオプションレッスン（%{lesson}）と重なっています。"
+            conflict_with_basic_lesson_schedules_of_tutor:   "%{attribute}がチューターのベーシックレッスン（%{basic_lesson}）と重なっています。"
+            conflict_with_basic_lesson_schedules_of_student: "%{attribute}が自身のベーシックレッスン（%{basic_lesson}）と重なっています。"
+            conflict_with_each_other:                        "指定された%{attribute}どうしが重なり合っています。"
+            at_least_one: "１つ以上の%{attribute}を指定してください。"
+          students:
+            at_least_one: "%{attribute}がありません。"
+            not_an_array: "%{attribute}が配列ではない"
+            no_more_students: "%{attribute}はこれ以上追加できません。"
+            not_possible_students: "%{attribute}にこのレッスンに参加できない受講者が含まれています。"
+            cannot_add: "%{attribute}を追加できません。"
+          student:
+            already_included: "%{attribute}はすでにメンバーに含まれています。"
+            not_possible_student: "%{attribute}はこのレッスンに参加できません。"
+          tutor:
+            must_be_regular: "%{attribute}が本登録ではありません。"
+          final_day:
+            must_be_future: "%{attribute}は未来の日にちを指定してください。"
+            must_be_today_or_future: "%{attribute}は本日以降の日にちを指定してください。"
+          status:
+            must_not_be_closed: "このレッスンは終了しています。"
+
+      basic_lesson_student:
+        attributes:
+          student:
+            not_acceptable: "%{attribute}はこのレッスンに参加できません。"
+
+      basic_lesson_weekday_schedule:
+        attributes:
+          start_time:
+            does_not_match_with_tutor_schedules: "%{attribute}がチューターの予定と合いません。"
+          final_day:
+            must_be_future: "%{attribute}は現在よりも未来でなければなりません。"
+
+      bs_app_form:
+        attributes:
+          address:
+            not_valid: "%{attribute}を入力してください。"
+            not_given: "%{attribute}を入力してください。"
+          how_to_find:
+            not_answered: "%{attribute}に回答してください。"
+          reason_to_enroll:
+            not_answered: "%{attribute}に回答してください。"
+          driver_license_number:
+            or_passport_number_is_required: "%{attribute}かパスポート番号のいずれかを入力してください。"
+          email:
+            unacceptable_format: "%{attribute}はＧmailもしくはYahooメールのどちらかをご入力ください。"
+
+      coach:
+        attributes:
+          students:
+            must_be_empty_when_destroying: "%{attribute}がいるため削除できません。"
+            must_be_empty: "%{attribute}がいます。"
+          organization_id:
+            is_full: "%{attribute}にはこれ以上教育コーチを追加できません。"
+
+      credit_card:
+        attributes:
+          number:
+            authorize_failure: "クレジットカードの認証に失敗しました。再度、ご入力内容をご確認頂いた上で登録をお願いします。"
+          expire:
+            expired: "%{attribute}が過ぎています。"
+
+      cs_sheet:
+        attributes:
+          author:
+            not_attended_lesson: "%{attribute}は授業に参加していません。"
+          lesson:
+            already_submitted: "%{attribute}のCSシートは提出済みです。"
+          lesson_id:
+            already_submitted: "%{attribute}のCSシートは提出済みです。"
+
+      friends_optional_lesson:
+        attributes:
+          start_time:
+            cannot_change_because_group_lesson: "友達レッスンでは、日時の変更はできません。"
+
+      how_to_find_question_form:
+        attributes:
+          code:
+            not_present: "%{attribute}を選択してください。"
+
+      journal_entry:
+        attributes:
+          student:
+            not_lesson_member: "%{attribute}はレッスン受講者ではありません"
+          owner:
+            not_lesson_member: "%{attribute}はレッスン受講者ではありません"
+
+      lesson:
+        attributes:
+          start_time:
+            tutor_unavailable: "%{attribute}がチューターの利用できない時間帯です。"
+            conflict_with_basic_lesson: "%{attribute}ベーシックレッスン(%{basic_lesson_info})と時間が重なっています。"
+            over_limit: "%{attribute}が変更限度を超えています。"
+            too_near_or_past: "%{attribute}は15分以上先を指定してください。"
+            conflict_with_lesson_for_student: "%{attribute}が%{student}の他のレッスン(%{time_range})と時間が重複しています。"
+            conflict_with_lesson_for_tutor: "%{attribute}がチューターの他のレッスン(%{time_range})と時間が重複しています。"
+            conflict_with_basic_lesson_info_for_student: "%{attribute}が%{student}の他のベーシックレッスンと時間が重複しています。"
+            conflict_with_pending_basic_lesson_info_for_student: "%{attribute}が%{student}の承認待ち中のベーシックレッスン(%{time_ranges})と時間が重複しています。"
+            conflict_with_pending_basic_lesson_info_for_tutor: "%{attribute}がチューターの承認待ち中のベーシックレッスン(%{time_ranges})と時間が重複しています。"
+            cannot_change_because_group_lesson: "同時レッスンでは、日時の変更はできません。"
+          students:
+            over_payment_capacity: "%{attribute}の月々の支払制限を超えています。"
+            full: "%{attribute}が満員です。"
+            alreay_member: "%{attribute}はすでに参加しています。"
+            cannot_add: "%{attribute}を追加できません。"
+            all_free_lesson_already_taken: "無料体験レッスン予約上限可能回数に達しています。"
+          status:
+            not_cancellable: "%{attribute}がキャンセル可能ではありません。"
+            not_to_be_accepted: "%{attribute}が開催待ちになれません。"
+            cannot_become_done: "%{attribute}は完了できません。"
+            not_in_state_to_become_established: "このレッスンは成立可能な状態にありません。"
+          time_range:
+            not_match_with_tutor_weekday_schedule: "%{attribute}がチューターの指導可能時間の範囲外です。"
+            conflict_with_tutor_unavailable_days: "%{attribute}がチューターの指導できない日です。"
+            not_match_with_tutor_daily_available_times: "%{attribute}がチューターの指導可能時間の範囲外です。"
+            conflict_with_lesson_for_student: "%{attribute}が%{student}の他のレッスン(%{time_range})と重複しています。"
+            conflict_with_lesson_for_tutor: "%{attribute}がチューターの他のレッスン(%{time_range})と重複しています。"
+            conflict_with_pending_basic_lesson_info_for_student: "%{attribute}が%{student}の承認待ち中のベーシックレッスン(%{time_ranges})と重複しています。"
+            conflict_with_pending_basic_lesson_info_for_tutor: "%{attribute}がチューターの承認待ち中のベーシックレッスン(%{time_ranges})と重複しています。"
+            student_can_not_free_lesson_reserve: "%{attribute}は無料予約可能期間の範囲外です。"
+
+
+      lesson_cancellation:
+        attributes:
+          student:
+            cannot_cancel_lesson: "%{attribute}はこのレッスンをキャンセルできません。"
+            cancelled_too_many_times: "%{attribute}はキャンセルできる回数の上限に達しています。"
+          lesson:
+            not_active: "%{attribute}は有効ではありません。"
+            not_cancellable_state: "%{attribute}は申込中または未開催のときのみキャンセルできます。"
+            not_time_to_accept_cancellation: "%{attribute}は現在キャンセルの受け付け期間ではありません。"
+          lesson_student:
+            not_active: "%{attribute}はキャンセルしています。"
+
+      lesson_dropout:
+        attributes:
+          lesson:
+            not_open: "%{attribute}が開催中ではありません。"
+            door_closed: "%{attribute}は締め切られています。"
+            dropout_closed: "%{attribute}は締め切られています。"
+            after_time_door_close: "%{attribute}は退室可能な時間を過ぎています。"
+
+      lesson_extendability:
+        attributes:
+          lesson:
+            tutor_has_another_lesson: "%{attribute}のチューターはこのあと別のレッスンがあります。"
+            not_open: "%{attribute}が開催中ではありません。"
+            students_over_charge_limits: "%{attribute}の生徒の延長料金残額が不足しています。"
+
+      lesson_extension:
+        attributes:
+          lesson:
+            not_all_students_applied_extension: "%{attribute}のすべての受講者が延長希望を出していません。"
+            not_have_attended_students: "%{attribute}に参加している受講者がいません。"
+            lesson_is_not_open: "%{attribute}が開催中ではありません。"
+
+      lesson_extension_application:
+        attributes:
+          student:
+            over_charge_limit: "%{attribute}は利用限度額を超えています。"
+            has_another_lesson: "%{attribute}は別のレッスンがあります。"
+          lesson:
+            tutor_has_another_lesson: "%{attribute}のチューターはこのあと別のレッスンがあります。"
+
+      lesson_extension_request:
+        attributes:
+          student:
+            over_charge_limit: "%{attribute}は利用限度額を超えています。"
+            has_another_lesson: "%{attribute}は別のレッスンがあります。"
+          lesson:
+            tutor_has_another_lesson: "%{attribute}のチューターはこのあと別のレッスンがあります。"
+
+      lesson_invitation:
+        attributes:
+          student:
+            already_a_member: "%{attribute}はすでにレッスンに参加しています。"
+          lesson:
+            not_going_to_be_held: "%{attribute}はすでに開催しているか、取りやめとなっています。"
+          acceptance_time_limit:
+            over: "%{attribute}を過ぎています。"
+          status:
+            cannot_be_new_status: "受け付けられない変更です。"
+
+      lesson_report:
+        attributes:
+          lesson_id:
+            already_submitted: "%{attribute}のレッスンレポートは提出済みです。"
+
+      lesson_student:
+        attributes:
+          left_at:
+            duplicate_change: "%{attribute}はすでに値がセットされています。"
+            cannot_be_dropped_out: "%{attribute}は退席になることができません。"
+
+      lesson_tutor_wage:
+        attributes:
+          lesson:
+            cs_sheets_not_collected: "%{attribute}のCSシートがまだ集まっていません。"
+
+      meeting:
+        attributes:
+          members:
+            requires_more_than_one: "%{attribute}は２人以上必要です。"
+          schedules:
+            not_given: "%{attribute}が指定されていません。"
+            not_future: "%{attribute}は未来の日時にしてください。"
+
+      meeting_member:
+        attributes:
+          preferred_schedule_id:
+            not_member_schedule: "%{attribute}は面談の日程ではありません。"
+
+      meeting_schedule:
+        attributes:
+          datetime:
+            not_future: "%{attribute}は未来の時間にしてください。"
+
+      membership_application:
+        attributes:
+          user:
+            does_not_have_bank_account: "%{attribute}は銀行口座を登録していません。"
+
+      message:
+        attributes:
+          recipients:
+            at_least_one: "%{attribute}がありません。"
+
+      optional_lesson:
+        attributes:
+          start_time:
+            within_x_minutes: "%{attribute}には現在時刻から%{x}分以上先の時刻を指定してください。"
+            too_close_to_accept: "%{attribute}が近いためレッスンを引き受けることができません。"
+          students:
+            over_payment_capacity: "月額利用上限金額を超えています。レッスンをご予約されたい場合は、月額利用上限金額の変更をお願いします。"
+          tutor:
+            cannot_undertake_more_lessons: "%{attribute}はこれ以上レッスンを引受けることができません。"
+
+      parent:
+        attributes:
+          students:
+            cannot_leave: "%{attribute}の退会処理ができませんでした。レッスン中、面談中などの場合は受講者の退会ができません。"
+          email:
+            unacceptable_format: "%{attribute}はＧmailもしくはYahooメールのどちらかをご入力ください。"
+
+      reason_to_enroll_question_form:
+        attributes:
+          fields:
+            not_answered: "%{attribute}を選択してください。"
+
+      student:
+        attributes:
+          active:
+            cannot_leave_because_in_lesson: "レッスン中のため退会処理を実行できません。"
+            cannot_leave_because_in_meeting: "面談中のため退会処理を実行できません。"
+            cannot_leave_because_in_exam: "模試中のため退会処理を実行できません。"
+          parent:
+            not_active: "%{attribute}が退会中です。"
+          email:
+            unacceptable_format: "%{attribute}はＧmailもしくはYahooメールのどちらかをご入力ください。"
+
+      student_form: &student_form
+        attributes:
+          how_to_find:
+            not_answered: "%{attribute}に回答してください。"
+            invalid_answer_option: "%{attribute}の回答が無効です。"
+          reason_to_enroll:
+            not_answered: "%{attribute}に回答してください。"
+            invalid_answer_option: "%{attribute}の回答が無効です。"
+
+      student_entry_form:
+        attributes:
+          how_to_find:
+            not_answered: "%{attribute}に回答してください。"
+            invalid_answer_option: "%{attribute}の回答が無効です。"
+          reason_to_enroll:
+            not_answered: "%{attribute}に回答してください。"
+            invalid_answer_option: "%{attribute}の回答が無効です。"
+
+      student_update_form:
+        <<: *student_form
+
+      student_settings:
+        attributes:
+
+      textbooks:
+        attributes:
+          dir:
+            does_not_exist: "%{attribute}が存在しません。"
+            does_not_have_images: "%{attribute}は画像を含んでいません。"
+
+      tutor:
+        attributes:
+          unfinished_lessons:
+            remaining: "%{attribute}が残っています。"
+          email:
+            unacceptable_format: "%{attribute}はＧmailもしくはYahooメールのどちらかをご入力ください。"
+          type:
+            cannot_become_regular: "%{attribute}を本登録に変更できません。"
+            cannot_become_beginner: "%{attribute}を仮登録に変更できません。"
+            cannot_become_special: "%{attribute}をスペシャルチューターに変更できません。"
+
+      tutor_app_form:
+        attributes:
+          current_address:
+            not_valid: "%{attribute}を入力してください。"
+            not_given: "%{attribute}を入力してください。"
+          how_to_find:
+            not_answered: "%{attribute}に回答してください。"
+          reason_to_enroll:
+            not_answered: "%{attribute}に回答してください。"
+          driver_license_number:
+            or_passport_number_is_required: "%{attribute}かパスポート番号のいずれかを入力してください。"
+          interview_datetimes:
+            too_close: "%{attribute}が近すぎます。"
+            must_be_three_days_or_more_from_today: "%{attribute}は本日より3日後以降にてご都合のよい日時を第3希望までご指定ください。"
+          email:
+            unacceptable_format: "%{attribute}はＧmailもしくはYahooメールのどちらかをご入力ください。"
+          upload_speed:
+            must_be_2mbps: "%{attribute}は2Mbps以上でなければ登録できません。"
+          download_speed:
+            must_be_2mbps: "%{attribute}は2Mbps以上でなければ登録できません。"
+
+      tutor_daily_available_time:
+        attributes:
+          start_at:
+          end_at:
+            must_be_at_least_after_60_minutes: "%{attribute}は開始時間から60分以上開けてください。"
+          time_range:
+            must_not_be_overlap_with_other_available_times: "%{attribute}が他の時間帯と重複しています。"
+      tutor_lesson_cancellation:
+        attributes:
+          lesson:
+            not_cancellable_by_tutor: "%{attribute}をチューターがキャンセルできません。"
+            not_cancellation_period: "%{attribute}がキャンセル受け付け期間外です。"
+            failed_to_cancel: "%{attribute}をキャンセルできません。"
+          tutor:
+            cancelled_too_many_times: "%{attribute}はキャンセルできる回数の上限に達しています。"
+      user:
+        attributes:
+          email:
+            unacceptable_format: "%{attribute}はＧmailもしくはYahooメールのどちらかをご入力ください。"
+          nickname:
+            taken: "%{attribute}は既に使用されているため、別のニックネームをご指定ください。"
+          user_operating_system:
+            validation_error: "%{attribute}の%{msg}"
+
+      user_registration_form:
+        attributes:
+          email:
+            unacceptable_format: "%{attribute}はＧmailもしくはYahooメールのどちらかをご入力ください。"
+
+      system_settings:
+        attributes:
+          bs_share_of_lesson_sales:
+            sum_of_share_is_over_one: "%{attribute}とレッスン売上のチューターの割合が１を超えています。"
+          bs_share_of_lesson_sales:
+            sum_of_share_is_over_one: "%{attribute}とレッスン売上のチューターの割合が１を超えています。"
+
+      weekday_schedule:
+        attributes:
+          time_range:
+            overlap: "%{attribute}が重複しています。"
+            overlap_with: "%{attribute}が%{time_range}と重複しています。"
+
+      yucho_account:
+        attributes:
+          kigo1:
+            must_be_five_digits: "%{attribute}は5桁の数字を入力してください。"
+          bango:
+            must_be_eight_digits: "%{attribute}は8桁の数字を入力してください。"
+            must_be_six_to_eight_digits: "%{attribute}は6〜8桁の数字を入力してください。"
+
+      temp_yucho_account:
+        attributes:
+          kigo1:
+            must_be_five_digits: "%{attribute}は5桁の数字を入力してください。"
+          bango:
+            must_be_eight_digits: "%{attribute}は8桁の数字を入力してください。"
+            must_be_six_to_eight_digits: "%{attribute}は6〜8桁の数字を入力してください。"
+
+
+  helpers:
+    select:
+      prompt: 選択してください。
+    submit:
+      create: 登録する
+      submit: 保存する
+      update: 更新する
+  number:
+    currency:
+      format:
+        delimiter: ! ','
+        format: ! '%n%u'
+        precision: 0
+        separator: .
+        significant: false
+        strip_insignificant_zeros: false
+        unit: 円
+    format:
+      delimiter: ! ','
+      precision: 3
+      separator: .
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: ! '%n %u'
+        units:
+          billion: 十億
+          million: 百万
+          quadrillion: 千兆
+          thousand: 千
+          trillion: 兆
+          unit: ''
+      format:
+        delimiter: ''
+        precision: 3
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: ! '%n%u'
+        units:
+          byte: バイト
+          gb: GB
+          kb: KB
+          mb: MB
+          tb: TB
+    percentage:
+      format:
+        delimiter: ''
+    precision:
+      format:
+        delimiter: ''
+  support:
+    array:
+      last_word_connector: と
+      two_words_connector: と
+      words_connector: と
+  time:
+    am: 午前
+    formats:
+      default: ! '%Y/%m/%d %H:%M:%S'
+      long: ! '%Y年%m月%d日(%a) %H時%M分%S秒 %z'
+      short: ! '%y/%m/%d %H:%M'
+    pm: 午後
+  # remove these aliases after 'activemodel' and 'activerecord' namespaces are removed from Rails repository
+  activemodel:
+    errors:
+      <<: *errors
+  activerecord:
+    errors:
+      <<: *errors

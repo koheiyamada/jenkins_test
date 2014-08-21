@@ -1,0 +1,11 @@
+オプションレッスンの申込がありました。
+
+■時間
+<%= render "lessons/time_range", lesson:@lesson %>
+
+■生徒
+<% @lesson.students.each do |student| %>
+<%= render "student", student:student %>
+<% end %>
+
+<%= render "lesson", lesson:@lesson %>

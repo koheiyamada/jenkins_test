@@ -1,0 +1,9 @@
+=content_for :subheader do
+  =render 'breadcrumbs'
+
+%h1=title t('yucho_account.payments_of_month', year: @year, month: @month)
+
+.button-menu
+  =link_to t('yucho_account.payments_file'), {format: :csv}, class: 'btn btn-small'
+
+.message=t('yucho_account.file_not_ready')

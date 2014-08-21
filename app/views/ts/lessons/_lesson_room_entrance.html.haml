@@ -1,0 +1,15 @@
+.lesson-room-entrance{data:{open_at:@lesson.entry_start_time_for(current_user).iso8601}}
+  -if @lesson.finished?
+    / 非表示
+    .message=t('messages.lesson_is_over')
+  -else
+    / 入り口ボタン
+    -if current_user.can_enter_lesson? @lesson
+      / 表示・有効
+      =img_link_to_dyn_if true, 'common.open_lesson_room', room_ts_lesson_path(@lesson), class:'btn-success enter_room -'
+    -else
+      -if @lesson.before_entry_start_time_for?(current_user)
+        / 表示・無効
+        =img_link_to_dyn_if false, 'common.open_lesson_room', room_ts_lesson_path(@lesson), class:'btn-success enter_room -'
+        / 開始前メッセージ
+        .message=t('messages.can_enter_at', at:l(@lesson.entry_start_time_for(current_user), :format => :only_time2))

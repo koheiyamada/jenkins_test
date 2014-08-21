@@ -1,0 +1,26 @@
+=content_for :subheader do
+  =render 'breadcrumbs'
+
+%h1=title t('titles.add_basic_lesson_info_student')
+
+=render 'menu'
+
+=render 'basic_lesson_infos/basic_lesson_info', basic_lesson_info:@basic_lesson_info
+
+-if @basic_lesson_info.full?
+  =t('messages.no_more_basic_lesson_students')
+-else
+  -if @basic_lesson_info.have_enough_students?
+    %h2=t('lesson.add_another_student')
+  -else
+    %h2=t('lesson.select_nth_student', n:@basic_lesson_info.students.count + 1)
+
+  .pagination-centered
+    =render "shared/search_box"
+
+  -if @students.blank?
+    =t('common.not_found')
+  -else
+    =render layout:'students/students', locals:{students:@students} do |student|
+      =img_link_to 'common.select', {action: 'create', student_id: student.id}, method: 'post', data: {confirm: t('lesson.message.confirm_to_add_student')}
+

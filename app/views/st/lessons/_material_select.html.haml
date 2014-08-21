@@ -1,0 +1,27 @@
+.material-select
+  %button.btn{"data-toggle" => "modal", "data-target" => ".lesson_material-select"}=t("lesson.select_lesson_material")
+  -if current_user.use_textbooks?
+    %button.btn{"data-toggle" => "modal", "data-target" => ".textbook-select"}=t("lesson.select_textbook")
+
+  .lesson_material-select.modal.hide
+    .modal-header
+      %button(type="button" class="close" data-dismiss="modal" aria-hidden="true") &times;
+      %h3=t("lesson.titles.select_lesson_material")
+    .modal-body
+      %ul.thumbnails
+        -lesson.materials.each do |material|
+          %li.thumbnail.span2=image_tag(material.url)
+    .modal-footer
+      %a.btn(href="#" data-dismiss="modal") Close
+
+  -if current_user.use_textbooks?
+    .textbook-select.modal.hide
+      .modal-header
+        %button(type="button" class="close" data-dismiss="modal" aria-hidden="true") &times;
+        %h3=t("lesson.titles.select_lesson_material")
+      .modal-body
+        %ul.thumbnails
+          -lesson.materials.each do |material|
+            %li.thumbnail.span2=image_tag(material.url)
+      .modal-footer
+        %a.btn(href="#" data-dismiss="modal") Close

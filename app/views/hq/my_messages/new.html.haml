@@ -1,0 +1,5 @@
+%h1=title t("titles.new_message")
+
+=render "hq/messages/menu"
+
+=render "my_messages/form", url:hq_my_messages_path, to_all_students:true, to_all_bss:true

@@ -1,0 +1,6 @@
+%ul.breadcrumb
+  %li
+    =link_to_unless_current t('titles.coaches'), pa_bss_path
+  -if @bs
+    =breadcrumb_item t('titles.coach'), pa_bs_path(@bs)
+

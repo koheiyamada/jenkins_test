@@ -1,0 +1,23 @@
+<script type="text/template" id="available-time-template">
+  <div class="time-range"><div class="date">{{date}}</div> <div class="time">{{start_at}} - {{end_at}}</div></div>
+  <span class="delete-button">&times;</span>
+</script>
+
+<script type="text/template" id="available-time-template2">
+  <div class="time-range2">
+    <div class="datetime datetime-from">
+      <div class="day">{{start_date}}</div>
+      <div class="time">{{start_at}}</div>
+    </div>
+    <span class="time"> - </span>
+    <div class="datetime datetime-to">
+      {% if (end_date) { %}
+      <div class="day">{{end_date}}</div>
+      {% } %}
+      <div class="time">{{end_at}}</div>
+    </div>
+  </div>
+  <div class="action">
+    <span class="delete-button">&times;</span>
+  </div>
+</script>

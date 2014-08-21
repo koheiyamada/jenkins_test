@@ -1,0 +1,45 @@
+=form_for [:hq, student] do |f|
+  =render 'application/validation_errors', model: student
+  %table.table
+    %tr
+      %th=f.label :user_name
+      %td=f.text_field :user_name
+    -if student.new_record?
+      %tr
+        %th=f.label :password
+        %td=f.text_field :password
+      -#%tr
+      -#  %th=f.label :password_confirmation
+      -#  %td=f.text_field :password_confirmation
+
+    %tr
+      %th
+        %span.required=User.human_attribute_name :full_name
+      %td
+        .full_name
+          =f.label :last_name
+          =f.text_field :last_name, class: 'input-small'
+          =f.label :first_name
+          =f.text_field :first_name, class: 'input-small'
+    %tr
+      %th
+        %span.required=User.human_attribute_name :full_name_kana
+      %td
+        .full_name_kana
+          =f.label :last_name_kana
+          =f.text_field :last_name_kana, class: 'input-small'
+          =f.label :first_name_kana
+          =f.text_field :first_name_kana, class: 'input-small'
+
+    %tr
+      %th=f.label :nickname, class: 'required'
+      %td
+        =f.text_field :nickname, :required => true
+        .help=t('student.about_nickname')
+
+    %tr
+      %th=f.label :email
+      %td=f.email_field :email
+
+  .form-actions.buttons
+    =f.submit class: 'btn'

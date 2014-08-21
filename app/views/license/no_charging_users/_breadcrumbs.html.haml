@@ -1,0 +1,5 @@
+%ul.breadcrumb
+  %li=link_to_unless_current t('no_charging_user.titles.index'), license_no_charging_users_path
+  -if @no_charging_user
+    -if @no_charging_user.new_record?
+      =breadcrumb_item t('no_charging_user.titles.new'), {action: :new}

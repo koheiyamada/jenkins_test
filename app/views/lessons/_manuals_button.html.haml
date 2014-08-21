@@ -1,0 +1,7 @@
+.btn-group
+  %a.btn.dropdown-toggle{data: {toggle: 'dropdown'}, href: '#'}
+    =t('common.manuals')
+    %span.caret
+  %ul.dropdown-menu
+    %li=link_to t('common.user_manual'), 'http://www.aidnet.jp/user-manual/', target: '_blank'
+    %li=link_to t('common.trouble_manual'), 'http://www.aidnet.jp/trouble-manual/', target: '_blank'

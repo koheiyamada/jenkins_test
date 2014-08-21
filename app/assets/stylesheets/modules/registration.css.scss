@@ -1,0 +1,81 @@
+@import 'base';
+
+.registration-form {
+  width: 640px;
+  margin: 0 auto;
+  padding-bottom: 40px;
+  background-color: #fff;
+
+  p {
+    padding: 0 50px;
+    line-height: 2em;
+  }
+
+  .buttons {
+    margin-top: 50px;
+
+    > * {
+      display: inline-block;
+      margin-right: 40px;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+  
+  &.confirmation2 {
+    img {
+      height: 60px;
+      margin: 0 20px;
+    }
+
+    .services {
+      text-align: center;
+    }
+  }
+
+  .pledge {
+    width: 100%;
+    border: 1px solid $aid-gray;
+  }
+}
+
+.registration-form-for-email{
+  width: 751px;
+  margin: 0 auto;
+  padding-bottom: 40px;
+  background-color: #fff;
+
+  p {
+    padding: 0 50px;
+    line-height: 2em;
+  }
+
+  .buttons {
+    margin-top: 50px;
+
+    > * {
+      display: inline-block;
+      margin-right: 40px;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+  
+  &.confirmation2 {
+    img {
+      height: 60px;
+      margin: 0 20px;
+    }
+
+    .services {
+      text-align: center;
+    }
+  }
+
+  .pledge {
+    width: 100%;
+    border: 1px solid $aid-gray;
+  }
+}

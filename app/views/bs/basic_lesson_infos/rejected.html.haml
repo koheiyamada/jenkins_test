@@ -1,0 +1,10 @@
+=content_for :tabmenu do
+  =render "nav_tab"
+
+%h1=title t("titles.rejected_basic_lesson_infos")
+
+-if @basic_lesson_infos.empty?
+  =t('common.not_found')
+-else
+  =render layout:"basic_lesson_infos/basic_lesson_infos", locals:{basic_lesson_infos:@basic_lesson_infos} do |basic_lesson_info|
+    =img_link_to "common.detail", bs_basic_lesson_info_path(basic_lesson_info), class:"small"

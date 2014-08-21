@@ -1,0 +1,4 @@
+%ul.breadcrumb
+  %li=link_to_unless_current t("titles.tutors"), bs_tutors_path
+  -if @tutor
+    =breadcrumb_item user_display_name(@tutor), bs_tutor_path(@tutor)

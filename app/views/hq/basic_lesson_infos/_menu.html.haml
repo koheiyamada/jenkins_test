@@ -1,0 +1,6 @@
+.button-menu
+  -if @basic_lesson_info
+    -if @basic_lesson_info.active? || @basic_lesson_info.closed?
+      =link_to t('common.lessons'), hq_basic_lesson_info_lessons_path(@basic_lesson_info), class: 'btn btn-small'
+  -else
+    =link_to t('common.new'), new_hq_basic_lesson_info_path, class: 'btn btn-small'

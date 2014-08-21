@@ -1,0 +1,8 @@
+差出人：<%= @message.sender.full_name %>
+
+受取人：<%= @message.recipients.map{|r| r.full_name}.join(', ') %>
+
+件名：<%= @message.title %>
+
+本文：
+<%= @message.text %>

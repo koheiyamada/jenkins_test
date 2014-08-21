@@ -1,0 +1,23 @@
+=render "application/validation_errors", model:message
+
+-message.recipients.select{|r| r.errors.any?}.each do |r|
+  %p=r.errors.full_messages.join(", ")
+
+
+=form_for message, url:url, html: {id: 'change_schedule_message_form'} do |f|
+  %table.table
+    %tbody
+      %tr
+        %th=label_tag :recipients, t("labels.recipients")
+        %td.recipients
+          -recipients.each do |recipient|
+            =recipient.name
+            =hidden_field_tag "recipients[#{recipient.class.name.underscore}][]", recipient.id
+      %tr
+        %th=f.label :title
+        %td.title=f.text_field :title
+      %tr
+        %th=f.label :text
+        %td.text=f.text_area :text
+  .actions.buttons
+    =img_submit "common.send"

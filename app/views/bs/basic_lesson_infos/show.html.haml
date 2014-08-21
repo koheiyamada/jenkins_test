@@ -1,0 +1,23 @@
+=content_for :subheader do
+  =render "breadcrumbs"
+
+%h1=title t("titles.basic_lesson_info")
+
+=render "menu"
+
+=render "basic_lesson_infos/basic_lesson_info", basic_lesson_info:@basic_lesson_info
+
+-if @basic_lesson_info.active?
+  .buttons
+    -if current_user.my_basic_lesson? @basic_lesson_info
+      -if @basic_lesson_info.auto_extension
+        =link_to t('basic_lesson_info.stop_auto_extension'), turn_off_auto_extension_bs_basic_lesson_info_path(@basic_lesson_info), method: :post, data: {confirm: t('messages.confirm_turn_off_auto_extension')}, class: 'btn'
+      -else
+        =link_to t('basic_lesson_info.start_auto_extension'), turn_on_auto_extension_bs_basic_lesson_info_path(@basic_lesson_info), method: :post, data: {confirm: t('messages.confirm_turn_on_auto_extension')}, class: 'btn'
+      =link_to t('basic_lesson_info.titles.close'), close_bs_basic_lesson_info_path(@basic_lesson_info), class: 'btn'
+    -unless @basic_lesson_info.full?
+      =link_to t('titles.add_basic_lesson_info_student'), new_bs_basic_lesson_info_student_path(@basic_lesson_info), class: 'btn'
+
+-elsif @basic_lesson_info.pending?
+  .buttons
+    =link_to t('common.cancel'), cancel_bs_basic_lesson_info_path(@basic_lesson_info), method:'post', class:'btn', data:{confirm:t('lesson.message.confirm_to_cancel_request')}

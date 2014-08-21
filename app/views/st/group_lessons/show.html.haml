@@ -1,0 +1,13 @@
+=content_for :subheader do
+  =render 'breadcrumbs'
+
+%h1=title t("titles.group_lesson")
+
+=render 'lesson', lesson:@lesson
+
+-if @lesson.recruiting?
+  .buttons
+    -#=img_link_to "lesson.join_group_lesson", join_st_group_lesson_path(@lesson), method:"post", data:{confirm:t("lesson.message.confirm_joining_to_group_lesson")}
+    =link_to join_st_group_lesson_path(@lesson), method: :post, class: 'btn btn-large btn-aid-primary', data:{confirm:t("lesson.message.confirm_joining_to_group_lesson")} do
+      %i.icon-signin
+      =t('lesson.join_group_lesson')

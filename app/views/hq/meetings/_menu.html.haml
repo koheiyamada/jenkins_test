@@ -1,0 +1,4 @@
+-if current_user.can_access? :meeting, :write
+  .button-menu
+    .menu_item
+      =link_button_to 'plus', t('common.new'), new_hq_meeting_path, class: 'btn-small'

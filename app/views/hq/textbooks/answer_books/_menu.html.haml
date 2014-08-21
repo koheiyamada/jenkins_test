@@ -1,0 +1,5 @@
+%ul.nav.nav-pills.textbook-menu
+  %li{class: current_page?(hq_textbook_path(@textbook)) ? 'active' : ''}
+    =link_to t('titles.textbook'), "../#{@textbook.id}"
+  %li{class: current_page?(hq_textbook_answer_book_path(@textbook)) ? 'active' : ''}
+    =link_to t('titles.answer_book'), '#'

@@ -1,0 +1,5 @@
+%ul.nav.nav-pills.textbook-menu
+  %li{class: current_page?({action:'show', id:@textbook}) ? 'active' : ''}
+    =link_to t('titles.textbook'), '#'
+  %li
+    =link_to t('titles.answer_book'), "#{@textbook.id}/answer_book"

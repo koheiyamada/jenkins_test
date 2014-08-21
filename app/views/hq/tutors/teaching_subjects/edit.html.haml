@@ -1,0 +1,6 @@
+=content_for :subheader do
+  =render 'breadcrumbs'
+
+%h1=title t("titles.edit_teaching_subjects")
+
+=render 'form', path: hq_tutor_teaching_subjects_path(@tutor)

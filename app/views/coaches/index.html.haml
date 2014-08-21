@@ -1,0 +1,14 @@
+=content_for :tabmenu do
+  =render 'nav_tab'
+
+%h1=title t('titles.coaches')
+
+=render 'shared/centered_search_box'
+
+=render 'menu'
+
+-if @coaches.empty?
+  =t('common.not_found')
+-else
+  =render 'coaches', coaches: @coaches
+  =paginate @coaches

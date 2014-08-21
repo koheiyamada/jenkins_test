@@ -1,0 +1,8 @@
+=content_for :subheader do
+  =render "breadcrumbs"
+
+%h1=title t("common.parent") + ":" + @parent.full_name
+=render "parent", parent:@parent
+
+.buttons
+  =img_link_to "common.send_message", new_bs_my_message_path(recipients:@parent.id)

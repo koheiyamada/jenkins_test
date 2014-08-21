@@ -1,0 +1,34 @@
+%h1=title t('titles.optional_lesson_available_time_settings2')
+
+%form.daily-available-times-editor.form-inline
+  %section
+    %h2=t('daily_available_times.titles.date_select')
+    .date-select
+      =hidden_field_tag :date
+      .date_picker
+
+  %section
+    %h2=t('daily_available_times.titles.time_select')
+    .time-select
+      %span
+        =select_time(@start_time,
+                     {minute_step: 5, prompt: {hour: t('tutor_search.hour'), minute: t('tutor_search.minute')}, prefix: 'start_time'},
+                     class: 'input-small')
+      \-
+      %span
+        =select_time(@end_time,
+                     {minute_step: 5, prompt: {hour: t('tutor_search.hour'), minute: t('tutor_search.minute')}, prefix: 'end_time'},
+                     class: 'input-small')
+      %span
+        =button_tag t('common.add'), class: 'btn'
+
+  %section
+    %h2=t('daily_available_times.titles.available_times_of_selected_day')
+    .available_times-of-selected-day
+      =t('common.not_found')
+
+  %section
+
+    .buttons
+      =button_tag t('common.confirm'), class: 'btn btn-primary'
+      =button_tag t('common.cancel'), class: 'btn'

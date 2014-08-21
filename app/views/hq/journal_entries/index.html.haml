@@ -1,0 +1,14 @@
+=content_for :subheader do
+  =render 'breadcrumbs'
+
+%h1=title t("titles.journal_entries")
+
+=render 'menu'
+
+-if @journal_entries.empty?
+  =t('common.not_found')
+-else
+  =render layout: 'journal_entries', locals:{journal_entries:@journal_entries} do |journal_entry|
+    =render 'list_item_actions', journal_entry:journal_entry
+
+  =paginate @journal_entries

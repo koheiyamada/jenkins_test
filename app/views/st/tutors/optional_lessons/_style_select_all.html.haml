@@ -1,0 +1,12 @@
+.group_lesson_options
+  %table.lessson_options
+    %tr
+      %td
+        =img_link_to 'lesson.no_group_lesson', {action:'create', type: :single}, method:'post'
+        =t('lesson.message.no_group_lesson')
+      %td
+        =img_link_to 'lesson.not_select_student', {action:'create', type: :shared}, method:'post'
+        =t('lesson.message.not_select_student')
+      %td
+        =img_link_to 'lesson.select_student', {action:'create', type: :friends}, method:'post'
+        =t('lesson.message.select_student')

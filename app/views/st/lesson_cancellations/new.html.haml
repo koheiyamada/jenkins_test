@@ -1,0 +1,18 @@
+=content_for :subheader do
+  =render 'breadcrumbs'
+
+%h1=title t('lesson_cancellation.titles.new')
+
+%section
+  %h2=t('common.lesson')
+  =render 'lessons/lesson_info', lesson:@lesson
+
+=render 'application/validation_errors', model: @lesson_cancellation
+
+=form_for @lesson_cancellation, url: st_lesson_cancellation_path(@lesson) do |f|
+  %table.table
+    %tr
+      %th=f.label :reason, class: 'required'
+      %td=f.text_field :reason, class: 'input-xxlarge', maxlength: 250
+  .form-actions.buttons
+    =img_submit 'common.send', data: {confirm: t('lesson_cancellation.confirm_to_cancel')}

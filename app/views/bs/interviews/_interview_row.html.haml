@@ -1,0 +1,12 @@
+%tr
+  %td.name=interview.user1.full_name
+  %td.interviewer=interview.user2.full_name
+  %td.time=l(interview.start_time, format: :short)
+  %td.actions
+    %ul.unstyled
+      -unless interview.done?
+        %li Edit
+        %li=link_to t("common.interview"), bs_interview_path(interview)
+        %li=link_to t("common.done"), done_bs_interview_path(interview), method:"post", data:{confirm:t("messages.confirm_interview_finished")}
+      -else
+        %li Report

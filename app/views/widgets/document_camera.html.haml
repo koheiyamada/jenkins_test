@@ -1,0 +1,10 @@
+%h1=title t('titles.document_camera_widgets')
+
+%h2=t('soba_widget.publisher')
+
+=render 'soba_widgets/document_camera_publisher', channel: @channel, width: 240, height: 180
+
+%h2=t('soba_widget.subscriber')
+
+.widget{data: {delayed_load: "#{document_camera_subscriber_widgets_path}"}}
+/=render 'document_camera_subscriber', channel: channel, width: 720, height: 540

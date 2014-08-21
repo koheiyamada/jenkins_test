@@ -1,0 +1,28 @@
+=content_for :subheader do
+  =render 'breadcrumbs'
+
+%h1=t('titles.new_basic_lesson_info')
+
+=render 'application/validation_errors', model:@basic_lesson_info
+
+%table.table.lesson-type-select
+  %tbody
+    %tr
+      %td
+        %i.icon-user
+      %td
+        =link_to t('lesson.new_single_lesson'), bs_basic_lesson_infos_path(type: :single), method:'post', class:'btn'
+    %tr
+      %td
+        %i.icon-user
+        %i.icon-user
+      %td
+        =link_to t('lesson.new_friends_lesson'), bs_basic_lesson_infos_path(type: :friends), method:'post', class:'btn'
+    %tr
+      %td
+        %i.icon-user
+        %span.divider
+          |
+        %i.icon-user
+      %td
+        =link_to t('lesson.new_shared_lesson'), bs_basic_lesson_infos_path(type: :shared), method:'post', class:'btn'

@@ -1,0 +1,14 @@
+=form_for system_settings, url:path do |f|
+  =render "validation_errors", model:system_settings
+  %table.table
+    %tr
+      %th=f.label :free_mode
+      %td=f.select :free_mode,[['停止',false],['開始',true]]
+    %tr
+      %th=f.label :free_lesson_limit_number
+      %td=f.number_field :free_lesson_limit_number, min:0, :required => true
+    %tr
+      %th=f.label :free_lesson_expiration_date
+      %td=f.number_field :free_lesson_expiration_date, min:0, :required => true
+  .buttons
+    =img_submit 'common.update'

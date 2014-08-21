@@ -1,0 +1,7 @@
+=content_for :subheader do
+  =render "breadcrumbs"
+
+%h1=title t("titles.bs_users")
+
+=render layout:"users/users", locals:{users:@bs_users} do |bs_user|
+  =img_link_to "common.detail", hq_bs_bs_user_path(@bs, bs_user), class:"small"

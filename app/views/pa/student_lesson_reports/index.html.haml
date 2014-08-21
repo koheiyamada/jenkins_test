@@ -1,0 +1,10 @@
+=render "pa/student_header", student:@student
+
+%h3=t("titles.lesson_reports")
+
+-if @lesson_reports.blank?
+  =t('common.not_found')
+-else
+  =render layout:"lesson_reports/lesson_reports", locals:{lesson_reports:@lesson_reports} do |lesson_report|
+    =img_link_to "common.detail", pa_student_lesson_report_path(@student, lesson_report), class:"small"
+  =paginate @lesson_reports

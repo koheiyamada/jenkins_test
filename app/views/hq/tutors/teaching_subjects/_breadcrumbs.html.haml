@@ -1,0 +1,6 @@
+%ul.breadcrumb
+  %li=link_to_unless_current t("titles.tutors"), hq_tutors_path
+  =render 'shared/breadcrumb_item', text:@tutor.full_name, url:hq_tutor_path(@tutor)
+  =render 'shared/breadcrumb_item', text:t('titles.teaching_subjects'), url:hq_tutor_teaching_subjects_path(@tutor)
+  -if params[:action] == 'edit'
+    =breadcrumb_item t('common.edit'), edit_hq_tutor_teaching_subjects_path(@tutor)

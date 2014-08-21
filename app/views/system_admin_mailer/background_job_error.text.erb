@@ -1,0 +1,19 @@
+TIME: <%= Time.current %>
+
+HOST: <%= mailer_hostname %>
+
+JOB: <%= @job_name %>
+
+MESSAGE: <%= @error.message %>
+
+<% if @error.respond_to?(:record) && @error.record.present? -%>
+OBJECT:
+  CLASS: <%= @error.record.class.name %>
+  ID:    <%= @error.record.id %>
+  ERRORS: <%= @error.record.errors.full_messages %>
+
+<% end -%>
+<% if @error.backtrace.present? -%>
+BACKTRACE:
+<%= @error.backtrace.join("\n") %>
+<% end -%>

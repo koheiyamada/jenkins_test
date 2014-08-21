@@ -1,0 +1,9 @@
+%h1=title @textbook.title
+
+-if @answer_book.nil?
+  =t('common.not_found')
+-else
+  =render 'viewer', answer_book: @answer_book
+
+.pagination-centered
+  =button_tag t('common.close'), class:'btn window-close-button'

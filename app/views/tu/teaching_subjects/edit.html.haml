@@ -1,0 +1,7 @@
+/=render "breadcrumbs"
+=content_for :tabmenu do
+  =render "tu/profiles/nav_tab"
+
+%h1=title t("titles.edit_teaching_subjects")
+
+=render 'teaching_subjects/form'

@@ -1,0 +1,15 @@
+-title t('titles.home')
+
+%section
+  %h2=t('common.messages')
+  -if @message_recipients.blank?
+    =t('common.not_found')
+  -else
+    =render layout: 'message_recipients/message_recipients', locals: {message_recipients: @message_recipients} do |message|
+      =render 'messages/buttons', path: hq_message_path(message)
+
+-if current_user.can_access?(:lesson, :read)
+  %section.clearfix
+    %h2=t("common.lesson_schedule")
+    /%iframe{src:hq_calendar_path, width:"100%", height:"600px"}
+    .lesson-calendar-holder{"data-path" => "/hq/lessons/calendar"}

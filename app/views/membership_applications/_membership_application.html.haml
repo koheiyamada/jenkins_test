@@ -1,0 +1,10 @@
+%table.table.membership-application
+  %tr
+    %th=MembershipApplication.human_attribute_name :user
+    %td=user_display_name_with_role membership_application.user
+  %tr
+    %th=MembershipApplication.human_attribute_name :created_at
+    %td=l membership_application.created_at, format: :promise
+  %tr
+    %th=MembershipApplication.human_attribute_name :status
+    %td=membership_application_status membership_application

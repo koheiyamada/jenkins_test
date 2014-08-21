@@ -1,0 +1,6 @@
+%h1=title t('titles.system_settings')
+
+=render 'system_settings/system_settings', system_settings:@system_settings
+
+.buttons
+  =img_link_to 'common.edit', edit_hq_settings_path

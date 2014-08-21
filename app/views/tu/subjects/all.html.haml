@@ -1,0 +1,9 @@
+%h1=title t("titles.subjects")
+
+=render "menu"
+
+-if @subjects.empty?
+  =t('common.not_found')
+-else
+  =render "subjects/subjects", subjects:@subjects
+  =paginate @subjects

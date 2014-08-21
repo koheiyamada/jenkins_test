@@ -1,0 +1,19 @@
+-if @lesson.under_request?
+  %ul.breadcrumb
+    %li
+      =link_to_unless_current t("titles.lesson_requests"), tu_lesson_requests_path
+    =breadcrumb_item t("titles.lesson_request"), tu_lesson_request_path(@lesson)
+    =breadcrumb_item t("titles.student"), tu_lesson_request_student_path(@lesson, @student)
+    =breadcrumb_item t("titles.lesson_reports"), tu_lesson_student_lesson_reports_path(@lesson, @student)
+    -if @lesson_report
+      =breadcrumb_item t("titles.lesson_report"), tu_lesson_student_lesson_report_path(@lesson, @student, @lesson_report)
+-else
+  %ul.breadcrumb
+    %li
+      =link_to_unless_current t("titles.lessons"), tu_lessons_path
+    =breadcrumb_item t("titles.lesson"), tu_lesson_path(@lesson)
+    =breadcrumb_item t("titles.student"), tu_lesson_student_path(@lesson, @student)
+    =breadcrumb_item t("titles.lesson_reports"), tu_lesson_student_lesson_reports_path(@lesson, @student)
+    -if @lesson_report
+      =breadcrumb_item t("titles.lesson_report"), tu_lesson_student_lesson_report_path(@lesson, @student, @lesson_report)
+

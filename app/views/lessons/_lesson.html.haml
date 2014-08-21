@@ -1,0 +1,64 @@
+%table.table.lesson.lesson-detail
+  %tr
+    %th=Lesson.human_attribute_name :id
+    %td=lesson.id
+  %tr
+    %th=t("common.tutor")
+    %td=user_display_name(lesson.tutor)
+  %tr
+    %th=t("common.time")
+    %td=render 'lessons/time_range', lesson: lesson, show_timezone: true
+  %tr
+    %th=t("common.students")
+    %td
+      -lesson.students.each do |student|
+        .student.lesson-student{data: {id: student.id, status: "is-#{student.of_lesson(lesson).status}"}}
+          %span.name
+            =user_display_name student
+          -if lesson.student_cancelled?(student)
+            %span.cancellation-reason
+              ="(#{t('common.cancel')}: #{lesson_cancellation_reason lesson, student})"
+          =render "actions_for_student", student:student, lesson:lesson
+  -if lesson.is_a?(InvitableLesson) && lesson.lesson_invitation.present?
+    %tr
+      %th=Lesson.human_attribute_name :lesson_invitation
+      %td
+        =render 'lesson_invitation', lesson_invitation: lesson.lesson_invitation
+  %tr
+    %th=Lesson.human_attribute_name :status
+    %td
+      %span=lesson_status(lesson)
+      -if lesson.rejected?
+        -rejection = lesson.lesson_request_rejection
+        -if rejection.present?
+          %p.rejected_reason
+            =rejection.reason
+      -if lesson.cancelled?
+        -if lesson.tutor_lesson_cancellation.present?
+          %p.cancelled_reason
+            =user_display_name lesson.tutor
+            \:
+            =lesson.tutor_lesson_cancellation.reason
+
+  %tr
+    %th=t('common.lesson_style')
+    %td=lesson_style(lesson)
+  %tr
+    %th=Lesson.human_attribute_name :type
+    %td=lesson_type(lesson)
+  -if SystemSettings.cs_point_visible? || current_user.hq_user? || current_user.tutor? || lesson.member_student?(current_user)
+    %tr
+      %th=t("common.cs_sheet")
+      %td
+        -lesson.cs_sheets.each do |cs_sheet|
+          =render "actions_for_cs_sheet", cs_sheet:cs_sheet, lesson:lesson
+    -if lesson.cs_point.present?
+      %tr
+        %th=Lesson.human_attribute_name :cs_point
+        %td=lesson.cs_point
+  %tr
+    %th=t("common.files")
+    %td=render "materials", lesson:lesson
+
+-if params[:debug].present?
+  =render 'lessons/time_schedule', lesson: lesson

@@ -1,0 +1,21 @@
+@import "base";
+
+.unavailable-days {
+  .unavailable-day {
+    display: inline-block;
+    margin-bottom: 10px;
+    background-color: #ddd;
+    @include border-radius(4px);
+    padding: 4px;
+    .delete-button {
+      display: inline-block;
+      a {
+        color: #888;
+      }
+    }
+  }
+}
+
+.new_unavailable_day {
+  margin-top: 40px;
+}

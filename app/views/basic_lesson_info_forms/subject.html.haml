@@ -1,0 +1,12 @@
+%h1=title t("common.new_basic_lesson_info")
+
+=render "basic_lesson_info", basic_lesson_info:@basic_lesson_info
+
+%h2=t("common.subject_selection")
+
+%ul.subjects
+  -@basic_lesson_info.tutor.subjects.each do |subject|
+    %li=button_to subject.name, wizard_path(nil, subject_id:subject.id), method:"put"
+
+.buttons
+  =img_link_to "common.cancel", {action:"cancel"}, method:"post", data:{confirm:t("basic_lesson_info.confirm_to_make_request")}

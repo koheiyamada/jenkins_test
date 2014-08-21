@@ -1,0 +1,8 @@
+=content_for :subheader do
+  =render "breadcrumbs"
+
+%h1=title t("titles.new_hq_user")
+
+=render "application/validation_errors", model:@hq_user
+
+=render "form", hq_user:@hq_user

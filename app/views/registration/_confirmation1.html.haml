@@ -1,0 +1,8 @@
+%article.registration-form
+  %h1 ご確認事項（年齢）
+
+  %p 本システムをご利用されます受講者様の年齢区分をご選択ください。
+
+  .buttons
+    =button_to '２０歳未満', {action: :process_confirmation1, under_20: 1}, class: 'btn btn-large btn-primary'
+    =button_to '２０歳以上', {action: :process_confirmation1, under_20: 0}, class: 'btn btn-large btn-primary'

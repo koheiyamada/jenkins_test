@@ -1,0 +1,15 @@
+<%
+   camera_width = width if !defined?(camera_width) || camera_width.nil?
+   camera_height = height if !defined?(camera_height) || camera_height.nil?
+%>
+<div id="soba-widget-publisher-<%= channel %>"
+     class="soba-widget-video"
+     data-width="<%= width %>"
+     data-height="<%= height %>"
+     data-camera-width="<%= camera_width %>"
+     data-camera-height="<%= camera_height %>"
+     data-quality="<%= SystemSettings.meeting_video_quality %>"
+     data-bandwidth="<%= SystemSettings.meeting_video_bandwidth %>"
+     data-fps="<%= SystemSettings.meeting_video_fps %>"
+     data-widget-id="meeting_video_publisher"></div>
+<script src="<%= SobaWidget.video_publisher_url(channel) %>" type="text/javascript"></script>

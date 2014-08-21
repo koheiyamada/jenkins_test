@@ -1,0 +1,22 @@
+%table.table.monthly_statement
+  %thead
+    %th=MonthlyStatementItem.human_attribute_name :account_item
+    %th=MonthlyStatementItem.human_attribute_name :amount_of_payment
+    %th=MonthlyStatementItem.human_attribute_name :billing
+  %tbody
+    -monthly_statement.items.each do |item|
+      %tr
+        %td=account_item(item)
+        %td=number_to_currency(item.amount_of_payment)
+        %td=number_to_currency(item.amount_of_money_received)
+    / 消費税は無くなったので表示する必要はないが、消費税が加算されているデータを検出するために、
+    / 金額がある場合のみ表示する。
+    -if monthly_statement.tax_of_payment > 0 || monthly_statement.tax_of_money_received > 0
+      %tr.tax
+        %td=t('common.tax')
+        %td=number_to_currency monthly_statement.tax_of_payment
+        %td=number_to_currency monthly_statement.tax_of_money_received
+    %tr.total
+      %td=t('common.total')
+      %td=number_to_currency monthly_statement.amount_of_payment
+      %td=number_to_currency monthly_statement.amount_of_money_received

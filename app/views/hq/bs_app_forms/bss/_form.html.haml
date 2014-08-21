@@ -1,0 +1,21 @@
+=render "application/validation_errors", model:bs
+
+=form_for bs, url:hq_bs_app_form_bs_path(@bs_app_form) do |f|
+  %table.table
+    %tr
+      %th=f.label :name
+      %td=f.text_field :name
+    %tr
+      %th=f.label :email, class: 'required'
+      %td=f.text_field :email
+    %tr
+      %th
+        %span.required=Bs.human_attribute_name :phone_number
+      %td=f.text_field :phone_number
+    %tr
+      %th
+        %span.required=Bs.human_attribute_name :address
+      %td=render "addresses/form", address:bs.address
+
+  .form-actions.buttons
+    =img_submit 'common.send'

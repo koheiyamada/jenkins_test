@@ -1,0 +1,6 @@
+-if current_user.can_access? :accounting, :write
+  .buttons
+    =link_to t('monthly_statement.calculate'), {action: :calculate_all}, method: :post, class: 'btn', remote: true
+    %p.help=t('monthly_statement.period_from_to', from: monthly_statement_first_day(@monthly_statement), to: monthly_statement_last_day(@monthly_statement))
+
+  =render 'shared/wait_screen'

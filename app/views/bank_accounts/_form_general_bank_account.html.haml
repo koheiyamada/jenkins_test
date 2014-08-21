@@ -1,0 +1,39 @@
+=form_for @bank_account, url: {action: 'create'}, as: :bank_account do |f|
+  =render 'application/validation_errors', model: @bank_account
+  =hidden_field_tag :bank, params[:bank]
+  %table.table
+    %tr
+      %th=GeneralBankAccount.human_attribute_name :bank_name
+      %td=f.text_field :bank_name
+    %tr
+      %th=GeneralBankAccount.human_attribute_name :bank_code
+      %td=f.text_field :bank_code
+    %tr
+      %th=GeneralBankAccount.human_attribute_name :branch_name
+      %td=f.text_field :branch_name
+    %tr
+      %th=GeneralBankAccount.human_attribute_name :branch_code
+      %td=f.text_field :branch_code, class: 'input-small'
+    %tr
+      %th=GeneralBankAccount.human_attribute_name :account_type
+      %td
+        =f.label :account_type_savings, class: 'radio' do
+          =f.radio_button :account_type, 'savings'
+          =t('bank_account.account_types.savings')
+        =f.label :account_type_checking, class: 'radio' do
+          =f.radio_button :account_type, 'checking'
+          =t('bank_account.account_types.checking')
+    %tr
+      %th=GeneralBankAccount.human_attribute_name :account_number
+      %td=f.text_field :account_number
+    %tr
+      %th=t('common.account_holder_name')
+      %td
+        =f.label :account_holder_name do
+          =t('common.kanji')
+          =f.text_field :account_holder_name
+        =f.label :account_holder_name_kana do
+          =t('common.kana2')
+          =f.text_field :account_holder_name_kana
+  .buttons.form-actions
+    =f.submit class: 'btn'

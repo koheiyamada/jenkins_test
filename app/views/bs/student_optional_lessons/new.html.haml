@@ -1,0 +1,16 @@
+%h1 Bs::StudentOptionalLessons#new
+%p Find me in app/views/bs/student_optional_lessons/new.html.haml
+
+=form_for [:bs, @student, @lesson] do |f|
+  =f.label :subject_id
+  =f.collection_select :subject_id, Subject.all, :id, :name
+  =f.label :tutor_id
+  =f.collection_select :tutor_id, current_user.tutors, :id, :full_name
+  =f.label :start_time
+  =f.datetime_select :start_time, {:minute_step => 15, :start_year => Date.today.year, :end_year => Date.today.year + 1}, class:"span1"
+  =f.label :units
+  =f.select :units, options_for_select(@units), {}, class:"span1"
+  =f.label :is_group_lesson
+  =f.check_box :is_group_lesson
+  .actions
+    =f.submit

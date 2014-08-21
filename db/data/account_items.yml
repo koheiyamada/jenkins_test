@@ -1,0 +1,72 @@
+entry_fee:
+  roles:
+    - student
+bs_id_management_fee:
+  roles:
+    - bs
+student_id_management_fee:
+  roles:
+    - student
+textbook_usage_fee:
+  roles:
+    - student
+basic_lesson_tutor_fee:
+  roles:
+    - tutor
+optional_lesson_tutor_fee:
+  roles:
+    - tutor
+tutor_referral_fee:
+  roles:
+    - tutor
+student_referral_fee:
+  roles:
+    - student
+basic_lesson_fee:
+  roles:
+    - student
+optional_lesson_fee:
+  roles:
+    - student
+exam2_fee:
+  roles:
+    - student
+exam3_fee:
+  roles:
+    - student
+exam4_fee:
+  roles:
+    - student
+exam5_fee:
+  roles:
+    - student
+lesson_sale_amount:
+  roles:
+    - bs
+scoring_fee:
+  roles:
+    - bs
+textbook_rental_fee:
+  roles:
+    - textbook_company
+bs_textbook_rental_fee:
+  roles:
+    - bs
+soba_id_management_fee:
+  roles:
+    - soba
+beginner_tutor_discount:
+  roles:
+    - student
+group_lesson_discount:
+  roles:
+    - student
+group_lesson_premium:
+  roles:
+    - tutor
+lesson_delay_reduction:
+  roles:
+    - tutor
+lesson_cancellation_penalty:
+  roles:
+    - tutor

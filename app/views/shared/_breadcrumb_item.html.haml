@@ -1,0 +1,13 @@
+-if defined?(:url)
+  -if current_page?(url)
+    %li.is-active
+      %span.divider=image_tag('breadcrumb-divider2.png')
+      %span.title=text
+  -else
+    %li
+      %span.divider=image_tag('breadcrumb-divider1.png')
+      =link_to text, url
+-else
+  %li
+    %span.divider=image_tag('breadcrumb-divider1.png')
+    =link_to text, url

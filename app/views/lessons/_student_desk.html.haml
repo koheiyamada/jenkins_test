@@ -1,0 +1,25 @@
+.desk{class: "student-#{student.id}", data: {student_id: student.id, user_id: student.id}}
+  .desk-content
+    .tab-content
+      .tab-pane.document-camera-pane.active
+        -if current_user == student
+          =render 'soba_widgets/document_camera_publisher', channel: lesson_document_camera_channel(lesson, student), width:desk_width, height:desk_height
+        -else
+          =render 'soba_widgets/document_camera_subscriber', channel: lesson_document_camera_channel(lesson, student), width:desk_width, height:desk_height
+      .tab-pane.materials-pane
+        -if lesson.student_materials(student).any?
+          =render 'materials_pane', user: student, lesson: lesson
+      .tab-pane.textbook-pane
+        =render 'textbook_pane', student:student, lesson:lesson
+  .desk-content-switch
+    %ul.nav.nav-pills.switcher{"data-student_id" => student.id}
+      %li.active
+        %a.switch_button.switch_button-document-camera(data-target=".desk.student-#{student.id} .document-camera-pane" data-toggle="pill" href="#")
+          =t("common.document_camera")
+      %li
+        %a.switch_button.switch_button-textbooks(data-target=".desk.student-#{student.id} .textbook-pane" data-toggle="pill" href="#")
+          =t("common.textbook")
+      -if lesson.student_materials(student).any?
+        %li
+          %a.switch_button.switch_button-materials(data-target=".desk.student-#{student.id} .materials-pane" data-toggle="pill" href="#")
+            =t("common.lesson_material")

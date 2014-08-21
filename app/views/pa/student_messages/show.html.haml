@@ -1,0 +1,9 @@
+=render 'pa/student_header', student:@student
+
+=render 'messages/message', message: @message
+
+.actions
+  .buttons
+    =img_link_to 'common.back', pa_student_messages_path(@student)
+    =img_link_to 'common.delete', pa_student_message_path(@student, @message), method: :delete, data: {confirm: t('common.do_you_really_delete_this')}
+

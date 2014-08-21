@@ -1,0 +1,36 @@
+- @search_data ||= {customer_type: ''}
+%table.table.students
+  %thead
+    %tr
+      %th=t("common.full_name")
+      %th=Parent.human_attribute_name :students
+      %th#customer_type=Parent.human_attribute_name :customer_type
+      %th#registered=Parent.human_attribute_name :registered
+      %th#logined=Parent.human_attribute_name :logined
+      %th#detail_button
+  %tbody
+    -parents.each do |parent|
+      %tr
+        %td=parent.full_name
+        %td
+          %ul.students
+            -parent.students.each do |student|
+              -@search_data["customer_type"] = nil if @search_data["customer_type"] == ''
+              -if @search_data["customer_type"].nil? or @search_data["customer_type"] == student.customer_type
+                %li=student.full_name
+        %td
+          %ul.students
+            -parent.students.each do |student|
+              -@search_data["customer_type"] = nil if @search_data["customer_type"] == ''
+              -if @search_data["customer_type"].nil? or @search_data["customer_type"] == student.customer_type
+                %li=t("customer_type.#{student.customer_type}")
+        -if parent.enrolled_at.present?
+          %td=l(parent.enrolled_at.to_date, :format => :year_month_day)
+        -else
+          %td
+        -if parent.current_sign_in_at.present?
+          %td=l parent.current_sign_in_at, format: :promise
+        -else
+          %td
+        %td=yield parent
+        

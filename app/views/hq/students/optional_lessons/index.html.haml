@@ -1,0 +1,12 @@
+=content_for :subheader do
+  =render "breadcrumbs"
+
+%h1=title t("titles.optional_lessons")
+
+=render "menu"
+
+-if @optional_lessons.blank?
+  =t('common.not_found')
+-else
+  =render layout:"lessons/lessons", locals:{lessons:@optional_lessons} do |lesson|
+    =img_link_to "common.detail", hq_lesson_path(lesson), class:"small"

@@ -1,0 +1,45 @@
+.lesson-extension {
+  .view {
+    display:none;
+  }
+
+  &.is-default {
+    .view {
+      &.default {
+        display: block;
+      }
+    }
+  }
+
+  &.is-extendable {
+    .view {
+      &.extendable {
+        display: block;
+      }
+    }
+  }
+
+  &.is-not-extendable {
+    .view {
+      &.not-extendable {
+        display: block;
+      }
+    }
+  }
+
+  &.is-extension-requested {
+    .view {
+      &.extension-requested {
+        display: block;
+      }
+    }
+  }
+
+  &.is-extended {
+    .view {
+      &.extended {
+        display: block;
+      }
+    }
+  }
+}

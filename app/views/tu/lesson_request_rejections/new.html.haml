@@ -1,0 +1,18 @@
+=content_for :subheader do
+  =render 'breadcrumbs'
+
+%h1=title t('lesson_request_rejection.titles.new')
+
+%section
+  %h2=t('common.lesson')
+  =render 'tu/lesson_requests/lesson', lesson:@lesson
+
+=render 'application/validation_errors', model: @lesson_request_rejection
+
+=form_for @lesson_request_rejection, url: tu_lesson_request_rejection_path do |f|
+  %table.table
+    %tr
+      %th=f.label :reason, class: 'required'
+      %td=f.text_field :reason, class: 'input-xxlarge', maxlength: 250
+  .form-actions.buttons
+    =img_submit 'common.send', data: {confirm: t('lesson_request_rejection.confirm_to_reject')}

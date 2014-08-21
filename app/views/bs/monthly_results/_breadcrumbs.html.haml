@@ -1,0 +1,4 @@
+%ul.breadcrumb
+  %li=link_to_unless_current t("titles.monthly_results"), bs_monthly_results_path
+  -if @monthly_result
+    =breadcrumb_item t("titles.monthly_result"), bs_monthly_result_path(@monthly_result)

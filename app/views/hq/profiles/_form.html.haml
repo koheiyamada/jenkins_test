@@ -1,0 +1,28 @@
+=render "validation_errors", model:hq_user
+=form_for hq_user, url:hq_profile_path do |f|
+  %table.table
+    %tr
+      %th=f.label :user_name
+      %td=f.text_field :user_name, class:"input-medium"
+    %tr.full_name
+      %th=HqUser.human_attribute_name :full_name
+      %td
+        =f.label :last_name
+        =f.text_field :last_name, class:"input-medium"
+        =f.label :first_name
+        =f.text_field :first_name, class:"input-medium"
+    %tr.full_name_kana
+      %th=HqUser.human_attribute_name :full_name_kana
+      %td
+        =f.label :last_name_kana
+        =f.text_field :last_name_kana, class:"input-medium"
+        =f.label :first_name_kana
+        =f.text_field :first_name_kana, class:"input-medium"
+    %tr
+      %th=f.label :email
+      %td
+        =f.text_field :email, readonly: true
+        =img_link_to "common.change", change_email_hq_profile_path
+
+  .buttons
+    =img_submit "common.update"

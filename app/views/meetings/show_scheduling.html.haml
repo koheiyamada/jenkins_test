@@ -1,0 +1,6 @@
+=content_for :subheader do
+  =render 'breadcrumbs_scheduling'
+
+%h1=title t('titles.meeting')
+
+=render 'meeting_scheduling', meeting: @meeting

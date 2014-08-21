@@ -1,0 +1,11 @@
+/ チューターが閲覧できる内容のみを含むこと
+%table.table.student.student-detail
+  %tr
+    %th=User.human_attribute_name :nickname
+    %td=student.nickname
+  %tr
+    %th=StudentInfo.human_attribute_name :grade
+    %td=grade(student)
+  %tr
+    %th=Student.human_attribute_name :current_sign_in_at
+    %td=l student.current_sign_in_at, format: :promise if student.current_sign_in_at

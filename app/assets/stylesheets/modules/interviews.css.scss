@@ -1,0 +1,21 @@
+.interview-list-item {
+  > * {
+    display: inline-block;
+  }
+  .user1 {
+    width: 20%;
+  }
+  .user2 {
+    width: 20%;
+  }
+  .time {
+    width: 50%;
+  }
+}
+
+.interview-screen {
+  .person {
+    background-color: #ddd;
+    min-height: 400px;
+  }
+}

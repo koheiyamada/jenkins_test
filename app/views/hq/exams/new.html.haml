@@ -1,0 +1,13 @@
+=content_for :subheader do
+  =render 'breadcrumbs'
+
+%h1=title t("titles.new_exam_for_grade_subject", grade:grade_name(@exam.grade), subject:@exam.subject.name)
+
+=form_for @exam, url:{action:"create"} do |f|
+  =render "application/validation_errors", model:@exam
+  %table.table
+    %tr
+      %th=f.label :file
+      %td=f.file_field :file
+  .actions.buttons
+    =button_tag t("common.send"), class:"btn"

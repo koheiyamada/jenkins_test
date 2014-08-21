@@ -1,0 +1,11 @@
+=content_for :subheader do
+  =render "breadcrumbs"
+
+%h1=title @bs_user.full_name
+
+=render "bs_users/bs_user", bs_user:@bs_user
+
+.buttons
+  -if current_user.can_access?(:bs_user, :write)
+    =img_link_to "common.edit", edit_hq_bs_bs_user_path(@bs, @bs_user)
+    =link_to t("common.change_password"), change_password_hq_bs_bs_user_path(@bs, @bs_user), class:"btn"

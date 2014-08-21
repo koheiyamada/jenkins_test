@@ -1,0 +1,15 @@
+.centered
+  .message
+    %p
+      引き続き、決済用のクレジットカード情報の登録ページに進みます。
+      %br
+      ウェブサイト上での決済はオンライン決済代行業者の○○に委託しております。
+    %p
+      以下のリンクをクリックすると、クレジットカード情報の登録ページに移動します。
+    .link
+      =link_to "http://aaaaa.html"
+    %p
+      ご不明な点やご質問等ございましたら、カスタマーサービスにお問い合わせください。
+  .buttons
+    =link_to t("common.register_credit_card"), register_credit_card_parents_path, class:"btn btn-large"
+    =link_to t("form.disagree"), disagree_parents_path, class:"btn btn-large", method:"post"

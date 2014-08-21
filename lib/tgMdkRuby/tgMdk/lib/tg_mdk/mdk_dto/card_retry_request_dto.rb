@@ -1,0 +1,111 @@
+# -*- encoding: utf-8 -*-
+require 'tg_mdk/mdk_dto/request_base_dto'
+
+include Veritrans::Tercerog::Mdk
+
+module Veritrans
+  module Tercerog
+    module Mdk
+      
+      # 
+      # =決済サービスタイプ：カード、コマンド名：リトライの要求Dtoクラス
+      # 
+      # @author:: Created automatically by EXCEL macro
+      # DEPRECATED: Retry Command have been deprecated from ver 1.0.3.
+      # 
+      class CardRetryRequestDto < ::RequestBaseDto
+
+        # 
+        # ===コンストラクタ
+        # 
+        def initialize
+          @service_type = SERVICE_TYPE
+          @service_command = SERVICE_COMMAND
+        end
+
+        # 
+        # 決済サービスタイプ 
+        # 半角英数字 
+        # 必須項目、固定値
+        #
+        SERVICE_TYPE = "card";
+
+        # 
+        # 決済サービスコマンド 
+        # 半角英数字 
+        # 必須項目、固定値
+        #
+        SERVICE_COMMAND = "Retry";
+
+        #
+        # ===決済サービスタイプを取得する 
+        # @return:: 決済サービスタイプ 
+        #
+        def service_type 
+            @service_type
+        end
+
+        #
+        # ===決済サービスコマンドを取得する 
+        # @return:: 決済サービスコマンド 
+        #
+        def service_command 
+            @service_command
+        end
+
+        #
+        # ===取引IDを取得する 
+        # @return:: 取引ID 
+        #
+        def order_id 
+            @order_id
+        end
+
+        #
+        # ===取引IDを設定する 
+        # - マーチャント側で取引を一意に表す注文管理IDを指定します。
+        # - 申込処理ごとに一意である必要があります。
+        # - 半角英数字、“-”（ハイフン）、“_”（アンダースコア）も使用可能です。
+        # @param :: orderId 取引ID 
+        #
+        def order_id=(orderId) 
+            @order_id = orderId
+        end
+
+        #
+        # ===ログ用文字列(マスク済み)を設定する
+        # @param :: maskedLog ログ用文字列(マスク済み) 
+        #
+        def _set_masked_log=(maskedLog) 
+            @masked_log = maskedLog
+        end
+
+        #
+        # ===ログ用文字列(マスク済み)を取得する 
+        # @return:: ログ用文字列(マスク済み) 
+        #
+        def to_string 
+            @masked_log
+        end
+
+
+        # 
+        # ===拡張パラメータリストを取得する
+        # @return:: 拡張パラメータリスト
+        # 
+        def option_params
+            return @option_params
+        end
+
+        # 
+        # ===拡張パラメータリストを設定する
+        # @param:: optionParams 拡張パラメータリスト
+        # 
+        def option_params=(optionParams)
+            @option_params = optionParams
+        end
+
+      end
+    end
+  end
+end

@@ -1,0 +1,31 @@
+form.teaching_subjects {
+
+  td:first-child {
+    //width: 10em;
+  }
+
+  .subject {
+    padding-left: 4px;
+    padding-bottom: 4px;
+
+    .name {
+      display: inline-block;
+      padding-top: 5px;
+      vertical-align: middle;
+      width: 5em;
+    }
+
+    &:nth-child(even) {
+      background-color: #eee;
+    }
+
+    .select-all {
+      margin-left: 10px;
+    }
+  }
+
+  label {
+    //width: 3em;
+    white-space: nowrap;
+  }
+}

@@ -1,0 +1,14 @@
+-if @weekday_schedules.blank?
+  =t('common.not_found')
+-else
+  %ul
+    -@weekday_schedules.each do |schedule|
+      %li
+        .weekday_schedule
+          %span.wday=t("date.abbr_day_name")[schedule.wday]
+          %span.from=l(schedule.from, format: :only_time)
+          %span ~
+          %span.to=l(schedule.to, format: :only_time)
+.actions
+  =link_to t("common.add"), "#", class:"btn"
+  

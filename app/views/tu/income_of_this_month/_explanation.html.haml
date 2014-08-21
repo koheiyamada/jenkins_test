@@ -1,0 +1,5 @@
+%p.explanation
+  #{l @this_month.prev_month.change(day: SystemSettings.cutoff_date + 1), format: :year_month_day2}
+  〜
+  #{l @this_month.change(day: SystemSettings.cutoff_date), format: :year_month_day2}
+  の期間における、レッスン報酬の状況です。

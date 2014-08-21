@@ -1,0 +1,8 @@
+レッスン開始時刻が近づいています。
+
+開始時刻まで <%= distance_of_time_in_words_to_now(@lesson.start_time) %>
+
+<%= render "lesson", lesson:@lesson %>
+
+■レッスンページ
+<%= tu_lesson_url(@lesson) %>

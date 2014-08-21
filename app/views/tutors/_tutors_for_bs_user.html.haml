@@ -1,0 +1,23 @@
+%table.table.tutors
+  %thead
+    %tr
+      %th=Tutor.human_attribute_name :photo
+      %th=tutor_name_label
+      %th
+      %th=Tutor.human_attribute_name :sex
+      %th=Tutor.human_attribute_name :current_sign_in_at
+      %th
+  %tbody
+    -tutors.each do |tutor|
+      %tr
+        %td.photo=user_image(tutor, width:64)
+        %td.name=user_display_name(tutor)
+        %td.status
+          -if tutor.beginner?
+            %span.label.label-info=t("common.beginner")
+          -if tutor.special?
+            %span.label.label-info=t('common.special')
+        %td.sex=sex(tutor)
+        %td.last_login_time=l(tutor.current_sign_in_at) if tutor.current_sign_in_at
+        %td.actions
+          =yield tutor

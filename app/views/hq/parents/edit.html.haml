@@ -1,0 +1,6 @@
+=content_for :subheader do
+  =render "breadcrumbs"
+
+%h1=title t("common.parent") + ":" + @parent.full_name
+=render "menu"
+=render "parents/form", parent:@parent, url:hq_parent_path(@parent)

@@ -1,0 +1,16 @@
+table.table.banks
+  thead
+    tr
+      th=Bank.human_attribute_name :name
+      th=Bank.human_attribute_name :code
+      th
+  tbody
+    -@banks.each do |bank|
+      tr
+        td=bank.name
+        td=bank.code
+        td
+          -unless bank.special?
+            =link_to t('common.edit'), edit_bank_path(bank), class: 'btn btn-small'
+            -if bank.bank_accounts.empty?
+              =link_to t('common.delete'), bank_path(bank), method: :delete, class: 'btn btn-small', data: {confirm: t('bank.messages.confirm_to_delete')}

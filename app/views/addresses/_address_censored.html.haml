@@ -1,0 +1,11 @@
+.address
+  .postal_code=address.postal_code
+  -postal_code = PostalCode.search_by_postal_code address.postal_code
+  -if postal_code.present?
+    .line1
+      =postal_code.prefecture
+      =postal_code.line1
+  -else
+    .line1
+      =address.state if address.state
+      =address.line1

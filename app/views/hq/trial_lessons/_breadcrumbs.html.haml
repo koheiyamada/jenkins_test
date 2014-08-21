@@ -1,0 +1,5 @@
+%ul.breadcrumb
+  %li
+    =link_to_unless_current t('trial_lesson.titles.list'), hq_trial_lessons_path
+  -if @lesson
+    =breadcrumb_item t('titles.lesson'), hq_trial_lesson_path(@lesson)

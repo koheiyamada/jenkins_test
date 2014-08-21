@@ -1,0 +1,10 @@
+=content_for :subheader do
+  =render "breadcrumbs"
+
+%h1=title t("titles.new_lesson_report")
+
+=form_for @lesson_report, url:tu_lesson_reports_path(student_id:@student.id) do |f|
+  =f.label :content
+  =f.text_area :content, class:"span8"
+  .actions
+    =img_submit "common.submit"

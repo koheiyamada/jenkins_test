@@ -1,0 +1,23 @@
+.new_yucho_account, .edit_yucho_account {
+  th {
+    white-space: nowrap;
+  }
+
+  #yucho_account_kigo1 {
+    width: 5em;
+  }
+
+  #yucho_account_kigo2 {
+    width: 1em;
+  }
+
+  #yucho_account_bango {
+    width: 8em;
+  }
+
+  .account-number {
+    .help-inline {
+      font-size: small;
+    }
+  }
+}

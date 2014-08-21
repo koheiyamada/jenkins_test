@@ -1,0 +1,17 @@
+.buttons
+  -if current_user.can_access? :lesson, :write
+    -if @lesson.accepted? || @lesson.rescheduling?
+      -if @lesson.schedule_changeable?
+        =link_to t('common.change_schedule'), change_schedule_hq_lesson_path(@lesson), class: 'btn'
+      =link_to t('common.cancel_lesson'), cancel_hq_lesson_path(@lesson), class: 'btn'
+    -if @lesson.under_request?
+      -if current_user.can_cancel?(@lesson)
+        =link_to t('common.cancel'), cancel_request_hq_lesson_path(@lesson), method:'post', class:'btn', data:{confirm:t('lesson.message.confirm_to_cancel_request')}
+  -if lesson_can_monitor_now? @lesson
+    =link_to t('common.enter_lesson_room_as_tutor'), room_as_tutor_hq_lesson_path(@lesson), class: 'btn'
+    -@lesson.students.each do |student|
+      =link_to t("common.enter_lesson_room_as_x", x: student.full_name), room_as_student_hq_lesson_path(@lesson, student_id:student.id), class: 'btn'
+
+  -if Rails.env.development?
+    -if current_user.can_access? :accounting, :read
+      =link_to t('common.accountings'), accounting_hq_lesson_path(@lesson), class: 'btn'

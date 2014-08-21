@@ -1,0 +1,15 @@
+.college
+  =tutor.info.college
+  =tutor.info.department
+  =tutor.info.faculty
+  -if tutor.info.graduated?
+    =TutorInfo.human_attribute_name "graduated_#{tutor.info.graduated?}"
+  -else
+    -if tutor.info.grade
+      =tutor.info.grade
+      =t("common.collage_grade")
+-if tutor.info.graduate_college
+  .graduate_college
+    =tutor.info.graduate_college
+    =tutor.info.graduate_college_department
+    =tutor.info.major

@@ -1,0 +1,20 @@
+%table.table
+  %thead
+    %tr
+      %th=Delayed::Job.human_attribute_name :id
+      %th=Delayed::Job.human_attribute_name :run_at
+      %th=Delayed::Job.human_attribute_name :queue
+      %th=Delayed::Job.human_attribute_name :owner_type
+      %th=Delayed::Job.human_attribute_name :owner_id
+      %th=Delayed::Job.human_attribute_name :created_at
+      %th
+  %tbody
+    -jobs.each do |job|
+      %tr
+        %td=job.id
+        %td=l(job.run_at) if job.run_at
+        %td=job.queue
+        %td=job.owner_type
+        %td=job.owner_id
+        %td=l(job.created_at)
+        %td=link_to t('common.detail'), {action: :show, id: job}

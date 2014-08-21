@@ -1,0 +1,7 @@
+%h1=title t('titles.membership_cancellations')
+
+-if @membership_cancellations.empty?
+  =t('common.not_found')
+-else
+  =render layout: 'membership_cancellations', locals: {membership_cancellations: @membership_cancellations} do |membership_cancellation|
+    =link_button_to 'zoom-in', t('common.detail'), {action: :show, id: membership_cancellation}, class: 'btn-small'

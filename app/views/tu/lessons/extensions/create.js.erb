@@ -1,0 +1,5 @@
+<% if @lesson_extension.persisted? %>
+
+<% else %>
+alert("<%= j t('lesson.message.failed_to_extend_because', reasons:"\n- #{@lesson_extension.errors.full_messages.join("\n- ")}") %>");
+<% end %>

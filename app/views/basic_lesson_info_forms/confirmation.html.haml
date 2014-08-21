@@ -1,0 +1,12 @@
+%h1=title t("common.new_basic_lesson_info")
+
+%h2=t("common.confirmation")
+
+=render "application/validation_errors", model:@basic_lesson_info
+
+=render "basic_lesson_info", basic_lesson_info:@basic_lesson_info
+
+.buttons
+  =img_link_to "common.cancel", {action:"cancel"}, method:"post", data:{confirm:t("basic_lesson_info.confirm_to_make_request")}
+  =link_to t('lesson.add_another_time_range'), wizard_path(:wday_schedule), class: 'btn'
+  =img_link_to "common.send", wizard_path, method:"put"

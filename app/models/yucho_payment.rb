@@ -1,0 +1,3 @@
+class YuchoPayment < PaymentMethod
+
+end

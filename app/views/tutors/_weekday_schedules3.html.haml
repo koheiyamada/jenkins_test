@@ -1,0 +1,6 @@
+.alert.alert-info
+  %h5=t('tutor.available_weekdays_of_tutor', tutor: user_display_name(tutor))
+  -if tutor.weekday_schedules.present?
+    =render 'tutors/weekday_schedules2', tutor: tutor
+  -else
+    =t('tutor.weekday_schedules.not_set')

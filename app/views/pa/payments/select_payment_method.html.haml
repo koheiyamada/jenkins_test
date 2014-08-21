@@ -1,0 +1,12 @@
+%article.registration-form.confirmation2
+  %h1 お支払い方法のご選択
+
+  %p
+    お支払い方法をご選択ください。
+
+  .buttons
+    =link_to t('titles.credit_card'), register_pa_credit_card_path, class: 'btn btn-large btn-primary btn-left'
+    -if current_user.free?
+      =link_to t('titles.yucho_auto_payment'), new_pa_bank_account_path, class: 'btn btn-large btn-primary btn-right'
+    -else
+      =link_to t('titles.yucho_auto_payment'), new_pa_temp_yucho_account_path, class: 'btn btn-large btn-primary btn-right'

@@ -1,0 +1,7 @@
+.recipients-select
+  %h4
+    %i.icon-user
+    =t('common.tutor')
+  .individuals
+    =select_tag "recipients[tutor]",
+      options_for_select(current_user.active_tutors.map{|u| [user_display_name(u), u.id]}), multiple:true

@@ -1,0 +1,115 @@
+=form_for system_settings, url:path do |f|
+  =render "validation_errors", model:system_settings
+  %table.table
+    %tr
+      %th=f.label :default_max_charge
+      %td=f.text_field :default_max_charge
+    %tr
+      %th=f.label :message_storage_period
+      %td=f.text_field :message_storage_period
+    %tr
+      %th=f.label :cutoff_date
+      %td=f.number_field :cutoff_date, min: 1, max: 28, step: 1
+    %tr
+      %th=f.label :bs_share_of_lesson_sales
+      %td=f.number_field :bs_share_of_lesson_sales, min: 0, max: 1.0, step: 0.01
+    %tr
+      %th=f.label :tutor_share_of_lesson_fee
+      %td=f.number_field :tutor_share_of_lesson_fee, min: 0, max: 1.0, step: 0.01
+    %tr
+      %th=f.label :tax_rate
+      %td=f.number_field :tax_rate, min: 0, max: 1.0, step: 0.01
+
+    %tr
+      %th=f.label :video_fps
+      %td=f.number_field :video_fps
+    %tr
+      %th=f.label :video_bandwidth
+      %td
+        =f.number_field :video_bandwidth
+        .help="(#{t('common.bytes_per_second')})"
+    %tr
+      %th=f.label :video_quality
+      %td
+        =f.number_field :video_quality, min: 0, max: 100, step: 1
+        .help (0 - 100)
+
+    %tr
+      %th=f.label :camera_width
+      %td
+        =f.number_field :camera_width, min: 120, max: 640, step: 1
+        .help (120 - 640)
+    %tr
+      %th=f.label :camera_height
+      %td
+        =f.number_field :camera_height, min: 90, max: 480, step: 1
+        .help (90 - 480)
+
+    %tr
+      %th=f.label :document_camera_fps
+      %td=f.number_field :document_camera_fps
+    %tr
+      %th=f.label :document_camera_bandwidth
+      %td
+        =f.number_field :document_camera_bandwidth
+        .help="(#{t('common.bytes_per_second')})"
+    %tr
+      %th=f.label :document_camera_quality
+      %td
+        =f.number_field :document_camera_quality, min: 0, max: 100, step: 1
+        .help (1 - 100)
+
+    %tr
+      %th=f.label :document_camera_width
+      %td
+        =f.number_field :document_camera_width, min: 160, max: 1600, step: 1
+        .help (160 - 1600)
+    %tr
+      %th=f.label :document_camera_height
+      %td
+        =f.number_field :document_camera_height, min: 120, max: 1200, step: 1
+        .help (120 - 1200)
+
+    %tr
+      %th=f.label :meeting_video_fps
+      %td=f.number_field :meeting_video_fps
+    %tr
+      %th=f.label :meeting_video_bandwidth
+      %td
+        =f.number_field :meeting_video_bandwidth
+        .help="(#{t('common.bytes_per_second')})"
+    %tr
+      %th=f.label :meeting_video_quality
+      %td
+        =f.number_field :meeting_video_quality, min: 0, max: 100, step: 1
+        .help (0 - 100)
+
+    %tr
+      %th=f.label :meeting_camera_width
+      %td
+        =f.number_field :meeting_camera_width, min: 120, max: 640, step: 1
+        .help (120 - 640)
+    %tr
+      %th=f.label :meeting_camera_height
+      %td
+        =f.number_field :meeting_camera_height, min: 90, max: 480, step: 1
+        .help (90 - 480)
+
+    %tr
+      %th=f.label :max_coach_count_for_area
+      %td=f.number_field :max_coach_count_for_area, min: 0, step: 1
+
+    %tr
+      %th=f.label :cs_point_display_condition
+      %td=f.select :cs_point_visible,[['無効',false],['有効',true]]
+
+    %tr
+      %th=f.label :monitoring_email_address
+      %td=f.email_field :monitoring_email_address
+
+    %tr
+      %th=f.label :email_for_error_nortification
+      %td=f.email_field :email_for_error_nortification
+
+  .buttons
+    =img_submit 'common.update'

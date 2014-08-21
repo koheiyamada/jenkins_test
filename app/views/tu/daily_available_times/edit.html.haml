@@ -1,0 +1,55 @@
+%h1=title t('titles.optional_lesson_available_time_settings2')
+
+%form.daily-available-times-editor.form-inline{data: {minimum_time_range: LessonSettings.minimum_time_range}}
+  %section
+    %h2=t('daily_available_times.titles.date_select')
+    .date-select
+      .date_picker
+
+  %section
+    %h2=t('daily_available_times.titles.time_select')
+    .time-select
+      %span
+        =select_time(@start_time,
+                     {minute_step: 5, prompt: {hour: t('tutor_search.hour'), minute: t('tutor_search.minute')}, prefix: 'start_time'},
+                     class: 'input-small')
+      \-
+      %span
+        =select_tag 'end_time[hour]', options_for_select((0..24).map{|n| '%02d' % n}), prompt: t('tutor_search.hour'), class: 'input-small'
+        \:
+        =select_tag 'end_time[minute]', options_for_select((0..59).step(5).map{|n| '%02d' % n}), prompt: t('tutor_search.minute'), class: 'input-small'
+      %span
+        =button_tag t('common.add'), class: 'btn', type: 'button'
+    .error-messages
+
+  %section
+    %h2=t('daily_available_times.titles.available_times_of_selected_day')
+    #available_time_of_day-region
+      .available_times-of-selected-day
+
+  %section
+    %h2=t('daily_available_times.titles.changes')
+    .changes
+      %section
+        %h3=t('daily_available_times.titles.add')
+        .add
+      %section
+        %h3=t('daily_available_times.titles.delete')
+        .delete
+
+  %hr
+  .explanation
+    =render 'edit_explanation'
+
+  %section
+
+    .buttons.form-actions
+      =button_tag t('common.confirm'), class: 'btn btn-primary confirm'
+      =link_to t('common.cancel'), tu_daily_available_times_path, class: 'btn'
+
+#templates
+  =render 'available_time_template'
+  =render 'empty_available_times_template'
+  =render 'templates/error_messages_template'
+  =render 'templates'
+=render 'shared/wait_screen'

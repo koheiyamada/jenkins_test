@@ -1,0 +1,33 @@
+development:
+#  host: test-widgets.soba-project.com
+#  host2: test-widgets2.soba-project.com
+#  port: 80
+#  app_id: tNwYZYToeNTydwbB
+  host: widgets.soba-project.com
+  host2: widgets2.soba-project.com
+  port: 80
+  app_id: xzmFYkuGDYpWvPEc
+test:
+  host: test-widgets.soba-project.com
+  host2: test-widgets2.soba-project.com
+  port: 80
+  app_id: tNwYZYToeNTydwbB
+demo:
+  host: test-widgets.soba-project.com
+  host2: test-widgets2.soba-project.com
+  port: 80
+  app_id: rISxEonYBwnwqWYA
+#  host: widgets.aidnet.jp
+#  host2: widgets1.aidnet.jp
+#  port: 80
+#  app_id: GWvEGITfCiGnSJQX
+staging:
+  host: widgets1.aidnet.jp
+  host2: widgets2.aidnet.jp
+  port: 80
+  app_id: eEXHUFtxAoJpVidY
+production:
+  host: widgets1.aidnet.jp
+  host2: widgets2.aidnet.jp
+  port: 80
+  app_id: TMjpyvMovolXfEfR

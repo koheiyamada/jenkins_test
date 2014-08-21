@@ -1,0 +1,10 @@
+.buttons
+  -if @lesson.accepted?
+    =link_to t('common.cancel'), cancel_bs_lesson_path(@lesson), class: 'btn'
+  -if @lesson.rescheduling? || @lesson.accepted?
+    -if @lesson.schedule_changeable?
+      =link_to t('common.change_schedule'), change_schedule_bs_lesson_path(@lesson), class: 'btn'
+  -if lesson_can_monitor_now? @lesson
+    =img_link_to 'common.enter_lesson_room_as_tutor',  room_as_tutor_bs_lesson_path(@lesson)
+    -@lesson.students.each do |student|
+      =link_to student.full_name, room_as_student_bs_lesson_path(@lesson, student_id:student.id), class:'enter_lesson_as', title:t('common.enter_lesson_room_as_x', x:student.full_name)

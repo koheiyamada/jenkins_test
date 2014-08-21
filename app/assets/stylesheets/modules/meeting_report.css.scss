@@ -1,0 +1,20 @@
+@import "base";
+
+.new_meeting_report,.edit_meeting_report {
+  textarea {
+    width: 98%;
+    height: 480px;
+  }
+}
+
+.meeting_report {
+  .text {
+    padding: 10px;
+    border-bottom: 1px #ddd solid;
+  }
+  
+  th {
+    background-color: $aid-gray3;
+    font-weight: normal;
+  }
+}

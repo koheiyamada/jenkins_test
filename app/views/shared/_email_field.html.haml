@@ -1,0 +1,15 @@
+%tr
+  %th
+    =f.label :email, class: 'required'
+  -if @edit_flg
+    %td
+      .email1=f.email_field :email
+  -else
+    %td
+      .email1=f.email_field :email, readonly: true
+/%tr
+/  %th
+/    =f.label :phone_email
+/  %td
+/    .email2
+/      =f.email_field :phone_email

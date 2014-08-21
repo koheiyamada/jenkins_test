@@ -1,0 +1,7 @@
+%h1=title t("titles.optional_lessons")
+
+-if @lessons.empty?
+  =t('common.not_found')
+-else
+  =render layout:"lessons/lessons", locals:{lessons:@lessons} do |lesson|
+    =img_link_to "common.detail", bs_student_lesson_path(@lesson, lesson)

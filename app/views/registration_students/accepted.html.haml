@@ -1,0 +1,16 @@
+.centered
+  %h1=title t("titles.registration_accepted")
+  .message
+    %p ユーザ登録を受け付けました。ご登録いただいたメールアドレスに確認のメールを送信しました。
+
+    -if @student_registration_form.adsl?
+      %p.alert ※ADSL回線ではノートカメラを利用できません。
+
+    %p
+      15分経過してもメールが配信されない場合は、迷惑メールフォルダをご確認して頂けます様よろしくお願い致します。
+    %p
+      万が一、迷惑メールフォルダにも配信されていない場合は、間違ったメールアドレスをご登録されている可能性がございますので、
+      その場合は、お手数をお掛け致しますが、再度、お申込フォームよりご入力をお願い致します。
+
+  .buttons
+    =img_link_to 'common.go_to_top', registration_path

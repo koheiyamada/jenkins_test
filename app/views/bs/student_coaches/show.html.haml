@@ -1,0 +1,14 @@
+=content_for :subheader do
+  =render 'breadcrumbs'
+
+%h1=title t('titles.coach')
+
+-if @coach.blank?
+  =render 'coach_not_assigned'
+  .pagination-centered
+    =link_to t('student_coach.assign_coach'), new_bs_student_coach_path(@student), class: 'btn btn-primary'
+-else
+  =render 'coaches/coach', coach: @coach
+  .pagination-centered
+    -unless coach?
+      =link_to t('student_coach.change_coach'), new_bs_student_coach_path(@student), class: 'btn'

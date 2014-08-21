@@ -1,0 +1,10 @@
+%ul.breadcrumb
+  %li
+    =link_to_unless_current t("titles.students"), bs_students_path
+  -if @student
+    =breadcrumb_item t("titles.student"), bs_student_path(@student)
+    =breadcrumb_item t("titles.basic_lesson_infos"), bs_student_basic_lesson_infos_path(@student)
+    -if @basic_lesson_info
+      =breadcrumb_item t("titles.basic_lesson_info"), bs_student_basic_lesson_info_path(@student, @basic_lesson_info)
+      -if @lessons
+        =breadcrumb_item t("titles.lessons")

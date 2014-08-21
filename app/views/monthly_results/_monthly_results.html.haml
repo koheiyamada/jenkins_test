@@ -1,0 +1,12 @@
+%table.table.monthly_results
+  %thead
+    %tr
+      %th=BsMonthlyResult.human_attribute_name :month
+      %th=BsMonthlyResult.human_attribute_name :lesson_sales_amount
+      %th
+  %tbody
+    -monthly_results.each do |monthly_result|
+      %tr
+        %td=l(monthly_result.date, :format => :month_year)
+        %td=number_to_currency monthly_result.lesson_sales_amount
+        %td=img_link_to "common.detail", {action:"show", id:monthly_result}, class:"small"

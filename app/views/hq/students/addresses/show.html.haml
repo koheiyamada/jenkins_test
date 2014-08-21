@@ -1,0 +1,12 @@
+=content_for :subheader do
+  =render "breadcrumbs"
+
+%h1=title t('titles.address')
+
+%table.table
+  %th=Student.human_attribute_name :address
+  %td=render 'addresses/address', address:@address
+
+%section
+  %h2=t('titles.bs_of_student')
+  =render 'bss/bs', bs:@student.organization

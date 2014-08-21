@@ -1,0 +1,10 @@
+-#.recipients-select
+-#  %h4
+-#    %i.icon-user
+-#    =t('common.coach')
+-#  .all
+-#    =label_tag "recipients[all_bss]", class:"checkbox" do
+-#      =check_box_tag "recipients[all_bss]"
+-#      =t('labels.all_coaches')
+-#  .individuals
+-#    =select_tag "recipients[bs]", options_from_collection_for_select(current_user.bss, :id, :name), multiple:true

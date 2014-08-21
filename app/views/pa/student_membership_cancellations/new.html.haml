@@ -1,0 +1,14 @@
+=render 'pa/student_header', student:@student
+
+%h2=title t('titles.new_member_cancellation')
+
+=render 'explanation'
+
+.error-messages-holder
+
+=render 'form'
+
+=render 'wait_screen'
+
+#templates
+  =render 'shared/error_messages_template'

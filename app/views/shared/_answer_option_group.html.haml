@@ -1,0 +1,12 @@
+.answer-option-group
+  %h2=t("question.#{question}.#{group}")
+  -answer_options.each do |option|
+    -answer_option = "#{group}_#{option}"
+    -if option == :other
+      %br/
+    %span.answer-option
+      =form.label "answer_option_#{answer_option}", class: 'radio inline' do
+        =form.radio_button :answer_option, answer_option
+        %span=t("answer_option.#{answer_option}")
+      -if option == :other
+        =form.text_field "#{answer_option}_value", class: 'input-large'

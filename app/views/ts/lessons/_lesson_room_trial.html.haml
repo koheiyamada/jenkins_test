@@ -1,0 +1,23 @@
+-#=render 'st/lessons/lesson_room_single'
+.lesson-room.clearfix
+  .video-column
+    .video
+      =render 'soba_widgets/video_subscriber', channel: lesson_video_channel(lesson, lesson.tutor), width:216, height:162
+      .name=lesson.tutor.nickname
+    .video
+      =render "soba_widgets/video_publisher", channel: lesson_video_channel(lesson, current_user), width:216, height:162
+      .name=t('common.self')
+    .video
+      =render 'soba_widgets/document_camera_publisher', channel: lesson_document_camera_channel(lesson, current_user), width:216, height:162
+      .name=t('common.document_camera')
+  .desks.tabbable.tabs-top
+    %ul.nav.nav-tabs.desk-switcher
+      %li.desk-switch.active
+        %a(data-target=".my-desk" data-toggle="tab" href="#")=t('common.self')
+      %li.desk-switch
+        %a(data-target=".tutor-desk" data-toggle="tab" href="#")=lesson.tutor.nickname
+    .tab-content
+      .tab-pane.desk-pane.my-desk.active
+        =render 'my_desk', lesson:lesson, student:current_user
+      .tab-pane.desk-pane.tutor-desk
+        =render 'tutor_desk', lesson:lesson

@@ -1,0 +1,10 @@
+-lesson.students.each do |student|
+  .cancel-requested.modal.hide.fade{'data-student_id' => student.id}
+    .modal-header
+      %button.close(type="button" data-dismiss="modal" aria-hidden="true") &times;
+      %h3=t('lesson.cancel_requested')
+    .modal-body
+      %p=t('lesson.message.cancel_requested_by', student:student.nickname)
+    .modal-footer
+      %a.reject(href="#" class="btn")=t('lesson.reject_cancel')
+      %a.accept(href="#" class="btn btn-primary")=t('lesson.accept_cancel')

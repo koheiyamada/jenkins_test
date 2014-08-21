@@ -1,0 +1,6 @@
+%p.message
+  =t('messages.tutor_not_undertake_group_lesson')
+
+.buttons
+  =img_link_to 'common.cancel', {action:'cancel'}, method:'post', data:{confirm:t('messages.confirm_cancellation')}
+  =img_link_to 'common.go_next', wizard_path(nil, no_group_lesson:true), method:'put'

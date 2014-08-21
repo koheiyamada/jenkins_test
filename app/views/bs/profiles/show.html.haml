@@ -1,0 +1,12 @@
+%h1=title t("common.profile_of_x", x:@bs_user.full_name)
+
+-if coach?
+  =render 'coaches/coach', coach: @bs_user
+-else
+  =render 'bs_users/bs_user', bs_user: @bs_user
+
+.buttons
+  =img_link_to "common.edit", edit_bs_profile_path
+  =link_to t('common.change_password'), {action: 'change_password'}, class:'btn'
+  -if @bs_user.representative?
+    =img_link_to 'common.leave_from_aid', leave_bs_bs_path

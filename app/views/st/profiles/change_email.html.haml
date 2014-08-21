@@ -1,0 +1,10 @@
+%h1=title t('registration.mail_certification')
+
+%p
+  ご入力いただきましたメールアドレスに確認メールを送信させていただきますので、
+  %br
+  ご確認よろしくお願いいたします。
+
+=render 'shared/about_form'
+=form_for @email_confirmation_form, url: {action: :change_email}, as: :email_confirmation_form, html: {class: 'form-inline'} do |f|
+  =render 'email_confirmation_forms/change_email_form', f: f

@@ -1,0 +1,10 @@
+%h1=title t('titles.all_messages')
+
+=render 'hq/messages/menu'
+
+-if @messages.blank?
+  =t('common.not_found')
+-else
+  =render layout: 'messages/messages_all', locals:{messages:@messages} do |message|
+    =img_link_to 'common.detail', hq_all_message_path(message), class: 'small'
+  =paginate(@messages)

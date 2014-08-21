@@ -1,0 +1,8 @@
+%tr.message
+  %td=l(message.created_at, :format => :message)
+  %td=message.sender.full_name
+  %td=message.title
+  %td
+    =img_link_to "common.detail", link, class:"small"
+    -if defined?(delete_link)
+      =img_link_to "common.delete", delete_link, class:"small"

@@ -1,0 +1,15 @@
+=content_for :subheader do
+  =render 'breadcrumbs'
+
+%h1=title t('titles.new_meeting')
+
+=render 'application/validation_errors', model:@meeting
+
+%table.table
+  %tr
+    %td=link_to t('meeting.two_people_meeting'), {action: 'create'}, method: 'post', class: 'btn'
+    %td=t('meeting.message.about_two_people_meeting')
+  %tr
+    %td=link_to t('meeting.three_people_meeting'), {action: 'create', type: 'special_tutor_meeting'}, method: 'post', class: 'btn'
+    %td=t('meeting.message.about_special_tutor_meeting')
+

@@ -1,0 +1,12 @@
+%h1=title t("titles.new_optional_lesson")
+
+=render "lessons/lesson_under_construction", lesson:@optional_lesson
+
+%h2=t("titles.group_lesson_options")
+
+-if @optional_lesson.tutor.present? && !@optional_lesson.tutor.undertake_group_lesson?
+  =render 'tutor_not_undertake_group_lesson'
+-else
+  =render 'group_lesson'
+
+

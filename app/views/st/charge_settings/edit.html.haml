@@ -1,0 +1,11 @@
+%h1=t("titles.edit_student_charge_settings")
+
+=form_for @student_settings, url:st_charge_settings_path do |f|
+  =render "validation_errors", model: @student_settings
+  %table.table
+    %tbody
+      %tr
+        %th=f.label :max_charge
+        %td=f.text_field :max_charge
+  .actions.buttons
+    =img_submit "common.update"

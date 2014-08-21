@@ -1,0 +1,13 @@
+=content_for :tabmenu do
+  =render "nav_tab"
+
+%h1=title t("titles.students")
+
+=render "menu"
+
+-if @students.blank?
+  = t('common.not_found')
+-else
+  =render layout:"students/students", locals:{students:@students} do |student|
+    =img_link_to "common.detail", bs_student_path(student), class:"small"
+  =paginate(@students)

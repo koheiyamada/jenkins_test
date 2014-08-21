@@ -1,0 +1,3 @@
+class Pa::StudentMembershipCancellationsController < StudentMembershipCancellationsController
+  parent_only
+end

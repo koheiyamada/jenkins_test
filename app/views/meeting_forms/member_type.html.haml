@@ -1,0 +1,9 @@
+%h1=title t('titles.new_meeting')
+
+=render 'meetings/meeting_registering', meeting: @meeting
+
+%h2=t('titles.meeting_member_type')
+
+=link_to t('common.student'), wizard_path(:student), class: 'btn'
+
+=link_to t('common.parent'), wizard_path(:parent), class: 'btn'

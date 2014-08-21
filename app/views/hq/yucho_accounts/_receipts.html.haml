@@ -1,0 +1,16 @@
+%table.table
+  %thead
+    %tr
+      %th=t('yucho_account.items.kigo')
+      %th=t('yucho_account.items.bango')
+      %th=t('yucho_account.items.name_kana')
+      %th=t('yucho_account.items.user_name')
+      %th=t('yucho_account.items.billing')
+  %tbody
+    -@yucho_accounts.each do |yucho_account|
+      %tr
+        %td=yucho_account.kigo1
+        %td=yucho_account.bango
+        %td=yucho_account.account_holder_name_kana
+        %td=yucho_account.owner.user_name
+        %td=number_to_currency yucho_account.monthly_statement_of_month(@year, @month).amount_of_money_received

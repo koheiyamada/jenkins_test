@@ -1,0 +1,25 @@
+%table.table.monthly_statements
+  %thead
+    %tr
+      %th=MonthlyStatement.human_attribute_name :month
+      %th=MonthlyStatement.human_attribute_name :amount_of_payment
+      %th=MonthlyStatement.human_attribute_name :amount_of_money_received
+      %th
+  %tbody
+    -(1 .. 12).each do |m|
+    -monthly_statement = monthly_statement_strips[m]
+      %tr
+        -if monthly_statement
+          %td=link_to t("date.abbr_month_names")[m], {action:"show", id:monthly_statement}
+          %td=number_to_currency(monthly_statement.amount_of_payment)
+          %td=number_to_currency(monthly_statement.amount_of_money_received)
+        -else
+          %td=t("date.abbr_month_names")[m]
+          %td
+          %td
+        %td
+          -if monthly_statement
+            =img_link_to "common.detail", {action:"show", id:monthly_statement}, class:"small"
+          -else
+            -if current_user.hq_user?
+              =img_link_to "common.new", {action:"create", year:@year, month:m}, method:"post", class:"small"

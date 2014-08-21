@@ -1,0 +1,123 @@
+=form_for bs_app_form, html:{name:'form', novalidate:true} do |f|
+  =render 'application/validation_errors', model: bs_app_form
+  %table.table
+    %tbody
+      %tr
+        %th=f.label :corporate_name
+        %td=f.text_field :corporate_name
+      %tr
+      %tr
+        %th
+          %span.required=t(".representative_name")
+        %td
+          .full_name
+            =f.label :last_name
+            =f.text_field :last_name, class:"input-small"
+            =f.label :first_name
+            =f.text_field :first_name, class:"input-small"
+          .full_name
+            =f.label :last_name_kana
+            =f.text_field :last_name_kana, class:"input-small"
+            =f.label :first_name_kana
+            =f.text_field :first_name_kana, class:"input-small"
+      %tr
+        %th=f.label :representative_birthday, class: 'required'
+        %td=f.date_select :representative_birthday, {start_year:1900, end_year:Time.now.year}, class:"input-small"
+      %tr
+        %th
+          %span.required=t("common.sex")
+        %td
+          =f.label :representative_sex_male, class:"radio" do
+            =f.radio_button :representative_sex, "male"
+            =t("common.male")
+          =f.label :representative_sex_female, class:"radio" do
+            =f.radio_button :representative_sex, "female"
+            =t("common.female")
+
+      %tr
+        %th
+          %span.required=BsAppForm.human_attribute_name :address
+        %td
+          =render 'addresses/form', address: bs_app_form.address
+
+      %tr
+        %th=f.label :phone_number, class: 'required'
+        %td=f.telephone_field :phone_number
+
+      %tr
+        %th=f.label :email, class: 'required'
+        %td
+          .email
+            =f.email_field :email
+          .email_confirmation
+            =f.email_field :email_confirmation
+            %span.help-inline=t("common.confirmation")
+
+      %tr
+        %th=f.label :birth_place, class: 'required'
+        %td=f.text_field :birth_place
+
+      %tr
+        %th=f.label :high_school, class: 'required'
+        %td
+          .high_school
+            =f.text_field :high_school
+            =t('common.high_school')
+
+      %tr
+        %th=f.label :college
+        %td
+          .college
+            =f.text_field :college, placeholder:t('common.college')
+          .department
+            =f.text_field :department, placeholder:t('common.college_departent')
+      %tr
+        %th=f.label :graduate_college
+        %td
+          .graduate_college
+            =f.text_field :graduate_college, placeholder:t('common.graduate_college')
+          .major
+            =f.text_field :major, placeholder:t('common.major')
+      %tr
+        %th=f.label :job_history, class: 'required'
+        %td=f.text_area :job_history, maxlength:255, class:"span4"
+      %tr
+        %th=f.label :reason_for_applying, class: 'required'
+        %td=f.text_area :reason_for_applying, maxlength:200, class:"span4"
+
+      =render 'shared/driver_license_number_or_passport_number_field', f: f
+
+      =render 'specs/fields', f: f
+
+      =render 'shared/has_web_camera_field', f: f
+
+      %tr
+        %th=f.label :pc_model_number
+        %td
+          =f.text_field :pc_model_number
+          .help=t('tutor_app_form.about_pc_model_number')
+
+      =render 'questions/form_for_how_to_find', answer: bs_app_form.how_to_find
+
+      %tr
+        %th=f.label :preferred_areas
+        %td
+          =f.text_area :preferred_areas, maxlength: 255, class: 'span4'
+          .help=t('bs_app_form.about_preferred_areas')
+      %tr
+        %td(colspan="2")
+          %p.message
+          =t('messages.interview_datetimes')
+          -d = 3.days.from_now
+          =f.label :interview_datetime_1 do
+            =TutorAppForm.human_attribute_name :interview_datetime_1
+            =f.datetime_select :interview_datetime_1, {start_year: d.year, end_year:d.next_year.year, minute_step:5}, class:"input-small"
+          =f.label :interview_datetime_2 do
+            =TutorAppForm.human_attribute_name :interview_datetime_2
+            =f.datetime_select :interview_datetime_2, {start_year: d.year, end_year:d.next_year.year, minute_step:5}, class:"input-small"
+          =f.label :interview_datetime_3 do
+            =TutorAppForm.human_attribute_name :interview_datetime_3
+            =f.datetime_select :interview_datetime_3, {start_year: d.year, end_year:d.next_year.year, minute_step:5}, class:"input-small"
+
+  .actions.buttons
+    =img_submit "common.send"

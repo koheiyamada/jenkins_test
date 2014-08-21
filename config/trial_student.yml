@@ -1,0 +1,22 @@
+default: &default
+  email: 'shimokawa@soba-project.com'
+  nickname: '体験レッスン受講者'
+  first_name: '受講者'
+  last_name: '体験レッスン'
+  first_name_kana: 'じゅこうしゃ'
+  last_name_kana: 'たいけんれっすん'
+  birthday: '2000-01-01'
+  sex: 'male'
+  phone_number: '075-253-5555'
+development:
+  <<: *default
+test:
+  <<: *default
+demo:
+  <<: *default
+staging:
+  <<: *default
+  email: 'info@aidnet.jp'
+production:
+  <<: *default
+  email: 'info@aidnet.jp'

@@ -1,0 +1,9 @@
+%h1=title t('titles.message_to_coach')
+
+=render 'menu'
+
+=render 'messages/message', message:@message
+
+.actions
+  .buttons
+    =img_link_to 'common.back', coaches_bs_messages_path

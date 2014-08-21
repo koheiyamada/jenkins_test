@@ -1,0 +1,9 @@
+=content_for :subheader do
+  =render "breadcrumbs"
+
+%h1=title t("titles.cs_sheet")
+
+=render "cs_sheets/cs_sheet", cs_sheet:@cs_sheet
+
+.buttons
+  =img_link_to "common.back", bs_cs_sheets_path

@@ -1,0 +1,13 @@
+%h1=title "#{t('common.subject')}: #{@subject.name}: #{t('subject_level.titles.new')}"
+
+=form_for @subject_level, url: hq_grade_group_subject_levels_path(@grade_group, @subject) do |f|
+  %table.table
+    %tbody
+      %tr
+        %th=SubjectLevel.human_attribute_name :level
+        %td=f.number_field :level
+      %tr
+        %th=SubjectLevel.human_attribute_name :code
+        %td=f.text_field :code
+  .form-action.buttons
+    =f.submit

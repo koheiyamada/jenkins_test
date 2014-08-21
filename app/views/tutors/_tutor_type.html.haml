@@ -1,0 +1,8 @@
+-if tutor.beginner?
+  %span.label.label-info=t('tutor.regular_labels.beginner')
+-elsif tutor.special?
+  %span.label.label-info=t('tutor.regular_labels.special')
+  %span=t('common.special')
+-else
+  %span.label.label-info=t('tutor.regular_labels.regular')
+

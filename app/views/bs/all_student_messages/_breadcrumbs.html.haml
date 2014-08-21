@@ -1,0 +1,4 @@
+%ul.breadcrumb
+  =render 'shared/breadcrumb_item', text: t('all_student_messages.titles.index'), url: bs_all_student_messages_path
+  -if @message
+    =render 'shared/breadcrumb_item', text: t('titles.message'), url: bs_all_student_message_path(@message)

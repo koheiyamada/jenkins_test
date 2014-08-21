@@ -1,0 +1,6 @@
+%h1=title t('titles.yucho_account_confirmation')
+
+=render @bank_account.class.name.underscore
+
+.buttons
+  =link_to t('common.registration'), {action: 'complete'}, class: 'btn btn-primary'

@@ -1,0 +1,9 @@
+=content_for :subheader do
+  =render "breadcrumbs"
+
+/=render "pa/students/nav_tab"
+
+%h1
+  =@student.full_name
+  -if @title
+    =": #{@title}"

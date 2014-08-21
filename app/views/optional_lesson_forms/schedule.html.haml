@@ -1,0 +1,7 @@
+-tutor = @optional_lesson.tutor
+
+%h1=title t("titles.new_optional_lesson")
+
+=render 'lesson', lesson: @optional_lesson
+
+=render 'schedule_form', lesson: @optional_lesson, url: wizard_path

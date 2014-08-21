@@ -1,0 +1,6 @@
+-if model.errors.any?
+  .alert.alert-error
+    %button.close(type="button" data-dismiss="alert") &times;
+    %ul
+      -model.errors.full_messages.each do |msg|
+        %li=msg

@@ -1,0 +1,17 @@
+=content_for :subheader do
+  =render "breadcrumbs"
+
+%h1=title t("titles.tutor_app_form")
+
+=render 'application/validation_errors', model: @tutor_app_form
+
+=render 'tutor_app_forms/tutor_app_form', tutor_app_form:@tutor_app_form
+
+-if current_user.can_access? :tutor, :write
+  -if @tutor_app_form.new?
+    .buttons
+      =link_to t(".create_tutor_account"), new_hq_tutor_app_form_tutor_path(@tutor_app_form), class: 'btn'
+      =link_to t('tutor_app_form.reject'), reject_hq_tutor_app_form_path(@tutor_app_form), method: :post, class: 'btn'
+  -elsif @tutor_app_form.rejected?
+    .buttons
+      =link_to t('common.delete'), hq_tutor_app_form_path(@tutor_app_form), method: :delete, class:'btn', data: {confirm: t('tutor_app_form.confirm_to_delete')}

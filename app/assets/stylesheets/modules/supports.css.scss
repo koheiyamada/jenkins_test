@@ -1,0 +1,9 @@
+@import "accounts";
+
+.supports {
+  @include accounts;
+}
+
+.support {
+  @include account;
+}

@@ -1,0 +1,6 @@
+=img_link_to 'common.detail', hq_lesson_path(lesson), class: 'small'
+-if current_user.can_cancel? lesson
+  =img_link_to 'common.cancel', {action: :cancel, id: lesson},
+    method: :post,
+    class: 'small',
+    data: {confirm: t('messages.confirm_lesson_cancellation')}

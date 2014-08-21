@@ -1,0 +1,7 @@
+%ul.meeting-member-list
+  -meeting.members.each do |member|
+    %li{type: member.class.name}
+      =user_display_name_with_role member
+      -if member.parent?
+        %a.student-list{href: '#', data: {toggle: 'tooltip'}, title: member.students.map{|s| user_display_name(s)}.join(', ')}
+          =Parent.human_attribute_name :students

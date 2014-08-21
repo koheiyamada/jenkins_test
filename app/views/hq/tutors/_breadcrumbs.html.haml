@@ -1,0 +1,14 @@
+%ul.breadcrumb
+  %li=link_to_unless_current t("titles.tutors"), hq_tutors_path
+  -if @tutor
+    =breadcrumb_item @tutor.full_name, hq_tutor_path(@tutor)
+    -if params[:action] == 'edit'
+      =breadcrumb_item t('common.edit'), edit_hq_tutor_path(@tutor)
+    -if params[:action] == 'leave'
+      =breadcrumb_item t('titles.leave_from_aid'), leave_hq_tutor_path(@tutor)
+
+  / UsersControllerのアクション向け
+  -if @user
+    =breadcrumb_item user_display_name(@user), hq_tutor_path(@user)
+    -if params[:action] == 'change_password'
+      =breadcrumb_item t('common.change_password'), change_password_hq_tutor_path(@user)

@@ -1,0 +1,11 @@
+=content_for :tabmenu do
+  =render 'nav_tab'
+
+%h1=title t('titles.optional_lesson_requests')
+
+-if @lessons.blank?
+  =t('common.not_found')
+-else
+  =render layout:"lessons/requests", locals:{lessons:@lessons} do |lesson|
+    =img_link_to "common.detail", tu_lesson_request_path(lesson), class:"small"
+  =paginate @lessons

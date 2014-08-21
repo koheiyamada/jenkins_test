@@ -1,0 +1,8 @@
+.centered
+  .wrapper
+    %h1=title t("titles.student_registration")
+
+    =render 'shared/about_form'
+    =form_for @email_confirmation_form, url: apply_students_path, as: :email_confirmation_form, html: {class: 'form-inline'} do |f|
+      =render 'application/validation_errors', model: @email_confirmation_form
+      =render 'email_confirmation_forms/form', f: f

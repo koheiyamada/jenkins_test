@@ -1,0 +1,14 @@
+%table.table.membership_cancellations
+  %thead
+    %tr
+      %th=MembershipCancellation.human_attribute_name :user
+      %th=MembershipCancellation.human_attribute_name :created_at
+      %th=MembershipCancellation.human_attribute_name :status
+      %th
+  %tbody
+    -membership_cancellations.each do |membership_cancellation|
+      %tr
+        %td=user_display_name_with_role(membership_cancellation.user)
+        %td=l membership_cancellation.created_at, format: :promise
+        %td=membership_cancellation_status membership_cancellation
+        %td=yield membership_cancellation

@@ -1,0 +1,8 @@
+%ul.nav.nav-tabs
+  =render "nav_tab_item", text:t("titles.student_top"), path:pa_student_path(@student)
+  =render "nav_tab_item", text:t("titles.lessons"), path:pa_student_lessons_path(@student)
+  =render "nav_tab_item", text:t("titles.lesson_history"), path:history_pa_student_lessons_path(@student)
+  =render "nav_tab_item", text:t("titles.lesson_reports"), path:pa_student_lesson_reports_path(@student)
+  =render "nav_tab_item", text:t("common.charge_settings"), path:edit_pa_student_charge_path(@student)
+  =render "nav_tab_item", text:t("titles.edit_student_profile"), path:edit_pa_student_path(@student)
+  =render "nav_tab_item", text:t("titles.messages"), path:pa_student_messages_path(@student)

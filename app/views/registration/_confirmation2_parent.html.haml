@@ -1,0 +1,20 @@
+%article.registration-form.confirmation2
+  %h1 ご確認事項（ゆうちょ銀行口座もしくはクレジットカード）
+
+  %p
+    本システムをご利用されます受講者様のご年齢が20歳に満たない場合、
+    %br
+    保護者様のご登録と保護者様名義のゆうちょ銀行口座もしくは
+    %br
+    クレジットカード（VISAまたはMaster）が必要となります。
+    %br
+    ゆうちょ銀行口座もしくはクレジットカード（VISAまたはMaster）はお持ちでしょうか？
+
+  %div.services
+    =image_tag 'registration/yucho.png'
+    =image_tag 'registration/visa.png'
+    =image_tag 'registration/master.png'
+
+  .buttons
+    =button_to t('common.yes'), {action: :process_confirmation2, has_payment_method: 1}, class: 'btn btn-large btn-primary'
+    =button_to t('common.no'), {action: :process_confirmation2, has_payment_method: 0}, class: 'btn btn-large btn-primary'

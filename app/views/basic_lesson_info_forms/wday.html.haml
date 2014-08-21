@@ -1,0 +1,8 @@
+%h1=title t("common.new_basic_lesson_info")
+=render "basic_lesson_info", basic_lesson_info:@basic_lesson_info
+%h2=t("common.weekday_time_range_selection")
+=render layout:"tutors/weekday_schedules", locals:{tutor:@basic_lesson_info.tutor} do |schedule|
+  =img_link_to "common.select", wizard_path(nil, wday:schedule.wday, weekday_schedule_id:schedule.id), method:"put"
+
+.buttons
+  =img_link_to "common.cancel", {action:"cancel"}, method:"post", data:{confirm:t("basic_lesson_info.confirm_to_make_request")}

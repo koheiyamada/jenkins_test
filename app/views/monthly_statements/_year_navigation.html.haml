@@ -1,0 +1,6 @@
+.menu.clearfix
+  -if @year
+    .pull-left
+      =link_to (@year - 1).to_s, {year:@year - 1}, class:"navi_left"
+    .pull-right
+      =link_to (@year + 1).to_s, {year:@year + 1}, class:"navi_right"

@@ -1,0 +1,20 @@
+%h1=title t('operating_system.titles.edit')
+
+=form_for @operating_system, url: {action: :update} do |f|
+  =render 'application/validation_errors', model: @operating_system
+  %table.table
+    %tbody
+      %tr
+        %td=f.label :name
+        %td=f.text_field :name
+      %tr
+        %td=f.label :windows_experience_index_score_available
+        %td=f.check_box :windows_experience_index_score_available
+      %tr
+        %td=f.label :display_order
+        %td=f.number_field :display_order
+      %tr
+        %td=f.label :active
+        %td=f.check_box :active
+  .buttons.form-actions
+    =f.submit class: 'btn'

@@ -1,0 +1,19 @@
+%table.tutor_application_form.table
+  %tr
+    %th=t("common.name")
+    %td.name=full_name(form)
+  %tr
+    %th=t("common.phone_number")
+    %td.phone_number=form.phone_number
+  %tr
+    %th=t("common.address")
+    %td.current_address
+      -if form.current_address
+        .postal_code
+          =form.current_address.postal_code
+        .address
+          =form.current_address.address
+  %tr
+    %th
+    %td.actions
+      =img_link_to "common.detail", hq_tutor_app_form_path(form)

@@ -1,0 +1,25 @@
+%h1=title t("titles.lesson_time_settings")
+
+.menu
+  =img_link_to_unless_current "titles.available_time_ranges", tu_settings_weekday_schedules_path
+  =img_link_to_unless_current "titles.unavailable_days", tu_settings_unavailable_days_path
+  =img_link_to_unless_current "titles.available_times", tu_available_times_path
+
+-if @available_times.empty?
+  =t('common.not_found')
+-else
+  %table.table.available_times
+    -@available_times_grouped_by_day.each do |day, times|
+      %tr.available_time
+        %td.date.span2
+          =l(day, :format => :month_day_wday)
+        %td
+          %ul
+            -times.each do |t|
+              %li
+                %span.from
+                  =l(t.from, :format => :only_time)
+                %span ~
+                %span.to
+                  =l(t.to, :format => :only_time)
+    

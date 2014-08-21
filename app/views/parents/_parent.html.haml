@@ -1,0 +1,46 @@
+%table.table.profile
+
+  %tr
+    %th=Parent.human_attribute_name :user_name
+    %td=parent.user_name
+  %tr
+    %th=Parent.human_attribute_name :full_name
+    %td=parent.full_name
+  %tr
+    %th=Parent.human_attribute_name :full_name_kana
+    %td=parent.full_name_kana
+  %tr
+    %th=Parent.human_attribute_name :sex
+    %td=sex(parent)
+  %tr
+    %th=Parent.human_attribute_name :email
+    %td=parent.email
+  %tr
+    /%th=Parent.human_attribute_name :phone_email
+    /%td=parent.phone_email
+  %tr
+    %th=Parent.human_attribute_name :phone_number
+    %td=parent.phone_number
+  %tr
+    %th=t("common.address")
+    %td=render "addresses/address", address:parent.address if parent.address
+  %tr
+    -unless SystemSettings.free_mode?
+      %th=PaymentMethod.model_name.human
+      %td
+        -if parent.payment_method
+          =user_payment_method parent.payment_method
+
+  =render 'specs/rows', spec:parent
+
+  %tr
+    %th=Parent.human_attribute_name :registered_day
+    %td=l parent.registered_day, format: :year_month_day2
+
+  %tr
+    %th=Parent.human_attribute_name :timezone
+    %td=parent.timezone
+
+  -if current_user.hq_user? || current_user == parent
+    =render 'questions/how_to_find_row', answer: parent.answers.to_question(:how_to_find).first
+    =render 'questions/reason_to_enroll_row', answers: parent.answers.to_question(:reason_to_enroll)

@@ -1,0 +1,7 @@
+%h1=title t('titles.student_membership_applications')
+
+-if @membership_applications.empty?
+  =t('common.not_found')
+-else
+  =render layout: 'membership_applications', locals: {membership_applications: @membership_applications} do |membership_application|
+    =link_button_to 'zoom-in', t('common.detail'), hq_membership_application_path(membership_application), class: 'btn-small'

@@ -1,0 +1,14 @@
+%table.table.meeting.meeting-scheduling
+  %tr
+    %th=Meeting.human_attribute_name :members
+    %td
+      %ul
+        -meeting.members.each do |member|
+          %li=user_display_name member
+  %tr
+    %th=Meeting.human_attribute_name :schedules
+    %td
+      -if @member.schedule_selected?
+        =render 'selected_schedule', meeting: meeting
+      -else
+        =render 'select_schedule', meeting: meeting

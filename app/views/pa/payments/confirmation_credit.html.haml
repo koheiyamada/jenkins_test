@@ -1,0 +1,12 @@
+%article.registration-form.confirmation2
+  -unless current_user.free?
+    %h1 お支払い方法のご登録完了
+    %p
+      お支払い方法として、ご指定されましたクレジットカードをご登録させていただきました。
+      %br
+      なお、ご登録の変更時期により、お手続きに間に合わなかったレッスン料につきましては、
+      %br
+      変更前のクレジットカードもしくはゆうちょ自動払込み口座からお引き落しさせていただきます。
+
+.buttons
+  =link_to t('common.go_to_top'), root_path, method: :get, class: 'btn btn-large btn-primary'

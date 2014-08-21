@@ -1,0 +1,11 @@
+=render 'application/validation_errors', model:user
+=form_for user, url:{action:'change_password'} do |f|
+  %table.table
+    %tr
+      %th=f.label :password
+      %td=f.password_field :password
+    %tr
+      %th=f.label :password_confirmation
+      %td=f.password_field :password_confirmation
+  .form-actions.buttons
+    =f.submit class:'btn'

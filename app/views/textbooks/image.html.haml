@@ -1,0 +1,5 @@
+.textbook-images-controller
+  -if @image_no > 1
+    =link_to t("common.go_to_prev_image"), {page:@image_no - 1}
+  =link_to t("common.go_to_next_image"), {page:@image_no + 1}
+=image_tag url_for(page:@image_no, format:"png")

@@ -1,0 +1,5 @@
+%tr
+  %th=t('common.has_web_camera')
+  %td
+    -if user.has_web_camera.present?
+      =t("has_web_camera.#{user.has_web_camera}")

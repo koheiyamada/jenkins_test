@@ -1,0 +1,6 @@
+=content_for :subheader do
+  =render "breadcrumbs"
+
+%h1=title t("titles.cs_sheet")
+
+=render "cs_sheet", cs_sheet:@cs_sheet

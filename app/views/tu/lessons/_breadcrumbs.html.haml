@@ -1,0 +1,10 @@
+-if @lesson.under_request?
+  =render 'tu/lesson_requests/breadcrumbs'
+-else
+  %ul.breadcrumb
+    %li
+      =link_to_unless_current t("titles.lessons"), tu_lessons_path
+    -if @lesson
+      =breadcrumb_item t("titles.lesson"), tu_lesson_path(@lesson)
+      -if @message
+        =breadcrumb_item t('titles.change_lesson_schedule'), change_schedule_tu_lesson_path(@lesson)

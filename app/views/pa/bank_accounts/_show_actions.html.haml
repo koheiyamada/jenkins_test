@@ -1,0 +1,8 @@
+.buttons
+  -#-if current_user.active?
+  -#  =link_to t('common.change'), {action: 'edit'}, class: 'btn'
+  -if current_user.new?
+    -if current_user.membership_application.blank?
+      =link_to t('common.register'), pa_membership_application_path, method: :post, class: 'btn btn-primary'
+    -else
+      =link_to t('titles.membership_application'), pa_membership_application_path, class: 'btn btn-primary'

@@ -1,0 +1,39 @@
+%ul.sidebar
+  %li.section=render 'sidebar_section', text:t("common.lesson")
+  %li=sidebar_link t("menu.lesson_reservation"), reserve_st_lessons_path
+  %li=sidebar_link t("menu.lessons"), st_lessons_path
+  /%li=t("menu.data_uploads")
+  -if SystemSettings.cs_point_visible?
+    %li=sidebar_link t("titles.cs_sheets"), st_cs_sheets_path
+  %li=sidebar_link t('titles.study_history'), history_st_lessons_path
+  %li=sidebar_link t("menu.lesson_reports"), st_lesson_reports_path
+  %li.section=render 'sidebar_section', text:t("common.tutor")
+  %li=sidebar_link t("titles.tutor_search"), st_tutors_path
+  %li=sidebar_link t("menu.favorite_tutors"), favorites_st_tutors_path
+  %li.section=render 'sidebar_section', text:t("common.messages")
+  %li=sidebar_link t("menu.messages"), st_messages_path
+  .badge=link_to "未読 #{number_of_unread_message}件", st_messages_path('search[is_read]'=> false, q: '')
+  %li.section=render 'sidebar_section', text: t('common.meeting')
+  %li=sidebar_link t('titles.meetings'), st_meetings_path
+  %li=sidebar_link t('titles.scheduling_meetings'), scheduling_st_meetings_path
+  %li.section=render 'sidebar_section', text:t("common.coach")
+  %li=sidebar_link t('titles.coach'), st_bs_path
+  %li.section=render 'sidebar_section', text:t("common.misc")
+  %li=sidebar_link t("menu.textbooks"), st_textbooks_path
+  /%li=sidebar_link t("menu.handouts"), st_handouts_path
+  -#%li=sidebar_link t("menu.exams"), st_exams_path
+  /%li=sidebar_link t("menu.settings"), st_settings_path
+  %li.section=render 'sidebar_section', text:t("common.settings")
+  %li=sidebar_link t("menu.profile"), st_profile_path
+  -if current_user.independent?
+    %li.section=render 'sidebar_section', text:t("common.accountings")
+    %li=sidebar_link t("titles.accountings"), st_monthly_statements_path
+    %li=sidebar_link t("titles.monthly_usages"), st_monthly_usages_path
+    %li=sidebar_link t("menu.charge_settings"), st_charge_settings_path
+    -unless current_user.customer_type == "free"
+      %li=sidebar_link t('titles.payment_method'), current_st_payment_method_path
+  %li.section=render 'sidebar_section', text:t('titles.operation_check')
+  %li=sidebar_link t('titles.person_and_document_camera'), videos_widgets_path
+  %li.section=render 'sidebar_section', text:t('titles.manuals')
+  %li=link_to t('titles.user_manual'), 'https://aidnet.jp/user-manual/', target: '_blank'
+  %li=link_to t('titles.trouble_manual'), 'https://aidnet.jp/trouble-manual/', target: '_blank'

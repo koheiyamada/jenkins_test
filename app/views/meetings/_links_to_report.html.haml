@@ -1,0 +1,6 @@
+-if @meeting.meeting_report.present?
+  -if current_user.can_see_meeting_report?(@meeting.meeting_report)
+    =link_button_to 'file', t('meeting_report.title.show'), "#{request.path}/report"
+-else
+  -if current_user.can_write_meeting_report? @meeting
+    =link_button_to 'file', t('meeting_report.title.new'), "#{@meeting.id}/report/new"

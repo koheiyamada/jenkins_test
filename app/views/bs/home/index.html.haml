@@ -1,0 +1,11 @@
+%section.clearfix
+  %h2=t('common.messages')
+  -if @message_recipients.blank?
+    =t('common.not_found')
+  -else
+    =render layout: 'message_recipients/message_recipients', locals: {message_recipients: @message_recipients} do |message|
+      =render 'messages/buttons', path: bs_message_path(message)
+
+%section.clearfix
+  %h2=t("common.lesson_schedule")
+  .lesson-calendar-holder{"data-path" => bs_calendar_path}

@@ -1,0 +1,6 @@
+%h1=title t('titles.income_of_this_month')
+
+=render 'tutor_monthly_income', tutor_monthly_income: @tutor_monthly_income
+
+.buttons
+  =link_to t('common.refresh'), calculate_tu_monthly_income, method: :post, class: 'btn'

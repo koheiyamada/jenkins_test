@@ -1,0 +1,6 @@
+.pledge
+  %iframe(src="/pledges/user.txt" width="100%" height="600px")
+
+  .buttons
+    =link_to t('form.agree'), agree_parents_path, method: :post, class: 'btn'
+    =link_to t('form.disagree'), disagree_parents_path, method: :post, class: 'btn'

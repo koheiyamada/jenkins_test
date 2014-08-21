@@ -1,0 +1,3 @@
+.tutor-available-days
+  -tutor_daily_available_times.map{|t| t.to_date}.uniq.each do |d|
+    .tutor-available-day=l(d, format: :year_month_day2)

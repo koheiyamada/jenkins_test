@@ -1,0 +1,15 @@
+- answer = nil unless defined?(answer)
+- p "---------------- #{answer}"
+- question = Question.find_by_code(:has_web_camera)
+- codes = question.answer_options.pluck(:code)
+
+=fields_for 'has_web_camera', answer do |form|
+  %tr
+    %th
+      %span.required=t('question.has_web_camera.title')
+    %td.question
+      -codes.each do |code|
+        - p [code, answer && answer.answer_option_code]
+        =form.label "answer_option_code_#{code}", class: 'radio' do
+          =form.radio_button :answer_option_code, code
+          =t("answer_option.#{code}")

@@ -1,0 +1,36 @@
+%table.table.lesson_charges
+  %thead
+    %tr
+      %th=t('common.year_month_day')
+      %th=Lesson.human_attribute_name :start_time
+      %th=Lesson.human_attribute_name :end_time
+      %th=Lesson.human_attribute_name :units
+      %th=Lesson.human_attribute_name :extended?
+      %th=t('lesson.student_full_name')
+      %th=t('lesson.student_grade')
+      %th=t('common.registration')
+      %th=t('lesson.tutor_nickname')
+      %th=t('common.lesson_type')
+      %th=t('lesson.style')
+      %th=t('lesson.fee_per_unit')
+      %th=t('lesson.fee')
+  %tbody
+    -lesson_charges.each do |lesson_charge|
+      -s = lesson_charge.lesson_student
+      -lesson = s.lesson
+      -student = s.student
+      -tutor = lesson.tutor
+      %tr.lesson
+        %td=l lesson.start_time.to_date
+        %td=l lesson.started_at || lesson_start_time, format: :only_time
+        %td=l lesson.ended_at || lesson.time_lesson_end || lesson_end_time, format: :only_time
+        %td=lesson.units
+        %td=lesson_extension lesson
+        %td=student.full_name
+        %td=grade(student)
+        %td=tutor_status tutor
+        %td=tutor.nickname if lesson.tutor
+        %td=lesson_type(lesson)
+        %td=lesson_style(lesson)
+        %td=number_to_currency s.base_lesson_fee_per_unit
+        %td=number_to_currency s.lesson_fee

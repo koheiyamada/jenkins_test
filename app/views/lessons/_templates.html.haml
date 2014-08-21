@@ -1,0 +1,3 @@
+#templates
+  %script.textbook(type="text/template")
+    =render partial:'textbooks/textbook-template', locals:{channel:'aid-textbook-{{textbook_id}}-user-{{student_id}}', width:'{{width}}', height:'{{height}}', url:'{{url}}'}, formats:[:text]

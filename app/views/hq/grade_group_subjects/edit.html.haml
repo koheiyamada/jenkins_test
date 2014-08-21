@@ -1,0 +1,13 @@
+=content_for :subheader do
+  =render 'breadcrumbs'
+
+%h1=title "#{t('common.subject')}: #{@subject.name}"
+
+=form_for [:hq, @grade_group, @subject] do |f|
+  %table.table
+    %tbody
+      %tr
+        %th=f.label :name
+        %td=f.text_field :name
+  .form-actions.buttons
+    =f.submit

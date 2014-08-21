@@ -1,0 +1,16 @@
+%ul.breadcrumb
+  %li=link_to_unless_current t("titles.parents"), hq_parents_path
+  -if @parent
+    =breadcrumb_item t("titles.parent"), hq_parent_path(@parent)
+    -if params[:action] == 'edit'
+      =breadcrumb_item t('common.edit'), edit_hq_parent_path(@parent)
+    -elsif params[:action] == 'leave'
+      =breadcrumb_item t('common.leave_from_aid'), leave_hq_parent_path(@parent)
+    -elsif params[:action] == 'activate'
+      =breadcrumb_item t('titles.reactivation'), activate_hq_parent_path(@parent)
+
+  / UsersControllerのアクション向け
+  -if @user
+    =breadcrumb_item t("titles.parent"), hq_parent_path(@user)
+    -if params[:action] == 'change_password'
+      =breadcrumb_item t('common.change_password'), change_password_hq_parent_path(@user)

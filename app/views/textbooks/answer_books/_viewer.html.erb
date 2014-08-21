@@ -1,0 +1,15 @@
+<%
+   channel = answer_book.channel(current_user)
+   renderer = BookRenderer.new(answer_book)
+%>
+<div id="soba-widget-slide-<%= channel %>"
+     class="soba-widget-slide"
+     data-width="<%= answer_book.width || 640 %>px"
+     data-height="<%= answer_book.height || 480 %>px"
+     width="<%= renderer.width || 640 %>px"
+     height="<%= renderer.height || 480 %>px"
+     data-slide-url="<%= images_textbook_answer_book_url(@textbook, format: 'json', protocol: 'https') %>"
+     data-slide-progress='both'
+     data-slide-linewidth="1">
+</div>
+<script src="<%= SobaWidget.slide_url(channel) %>" type="text/javascript" id="js-slide_script"></script>

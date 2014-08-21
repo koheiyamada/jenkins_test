@@ -1,0 +1,6 @@
+=content_for :subheader do
+  =render "breadcrumbs"
+
+%h1=title t('titles.bs_user')
+
+=render 'bs_users/bs_user', bs_user:@bs_user

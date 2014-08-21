@@ -1,0 +1,24 @@
+=content_for :subheader do
+  =render "breadcrumbs"
+
+%h1=title t("titles.tutor")
+
+=render 'menu'
+
+.buttons_left
+  -if current_user.can_access?(:tutor, :write)
+    -if @tutor.active?
+      =img_link_to "common.edit", edit_hq_tutor_path(@tutor)
+      =link_to t("common.change_password"), change_password_hq_tutor_path(@tutor), class: 'btn'
+      -if current_user.can_access?(:tutor, :write)
+        =link_to t('tutor.change_type'), edit_hq_tutor_type_path(@tutor), class: 'btn'
+      =link_to t('titles.leave_from_aid'), new_hq_tutor_membership_cancellation_path(@tutor), class: 'btn'
+    -else
+      =link_to t('common.back_to_aid'), hq_tutor_membership_cancellation_path(@tutor), method: :delete, data: {confirm: t('membership_cancellation.confirm_to_delete')}, class: 'btn'
+      =link_to t('common.delete_user'), {id: @tutor}, method: 'delete', class: 'btn', data: {confirm: t('messages.confirm_to_delete')}
+
+
+/ アカウント復帰時にエラーが発生したときのエラーメッセージ表示用
+=render 'application/validation_errors', model: @tutor
+
+=render 'tutors/tutor', tutor:@tutor

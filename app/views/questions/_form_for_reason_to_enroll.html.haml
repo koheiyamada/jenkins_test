@@ -1,0 +1,38 @@
+- question_code = 'reason_to_enroll'
+- answer = nil unless defined?(answer)
+- answer_options = answer ? answer[:answer_options] : nil
+-# question = Question.where(code: question_code).first
+- @question = Question.where(code: question_code).first.answer_options.pluck(:code)
+- @free_lesson_limit_number = SystemSettings.free_lesson_limit_number
+
+
+%tr
+  %th
+    %span.required=t('question.reason_to_enroll.title')
+  %td.question
+    -#@question.answer_options.pluck(:code).each do |code|
+    -#raise @question.inspect
+    -@question.each do |code|
+      -answer_option = answer_options ? answer_options[code] : nil
+      -answer_option_obj = answer_option ? OpenStruct.new(answer_option) : nil
+      =fields_for "reason_to_enroll[answer_options][#{code}]", answer_option_obj do |form|
+        -if SystemSettings.free_mode?
+          .answer-option
+            =form.label :selected, class: 'checkbox inline' do
+              =form.check_box :selected
+              -if code.to_sym == :free_lesson
+                =t("question.#{question_code}.answer_option.#{code}", :num => @free_lesson_limit_number)
+              -else
+                =t("question.#{question_code}.answer_option.#{code}")
+            -if code.to_sym == :other
+              =form.text_field :text, class: 'input-large'
+        -else
+          -if code.to_sym == :free_lesson || code.to_sym == :free_user
+            -next
+          -else
+            .answer-option
+              =form.label :selected, class: 'checkbox inline' do
+                =form.check_box :selected
+                =t("question.#{question_code}.answer_option.#{code}")
+              -if code.to_sym == :other
+                =form.text_field :text, class: 'input-large'

@@ -1,0 +1,8 @@
+%h1=title t('titles.member_cancellation')
+
+-if @membership_cancellation.blank?
+  =t('common.not_found')
+-if @membership_cancellation.error?
+  =render 'membership_cancellation_error', membership_cancellation: @membership_cancellation
+-else
+  =render 'membership_cancellation', membership_cancellation: @membership_cancellation

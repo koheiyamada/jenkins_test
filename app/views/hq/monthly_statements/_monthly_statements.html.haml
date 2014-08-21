@@ -1,0 +1,23 @@
+%table.table.monthly_statements
+  %thead
+    %tr
+      %th=MonthlyStatement.human_attribute_name :month
+      %th=t('common.payment')
+      %th=t('common.billing')
+      %th
+  %tbody
+    -(1 .. 12).each do |m|
+    -monthly_statement = monthly_statement_strips[m]
+      %tr
+        -if monthly_statement
+          %td=link_to t("date.abbr_month_names")[m], {action:"show", id:monthly_statement}
+          %td=number_to_currency(monthly_statement.amount_of_payment)
+          %td=number_to_currency(monthly_statement.amount_of_money_received)
+          %td=render 'index_item_action', monthly_statement: monthly_statement
+        -else
+          %td=t("date.abbr_month_names")[m]
+          %td
+          %td
+          %td
+            -if Rails.env.development?
+              =link_to t('common.new'), {action: :create, year: @year, month: m}, method: :post, class: 'btn btn-small'

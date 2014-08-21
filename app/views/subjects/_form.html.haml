@@ -1,0 +1,8 @@
+=form_for subject, url:url do |f|
+  =render "application/validation_errors", model:subject
+  %table.table
+    %tr
+      %th=f.label :name
+      %td=f.text_field :name
+  .form-actions.buttons
+    =img_submit "common.update"

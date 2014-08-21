@@ -1,0 +1,4 @@
+%ul.nav.nav-tabs
+  =render "nav_tab_item", text:t("titles.lessons"), path:bs_lessons_path
+  =render "nav_tab_item", text:t('titles.lesson_history'), path:history_bs_lessons_path
+  =render 'nav_tab_item', text: t('lesson_status.not_started'), path: not_started_bs_lessons_path

@@ -1,0 +1,18 @@
+.meeting-room.meeting-room-for-three
+  .left-column
+    .video
+      =render 'soba_widgets/meeting_video_publisher',
+        channel: SobaWidget.meeting_room_channel(@meeting, current_user),
+        width: 216,
+        height: 162,
+        camera_width: SystemSettings.meeting_camera_width,
+        camera_height: SystemSettings.meeting_camera_height
+  .right-column
+    -@meeting.members.each do |member|
+      -if member != current_user
+        .video
+          =render 'soba_widgets/meeting_video_subscriber',
+            channel: SobaWidget.meeting_room_channel(@meeting, member),
+            width:360,
+            height:270
+          .name=user_display_name_with_role(member)

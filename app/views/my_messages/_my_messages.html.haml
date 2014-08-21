@@ -1,0 +1,32 @@
+%table.table.messages
+  %thead
+    %tr
+      %th=Message.human_attribute_name(:created_at)
+      %th 開封状況
+      %th=Message.human_attribute_name(:recipients)
+      %th=Message.human_attribute_name(:title)
+      %th
+  %tbody
+    -@messages.each do |message|
+      %tr
+        %td=l(message.created_at, :format => :message)
+        %td
+          %ul
+            -merged_recipients, recipient_ids = merge_hq_staff_names_of_recipient_for(message, 2)
+            -message.message_recipients.where(recipient_id: recipient_ids).each do |mr|
+              -if mr.is_read
+                %li.read
+                  %div 既読 
+              -else
+                %li.unread
+                  %div 未読
+                  - break
+        -if message.message_recipients.where(recipient_id: recipient_ids).last.recipient_id == 105 #ID105は本部アカウント全体
+          -merged_recipients = ["本部スタッフ"]
+        %td
+          %ul
+            -merged_recipients.each do |recipient|
+              .recipient
+                %li=recipient
+        %td=truncate message.title, length: 20
+        %td.actions=yield message

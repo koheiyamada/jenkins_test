@@ -1,0 +1,10 @@
+%h1=title t("titles.exams_selection")
+
+-if @exams.blank?
+  =t('common.not_found')
+-else
+  =form_tag bs_student_exams_path(@student) do
+    =render layout:"exams/exams", locals:{exams:@exams} do |exam|
+      =check_box_tag "exams[#{exam.id}]", "1", @student.take?(exam)
+    .buttons
+      =button_tag t("common.send"), class:"btn"

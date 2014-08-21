@@ -1,0 +1,10 @@
+=content_for :subheader do
+  =render 'breadcrumbs'
+
+%h1=title t("titles.exams_for_grade", grade:grade_name(@exam.grade))
+
+%ul.subjects
+  -@subjects.each do |subject|
+    %li.subject
+      =link_to subject.name, {action:"subject", subject_id:subject.id}
+

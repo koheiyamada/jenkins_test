@@ -1,0 +1,11 @@
+%h1
+  =exam_name(@exam)
+  %span=l(@student_exam.started_at, :format => :only_time)
+  \-
+  %span=l(@student_exam.end_at, :format => :only_time)
+  %span.current_time
+
+-if @student_exam.done?
+  =t("messages.this_exam_is_over")
+-else
+  =render "exam", exam:@exam

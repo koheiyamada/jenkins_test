@@ -1,0 +1,4 @@
+%h1=title t("titles.lesson_reports")
+
+=render layout:"lesson_reports/lesson_reports", locals:{lesson_reports:@lesson_reports} do |lesson_report|
+  =img_link_to "common.detail", {action:"show", id:lesson_report}, class:"small"

@@ -1,0 +1,15 @@
+=content_for :subheader do
+  =render 'breadcrumbs'
+
+%h1=title t("titles.student")
+
+=render 'menu'
+
+=render 'student', student:@student
+
+.buttons
+  =img_link_to 'common.edit', edit_hq_student_path(@student)
+  -if @student.active?
+    =img_link_to 'common.leave_from_aid', leave_hq_student_path(@student)
+  -else
+    =img_link_to 'common.back_to_aid', {id:@student, action:'come_back'}, method:'post'

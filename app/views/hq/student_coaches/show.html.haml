@@ -1,0 +1,14 @@
+=content_for :subheader do
+  =render 'breadcrumbs'
+
+%h1=title t('titles.coach')
+
+-if @student_coach.blank?
+  .explanation.alert.alert-info=t('student_coach.not_assigned')
+-else
+  =render 'coach', coach: @student_coach.coach
+
+-#-if current_user.can_access? :bs_user, :write
+-#  .buttons
+-#    =link_button_to 'edit', t('common.edit'), edit_hq_coach_path(@coach)
+-#    =link_button_to 'remove', t('common.delete'), hq_coach_path(@coach), method: :delete, data: {confirm:t("messages.confirm_to_delete")}

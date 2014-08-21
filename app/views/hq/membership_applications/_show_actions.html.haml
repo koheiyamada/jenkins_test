@@ -1,0 +1,10 @@
+-if @membership_application.new?
+  .buttons
+    =link_to t('membership_application.reject'),
+             reject_hq_membership_application_path(@membership_application),
+             method: :post, class: 'btn',
+             data: {confirm: t('membership_application.confirm_to_reject')}
+    =link_to t('membership_application.accept'),
+             accept_hq_membership_application_path(@membership_application),
+             method: :post, class: 'btn btn-primary',
+             data: {confirm: t('membership_application.confirm_to_accept')}

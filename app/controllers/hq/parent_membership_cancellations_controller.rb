@@ -1,0 +1,3 @@
+class Hq::ParentMembershipCancellationsController < ParentMembershipCancellationsController
+  hq_user_only
+end

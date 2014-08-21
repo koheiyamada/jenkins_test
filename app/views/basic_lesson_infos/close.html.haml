@@ -1,0 +1,14 @@
+=content_for :subheader do
+  =render 'breadcrumbs'
+
+%h1=title t('basic_lesson_info.titles.close')
+
+=render 'menu'
+
+=render 'basic_lesson_info', basic_lesson_info: @basic_lesson_info
+
+=render 'about_closing'
+
+=render 'close_action'
+
+=render 'shared/wait_screen'

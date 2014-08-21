@@ -1,0 +1,12 @@
+%h1=title t("titles.coach")
+
+-if @coach.present?
+  =render 'coaches/coach_for_student', coach: @coach
+  .pagination-centered
+    =link_to t('titles.new_message'), new_st_my_message_path(recipients: @coach), class: 'btn'
+-else
+  .explanation.alert.alert-info=t('student_coach.wait_for_coach_assigned')
+
+-#-if @bs.present?
+-#  %h2=t('bs.bs_info')
+-#  =render 'bss/bs_censored', bs: @bs

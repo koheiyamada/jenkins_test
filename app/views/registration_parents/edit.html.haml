@@ -1,0 +1,8 @@
+=content_for :js do
+  =render 'shared/prevent_going_back'
+
+.centered
+  .wrapper
+    %h1=title t('parent.titles.registration_form')
+
+    =render 'form', parent: @parent, url: parent_path(@parent)

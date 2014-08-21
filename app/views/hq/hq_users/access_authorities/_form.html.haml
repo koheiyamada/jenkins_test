@@ -1,0 +1,13 @@
+=form_for access_authority, url:{action:"update"} do |f|
+  %table.table
+    -AccessAuthority.keys.each do |key|
+      %tr
+        %th=f.label key
+        %td
+          -t("access_authorities").each_with_index do |auth, i|
+            =f.label "#{key}_#{i}", nil, class:"radio inline" do
+              =f.radio_button key, i
+              .auth=auth
+
+  .form-actions.buttons
+    =img_submit "common.update"

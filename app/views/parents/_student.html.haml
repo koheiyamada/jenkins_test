@@ -1,0 +1,22 @@
+%table.table.student.student-digest
+  %tr
+    %th=Student.human_attribute_name :user_name
+    %td=student.user_name
+  %tr
+    %th=t("common.full_name")
+    %td=student.full_name
+  %tr
+    %th=t("common.bs")
+    %td=student.organization.name if student.organization
+  %tr
+    %th=t("common.coach")
+    %td=user_display_name student.coach if student.coach.present?
+  %tr
+    %th=t("common.email")
+    %td=student.email
+  %tr
+    %th=User.human_attribute_name :nickname
+    %td=student.nickname
+  %tr
+    %th=StudentInfo.human_attribute_name :grade
+    %td=grade(student)

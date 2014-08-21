@@ -1,0 +1,5 @@
+%table.table.yucho-accounts
+  %tbody
+    -yucho_accounts.each do |yucho_account|
+      %tr
+        %td=yucho_account.owner.name

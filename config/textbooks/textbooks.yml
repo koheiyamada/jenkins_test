@@ -1,0 +1,21 @@
+default: &default
+  textbook_set_id: 5
+  textbooks_image_format: /%{textbook_id}/text/%{image_no}.png
+  textbook_dir_format: /%{textbook_id}/text
+  answer_book_dir_format: /%{textbook_id}/answer
+
+development:
+  <<: *default
+  image_root_url: /Users/shimokawa/Documents/aid/data/textbooks-%{textbook_set_id}
+test:
+  <<: *default
+  image_root_url: /Users/shimokawa/Documents/aid/data/textbooks-%{textbook_set_id}
+demo:
+  <<: *default
+  image_root_url: /home/app/apps/aid/shared/textbooks-%{textbook_set_id}
+staging:
+  <<: *default
+  image_root_url: /home/aid/apps/aid/shared/textbooks-%{textbook_set_id}
+production:
+  <<: *default
+  image_root_url: /data/aid_tutoring_system2/shared/textbooks-%{textbook_set_id}

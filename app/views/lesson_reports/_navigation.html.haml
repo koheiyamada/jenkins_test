@@ -1,0 +1,11 @@
+.menu.clearfix
+  .pull-left
+    -if lesson_report.has_older?
+      =img_link_to "common.prev_lesson_report", action:'prev'
+    -else
+      =t('common.oldest_lesson_report')
+  .pull-right
+    -if lesson_report.has_newer?
+      =img_link_to "common.next_lesson_report", action:'next'
+    -else
+      =t('common.latest_lesson_report')

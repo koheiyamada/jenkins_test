@@ -1,0 +1,22 @@
+=content_for :subheader do
+  =render 'breadcrumbs'
+
+%h1=title t('lesson.accounting')
+
+%section
+  %h2=LessonTutorWage.model_name.human
+
+  -if @lesson.lesson_tutor_wage.present?
+    =render 'lesson_tutor_wages/lesson_tutor_wage', lesson_tutor_wage: @lesson.lesson_tutor_wage
+  -else
+    =t('common.not_found')
+
+%section
+  %h2=LessonCharge.model_name.human
+
+  -@lesson.lesson_students.each do |lesson_student|
+    -lesson_charge = lesson_student.lesson_charge
+    -if lesson_charge.present?
+      =render 'lesson_charges/lesson_charge', lesson_charge: lesson_charge
+    -else
+      =t('common.not_found')

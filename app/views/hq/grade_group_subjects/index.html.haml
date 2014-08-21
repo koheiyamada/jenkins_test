@@ -1,0 +1,10 @@
+=content_for :subheader do
+  =render 'breadcrumbs'
+
+%h1=title t('common.subjects')
+
+.button-menu
+  =link_to t('common.new'), new_hq_grade_group_subject_path(@grade_group), class: 'btn btn-small'
+
+=render layout: 'subjects/subjects', locals: {subjects: @subjects} do |subject|
+  =link_to t('common.detail'), hq_grade_group_subject_path(@grade_group, subject), class: 'btn'

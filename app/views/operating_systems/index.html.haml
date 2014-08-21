@@ -1,0 +1,20 @@
+%h1=t('operating_system.titles.index')
+
+%table.table
+  %thead
+    %th=OperatingSystem.human_attribute_name :id
+    %th=OperatingSystem.human_attribute_name :name
+    %th=OperatingSystem.human_attribute_name :windows_experience_index_score_available
+    %th=OperatingSystem.human_attribute_name :display_order
+    %th=OperatingSystem.human_attribute_name :active
+    %th
+  %tbody
+    -@operating_systems.each do |os|
+      %tr
+        %td=os.id
+        %td=os.name
+        %td=yes_no os.windows_experience_index_score_available
+        %td=os.display_order
+        %td=yes_no os.active
+        %td
+          =link_to t('common.edit'), edit_admin_operating_system_path(os), class: 'btn btn-small'

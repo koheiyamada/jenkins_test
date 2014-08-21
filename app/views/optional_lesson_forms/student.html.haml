@@ -1,0 +1,23 @@
+%h1=title t("titles.new_optional_lesson")
+
+=render 'lesson', lesson: @optional_lesson
+
+-if @optional_lesson.have_enough_students?
+  %h2=t('lesson.add_another_student')
+-else
+  %h2=t('lesson.select_nth_student', n:@optional_lesson.students.count + 1)
+
+.pagination-centered
+  =render "shared/search_box"
+
+-if @students.blank?
+  =t('common.not_found')
+-else
+  =render layout:"students/students", locals:{students:@students} do |student|
+    =link_to t('common.select'), wizard_path(nil, member_id:student.id), method: :put, class: 'btn btn-small'
+  =paginate @students
+
+.form-actions.buttons
+  =img_link_to "common.cancel", {action:'cancel'}, method:'post', data:{confirm:t('optional_lesson.confirm_to_cancel_request')}
+  -if @optional_lesson.have_enough_students?
+    =img_link_to "common.go_next", wizard_path(:tutor)

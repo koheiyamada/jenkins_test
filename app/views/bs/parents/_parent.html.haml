@@ -1,0 +1,17 @@
+%table.table.profile
+  %tr
+    %th=t("common.full_name")
+    %td=parent.full_name
+  %tr
+    %th=User.human_attribute_name :email
+    %td=parent.email
+  %tr
+    %th=User.human_attribute_name :phone_number
+    %td=parent.phone_number
+  %tr
+    %th=t("common.address")
+    %td=render "addresses/address", address:parent.address if parent.address
+  =render 'specs/rows', spec:parent
+  %tr
+    %th=Tutor.human_attribute_name :timezone
+    %td=parent.timezone

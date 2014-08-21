@@ -1,0 +1,16 @@
+%table.table.lesson_charge
+  %tr
+    %th=LessonCharge.human_attribute_name :student
+    %td=user_display_name lesson_charge.student
+  %tr
+    %th=LessonStudent.human_attribute_name :attended_at
+    %td=lesson_student_attended_at lesson_charge.lesson_student
+  %tr
+    %th=LessonCharge.human_attribute_name :fee
+    %td=number_to_currency lesson_charge.fee
+  %tr
+    %th=LessonCharge.human_attribute_name :contains_bs_share
+    %td=yes_no lesson_charge.contains_bs_share?
+  %tr
+    %th=LessonCharge.human_attribute_name :organization_id
+    %td=lesson_charge.organization.name if lesson_charge.organization_id.present?

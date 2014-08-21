@@ -1,0 +1,13 @@
+=content_for :subheader do
+  =render 'breadcrumbs'
+
+%h1=title t('user_messages.titles.list_of_x', user: user_display_name(@coach))
+
+=render 'menu'
+
+-if @messages.empty?
+  =t('common.not_found')
+-else
+  =render layout: 'messages/messages_all', locals: {messages: @messages} do |message|
+    =render 'messages/buttons2', path: url_for(action: :show, id: message)
+  =paginate(@messages)

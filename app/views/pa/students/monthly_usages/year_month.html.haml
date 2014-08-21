@@ -1,0 +1,23 @@
+=render "pa/student_header"
+
+%h2=t("titles.monthly_usage")
+
+.menu.clearfix
+  .pull-left
+    =img_link_to 'common.prev_month', year:@monthly_stat.prev_month.year, month:@monthly_stat.prev_month.month
+  -unless @monthly_stat.next_month.future?
+    .pull-right
+      =img_link_to 'common.next_month', year:@monthly_stat.next_month.year, month:@monthly_stat.next_month.month
+
+%h3=monthly_usage_period(@monthly_stat)
+
+%table.table
+  %tr
+    %th=UserMonthlyStat.human_attribute_name :lesson_charge
+    %td=number_to_currency @monthly_stat.lesson_charge
+  %tr
+    %th=UserMonthlyStat.human_attribute_name :lesson_extension_charge
+    %td=number_to_currency @monthly_stat.lesson_extension_charge
+
+.buttons
+  =img_link_to 'common.refresh', {action: :calculate, id: @monthly_stat}, method: :post

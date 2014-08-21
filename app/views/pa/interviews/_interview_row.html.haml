@@ -1,0 +1,5 @@
+%tr
+  %td=l(interview.start_time.to_date)
+  %td=l(interview.start_time, :format => :only_time)
+  %td=interview.participant_apart_from(current_user).full_name
+  %td=link_to t("common.interview"), pa_interview_path(interview), target:"_blank"

@@ -1,0 +1,19 @@
+=content_for :subheader do
+  =render "breadcrumbs"
+
+%h1=title t("titles.lesson_request_detail")
+
+=render 'application/validation_errors', model:@lesson
+
+%section
+  %h2=t("common.lesson")
+  =render 'lesson', lesson:@lesson
+
+%section.client
+  %h2=t("common.client")
+  =render 'client', client:@lesson.creator
+
+.buttons
+  -if @lesson.acceptable?
+    =link_to t('.accept_matching'), accept_tu_lesson_request_path(@lesson), method: :post, class: 'btn btn-aid-primary'
+    =link_to t('.deny_matching'), new_tu_lesson_request_rejection_path(@lesson), class: 'btn'

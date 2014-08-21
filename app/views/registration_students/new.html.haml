@@ -1,0 +1,10 @@
+=content_for :js do
+  =render 'shared/prevent_going_back'
+
+.centered
+  .wrapper
+    %h1=title t('student.titles.registration_form')
+
+    =render 'shared/about_form'
+
+    =render 'form', url: students_path

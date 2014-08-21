@@ -1,0 +1,74 @@
+%table.table
+  %tr
+    %th=f.label :user_name, class:'required'
+    -if current_user.admin? || current_user == coach
+      %td=f.text_field :user_name, :required => true
+    -else
+      %td=f.text_field :user_name, :required => true, :readonly => true
+
+  -if coach.new_record?
+    %tr
+      %th=f.label :password
+      %td=f.text_field :password
+
+  -if hq_user?
+    %tr
+      %th=f.label :organization_id
+      %td
+        =f.collection_select :organization_id, Bs.only_active, :id, :name
+
+  %tr
+    %th=f.label :photo
+    %td=render 'profiles/photo_form', user: coach, form: f
+
+  %tr
+    %th
+      %span.required=User.human_attribute_name :full_name
+    %td
+      .full_name
+        =f.label :last_name
+        =f.text_field :last_name, class:"input-small"
+        =f.label :first_name
+        =f.text_field :first_name, class:"input-small"
+
+  %tr
+    %th
+      %span.required=User.human_attribute_name :full_name_kana
+    %td
+      .full_name_kana
+        =f.label :last_name_kana
+        =f.text_field :last_name_kana, class:"input-small"
+        =f.label :first_name_kana
+        =f.text_field :first_name_kana, class:"input-small"
+
+  %tr
+    %th=f.label :email, class: 'required'
+    %td
+      -if current_user.hq_user?
+        =f.email_field :email
+      -else
+        =f.email_field :email, readonly: true
+        =img_link_to "common.change", change_email_bs_profile_path
+
+  %tr
+    %th=f.label :phone_number
+    %td
+      =f.telephone_field :phone_number
+      .help=t('messages.hankaku_only')
+
+  %tr
+    %th=f.label :address
+    %td=render 'addresses/form', address: coach.address
+
+  %tr
+    %th=t('common.sex')
+    %td
+      =f.label :sex_male, class:'radio inline' do
+        =f.radio_button :sex, 'male'
+        =t('common.male')
+      =f.label :sex_female, class:'radio inline' do
+        =f.radio_button :sex, 'female'
+        =t('common.female')
+
+.form-actions.buttons
+  =f.submit class: 'btn'

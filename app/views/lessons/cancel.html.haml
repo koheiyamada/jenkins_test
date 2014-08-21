@@ -1,0 +1,8 @@
+%h1=title t('titles.cancel_lesson')
+
+=render 'about_cancellation'
+
+=render 'lessons/lesson_info', lesson:@lesson
+
+.buttons
+  =link_to t('common.cancel'), {action: :cancel, id: @lesson}, class:'btn btn-primary', method: :post, data: {confirm: t('messages.confirm_lesson_cancellation')}

@@ -1,0 +1,8 @@
+=t("mails.lesson_request_arrived")
+
+=t("common.datetime")
+="#{l(@lesson.start_time, :format => :short)} - #{l(@lesson.end_time, :format => :only_time)}"
+
+=t("student")
+-@lesson.students.each do |student|
+  =student.nickname

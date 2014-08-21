@@ -1,0 +1,23 @@
+%table.table.student.student-detail
+  -if user_can_see_user_name? student
+    %tr
+      %th=Student.human_attribute_name :user_name
+      %td=user_name student
+  %tr
+    %th=Student.human_attribute_name :full_name
+    %td=student.full_name
+  %tr
+    %th=Student.human_attribute_name :full_name_kana
+    %td=student.full_name_kana
+  %tr
+    %th=t("common.bs")
+    %td=student.organization.name if student.organization
+  %tr
+    %th=Student.human_attribute_name :email
+    %td=student.email
+  %tr
+    %th=User.human_attribute_name :nickname
+    %td=student.nickname
+  %tr
+    %th=Student.human_attribute_name :current_sign_in_at
+    %td=l student.current_sign_in_at, format: :promise if student.current_sign_in_at

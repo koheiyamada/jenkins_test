@@ -1,0 +1,10 @@
+%ul.breadcrumb
+  %li
+    =link_to_unless_current t("titles.coaches"), bs_coaches_path
+  -if @coach
+    -if params[:action] == 'new'
+      =breadcrumb_item t('titles.new_coach'), new_bs_coach_path(@coach)
+    -elsif params[:action] == 'edit'
+      =breadcrumb_item t('titles.edit_coach'), edit_bs_coach_path(@coach)
+    -else
+      =breadcrumb_item t('titles.coach'), bs_coach_path(@coach)

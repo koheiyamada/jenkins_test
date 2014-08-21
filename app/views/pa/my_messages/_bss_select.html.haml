@@ -1,0 +1,10 @@
+-if current_user.bss.present?
+  .recipients-select
+    %h4
+      %i.icon-user
+      =t('common.coach')
+    .individuals
+      =select_tag "recipients[bs]",
+                  options_for_select(current_user.bss.map{|bs| [bs.name, bs.id]}),
+                  multiple:true
+

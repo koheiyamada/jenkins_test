@@ -1,0 +1,14 @@
+=content_for :subheader do
+  =render 'breadcrumbs'
+
+%h1=title t('trial_lesson.titles.list')
+
+.button-menu
+  =link_to t('trial_lesson.titles.new'), hq_trial_student_lessons_path(@student), class: 'btn btn-small', method: :post
+
+-if @lessons.blank?
+  =t('common.not_found')
+-else
+  =render layout:"lessons/lessons", locals:{lessons:@lessons} do |lesson|
+    =img_link_to "common.detail", hq_lesson_path(lesson), class:"small"
+  =paginate @lessons

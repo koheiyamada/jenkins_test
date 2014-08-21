@@ -1,0 +1,19 @@
+=content_for :subheader do
+  =render 'breadcrumbs'
+
+%h1=title t("titles.coach")
+
+=render 'menu'
+
+=render 'application/validation_errors', model: @coach
+
+=render 'coach', coach: @coach
+
+.buttons
+  -if @coach.active?
+    =link_button_to 'edit', t('common.edit'), edit_bs_coach_path
+    =link_to t('user.deactivate'), deactivate_bs_coach_path(@coach), method: :post, class: 'btn', data: {confirm: t('user.confirm_to_deactivate')}
+  -else
+    .alert=t('user.messages.this_account_is_deactivated')
+    =link_to t('user.reactivate'), activate_bs_coach_path(@coach), method: :post, class: 'btn', data: {confirm: t('user.confirm_to_activate')}
+    =link_button_to 'remove', t('common.delete'), bs_coach_path(@coach), method: :delete, data: {confirm: t('messages.confirm_to_delete')}

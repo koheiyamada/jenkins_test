@@ -1,0 +1,79 @@
+=form_for @parent, url: url do |f|
+  -#=render 'validation_errors', model:@parent
+  =render 'application/validation_errors2', model: @parent_form
+  %table.table
+    %tr
+      %th=f.label :user_name, class:'required'
+      %td.field
+        =f.text_field :user_name
+        .help-id=t('messages.user_name_format_for_login_id')
+        .help-id=t('messages.user_name_format_for_emails')
+
+    %tr
+      %th
+        %span.required=User.human_attribute_name :full_name
+      %td
+        .full_name
+          =f.label :last_name
+          =f.text_field :last_name, class: 'input-small'
+          =f.label :first_name
+          =f.text_field :first_name, class: 'input-small'
+    %tr
+      %th
+        %span.required=User.human_attribute_name :full_name_kana
+      %td
+        .full_name_kana
+          =f.label :last_name_kana
+          =f.text_field :last_name_kana, class: 'input-small'
+          =f.label :first_name_kana
+          =f.text_field :first_name_kana, class: 'input-small'
+
+    %tr
+      %th=f.label :phone_number, class:'required'
+      %td
+        =f.telephone_field :phone_number
+        .help=t('messages.hankaku_only')
+    %tr
+      %th
+        %span.required=t('common.address')
+      %td=render 'addresses/form', address:@parent.address
+
+    %tr
+      %th=f.label :sex, class: 'required'
+      %td
+        =f.label :sex_male, id: 'sex_male', class: 'radio' do
+          =f.radio_button :sex, 'male'
+          =t('common.male')
+        =f.label :sex_female, id: 'sex_famale', class: 'radio' do
+          =f.radio_button :sex, 'female'
+          =t('common.female')
+
+    =render 'shared/email_field', f: f
+
+    =render 'specs/os_field', f: f, user_operating_system: @parent.user_operating_system
+
+    -unless SystemSettings.free_mode?
+      =fields_for :payment_method, @parent.payment_method do |form|
+        %tr
+          %th=PaymentMethod.model_name.human
+          %td
+            .credit-card-payment
+              =form.label :type_creditcardpayment, class:'radio inline' do
+                =form.radio_button :type, CreditCardPayment.name
+                =CreditCardPayment.model_name.human
+            .yucho-payment
+              =form.label :type_yuchopayment, class:'radio inline' do
+                =form.radio_button :type, YuchoPayment.name
+                =YuchoPayment.model_name.human
+    -else
+      =fields_for :payment_method, @parent.payment_method do |form|
+        =form.hidden_field :type, :value => DummyPaymentMethod.name
+
+    =render 'questions/form_for_how_to_find', answer: @parent_form.how_to_find
+
+    =render 'questions/form_for_reason_to_enroll', answer: @parent_form.reason_to_enroll
+
+  .form-actions.buttons
+    =button_tag class: 'btn btn-primary' do
+      %i.icon-ok
+      =t('common.confirmation')

@@ -1,0 +1,13 @@
+=render "breadcrums"
+
+%h1=title t("titles.exams")
+
+/=render "bs/students/menu"
+
+=render "menu"
+
+-if @exams.blank?
+  =t('common.not_found')
+-else
+  =render layout:"exams/exams", locals:{exams:@exams} do |exam|
+    Hello

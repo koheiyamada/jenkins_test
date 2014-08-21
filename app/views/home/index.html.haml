@@ -1,0 +1,18 @@
+%ul.home-entry-list
+  %li
+    %h3 保護者の方
+    .parent-application-button
+      =img_link_to "common.apply_entry", first_parents_path, class:"large"
+  %li
+    %h3 授業を受けるご本人
+    .student-application-button
+      =img_link_to "common.apply_entry", first_students_path, class:"large"
+
+  %li
+    %h3=t(".tutor_application")
+    .tutor-application-button
+      =img_link_to "common.apply_entry", first_tutor_app_forms_path, class:"large"
+  %li
+    %h3=t(".bs_application")
+    .bs-application-button
+      =img_link_to "common.apply_entry", first_bs_app_forms_path, class:"large"

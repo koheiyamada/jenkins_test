@@ -1,0 +1,44 @@
+-
+  :name: 'Windows XP'
+  :windows_experience_index_score_available: false
+  :active: false
+-
+  :name: 'Windows Vista'
+  :windows_experience_index_score_available: true
+  :active: false
+-
+  :name: 'Windows 7'
+  :windows_experience_index_score_available: true
+  :display_order: 3
+-
+  :name: 'Windows 8'
+  :windows_experience_index_score_available: true
+  :display_order: 2
+-
+  :name: 'Windows 8.1'
+  :windows_experience_index_score_available: false
+  :display_order: 1
+-
+  :name: 'Mac OS X v10.9 Mavericks'
+  :windows_experience_index_score_available: false
+  :display_order: 4
+-
+  :name: 'Mac OS X v10.8 Mountain Lion'
+  :windows_experience_index_score_available: false
+  :display_order: 5
+-
+  :name: 'Mac OS X v10.7 Lion'
+  :windows_experience_index_score_available: false
+  :display_order: 6
+-
+  :name: 'Mac OS X v10.6 Snow Leopard'
+  :windows_experience_index_score_available: false
+  :display_order: 7
+-
+  :name: 'Mac OS X'
+  :windows_experience_index_score_available: false
+  :active: false
+-
+  :name: 'その他'
+  :windows_experience_index_score_available: false
+  :display_order: 8

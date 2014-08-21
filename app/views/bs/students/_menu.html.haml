@@ -1,0 +1,5 @@
+.button-menu
+  -if @student
+    =link_to t('common.basic_lessons'), bs_student_basic_lesson_infos_path(@student), class: 'btn btn-small'
+    =link_to t('student.coach'), bs_student_coach_path(@student), class: 'btn btn-small'
+    =link_to t('student_messages.titles.index'), bs_student_messages_path(@student), class: 'btn btn-small'
